@@ -1,7 +1,7 @@
 $(function(){
 	var $view = $(".view");
 	var $body = $("body");
-	var $over = $(".overlay");
+	var $over = $(".matte");
 	var $currItem = null;
 
 	var $itemName = $(".view .title");
@@ -19,7 +19,7 @@ $(function(){
 	var ITEM = 1; // const
 	var view = INDEX;
 
-	$(".item .inner, .overlay").click(function(e){
+	$(".item .inner, .matte").click(function(e){
 		if ($currItem != null)
 			$currItem.removeClass("active"); // remove from old item
 		$currItem = $(this);			     // switch to new item
@@ -39,11 +39,11 @@ $(function(){
 	$body.mousemove(function(e){
 		if (drag == true ) {
     		dX = e.pageX - strtX;
-    		dPad = strtPad + dX/6;
+    		dPad = strtPad + dX / 15;
     		$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
     		if (dPad < 100) $body.css("padding-left", dPad+"px");
     		else 			$body.css("padding-left", "100px");
-    		$over.css("opacity", 1 - dX * 0.001);
+    		$over.css("opacity", 1 - dX / 1000);
     	}
 	});
 
