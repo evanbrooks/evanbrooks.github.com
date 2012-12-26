@@ -11,14 +11,15 @@ $(function(){
 
 	var strtX = 0;
 	var dX = 0;
-
 	var strtPad = 0;
 	var drag = false;
 
 	var INDEX = 0; // const
-	var ITEM = 1; // const
+	var ITEM = 1;  // const
 	var view = INDEX;
 
+	// On click
+	// --------
 	$(".item .inner, .matte").click(function(e){
 		if ($currItem != null)
 			$currItem.removeClass("active"); // remove from old item
@@ -27,12 +28,25 @@ $(function(){
 		toggleItem($currItem.attr("data-item"));
 	});
 
+	// Bind to touch events
+	// --------------------
+	document.addEventListener('touchstart', dragBegin);
+	document.addEventListener('touchmove', dragMove);
+	document.addEventListener('touchend', dragStop);
+
+	// Bind to mouse events
+	// --------------------
 	$view.mousedown(dragBegin);
 	$body.mousemove(dragMove);
 	$view.mouseup(dragStop);
 
+
+	// Dragging
+	// --------
 	function dragBegin(e){
-		strtX = e.pageX;
+		if (e.touches == true)
+			 strtX = e.changedTouches[0].pageX; //touch
+		else strtX = e.pageX;					//mouse
 		drag = true;
 		$view.css("-webkit-transition","none");
 		$body.css("-webkit-transition","none");
@@ -42,7 +56,9 @@ $(function(){
 
 	function dragMove(e){
 		if (drag == true ) {
-    		dX = e.pageX - strtX;
+			if (e.touches == true)
+				 dX = e.targetTouches[0].pageX - strtX; // touch
+    		else dX = e.pageX - strtX;					// mouse
     		dPad = strtPad + dX / 15;
     		$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
     		if (dPad < 100) $body.css("padding-left", dPad+"px");
@@ -57,17 +73,18 @@ $(function(){
 		$body.removeAttr("style");
 		$over.removeAttr("style");
 		if ( dX > 400 ){
-			toggleItem();
+			closeItem();
 		}
 	}
 
+	// Open or close item
+	// ------------------
 	function toggleItem(whichItem) {
 		if (view == ITEM) {
-			$body.removeClass("view-item-mode");
-			view = INDEX;
-			history.pushState({}, "", "/");
+			closeItem();
   		}
-		else if (view == INDEX) {
+  		else if (view == INDEX) {
+  			console.log("opening the item");
 			$body.addClass("view-item-mode");
 			view = ITEM;
 			url = whichItem+".html";
@@ -84,6 +101,13 @@ $(function(){
 				$itemContent.html("Still working on this");
 			});
 		}
+	}
+
+	function closeItem() {
+		console.log("closing the item");
+		$body.removeClass("view-item-mode");
+		view = INDEX;
+		history.pushState({}, "", "/");
 	}
 
 });
