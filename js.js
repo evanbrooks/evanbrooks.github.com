@@ -56,6 +56,7 @@ $(function(){
 	// --------
 	function dragBegin(e){
 		if ( view == ITEM ) {
+			e.preventDefault();
 			if (e.touches == true)
 				 strtX = e.changedTouches[0].pageX; //touch
 			else strtX = e.pageX;					//mouse
@@ -69,6 +70,7 @@ $(function(){
 
 	function dragMove(e){
 		if ( view == ITEM && drag == true ) {
+			e.preventDefault();
 			if (e.touches == true)
 				 dX = e.targetTouches[0].pageX - strtX; // touch
     		else dX = e.pageX - strtX;					// mouse

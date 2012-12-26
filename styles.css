@@ -182,6 +182,7 @@ nav .dash {
   opacity: 0;
   border-radius: 50%;
   padding: 5px;
+  cursor: pointer;
   font-size: 16px;
   box-shadow: 0 0 0 0px rgba(0,0,0,0);
   -webkit-transition: all 0.2s;
@@ -205,6 +206,7 @@ nav .dash {
   width: 100%; height: 100%;
   padding: 80px 100px;
   z-index: -1;
+  padding-right: 200px;
   /* ----- */
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
@@ -224,13 +226,21 @@ nav .dash {
   overflow: hidden;
 }
 
+.content {
+  max-width: 1000px;
+}
+
+.wide {
+  width: 100%;
+}
+
 @media (max-width: 500px){
   body {
     padding: 50px 30px 50px 50px;
   }
   .view {
     left: 40px;
-    padding: 50px 30px 50px 50px;
+    padding: 50px 90px 50px 50px;
   }
   .matte {
     padding: 20px;
