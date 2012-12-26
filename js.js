@@ -102,7 +102,7 @@ $(function(){
 			view = ITEM;
 			url = whichItem+".html";
 			console.log(whichItem);
-			history.pushState({}, "", whichItem);
+			//history.pushState({}, "", whichItem);
 			$.ajax(url).done(function ( data ) {
 				content = data.split('==');
 				$itemName.html(content[0]);
@@ -120,7 +120,7 @@ $(function(){
 		console.log("closing the item");
 		$body.removeClass("view-item-mode");
 		view = INDEX;
-		history.pushState({}, "", "/");
+		//history.pushState({}, "", "/");
 	}
 
 });
