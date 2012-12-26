@@ -67,7 +67,7 @@ $(function(){
 			if (e.touches == true)
 				 dX = e.targetTouches[0].pageX - strtX; // touch
     		else dX = e.pageX - strtX;					// mouse
-    		dPad = strtPad + dX / 15;
+    		dPad = parseInt(strtPad + dX / 15);
     		$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
     		if (dPad < 100) $body.css("padding-left", dPad+"px");
     		else 			$body.css("padding-left", "100px");
@@ -78,12 +78,12 @@ $(function(){
 	function dragStop(e){
 		if ( view == ITEM ) {
 			drag = false;
-			$view.removeAttr("style");
-			$body.removeAttr("style");
-			$over.removeAttr("style");
 			if ( dX > ($(window).width()/2) ){
 				closeItem();
 			}
+			$view.removeAttr("style");
+			$body.removeAttr("style");
+			$over.removeAttr("style");
 		}
 	}
 
@@ -120,6 +120,14 @@ $(function(){
 		view = INDEX;
 		history.pushState({}, "", "/");
 	}
+
+	// Detect back button
+	// ------------------
+	window.addEventListener('popstate', function(event) {
+	  console.log('popstate fired!');
+	  closeItem();
+	  //updateContent(event.state);
+	});
 
 });
 
