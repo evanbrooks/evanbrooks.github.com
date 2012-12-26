@@ -28,11 +28,20 @@ $(function(){
 		toggleItem($currItem.attr("data-item"));
 	});
 
+
+	function isTouchDevice() {
+	   var el = document.createElement('div');
+	   el.setAttribute('ongesturestart', 'return;');
+	   return typeof el.ongesturestart === "function";
+	}
+
 	// Bind to touch events
 	// --------------------
-	document.addEventListener('touchstart', dragBegin);
-	document.addEventListener('touchmove', dragMove);
-	document.addEventListener('touchend', dragStop);
+	if(isTouchDevice()) {
+		document.addEventListener('touchstart', dragBegin);
+		document.addEventListener('touchmove', dragMove);
+		document.addEventListener('touchend', dragStop);
+	}
 
 	// Bind to mouse events
 	// --------------------
@@ -44,6 +53,7 @@ $(function(){
 	// Dragging
 	// --------
 	function dragBegin(e){
+		e.preventDefault();
 		if (e.touches == true)
 			 strtX = e.changedTouches[0].pageX; //touch
 		else strtX = e.pageX;					//mouse
@@ -56,6 +66,7 @@ $(function(){
 
 	function dragMove(e){
 		if (drag == true ) {
+			e.preventDefault();
 			if (e.touches == true)
 				 dX = e.targetTouches[0].pageX - strtX; // touch
     		else dX = e.pageX - strtX;					// mouse
@@ -68,6 +79,7 @@ $(function(){
 	}
 
 	function dragStop(e){
+		e.preventDefault();
 		drag = false;
 		$view.removeAttr("style");
 		$body.removeAttr("style");
