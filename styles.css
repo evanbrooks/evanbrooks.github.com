@@ -222,7 +222,7 @@ nav .dash {
 
 @media (max-width: 500px){
   body {
-    padding-left: 60px;
+    padding: 50px;
   }
 }
 

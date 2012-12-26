@@ -27,16 +27,20 @@ $(function(){
 		toggleItem($currItem.attr("data-item"));
 	});
 
-	$view.mousedown(function(e){
+	$view.mousedown(dragBegin);
+	$body.mousemove(dragMove);
+	$view.mouseup(dragStop);
+
+	function dragBegin(e){
 		strtX = e.pageX;
 		drag = true;
 		$view.css("-webkit-transition","none");
 		$body.css("-webkit-transition","none");
 		$over.css("-webkit-transition","none");
 		strtPad = parseInt($body.css("padding-left"));
-	});
+	}
 
-	$body.mousemove(function(e){
+	function dragMove(e){
 		if (drag == true ) {
     		dX = e.pageX - strtX;
     		dPad = strtPad + dX / 15;
@@ -45,9 +49,9 @@ $(function(){
     		else 			$body.css("padding-left", "100px");
     		$over.css("opacity", 1 - dX / 1000);
     	}
-	});
+	}
 
-	$view.mouseup(function(e){
+	function dragStop(e){
 		drag = false;
 		$view.removeAttr("style");
 		$body.removeAttr("style");
@@ -55,7 +59,7 @@ $(function(){
 		if ( dX > 400 ){
 			toggleItem();
 		}
-	});
+	}
 
 	function toggleItem(whichItem) {
 		if (view == ITEM) {
