@@ -221,6 +221,7 @@ nav .dash {
 
 .view-item-mode {
   padding-left: 40px;
+  overflow: hidden;
 }
 
 @media (max-width: 500px){

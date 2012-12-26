@@ -18,6 +18,8 @@ $(function(){
 	var ITEM = 1;  // const
 	var view = INDEX;
 
+	$.ajaxSetup({ cache: false });
+
 	// On click
 	// --------
 	$(".item .inner, .matte").click(function(e){
