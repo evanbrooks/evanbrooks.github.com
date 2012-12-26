@@ -84,7 +84,7 @@ $(function(){
 			$view.removeAttr("style");
 			$body.removeAttr("style");
 			$over.removeAttr("style");
-			if ( dX > 400 ){
+			if ( dX > ($(window).width()/2) ){
 				closeItem();
 			}
 		}
