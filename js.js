@@ -30,13 +30,6 @@ $(function(){
 		toggleItem($currItem.attr("data-item"));
 	});
 
-
-	function isTouchDevice() {
-	   var el = document.createElement('div');
-	   el.setAttribute('ongesturestart', 'return;');
-	   return typeof el.ongesturestart === "function";
-	}
-
 	// Bind to touch events
 	// --------------------
 	if(isTouchDevice()) {
@@ -78,7 +71,7 @@ $(function(){
     		$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
     		if (dPad < 100) $body.css("padding-left", dPad+"px");
     		else 			$body.css("padding-left", "100px");
-    		$over.css("opacity", 1 - dX / 1000);
+    		$over.css("opacity", 1 - dX / $(window).width());
     	}
 	}
 
@@ -101,12 +94,14 @@ $(function(){
 			closeItem();
   		}
   		else if (view == INDEX) {
-  			console.log("opening the item");
+  			history.pushState({}, "", whichItem);
 			$body.addClass("view-item-mode");
 			view = ITEM;
 			url = whichItem+".html";
 			console.log(whichItem);
-			//history.pushState({}, "", whichItem);
+			$itemName.html("");
+			$itemDate.html("");
+			$itemContent.html("Loading...");
 			$.ajax(url).done(function ( data ) {
 				content = data.split('==');
 				$itemName.html(content[0]);
@@ -115,16 +110,24 @@ $(function(){
 			}).error( function(xhr, textStatus, errorThrown){
 				$itemName.html("");
 				$itemDate.html("");
-				$itemContent.html("Still working on this");
+				$itemContent.html("Not available right now");
 			});
 		}
 	}
 
 	function closeItem() {
-		console.log("closing the item");
 		$body.removeClass("view-item-mode");
 		view = INDEX;
-		//history.pushState({}, "", "/");
+		history.pushState({}, "", "/");
 	}
 
 });
+
+
+// Utility functions
+// -----------------
+function isTouchDevice() {
+   var el = document.createElement('div');
+   el.setAttribute('ongesturestart', 'return;');
+   return typeof el.ongesturestart === "function";
+}

@@ -139,11 +139,13 @@ nav .dash {
   right: 0px;
   bottom: 0px;
   z-index: -2;
+  pointer-events: none;
   -webkit-transition: all 1s cubic-bezier(1,0,1,0);
 }
 
 .view-item-mode .overlay {
   z-index: 2;
+  pointer-events: auto;
   -webkit-transition: all 1s cubic-bezier(0,1,0,1);
 }
 
@@ -202,11 +204,9 @@ nav .dash {
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
   /* ----- */
   position: absolute;
-  top: 0px; left: 100px;
+  top: 0px; left: 100px; padding-right: 100px;
   width: 100%; height: 100%;
-  padding: 80px 100px;
   z-index: -1;
-  padding-right: 200px;
   /* ----- */
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
@@ -214,11 +214,21 @@ nav .dash {
   -webkit-transition: all 0.4s cubic-bezier(0.570, 0.000, 1.000, 0.705);
   -webkit-transform: translate3d(100%, 0, 0);
 }
+
 .view-item-mode .view {
   z-index: 3;
   opacity: 1;
   -webkit-transition: all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00);
   -webkit-transform: none;
+}
+
+.view-header {
+  padding-top: 80px;
+}
+
+.view-wrap {
+  padding-right: 100px;
+  padding-left: 100px;
 }
 
 .view-item-mode {
@@ -238,9 +248,18 @@ nav .dash {
   body {
     padding: 50px;
   }
+  .view-item-mode {
+    padding-left: 20px;
+  }
   .view {
-    left: 40px;
-    padding: 50px 90px 50px 50px;
+    left: 40px; padding-right: 40px;
+  }
+  .view-header {
+    padding-top: 50px;
+  }
+  .view-wrap {
+    padding-right: 50px;
+    padding-left: 50px;
   }
   .matte {
     padding: 20px;
