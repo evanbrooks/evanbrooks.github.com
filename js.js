@@ -53,20 +53,20 @@ $(function(){
 	// Dragging
 	// --------
 	function dragBegin(e){
-		e.preventDefault();
-		if (e.touches == true)
-			 strtX = e.changedTouches[0].pageX; //touch
-		else strtX = e.pageX;					//mouse
-		drag = true;
-		$view.css("-webkit-transition","none");
-		$body.css("-webkit-transition","none");
-		$over.css("-webkit-transition","none");
-		strtPad = parseInt($body.css("padding-left"));
+		if ( view == ITEM ) {
+			if (e.touches == true)
+				 strtX = e.changedTouches[0].pageX; //touch
+			else strtX = e.pageX;					//mouse
+			drag = true;
+			$view.css("-webkit-transition","none");
+			$body.css("-webkit-transition","none");
+			$over.css("-webkit-transition","none");
+			strtPad = parseInt($body.css("padding-left"));
+		}
 	}
 
 	function dragMove(e){
-		if (drag == true ) {
-			e.preventDefault();
+		if ( view == ITEM && drag == true ) {
 			if (e.touches == true)
 				 dX = e.targetTouches[0].pageX - strtX; // touch
     		else dX = e.pageX - strtX;					// mouse
@@ -79,13 +79,14 @@ $(function(){
 	}
 
 	function dragStop(e){
-		e.preventDefault();
-		drag = false;
-		$view.removeAttr("style");
-		$body.removeAttr("style");
-		$over.removeAttr("style");
-		if ( dX > 400 ){
-			closeItem();
+		if ( view == ITEM ) {
+			drag = false;
+			$view.removeAttr("style");
+			$body.removeAttr("style");
+			$over.removeAttr("style");
+			if ( dX > 400 ){
+				closeItem();
+			}
 		}
 	}
 
