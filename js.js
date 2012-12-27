@@ -1,5 +1,6 @@
 $(function(){
 	var $view = $(".view");
+	var $viewScroll = $(".view-scroller");
 	var $body = $("body");
 	var $over = $(".matte");
 	var $currItem = null;
@@ -10,7 +11,9 @@ $(function(){
 
 
 	var strtX = 0;
+	var strtY = 0;
 	var dX = 0;
+	var dY = 0;
 	var strtPad = 0;
 	var drag = false;
 
@@ -50,11 +53,17 @@ $(function(){
 	function dragBegin(e){
 		if ( view == ITEM ) {
 			e.preventDefault();
-			if (e.touches == true)
-				 strtX = e.changedTouches[0].pageX; //touch
-			else strtX = e.pageX;					//mouse
+			if (e.touches == true) {
+				strtX = e.changedTouches[0].pageX; //touch
+				strtY = e.changedTouches[0].pageY; //touch
+			}
+			else {
+				strtX = e.pageX;					//mouse
+				strtY = e.pageY;					//mouse
+			}
 			drag = true;
 			$view.css("-webkit-transition","none");
+			$viewScroll.css("-webkit-transition","none");
 			$body.css("-webkit-transition","none");
 			$over.css("-webkit-transition","none");
 			strtPad = parseInt($body.css("padding-left"));
@@ -64,11 +73,21 @@ $(function(){
 	function dragMove(e){
 		if ( view == ITEM && drag == true ) {
 			e.preventDefault();
-			if (e.touches == true)
-				 dX = e.targetTouches[0].pageX - strtX; // touch
-    		else dX = e.pageX - strtX;					// mouse
+			if (e.touches == true) {
+				dX = e.targetTouches[0].pageX - strtX; // touch
+				dy = e.targetTouches[0].pageY - strtY; // touch
+			}
+    		else {
+    			dX = e.pageX - strtX;					// mouse
+    			dY = e.pageY - strtY;					// mouse
+    		}
     		dPad = parseInt(strtPad + dX / 15);
-    		$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
+    		if ( Math.abs(dX) > Math.abs(dY)){
+    			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
+    		}
+    		else {
+    			$viewScroll.css("-webkit-transform", "translate3d(0px,"+dY+"px,0)");
+    		}
     		if (dPad < 100) $body.css("padding-left", dPad+"px");
     		else 			$body.css("padding-left", "100px");
     		$over.css("opacity", 1 - dX / $(window).width());
@@ -82,6 +101,7 @@ $(function(){
 				closeItem();
 			}
 			$view.removeAttr("style");
+			$viewScroll.removeAttr("style");
 			$body.removeAttr("style");
 			$over.removeAttr("style");
 		}

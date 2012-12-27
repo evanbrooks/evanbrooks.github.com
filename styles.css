@@ -222,6 +222,10 @@ nav .dash {
   -webkit-transform: none;
 }
 
+.view-scroller {
+  -webkit-transition: all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00);
+}
+
 .view-header {
   padding-top: 80px;
 }
