@@ -2,6 +2,7 @@ $(function(){
 	var $view = $(".view");
 	var $viewScroll = $(".view-scroller");
 	var $body = $("body");
+	var $index = $("body");
 	var $over = $(".matte");
 	var $currItem = null;
 
@@ -14,12 +15,16 @@ $(function(){
 	var strtY = 0;
 	var dX = 0;
 	var dY = 0;
-	var strtPad = 0;
 	var drag = false;
 
 	var INDEX = 0; // const
 	var ITEM = 1;  // const
 	var view = INDEX;
+
+	var VERT = 0;
+	var HORIZ = 1;
+	var BOTH = 2;
+	var scroll = BOTH;
 
 	$.ajaxSetup({ cache: false });
 
@@ -62,11 +67,11 @@ $(function(){
 				strtY = e.pageY;					//mouse
 			}
 			drag = true;
+			scroll = BOTH;
 			$view.css("-webkit-transition","none");
 			$viewScroll.css("-webkit-transition","none");
-			$body.css("-webkit-transition","none");
+			$index.css("-webkit-transition","none");
 			$over.css("-webkit-transition","none");
-			strtPad = parseInt($body.css("padding-left"));
 		}
 	}
 
@@ -75,34 +80,48 @@ $(function(){
 			e.preventDefault();
 			if (e.touches == true) {
 				dX = e.targetTouches[0].pageX - strtX; // touch
-				dy = e.targetTouches[0].pageY - strtY; // touch
+				dY = e.targetTouches[0].pageY - strtY; // touch
 			}
     		else {
     			dX = e.pageX - strtX;					// mouse
     			dY = e.pageY - strtY;					// mouse
     		}
-    		dPad = parseInt(strtPad + dX / 15);
-    		if ( Math.abs(dX) > Math.abs(dY)){
+    		dPad = parseInt(dX / 15);
+    		if ( scroll == BOTH ){
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
+    			$viewScroll.css("-webkit-transform", "translate3d(0px,"+dY+"px,0)");
+    			if ( Math.abs(dX) > 50 || Math.abs(dY) > 50) {
+    				if ( Math.abs(dX) > Math.abs(dY)){
+    					scroll = HORIZ;
+    					$viewScroll.removeAttr("style");
+    				} 
+    				else{
+    					scroll = VERT;
+    					$view.removeAttr("style");	
+    				}
+    			}
+    		} // TODO - make sure it scrolls even when not sure
+    		else if ( scroll == HORIZ ){
+    			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
+	    		if (dPad < 100) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0)");
+	    		else 			$index.css("-webkit-transform", "translate3d(100px,0,0)");
+	    		$over.css("opacity", 1 - dX / $(window).width());
     		}
-    		else {
+    		else if (scroll == VERT){
     			$viewScroll.css("-webkit-transform", "translate3d(0px,"+dY+"px,0)");
     		}
-    		if (dPad < 100) $body.css("padding-left", dPad+"px");
-    		else 			$body.css("padding-left", "100px");
-    		$over.css("opacity", 1 - dX / $(window).width());
     	}
 	}
 
 	function dragStop(e){
 		if ( view == ITEM ) {
 			drag = false;
-			if ( dX > ($(window).width()/2) ){
+			if ( scroll == HORIZ && ( dX > ($(window).width()/2)) ){
 				closeItem();
 			}
 			$view.removeAttr("style");
 			$viewScroll.removeAttr("style");
-			$body.removeAttr("style");
+			$index.removeAttr("style");
 			$over.removeAttr("style");
 		}
 	}
