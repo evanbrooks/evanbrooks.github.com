@@ -135,7 +135,7 @@ $(function(){
 		//	closeItem();
   		//}
   		//else if (view == INDEX) {
-  			history.pushState({}, "", "#"+whichItem);
+  			history.pushState({}, "", "#/"+whichItem);
 			$body.addClass("view-item-mode");
 			view = ITEM;
 			url = whichItem+".html";
@@ -165,9 +165,9 @@ $(function(){
 	// Detect back button
 	// ------------------
 	window.addEventListener('popstate', function(event) {
-	  console.log('popstate fired!');
+	  //console.log('popstate fired!');
 	  if (window.location.hash != "") {
-	  	whichItem = window.location.hash.split("#");
+	  	whichItem = window.location.hash.split("#/");
 	  	openItem(whichItem[1]);
 	  }
 	  else {
