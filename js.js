@@ -30,13 +30,15 @@ $(function(){
 
 	// On click
 	// --------
-	$(".item .inner, .matte").click(function(e){
+	$(".item .inner").click(function(e){
 		if ($currItem != null)
 			$currItem.removeClass("active"); // remove from old item
 		$currItem = $(this);			     // switch to new item
 		$currItem.addClass("active");	     // make active
-		toggleItem($currItem.attr("data-item"));
+		openItem($currItem.attr("data-item"));
 	});
+
+	$(".matte").click(closeItem);
 
 	// Bind to touch events
 	// --------------------
@@ -128,12 +130,12 @@ $(function(){
 
 	// Open or close item
 	// ------------------
-	function toggleItem(whichItem) {
-		if (view == ITEM) {
-			closeItem();
-  		}
-  		else if (view == INDEX) {
-  			history.pushState({}, "", whichItem);
+	function openItem(whichItem) {
+		//if (view == ITEM) {
+		//	closeItem();
+  		//}
+  		//else if (view == INDEX) {
+  			history.pushState({}, "", "#"+whichItem);
 			$body.addClass("view-item-mode");
 			view = ITEM;
 			url = whichItem+".html";
@@ -151,7 +153,7 @@ $(function(){
 				$itemDate.html("");
 				$itemContent.html("Not available right now");
 			});
-		}
+		//}
 	}
 
 	function closeItem() {
@@ -164,7 +166,13 @@ $(function(){
 	// ------------------
 	window.addEventListener('popstate', function(event) {
 	  console.log('popstate fired!');
-	  closeItem();
+	  if (window.location.hash != "") {
+	  	whichItem = window.location.hash.split("#");
+	  	openItem(whichItem[1]);
+	  }
+	  else {
+	  	closeItem();
+	  }
 	  //updateContent(event.state);
 	});
 
