@@ -167,6 +167,7 @@ $(function(){
 			$itemContent.html("Loading...");
 			$.ajax(url).done(function ( data ) {
 				content = data.split('==');
+				document.title = "Evan Brooks — "+content[0];
 				$itemName.html(content[0]);
 				$itemDate.html(content[1]);
 				$itemContent.html(content[2]);
@@ -182,6 +183,7 @@ $(function(){
 		$body.removeClass("view-item-mode");
 		view = INDEX;
 		history.pushState({}, "", "/");
+		document.title = "Evan Brooks — Portfolio";
 	}
 
 	// Detect back button
