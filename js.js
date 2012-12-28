@@ -2,7 +2,7 @@ $(function(){
 	var $view = $(".view");
 	var $viewScroll = $(".view-scroller");
 	var $body = $("body");
-	var $index = $("body");
+	var $index = $(".index");
 	var $over = $(".matte");
 	var $currItem = null;
 
