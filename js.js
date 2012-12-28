@@ -15,6 +15,8 @@ $(function(){
 	var strtY = 0;
 	var dX = 0;
 	var dY = 0;
+	var scrollPos = 0;
+	var newScrollPos = 0;
 	var drag = false;
 
 	var INDEX = 0; // const
@@ -50,9 +52,9 @@ $(function(){
 
 	// Bind to mouse events
 	// --------------------
-	$view.mousedown(dragBegin);
+	$body.mousedown(dragBegin);
 	$body.mousemove(dragMove);
-	$view.mouseup(dragStop);
+	$body.mouseup(dragStop);
 
 
 	// Dragging
@@ -62,11 +64,11 @@ $(function(){
 			e.preventDefault();
 			if (e.touches == true) {
 				strtX = e.changedTouches[0].pageX; //touch
-				strtY = e.changedTouches[0].pageY - dY; //touch
+				strtY = e.changedTouches[0].pageY; //touch
 			}
 			else {
 				strtX = e.pageX;					//mouse
-				strtY = e.pageY - dY;					//mouse
+				strtY = e.pageY;					//mouse
 			}
 			drag = true;
 			scroll = BOTH;
@@ -97,11 +99,12 @@ $(function(){
     		// ----------------------------------------
     		if ( scroll == BOTH ){
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-    			$viewScroll.css("-webkit-transform", "translate3d(0px,"+dY+"px,0)");
+    			newScrollPos = scrollPos + dY;
+    			scrollViewTo(newScrollPos);
     			if ( Math.abs(dX) > 50 || Math.abs(dY) > 50) {
     				if ( Math.abs(dX) > Math.abs(dY)){
     					scroll = HORIZ;
-    					$viewScroll.removeAttr("style"); // cancel previous vert scroll
+    					// $viewScroll.removeAttr("style"); // cancel previous vert scroll
     				} 
     				else{
     					scroll = VERT;
@@ -121,7 +124,8 @@ $(function(){
     		// Update faked vertical scrolling
     		// -------------------------------
     		else if (scroll == VERT){
-    			$viewScroll.css("-webkit-transform", "translate3d(0px,"+dY+"px,0)");
+    			newScrollPos = scrollPos + dY;
+    			scrollViewTo(newScrollPos);
     		}
     	}
 	}
@@ -138,9 +142,9 @@ $(function(){
 			// -------------------------
 			else if ( scroll == VERT){
 				$viewScroll.css("-webkit-transition", "all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00)");
-				if ( dY > 100 ) dY = 0;
-				else if ( dY < 100 ) dY = -200;
-	    		$viewScroll.css("-webkit-transform", "translate3d(0px,"+dY+"px,0)");
+				if ( newScrollPos > 0 ) scrollPos = 0;
+				else if ( newScrollPos < 0 ) scrollPos = -200;
+    			scrollViewTo(scrollPos);
 			}
 			// Snap back to "normal"
 			// ---------------------
@@ -184,6 +188,10 @@ $(function(){
 		view = INDEX;
 		history.pushState({}, "", "/");
 		document.title = "Evan Brooks — Portfolio";
+	}
+
+	function scrollViewTo(pos) {
+	    $viewScroll.css("-webkit-transform", "translate3d(0px,"+pos+"px,0)");
 	}
 
 	// Detect back button
