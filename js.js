@@ -62,11 +62,11 @@ $(function(){
 			e.preventDefault();
 			if (e.touches == true) {
 				strtX = e.changedTouches[0].pageX; //touch
-				strtY = e.changedTouches[0].pageY; //touch
+				strtY = e.changedTouches[0].pageY - dY; //touch
 			}
 			else {
 				strtX = e.pageX;					//mouse
-				strtY = e.pageY;					//mouse
+				strtY = e.pageY - dY;					//mouse
 			}
 			drag = true;
 			scroll = BOTH;
@@ -80,6 +80,9 @@ $(function(){
 	function dragMove(e){
 		if ( view == ITEM && drag == true ) {
 			e.preventDefault();
+
+			// Read pointer/touch position
+			// ---------------------------
 			if (e.touches == true) {
 				dX = e.targetTouches[0].pageX - strtX; // touch
 				dY = e.targetTouches[0].pageY - strtY; // touch
@@ -88,27 +91,35 @@ $(function(){
     			dX = e.pageX - strtX;					// mouse
     			dY = e.pageY - strtY;					// mouse
     		}
-    		dPad = parseInt(dX / 15);
+
+    		// Update both Horizontal and vertical, but once we hit the distance
+    		// threshold pick one direction to stick to
+    		// ----------------------------------------
     		if ( scroll == BOTH ){
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
     			$viewScroll.css("-webkit-transform", "translate3d(0px,"+dY+"px,0)");
     			if ( Math.abs(dX) > 50 || Math.abs(dY) > 50) {
     				if ( Math.abs(dX) > Math.abs(dY)){
     					scroll = HORIZ;
-    					$viewScroll.removeAttr("style");
+    					$viewScroll.removeAttr("style"); // cancel previous vert scroll
     				} 
     				else{
     					scroll = VERT;
-    					$view.removeAttr("style");	
+    					$view.removeAttr("style");	// cancel previous horiz scroll
     				}
     			}
-    		} // TODO - make sure it scrolls even when not sure
+    		}
+			// Update horizontal position, parallax, and matte opacity
+			// --------------------------------------------------------
     		else if ( scroll == HORIZ ){
+    			dPad = parseInt(dX / 15);
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
 	    		if (dPad < 100) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0)");
 	    		else 			$index.css("-webkit-transform", "translate3d(100px,0,0)");
 	    		$over.css("opacity", 1 - dX / $(window).width());
     		}
+    		// Update faked vertical scrolling
+    		// -------------------------------
     		else if (scroll == VERT){
     			$viewScroll.css("-webkit-transform", "translate3d(0px,"+dY+"px,0)");
     		}
@@ -118,11 +129,22 @@ $(function(){
 	function dragStop(e){
 		if ( view == ITEM ) {
 			drag = false;
+			// If scrolled halfway over
+			// ------------------------
 			if ( scroll == HORIZ && ( dX > ($(window).width()/2)) ){
 				closeItem();
 			}
+			// If scrolled down one unit
+			// -------------------------
+			else if ( scroll == VERT){
+				$viewScroll.css("-webkit-transition", "all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00)");
+				if ( dY > 100 ) dY = 0;
+				else if ( dY < 100 ) dY = -200;
+	    		$viewScroll.css("-webkit-transform", "translate3d(0px,"+dY+"px,0)");
+			}
+			// Snap back to "normal"
+			// ---------------------
 			$view.removeAttr("style");
-			$viewScroll.removeAttr("style");
 			$index.removeAttr("style");
 			$over.removeAttr("style");
 		}
