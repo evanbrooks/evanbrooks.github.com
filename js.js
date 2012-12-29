@@ -121,9 +121,10 @@ $(function(){
     		else if ( scroll == HORIZ ){
     			dPad = parseInt(dX / 15);
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-	    		if (dPad < 100) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
+	    		if (dPad < 50) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
 	    		else 			$index.css("-webkit-transform", "translate3d(100px,0,0) scale(0.98)");
-	    		$over.css("opacity", 1 - dX / $(window).width());
+	    		//$over.css("opacity", 1 - dX / $(window).width());
+	    		$index.css("opacity", 0.9 + ( 0.1 * dX / $(window).width()));
     		}
     		// Update faked vertical scrolling
     		// -------------------------------

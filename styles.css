@@ -163,7 +163,7 @@ nav .dash {
   bottom: 0px;
   padding: 50px;
   opacity: 0;
-  background: rgba(240,240,240,0.7);
+  //background: rgba(240,240,240,0.7);
   -webkit-transition: all 1s;
 }
 
@@ -172,7 +172,7 @@ nav .dash {
 }
 
 .view-item-mode .matte:hover {
-  background: rgba(235,235,235,0.7);
+  //background: rgba(235,235,235,0.7);
 }
 
 .view-item-mode .matte:hover .icon {
@@ -256,6 +256,8 @@ section.text {
 }
 
 .view-item-mode .index {
+  border-radius: 5px;
+  opacity: 0.7;
   -webkit-transform: translate3d(-60px,0,0) scale(0.98);
 }
 
@@ -323,7 +325,7 @@ section.text {
 
 @media (max-width: 350px){
   .view {
-    left: 15px; padding-right: 15px;
+    left: 18px; padding-right: 18px;
   }
 }
 
