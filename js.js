@@ -168,10 +168,20 @@ $(function(){
 				dTarget = newScrollPos - scrollTarget;
 				$view.scrollTop(-1 * scrollTarget);
 				scrollViewTo(dTarget);
-    			$viewScroll.transition({"-webkit-transform": "translate3d(0,0,0)"}, function(){
-    				// Clean up this inline-style mess!
-    				$viewScroll.removeAttr("style");
-    			});
+
+				// THIS IS THE OLD WAY WITH THE PLUGIN
+    			// $viewScroll.transition({"-webkit-transform": "translate3d(0,0,0)"}, function(){
+    			// 	// Clean up this inline-style mess!
+    			// 	$viewScroll.removeAttr("style");
+    			// });
+
+				// AND here's the alternate way of doing it
+				// fadein doesn't do anything, I guess, but
+				// for some reason it delays everything enough
+				$viewScroll.fadeIn("slow", function(){
+					$(this).removeAttr("style");
+				});
+
     			scrollPos = scrollTarget;
 			}
 			// Snap everything else back to "normal"
