@@ -254,7 +254,7 @@ section.text {
 }
 
 .view-content section {
-  height: 100vh;
+  height: 300px;
   border-bottom: 1px solid #ddd;
 }
 
