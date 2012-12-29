@@ -121,8 +121,8 @@ $(function(){
     		else if ( scroll == HORIZ ){
     			dPad = parseInt(dX / 15);
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-	    		if (dPad < 50) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
-	    		else 			$index.css("-webkit-transform", "translate3d(100px,0,0) scale(0.98)");
+	    		//if (dPad < 50) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
+	    		//else 			$index.css("-webkit-transform", "translate3d(100px,0,0) scale(0.98)");
 	    		//$over.css("opacity", 1 - dX / $(window).width());
 	    		$index.css("opacity", 0.9 + ( 0.1 * dX / $(window).width()));
     		}
@@ -151,10 +151,27 @@ $(function(){
 				newScrollPosMid = newScrollPos - $(window).height()/2;
 				// Check each scrolltop
 				for (i = 0; i < sectionTops.length; i++){
+					// If the midpoint is below this section top
 					if ( newScrollPosMid < -1*sectionTops[i]) {
-						scrollTarget = -1*sectionTops[i];
+						// If it was flicked more than 100 up but less than halfway, advance
+						if (dY > 100
+						    && dY < $(window).height()/2
+						    && i - 1 >= 0 ){
+								scrollTarget = -1*sectionTops[i-1];
+						}
+						// If it was flicked more than 100 down but less than halfway, go back
+						else if (dY < -100
+							     && dY > -1*$(window).height()/2
+							     && i + 1 < sectionTops.length ) {
+								scrollTarget = -1*sectionTops[i+1];
+						}
+						// Default just go to this one
+						else {
+							scrollTarget = -1*sectionTops[i];
+						}
 					}
-					else { // we've gone past it - stop here
+					// We've gone past the midpoint - stop here
+					else { 
 						break;
 					}
 				}

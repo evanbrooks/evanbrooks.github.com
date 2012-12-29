@@ -48,7 +48,7 @@ body {
   -webkit-text-size-adjust: none;
   color: #222;
   background: black;
-  max-width: 1000px;
+  //max-width: 1000px;
   font: 15px/20px "awsans";
   -webkit-transition: all 0.4s;
   height: 100%;
@@ -252,14 +252,16 @@ section.text {
   padding: 80px 0 0 100px;
   background: white;
   height: 100%;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform-origin: 20% center;
   overflow: scroll;
+  border-radius: 3px;
   -webkit-overflow-scrolling: touch;
 }
 
 .view-item-mode .index {
-  border-radius: 5px;
   opacity: 0.7;
-  -webkit-transform: translate3d(-60px,0,0) scale(0.98);
+  -webkit-transform: translate3d(0,0,0) scale(0.95);
 }
 
 .view-content {
@@ -301,7 +303,7 @@ section.text {
     padding: 50px;
   }
   .view-item-mode .index {
-    -webkit-transform: translate3d(0px,0,0) scale(0.98);
+    //-webkit-transform: translate3d(0,0,0) scale(0.9);
   }
   .view {
     left: 40px; padding-right: 40px;
