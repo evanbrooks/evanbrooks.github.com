@@ -58,6 +58,8 @@ $(function(){
 	$body.mousemove(dragMove);
 	$body.mouseup(dragStop);
 
+	$body.mouseleave(dragStop);
+
 
 	// Dragging
 	// --------
@@ -119,8 +121,8 @@ $(function(){
     		else if ( scroll == HORIZ ){
     			dPad = parseInt(dX / 15);
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-	    		if (dPad < 100) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0)");
-	    		else 			$index.css("-webkit-transform", "translate3d(100px,0,0)");
+	    		if (dPad < 100) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
+	    		else 			$index.css("-webkit-transform", "translate3d(100px,0,0) scale(0.98)");
 	    		$over.css("opacity", 1 - dX / $(window).width());
     		}
     		// Update faked vertical scrolling
@@ -133,7 +135,7 @@ $(function(){
 	}
 
 	function dragStop(e){
-		if ( view == ITEM ) {
+		if ( view == ITEM && drag == true) {
 			drag = false;
 			// If scrolled halfway over, close item
 			// ------------------------------------
@@ -206,10 +208,31 @@ $(function(){
 		$.ajax(url).done(function ( data ) {
 			content = data.split('==');
 
+			// Parse metadata
+			// --------------
 			document.title = "Evan Brooks — "+content[0];
 			$itemName.html(content[0]);
 			$itemDate.html(content[1]);
-			$itemContent.html(content[2]);
+
+			// Parse content
+			// -------------
+			var section = content[2].split('#');
+			var html = "";
+
+			for (i = 1; i < section.length; i++){
+				//   ^ discard first section because we start with #
+				content = section[i].split('\n--');
+				attr = content[0].split(': ');
+				attrHtml = "class=\""+attr[0]+"\"";
+				if (attr.length > 1)
+					attrHtml += "style=\"background-image: url('"+attr[1]+"')\"";
+				
+				html += "<section "+ attrHtml +">";
+				html += content[1];
+				html += "</section>"
+			}
+
+			$itemContent.html(html);
 
 			refreshSectionOffsets();
 			scrollViewTo(0);

@@ -40,16 +40,20 @@ table {
 
 /***********************************/
 
+html {
+  height: 100%;
+}
 
 body {
   -webkit-text-size-adjust: none;
-  padding: 80px 0 0 100px;
   color: #222;
+  background: black;
   max-width: 1000px;
   font: 15px/20px "awsans";
   -webkit-transition: all 0.4s;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 a {
@@ -245,20 +249,24 @@ section.text {
 
 .index {
   -webkit-transition: all 0.4s;
+  padding: 80px 0 0 100px;
+  background: white;
+  height: 100%;
+  overflow: scroll;
 }
 
 .view-item-mode .index {
-  -webkit-transform: translate3d(-60px,0,0);
+  -webkit-transform: translate3d(-60px,0,0) scale(0.98);
 }
 
 .view-content {
-  max-width: 1000px;
+  //max-width: 1000px;
   height: 100%;
 }
 
 .view-content section {
   height: 100%;
-  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
 
 .view-content section.text {
@@ -285,10 +293,12 @@ section.text {
 
 @media (max-width: 500px){
   body {
+  }
+  .index {
     padding: 50px;
   }
   .view-item-mode .index {
-    -webkit-transform: translate3d(-30px,0,0);
+    -webkit-transform: translate3d(-30px,0,0) scale(0.98);
   }
   .view {
     left: 40px; padding-right: 40px;
