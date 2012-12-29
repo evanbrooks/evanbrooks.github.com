@@ -1,31 +1,33 @@
 $(function(){
-	var $view = $(".view");
+	var $view       = $(".view");
 	var $viewScroll = $(".view-scroller");
-	var $body = $("body");
-	var $index = $(".index");
-	var $over = $(".matte");
-	var $currItem = null;
+	var $body       = $("body");
+	var $index      = $(".index");
+	var $over       = $(".matte");
+	var $currItem   = null;
 
-	var $itemName = $(".view .title");
-	var $itemDate = $(".view .subtitle");
-	var $itemContent = $(".view .content");
+	var $itemName    = $(".view .title");
+	var $itemDate    = $(".view .subtitle");
+	var $itemContent = $(".view-content");
 
 
 	var strtX = 0;
 	var strtY = 0;
-	var dX = 0;
-	var dY = 0;
-	var scrollPos = 0;
+	var dX    = 0;
+	var dY    = 0;
+	var drag  = false;
+
+	var scrollPos    = 0;
 	var newScrollPos = 0;
-	var drag = false;
+	var sectionTops  = new Array();
 
-	var INDEX = 0; // const
-	var ITEM = 1;  // const
-	var view = INDEX;
+	var INDEX  = 0; // const
+	var ITEM   = 1;  // const
+	var view   = INDEX;
 
-	var VERT = 0;
-	var HORIZ = 1;
-	var BOTH = 2;
+	var VERT   = 0;
+	var HORIZ  = 1;
+	var BOTH   = 2;
 	var scroll = BOTH;
 
 	$.ajaxSetup({ cache: false });
@@ -99,8 +101,8 @@ $(function(){
     		// ----------------------------------------
     		if ( scroll == BOTH ){
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-    			newScrollPos = scrollPos + dY;
-    			scrollViewTo(newScrollPos);
+    			//newScrollPos = scrollPos + dY;
+    			scrollViewTo(dY);
     			if ( Math.abs(dX) > 50 || Math.abs(dY) > 50) {
     				if ( Math.abs(dX) > Math.abs(dY)){
     					scroll = HORIZ;
@@ -124,8 +126,8 @@ $(function(){
     		// Update faked vertical scrolling
     		// -------------------------------
     		else if (scroll == VERT){
-    			newScrollPos = scrollPos + dY;
-    			scrollViewTo(newScrollPos);
+    			//newScrollPos = scrollPos + dY;
+    			scrollViewTo(dY);
     		}
     	}
 	}
@@ -133,21 +135,47 @@ $(function(){
 	function dragStop(e){
 		if ( view == ITEM ) {
 			drag = false;
-			// If scrolled halfway over
-			// ------------------------
+			// If scrolled halfway over, close item
+			// ------------------------------------
 			if ( scroll == HORIZ && ( dX > ($(window).width()/2)) ){
 				closeItem();
 			}
-			// If scrolled down one unit
-			// -------------------------
+			// If scrolled down, snap to section
+			// ---------------------------------
 			else if ( scroll == VERT){
-				$viewScroll.css("-webkit-transition", "all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00)");
-				if ( newScrollPos > 0 ) scrollPos = 0;
-				else if ( newScrollPos < 0 ) scrollPos = -200;
-    			scrollViewTo(scrollPos);
+				//$viewScroll.css("-webkit-transition", "all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00)");
+				newScrollPos = scrollPos + dY;
+				newScrollPosMid = newScrollPos - $(window).height()/2;
+				// Check each scrolltop
+				for (i = 0; i < sectionTops.length; i++){
+					if ( newScrollPosMid < -1*sectionTops[i]) {
+						scrollTarget = -1*sectionTops[i];
+					}
+					else { // we've gone past it - stop here
+						break;
+					}
+				}
+				// We need to convert the drag translation into true
+				// scroll position, at least for desktop. This way
+				// scrolling with trackpad/scrollbar/mousewheel makes
+				// sense and works right. First we adjust the scroll
+				// position, then do the reverse translation so it
+				// seems like nothing happenned. After that, we
+				// transition the "snap" to section. For some
+				// reason this only seems to work with the transit
+				// plug-in and not with writing the css directly
+				// -----------------------------------------------
+				dTarget = newScrollPos - scrollTarget;
+				$view.scrollTop(-1 * scrollTarget);
+				scrollViewTo(dTarget);
+    			$viewScroll.transition({"-webkit-transform": "translate3d(0,0,0)"}, function(){
+    				// Clean up this inline-style mess!
+    				$viewScroll.removeAttr("style");
+    			});
+    			scrollPos = scrollTarget;
 			}
-			// Snap back to "normal"
-			// ---------------------
+			// Snap everything else back to "normal"
+			// -------------------------------------
 			$view.removeAttr("style");
 			$index.removeAttr("style");
 			$over.removeAttr("style");
@@ -157,30 +185,35 @@ $(function(){
 	// Open or close item
 	// ------------------
 	function openItem(whichItem) {
-		//if (view == ITEM) {
-		//	closeItem();
-  		//}
-  		//else if (view == INDEX) {
-  			history.pushState({}, "", "#/"+whichItem);
-			$body.addClass("view-item-mode");
-			view = ITEM;
-			url = whichItem+".html";
-			console.log(whichItem);
+			history.pushState({}, "", "#/"+whichItem);
+		$body.addClass("view-item-mode");
+		view = ITEM;
+		url = whichItem+".html";
+		console.log(whichItem);
+		$itemName.html("");
+		$itemDate.html("");
+		$itemContent.html("Loading...");
+		$.ajax(url).done(function ( data ) {
+			content = data.split('==');
+
+			document.title = "Evan Brooks — "+content[0];
+			$itemName.html(content[0]);
+			$itemDate.html(content[1]);
+			$itemContent.html(content[2]);
+
+			refreshSectionOffsets();
+			scrollViewTo(0);
+
+		}).error( function(xhr, textStatus, errorThrown){
+			document.title = "Evan Brooks — Nothing";
 			$itemName.html("");
 			$itemDate.html("");
-			$itemContent.html("Loading...");
-			$.ajax(url).done(function ( data ) {
-				content = data.split('==');
-				document.title = "Evan Brooks — "+content[0];
-				$itemName.html(content[0]);
-				$itemDate.html(content[1]);
-				$itemContent.html(content[2]);
-			}).error( function(xhr, textStatus, errorThrown){
-				$itemName.html("");
-				$itemDate.html("");
-				$itemContent.html("Not available right now");
-			});
-		//}
+			$itemContent.html("Not available right now");
+
+			refreshSectionOffsets();
+			scrollViewTo(0);
+
+		});
 	}
 
 	function closeItem() {
@@ -193,6 +226,8 @@ $(function(){
 	function scrollViewTo(pos) {
 	    $viewScroll.css("-webkit-transform", "translate3d(0px,"+pos+"px,0)");
 	}
+
+	$("window").on
 
 	// Detect back button
 	// ------------------
@@ -207,6 +242,23 @@ $(function(){
 	  }
 	  //updateContent(event.state);
 	});
+
+	function refreshSectionOffsets(){
+		var sectionArr = $(".view section");
+		sectionTops = new Array(); // clear array
+		for (i = 0; i < sectionArr.length; i++) {
+			var offset = $(sectionArr[i]).position().top;
+			sectionTops.push(offset);
+			//console.log(offset);
+		}
+	}
+
+	// $view.scroll(function(e){
+	// 	pos = -1*$view.scrollTop()
+	// 	$viewScroll.css("-webkit-transition: none");
+	// 	scrollViewTo(pos);
+	// 	//$viewScroll.css("-webkit-transition", "all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00)");
+	// });
 
 });
 

@@ -223,6 +223,7 @@ nav .dash {
 }
 
 .view-scroller {
+  position: relative; /* So that we can get offsets from the top of this */
   -webkit-transition: all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00);
 }
 
@@ -230,7 +231,7 @@ nav .dash {
   padding-top: 80px;
 }
 
-.view-wrap {
+section.text {
   padding-right: 100px;
   padding-left: 100px;
 }
@@ -248,12 +249,23 @@ nav .dash {
   -webkit-transform: translate3d(-60px,0,0);
 }
 
-.content {
+.view-content {
   max-width: 1000px;
 }
 
-.wide {
-  width: 100%;
+.view-content section {
+  height: 100vh;
+  border-bottom: 1px solid #ddd;
+}
+
+.view-content section.text {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+section.img > img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 @media (max-width: 500px){
@@ -269,7 +281,7 @@ nav .dash {
   .view-header {
     padding-top: 50px;
   }
-  .view-wrap {
+  section.text {
     padding-right: 50px;
     padding-left: 50px;
   }
