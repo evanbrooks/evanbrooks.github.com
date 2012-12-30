@@ -56,6 +56,9 @@ body {
   overflow: hidden;
 }
 
+/* Global styles 
+   ------------- */
+
 a {
   text-decoration: none;
   border-bottom: 1px solid #bbb;
@@ -98,6 +101,103 @@ nav .dash {
   margin: 50px auto;
 }
 
+.img {
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.img.contain {
+  background-size: contain;
+}
+
+.img.cover {
+  background-size: cover;
+}
+
+.img.fix {
+  background-attachment: fixed;
+}
+
+/* Index 
+   ----- */
+
+.index {
+  -webkit-transition: all 0.4s;
+  padding: 80px 0 0 100px;
+  background: white;
+  height: 100%;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform-origin: 20% center;
+  overflow: scroll;
+  border-radius: 3px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.item-wrapper{
+  max-width: 1000px;
+}
+
+.view-item-mode .index {
+  opacity: 0.7;
+  -webkit-transform: translate3d(0,0,0) scale(0.95);
+}
+
+.view-content {
+  //max-width: 1000px;
+  height: 100%;
+}
+
+.view-content section {
+  height: 100%;
+  border-top: 1px solid rgba(0,0,0,0.15);
+}
+
+.view-content section.text {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.view-content section.meta {
+  height: auto;
+}
+
+
+.text h3{
+  font: 36px/44px "awsans"; /*"Chaparral Pro";*/
+  margin-bottom: 0.5em;
+  font-weight: lighter;
+  max-width: 600px;
+}
+
+.text p {
+  margin-bottom: 0.5em;
+  max-width: 600px;
+}
+
+.meta dl{
+  line-height: 3em;
+}
+
+.meta dt {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-right: 15px;
+  width: 100px;
+  display: inline-block;
+  opacity: 0.7;
+}
+
+.meta dd {
+  opacity: 0.6;
+  width: 200px;
+  display: inline-block;
+}
+
+
+/* Item styles 
+   ----------- */
+
 .name {
   padding-bottom: 0.3em;
   margin-bottom: 0.7em;
@@ -134,7 +234,8 @@ nav .dash {
   box-shadow: 0 0 0 1px rgba(0,0,0,0.07);
 }
 
-/* ------- */
+/* Overlay 
+   ------- */
 
 .overlay {
   position: fixed;
@@ -153,7 +254,8 @@ nav .dash {
   -webkit-transition: all 1s cubic-bezier(0,1,0,1);
 }
 
-/* ------- */
+/* Matte 
+   ----- */
 
 .matte {
   position: absolute;
@@ -200,7 +302,8 @@ nav .dash {
   box-shadow: 0 0 0 10px rgba(0,0,0,0.05);
 }
 
-/* ------- */
+/* View
+   ---- */
 
 .view {
   background: white;
@@ -246,55 +349,6 @@ section.text {
 .view-item-mode {
   //padding-left: 40px;
   overflow: hidden;
-}
-
-.index {
-  -webkit-transition: all 0.4s;
-  padding: 80px 0 0 100px;
-  background: white;
-  height: 100%;
-  -webkit-transform: translate3d(0,0,0);
-  -webkit-transform-origin: 20% center;
-  overflow: scroll;
-  border-radius: 3px;
-  -webkit-overflow-scrolling: touch;
-}
-
-.view-item-mode .index {
-  opacity: 0.7;
-  -webkit-transform: translate3d(0,0,0) scale(0.95);
-}
-
-.view-content {
-  //max-width: 1000px;
-  height: 100%;
-}
-
-.view-content section {
-  height: 100%;
-  border-top: 1px solid #ddd;
-}
-
-.view-content section.text {
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.img {
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.img.contain {
-  background-size: contain;
-}
-
-.img.cover {
-  background-size: cover;
-}
-
-.img.fix {
-  background-attachment: fixed;
 }
 
 @media (max-width: 500px){

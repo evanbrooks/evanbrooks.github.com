@@ -9,7 +9,7 @@ $(function(){
 	var $itemName    = $(".view .title");
 	var $itemDate    = $(".view .subtitle");
 	var $itemContent = $(".view-content");
-
+	var whichCurrItem = "";
 
 	var strtX = 0;
 	var strtY = 0;
@@ -123,14 +123,19 @@ $(function(){
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
 	    		//if (dPad < 50) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
 	    		//else 			$index.css("-webkit-transform", "translate3d(100px,0,0) scale(0.98)");
-	    		//$over.css("opacity", 1 - dX / $(window).width());
-	    		$index.css("opacity", 0.9 + ( 0.1 * dX / $(window).width()));
+	    		$index.css("opacity", 0.7 + ( 0.3 * dX / $(window).width()));
     		}
     		// Update faked vertical scrolling
     		// -------------------------------
     		else if (scroll == VERT){
-    			//newScrollPos = scrollPos + dY;
-    			scrollViewTo(dY);
+    			//np = scrollPos + dY
+    			//if ( np > 0){
+    			//	overScroll = -1 * (scrollPos - dY);
+    			//	$view.css("-webkit-transform", "translate3d(0,"+overScroll+"px,0)");
+    			//}
+    			//else {
+    				scrollViewTo(dY);
+    			//}
     		}
     	}
 	}
@@ -215,56 +220,64 @@ $(function(){
 	// Open or close item
 	// ------------------
 	function openItem(whichItem) {
-			history.pushState({}, "", "#/"+whichItem);
+		history.pushState({}, "", "#/"+whichItem);
 		$body.addClass("view-item-mode");
 		view = ITEM;
-		url = whichItem+".html";
-		console.log(whichItem);
-		$itemName.html("");
-		$itemDate.html("");
-		$itemContent.html("Loading...");
-		$.ajax(url).done(function ( data ) {
-			content = data.split('==');
 
-			// Parse metadata
-			// --------------
-			document.title = "Evan Brooks — "+content[0];
-			$itemName.html(content[0]);
-			$itemDate.html(content[1]);
-
-			// Parse content
-			// -------------
-			var section = content[2].split('#');
-			var html = "";
-
-			for (i = 1; i < section.length; i++){
-				//   ^ discard first section because we start with #
-				content = section[i].split('\n--');
-				attr = content[0].split(': ');
-				attrHtml = "class=\""+attr[0]+"\"";
-				if (attr.length > 1)
-					attrHtml += "style=\"background-image: url('"+attr[1]+"')\"";
-				
-				html += "<section "+ attrHtml +">";
-				html += content[1];
-				html += "</section>"
-			}
-
-			$itemContent.html(html);
-
-			refreshSectionOffsets();
-			scrollViewTo(0);
-
-		}).error( function(xhr, textStatus, errorThrown){
-			document.title = "Evan Brooks — Nothing";
+		if ( whichItem != whichCurrItem ){
+			whichCurrItem = whichItem;
+			url = whichItem+".html";
+			console.log(whichItem);
 			$itemName.html("");
 			$itemDate.html("");
-			$itemContent.html("Not available right now");
+			$itemContent.html("Loading...");
+			$.ajax(url).done(function ( data ) {
+				content = data.split('==');
 
-			refreshSectionOffsets();
-			scrollViewTo(0);
+				// Parse metadata
+				// --------------
+				document.title = "Evan Brooks — "+content[0];
+				$itemName.html(content[0]);
+				$itemDate.html(content[1]);
 
-		});
+				// Parse content
+				// -------------
+				var section = content[2].split('#');
+				var html = "";
+
+				for (i = 1; i < section.length; i++){
+					//   ^ discard first section because we start with #
+					content = section[i].split('\n--');
+					attr = content[0].split(': ');
+					attrHtml = "class=\""+attr[0]+"\"";
+					if (attr.length > 1)
+						attrHtml += "style=\"background-image: url('"+attr[1]+"')\"";
+					
+					html += "<section "+ attrHtml +">";
+					pars = content[1].split("\n\n");
+					//for (i = 0; i < pars.length; i++){
+					//	html += "<p>" + pars[i] + "</p>";
+					//}
+					html += content[1];
+
+					html += "</section>"
+				}
+
+				$itemContent.html(html);
+				refreshSectionOffsets();
+
+			}).error( function(xhr, textStatus, errorThrown){
+				document.title = "Evan Brooks — Nothing";
+				$itemName.html("");
+				$itemDate.html("");
+				$itemContent.html("<section class=\"text\">Not available right now</section>");
+				refreshSectionOffsets();
+
+			});
+		}
+		else {
+			//the item is already loaded!
+		}
 	}
 
 	function closeItem() {
@@ -277,8 +290,6 @@ $(function(){
 	function scrollViewTo(pos) {
 	    $viewScroll.css("-webkit-transform", "translate3d(0px,"+pos+"px,0)");
 	}
-
-	$("window").on
 
 	// Detect back button
 	// ------------------
@@ -303,6 +314,21 @@ $(function(){
 			//console.log(offset);
 		}
 	}
+
+
+	// Detect resizing
+	// ------------------
+	$(window).resize(function(){
+		if (view == ITEM) {
+			refreshSectionOffsets();
+		}
+	});
+
+	$(window).on("onorientationchange", function() {
+		if (view == ITEM) {
+			refreshSectionOffsets();
+		}
+	});
 
 	// $view.scroll(function(e){
 	// 	pos = -1*$view.scrollTop()
