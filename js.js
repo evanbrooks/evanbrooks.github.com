@@ -60,6 +60,7 @@ $(function(){
 
 	$body.mouseleave(dragStop);
 
+	$body.scrollTop(0);
 
 	// Dragging
 	// --------
