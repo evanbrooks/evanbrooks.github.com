@@ -228,6 +228,7 @@ $(function(){
 			whichCurrItem = whichItem;
 			url = whichItem+".html";
 			console.log(whichItem);
+			$view.addClass("loading");
 			$itemName.html("");
 			$itemDate.html("");
 			$itemContent.html("Loading...");
@@ -260,11 +261,12 @@ $(function(){
 					//}
 					html += content[1];
 
-					html += "</section>"
+					html += "</section>";
 				}
 
 				$itemContent.html(html);
 				refreshSectionOffsets();
+				$view.removeClass("loading");
 
 			}).error( function(xhr, textStatus, errorThrown){
 				document.title = "Evan Brooks — Nothing";
@@ -272,6 +274,7 @@ $(function(){
 				$itemDate.html("");
 				$itemContent.html("<section class=\"text\">Not available right now</section>");
 				refreshSectionOffsets();
+				$view.removeClass("loading");
 
 			});
 		}
