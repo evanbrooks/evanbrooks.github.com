@@ -227,11 +227,7 @@ $(function(){
 		if ( whichItem != whichCurrItem ){
 			whichCurrItem = whichItem;
 			url = whichItem+".html";
-			// console.log(whichItem);
-			$view.addClass("loading");
-			// $itemName.html("");
-			// $itemDate.html("");
-			// $itemContent.html("Loading...");
+			$view.scrollTop(0).addClass("loading");
 			$.ajax(url).done(function ( data ) {
 				content = data.split('==');
 
