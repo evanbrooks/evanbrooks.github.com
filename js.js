@@ -228,7 +228,7 @@ $(function(){
 			whichCurrItem = whichItem;
 			url = whichItem+".html";
 			// console.log(whichItem);
-			// $view.addClass("loading");
+			$view.addClass("loading");
 			// $itemName.html("");
 			// $itemDate.html("");
 			// $itemContent.html("Loading...");
