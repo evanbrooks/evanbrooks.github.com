@@ -287,6 +287,26 @@ nav .dash {
   -webkit-transform:translate3d(0,0,0); /* just to start the hw accel */
 }
 
+.spinner {
+  height: 100%;
+  -webkit-transition: all 1s;
+  background: url('img/eye-roll.gif') center center no-repeat;
+  position: absolute;
+  z-index: 999;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: white;
+  opacity: 0;
+}
+
+.view.loading .spinner{
+  //height: 100%;
+  opacity: 1;
+  -webkit-transition: none;
+}
+
 .view-header {
   padding-top: 80px;
 }
@@ -299,17 +319,6 @@ section.text {
 .view-item-mode {
   //padding-left: 40px;
   overflow: hidden;
-}
-
-.spinner {
-  height: 0%;
-  -webkit-transition: all 0.5s;
-  background: url('img/eye-roll.gif') center center no-repeat;
-}
-
-.view.loading .spinner{
-  height: 100%;
-  -webkit-transition: none;
 }
 
 .caption {

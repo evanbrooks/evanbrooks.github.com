@@ -227,11 +227,11 @@ $(function(){
 		if ( whichItem != whichCurrItem ){
 			whichCurrItem = whichItem;
 			url = whichItem+".html";
-			console.log(whichItem);
-			$view.addClass("loading");
-			$itemName.html("");
-			$itemDate.html("");
-			$itemContent.html("Loading...");
+			// console.log(whichItem);
+			// $view.addClass("loading");
+			// $itemName.html("");
+			// $itemDate.html("");
+			// $itemContent.html("Loading...");
 			$.ajax(url).done(function ( data ) {
 				content = data.split('==');
 
