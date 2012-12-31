@@ -105,7 +105,7 @@ $(function(){
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
     			//newScrollPos = scrollPos + dY;
     			scrollViewTo(dY);
-    			if ( Math.abs(dX) > 50 || Math.abs(dY) > 50) {
+    			if ( Math.abs(dX) > 5 || Math.abs(dY) > 5) {
     				if ( Math.abs(dX) > Math.abs(dY)){
     					scroll = HORIZ;
     					// $viewScroll.removeAttr("style"); // cancel previous vert scroll
