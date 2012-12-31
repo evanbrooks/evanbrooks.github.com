@@ -60,7 +60,6 @@ $(function(){
 
 	$body.mouseleave(dragStop);
 
-	$body.scrollTop(0);
 
 	// Dragging
 	// --------
@@ -120,10 +119,10 @@ $(function(){
 			// Update horizontal position, parallax, and matte opacity
 			// --------------------------------------------------------
     		else if ( scroll == HORIZ ){
-    			dPad = parseInt(dX / 15);
+    			dPad = -70 + parseInt(dX / 15);
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-	    		//if (dPad < 50) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
-	    		//else 			$index.css("-webkit-transform", "translate3d(100px,0,0) scale(0.98)");
+	    		if (dPad < 0) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.99)");
+	    		else 			$index.css("-webkit-transform", "translate3d(100px,0,0) scale(0.99)");
 	    		$index.css("opacity", 0.7 + ( 0.3 * dX / $(window).width()));
     		}
     		// Update faked vertical scrolling
@@ -337,6 +336,10 @@ $(function(){
 	// 	scrollViewTo(pos);
 	// 	//$viewScroll.css("-webkit-transition", "all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00)");
 	// });
+
+	$("html").on("click", ".more-info, figcaption", function(e){
+		$(this).parent().toggleClass("show-caption");
+	})
 
 });
 
