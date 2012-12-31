@@ -85,7 +85,7 @@ $(function(){
 
 	function dragMove(e){
 		if ( view == ITEM && drag == true ) {
-			//e.preventDefault();
+			e.preventDefault();
 
 			// Read pointer/touch position
 			// ---------------------------
