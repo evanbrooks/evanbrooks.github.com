@@ -65,7 +65,7 @@ $(function(){
 	// --------
 	function dragBegin(e){
 		if ( view == ITEM ) {
-			e.preventDefault();
+			//e.preventDefault();
 			if (e.touches == true) {
 				strtX = e.changedTouches[0].pageX; //touch
 				strtY = e.changedTouches[0].pageY; //touch
@@ -85,7 +85,7 @@ $(function(){
 
 	function dragMove(e){
 		if ( view == ITEM && drag == true ) {
-			e.preventDefault();
+			//e.preventDefault();
 
 			// Read pointer/touch position
 			// ---------------------------
