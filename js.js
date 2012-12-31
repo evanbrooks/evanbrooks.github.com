@@ -337,7 +337,7 @@ $(function(){
 	// 	//$viewScroll.css("-webkit-transition", "all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00)");
 	// });
 
-	$("html").on("click", ".more-info, figcaption", function(e){
+	$("html").on("click", ".togCap", function(e){
 		$(this).parent().toggleClass("show-caption");
 	})
 

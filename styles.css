@@ -311,7 +311,7 @@ section.text {
   display: block;
 }
 
-figcaption {
+.caption {
   background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 100%);
   //background: rgba(0,0,0,0.6);
   position: absolute;
@@ -324,12 +324,12 @@ figcaption {
   -webkit-transition: all 0.3s;
 }
 
-.dark figcaption {
+.dark .caption {
   background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
   color: white;
 }
 
-.show-caption figcaption {
+.show-caption .caption {
   opacity: 1;
   -webkit-transform: none;
 }
