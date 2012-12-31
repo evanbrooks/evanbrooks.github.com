@@ -350,6 +350,7 @@ figcaption {
 
 .more-info:hover {
   background: black;
+  -webkit-transform: none;
 }
 
 .show-caption .more-info {
