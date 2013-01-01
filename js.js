@@ -249,14 +249,14 @@ $(function(){
 						attrHtml += "style=\"background-image: url('"+attr[1]+"')\"";
 					
 					html += "<section "+ attrHtml +">";
-					paragraph = content[1].split("\n\n");
-					if (paragraph.length > 1) {
-						for (j = 0; j < paragraph.length; j++) {
-							html += "<p>" + paragraph[j] + "</p>";
-							console.log(j);
-						}
-					}
-					//html += content[1];
+					// paragraph = content[1].split("\n\n");
+					// if (paragraph.length > 1) {
+					// 	for (j = 0; j < paragraph.length; j++) {
+					// 		html += "<p>" + paragraph[j] + "</p>";
+					// 		console.log(j);
+					// 	}
+					// }
+					html += content[1];
 
 					html += "</section>";
 				}
