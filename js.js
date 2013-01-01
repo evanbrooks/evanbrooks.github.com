@@ -158,22 +158,22 @@ $(function(){
 				for (i = 0; i < sectionTops.length; i++){
 					// If the midpoint is below this section top
 					if ( newScrollPosMid < -1*sectionTops[i]) {
-						// If it was flicked more than 100 up but less than halfway, advance
-						if (dY > 100
-						    && dY < $(window).height()/2
-						    && i - 1 >= 0 ){
-								scrollTarget = -1*sectionTops[i-1];
-						}
-						// If it was flicked more than 100 down but less than halfway, go back
-						else if (dY < -100
-							     && dY > -1*$(window).height()/2
-							     && i + 1 < sectionTops.length ) {
-								scrollTarget = -1*sectionTops[i+1];
-						}
+						// // If it was flicked more than 100 up but less than halfway, advance
+						// if (dY > 100
+						//     && dY < $(window).height()/2
+						//     && i - 1 >= 0 ){
+						// 		scrollTarget = -1*sectionTops[i-1];
+						// }
+						// // If it was flicked more than 100 down but less than halfway, go back
+						// else if (dY < -100
+						// 	     && dY > -1*$(window).height()/2
+						// 	     && i + 1 < sectionTops.length ) {
+						// 		scrollTarget = -1*sectionTops[i+1];
+						// }
 						// Default just go to this one
-						else {
+						//else {
 							scrollTarget = -1*sectionTops[i];
-						}
+						//}
 					}
 					// We've gone past the midpoint - stop here
 					else { 
