@@ -245,10 +245,13 @@ $(function(){
 					content = section[i].split('\n--');
 					attr = content[0].split(': ');
 					attrHtml = "class=\""+attr[0]+"\"";
-					if (attr.length > 1)
-						attrHtml += "style=\"background-image: url('"+attr[1]+"')\"";
-					
+					var img = "";
+					if (attr.length > 1) {
+						//attrHtml += "style=\"background-image: url('"+attr[1]+"')\"";
+						img = "<img src=\""+attr[1]+"\">";
+					}
 					html += "<section "+ attrHtml +">";
+					html += img;
 					// paragraph = content[1].split("\n\n");
 					// if (paragraph.length > 1) {
 					// 	for (j = 0; j < paragraph.length; j++) {
@@ -260,10 +263,12 @@ $(function(){
 
 					html += "</section>";
 				}
-
 				$itemContent.html(html);
-				refreshSectionOffsets();
-				$view.removeClass("loading");
+
+				$viewScroll.waitForImages(function() {    
+					refreshSectionOffsets();
+					$view.removeClass("loading");
+				});  
 
 			}).error( function(xhr, textStatus, errorThrown){
 				document.title = "Evan Brooks — Nothing";
