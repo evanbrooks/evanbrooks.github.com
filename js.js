@@ -106,7 +106,7 @@ $(function(){
     			if ( Math.abs(dX) > 5 || Math.abs(dY) > 5) {
     				if ( Math.abs(dX) > Math.abs(dY)){
     					scroll = HORIZ;
-    					// $viewScroll.removeAttr("style"); // cancel previous vert scroll
+    					$viewScroll.removeAttr("style"); // cancel previous vert scroll
     				} 
     				else{
     					scroll = VERT;
