@@ -3,7 +3,6 @@ $(function(){
 	var $viewScroll = $(".view-scroller");
 	var $body       = $("body");
 	var $index      = $(".index");
-	var $over       = $(".matte");
 	var $currItem   = null;
 
 	var $itemName    = $(".view .title");
@@ -79,7 +78,6 @@ $(function(){
 			$view.css("-webkit-transition","none");
 			$viewScroll.css("-webkit-transition","none");
 			$index.css("-webkit-transition","none");
-			$over.css("-webkit-transition","none");
 		}
 	}
 
@@ -119,11 +117,12 @@ $(function(){
 			// Update horizontal position, parallax, and matte opacity
 			// --------------------------------------------------------
     		else if ( scroll == HORIZ ){
-    			dPad = -70 + parseInt(dX / 15);
+    			dPad = 0 + parseInt(dX / 15);
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-	    		if (dPad < 0) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.99)");
-	    		else 			$index.css("-webkit-transform", "translate3d(100px,0,0) scale(0.99)");
-	    		$index.css("opacity", 0.7 + ( 0.3 * dX / $(window).width()));
+	    		if (dPad < 30) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
+	    		else 			$index.css("-webkit-transform", "translate3d(30px,0,0) scale(0.98)");
+	    		var op = 0.01 * parseInt( 100 * (0.7 + ( 0.3 * dX / $(window).width() ) ) );
+	    		$index.css("opacity", op);
     		}
     		// Update faked vertical scrolling
     		// -------------------------------
@@ -213,7 +212,6 @@ $(function(){
 			// -------------------------------------
 			$view.removeAttr("style");
 			$index.removeAttr("style");
-			$over.removeAttr("style");
 		}
 	}
 
@@ -331,13 +329,6 @@ $(function(){
 			refreshSectionOffsets();
 		}
 	});
-
-	// $view.scroll(function(e){
-	// 	pos = -1*$view.scrollTop()
-	// 	$viewScroll.css("-webkit-transition: none");
-	// 	scrollViewTo(pos);
-	// 	//$viewScroll.css("-webkit-transition", "all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00)");
-	// });
 
 	$("html").on("click", ".togCap", function(e){
 		$(this).parent().toggleClass("show-caption");

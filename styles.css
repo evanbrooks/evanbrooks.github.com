@@ -348,9 +348,8 @@ section.text {
   position: absolute;
   bottom: 0px;
   z-index: 999;
-  color: white;
   border-radius: 50%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.08);
   left: 0px;
   margin: 20px;
   cursor: pointer;
@@ -362,8 +361,17 @@ section.text {
 }
 
 .more-info:hover {
-  background: black;
   -webkit-transform: none;
+  background: rgba(0,0,0,0.15);
+}
+
+.dark .more-info {
+  color: white;
+  background: rgba(0,0,0,0.4);
+}
+
+.dark .more-info:hover {
+  background: rgba(0,0,0,0.8);
 }
 
 .show-caption .more-info {
@@ -432,19 +440,19 @@ section.text {
 }
 
 
-@media (min-width: 960px){
+@media (min-width: 1000px){
   .item:nth-child(3n+3) {
     border-right: none;
   }
 }
 
-@media (min-width: 650px) and (max-width: 960px){
+@media (min-width: 700px) and (max-width: 1000px){
   .item:nth-child(2n+2) {
     border-right: none;
   }
 }
 
-@media (max-width: 650px){
+@media (max-width: 700px){
   body {
   }
   .index {
