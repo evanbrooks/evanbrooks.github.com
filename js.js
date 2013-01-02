@@ -100,7 +100,7 @@ $(function(){
     		// threshold pick one direction to stick to
     		// ----------------------------------------
     		if ( scroll == BOTH ){
-				e.preventDefault();
+				//e.preventDefault();
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
     			//newScrollPos = scrollPos + dY;
     			// scrollViewTo(dY);
