@@ -264,9 +264,11 @@ nav .dash {
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
   /* ----- */
   position: absolute;
-  top: 0px; left: 100px;
-  right: 0px;
-  bottom: 0px;
+  //max-width: 1200px;
+  left: 100px;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
   border-radius: 3px;
   /* ----- */
   overflow: scroll;
@@ -300,6 +302,7 @@ nav .dash {
   right: 0px;
   background-color: white;
   opacity: 0;
+  pointer-events: none;
 }
 
 .view.loading .spinner{
@@ -323,8 +326,8 @@ section.text {
 }
 
 .caption {
-  background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 100%);
-  //background: rgba(0,0,0,0.6);
+  //background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 100%);
+  background: rgba(235,235,235,0.8);
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -386,7 +389,7 @@ section.text {
 }
 
 .view-content section {
-  border-top: 1px solid rgba(0,0,0,0.15);
+  //border-top: 1px solid rgba(0,0,0,0.15);
   position: relative;
   overflow: hidden;
   -webkit-perspective: 1000;
@@ -410,26 +413,46 @@ section.text {
   max-width: none;
 }
 
+.view-content .img.sidebyside > img{
+  width: 50%;
+  display: inline-block;
+}
+
 .view-content section.text {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  //padding-top: 80px;
+  //padding-bottom: 80px;
+  max-width: 700px;
+  margin: auto;
 }
 
 .view-content section.meta {
   height: auto;
 }
 
-
-.text h3{
-  font: 36px/44px "awsans"; /*"Chaparral Pro";*/
-  margin-bottom: 0.5em;
+.text p {
+  margin: 0 0 2em;
+  font-size: 22px;
+  line-height: 28px;
+  font-family: "Chaparral Pro";
+  opacity: 0.8;
   font-weight: lighter;
-  max-width: 600px;
 }
 
-.text p {
-  margin-bottom: 0.5em;
-  max-width: 600px;
+.text p b {
+  font-weight: bold;
+}
+
+.text p.h3{
+  display: inline-block;
+  padding-bottom: 3px;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid #222;
+}
+
+.text p.sub {
+  // margin-left: 100px;
+  // opacity: 0.6;
+  display: none;
 }
 
 .meta{
@@ -498,7 +521,9 @@ section.text {
   .item .inner {
     display: block;
   }
-
+  .view-content .img.sidebyside > img {
+    width: 100%;
+  }
   .meta > li > b {
     display: block;
     line-height: 1em;
