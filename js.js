@@ -83,7 +83,7 @@ $(function(){
 
 	function dragMove(e){
 		if ( view == ITEM && drag == true ) {
-			e.preventDefault();
+			// e.preventDefault();
 
 			// Read pointer/touch position
 			// ---------------------------
@@ -100,9 +100,10 @@ $(function(){
     		// threshold pick one direction to stick to
     		// ----------------------------------------
     		if ( scroll == BOTH ){
+				e.preventDefault();
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
     			//newScrollPos = scrollPos + dY;
-    			scrollViewTo(dY);
+    			// scrollViewTo(dY);
     			if ( Math.abs(dX) > 5 || Math.abs(dY) > 5) {
     				if ( Math.abs(dX) > Math.abs(dY)){
     					scroll = HORIZ;
@@ -117,6 +118,7 @@ $(function(){
 			// Update horizontal position, parallax, and matte opacity
 			// --------------------------------------------------------
     		else if ( scroll == HORIZ ){
+				e.preventDefault();
     			dPad = 0 + parseInt(dX / 15);
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
 	    		if (dPad < 30) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
@@ -133,7 +135,7 @@ $(function(){
     			//	$view.css("-webkit-transform", "translate3d(0,"+overScroll+"px,0)");
     			//}
     			//else {
-    				scrollViewTo(dY);
+    			//	scrollViewTo(dY);
     			//}
     		}
     	}
