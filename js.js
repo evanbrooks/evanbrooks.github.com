@@ -151,7 +151,7 @@ $(function(){
 			}
 			// If scrolled down, snap to section
 			// ---------------------------------
-			else if ( scroll == VERT){
+			else if ( scroll == VERT && 1 == 2){
 				//$viewScroll.css("-webkit-transition", "all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00)");
 				newScrollPos = scrollPos + dY;
 				newScrollPosMid = newScrollPos - $(window).height()/2;
