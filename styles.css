@@ -542,7 +542,7 @@ section.text {
   }
 }
 
-@media (max-width: 700px){
+@media (max-width: 500px){
   body {
   }
   .index {
@@ -558,8 +558,8 @@ section.text {
     padding-top: 50px;
   }
   section.text {
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 30px;
+    padding-left: 30px;
   }
   .matte {
     padding: 20px;
@@ -577,6 +577,10 @@ section.text {
   }
   .view-content .img.sidebyside > img {
     width: 100%;
+  }
+  .text p {
+    font-size: 16px;
+    line-height: 21px;
   }
   .meta > li > b {
     display: block;
