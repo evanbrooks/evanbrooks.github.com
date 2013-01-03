@@ -36,7 +36,6 @@ q:after {
   content:"”";
 }
 
-
 table {
   border-collapse: collapse;
   border-spacing: 0; }
@@ -227,7 +226,7 @@ nav .dash {
   bottom: 0px;
   padding: 50px;
   opacity: 0;
-  //background: rgba(240,240,240,0.7);
+  background: rgba(250,250,250,0.9);
   -webkit-transition: all 1s;
 }
 
@@ -268,9 +267,9 @@ nav .dash {
    ---- */
 
 .view {
-  background: white;
+  //background: white;
   //opacity: 0;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  //box-shadow: 0 0 5px rgba(0,0,0,0.1);
   /* ----- */
   position: absolute;
   //max-width: 1200px;
@@ -401,7 +400,7 @@ section.text {
   //border-top: 1px solid rgba(0,0,0,0.15);
   position: relative;
   overflow: hidden;
-  -webkit-perspective: 1000;
+  -webkit-perspective: 1500;
   -webkit-backface-visibility: hidden;
 }
 
@@ -423,13 +422,58 @@ section.text {
 }
 
 .view-content .img.sidebyside > img{
-  width: 50%;
+  width: 48%;
+  margin-right: 2%;
   display: inline-block;
 }
 
+.view-content .fig {
+  text-align: center;
+  background: #f4f4f4;
+  box-shadow: inset 0 0 50% 0 rgba(0,0,0,0.15);
+  overflow: visible;
+}
+
+.iphone {
+  display: inline-block;
+}
+
+.iphone-back {
+  margin: 80px 0;
+  display: inline-block;
+  background: rgba(230,230,230,0.75);
+  border-radius: 20px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 1s;
+  -webkit-transform: rotateX(-25deg) rotateY(30deg) rotateX(10deg);
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2);
+}
+
+.iphone:hover .iphone-back{
+  -webkit-transform: none;
+}
+
+.iphone-front{
+  padding: 80px 5px;
+  border-radius: 20px;
+  -webkit-transform: translate3d(0,0,40px);
+  background: rgba(245,245,245,0.95);
+  box-shadow: -3px 3px 0 5px white;
+  -webkit-transition: all 1s;
+}
+
+.iphone:hover .iphone-front{
+  box-shadow: 0px 0px 0 5px white;
+}
+
+.iphone img {
+  width: 320px;
+  height: 480px;
+}
+
 .view-content section.text {
-  //padding-top: 80px;
-  //padding-bottom: 80px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   max-width: 700px;
   margin: auto;
 }
@@ -507,7 +551,7 @@ section.text {
     //-webkit-transform: translate3d(0,0,0) scale(0.9);
   }
   .view {
-    left: 40px;
+    left: 0px;
   }
   .view-header {
     padding-top: 50px;
@@ -542,7 +586,7 @@ section.text {
 
 @media (max-width: 350px){
   .view {
-    left: 18px;
+    //left: 18px;
   }
 }
 
