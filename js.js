@@ -339,7 +339,11 @@ $(function(){
 
 	$("html").on("click", ".togCap", function(e){
 		$(this).parent().toggleClass("show-caption");
-	})
+	});
+
+	$("html").on("click", ".flip-wrap", function(e){
+		$(this).toggleClass("flipped");
+	});
 
 });
 
