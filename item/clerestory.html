@@ -8,6 +8,10 @@ December 2010
 
 <div class="more-info togCap">i</div><div class="caption togCap">Blind embossing on the cover of Issue 57 </div>
 
+
+# img wide dark: img/cl-fold-tab-detail.png
+--
+
 # text
 --
 <h2 class="title">Clerestory</h2>
@@ -39,6 +43,57 @@ December 2010
 	</div>
 </div>
 
+# img
+--
+<style>
+@-webkit-keyframes OPEN {
+	0%, 9% {
+		background-image: url('img/cl-fold-closed.png');
+	}
+	10%, 19% {
+		background-image: url('img/cl-fold-closed-tabhint.png');
+	}
+	20%, 29% {
+		background-image: url('img/cl-fold-closed-tab.png');
+	}
+	30%, 39% {
+		background-image: url('img/cl-fold-closed-1flap.png');
+	}
+	40%, 69% {
+		background-image: url('img/cl-fold-closed-2flap.png');
+	}
+	70%, 79% {
+		background-image: url('img/cl-fold-closed-4flap.png');
+	}
+	90%, 100% {
+		background-image: url('img/cl-fold-closed-4flap.png');
+		/*background-image: url('img/cl-fold-box-inside.png');*/
+	}
+}
+
+.box-fold {
+	height: 1000px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url('img/cl-fold-closed.png');
+	-webkit-transition: all 0.2s;
+	margin: -250px 0 -350px;
+}
+
+.box-fold.unfolded {
+	-webkit-animation: OPEN 1s;
+	background-image: url('img/cl-fold-closed-4flap.png');
+}
+
+</style>
+<script>
+$(".box-fold").click(function(){
+	$(this).toggleClass("unfolded");
+});
+</script>
+<div class="box-fold">
+	.
+</div>
 
 # text meta
 --
