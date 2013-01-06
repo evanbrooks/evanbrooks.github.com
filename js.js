@@ -174,6 +174,11 @@ $(function(){
 				var section = content[2].split('#');
 				var html = "";
 
+				// per http://cubiq.org/testing-memory-usage-on-mobile-safari,
+				// switching to appendChild instead of innerHTML
+
+				$itemContent.html("");
+
 				for (i = 1; i < section.length; i++){
 					//   ^ discard first section because we start with #
 					content = section[i].split('\n--');
@@ -197,7 +202,7 @@ $(function(){
 
 					html += "</section>";
 				}
-				$itemContent.html(html);
+				$itemContent.append(html);
 
 				$view.waitForImages(function() {    
 					$body.removeClass("loading").addClass("view-item-mode");
