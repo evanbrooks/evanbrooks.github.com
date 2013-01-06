@@ -123,7 +123,7 @@ $(function(){
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
 	    		//if (dPad < 30) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
 	    		//else 			$index.css("-webkit-transform", "translate3d(30px,0,0) scale(0.98)");
-	    		var op = 1 - dX / $(window).width();
+	    		var op = 1 - parseInt( dX / $(window).width() *100)/100;
 	    		$matte.css("opacity", op);
     		}
     	}

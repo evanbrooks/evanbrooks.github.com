@@ -617,6 +617,7 @@ section.text {
   }
   .view-content .img.sidebyside > img {
     width: 100%;
+    margin-right: 0%;
   }
   .text p {
     font-size: 16px;
