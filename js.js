@@ -345,7 +345,7 @@ $(function(){
 		$(this).toggleClass("flipped");
 	});
 
-	$(".box-fold").click(function(){
+	$("html").on("click", ".box-fold", function(){
 		if ( $(this).hasClass("unfolded") ){
 			stepwiseAnim('backward', 6, 600);
 			$(this).removeClass("unfolded");
