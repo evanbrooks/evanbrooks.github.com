@@ -335,11 +335,13 @@ nav .dash {
   height: 200px;
   position: absolute;
   top: 50%;
+  opacity: 0;
   margin-top: -100px;
   font-size: 24px;
 }
 
 .loading .spinner > .icon {
+  opacity: 1;
   -webkit-animation: spin 0.4s linear infinite;
 }
 
