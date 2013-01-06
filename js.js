@@ -1,6 +1,5 @@
 $(function(){
 	var $view       = $(".view");
-	var $viewScroll = $(".view-scroller");
 	var $body       = $("body");
 	var $index      = $(".index");
 	var $matte      = $(".matte");
@@ -194,7 +193,7 @@ $(function(){
 				}
 				$itemContent.html(html);
 
-				$viewScroll.waitForImages(function() {    
+				$view.waitForImages(function() {    
 					$view.removeClass("loading");
 					$body.addClass("view-item-mode");
 				});  
@@ -219,10 +218,6 @@ $(function(){
 		view = INDEX;
 		history.pushState({}, "", "/");
 		document.title = "Evan Brooks — Portfolio";
-	}
-
-	function scrollViewTo(pos) {
-	    $viewScroll.css("-webkit-transform", "translate3d(0px,"+pos+"px,0)");
 	}
 
 	// Detect back button
