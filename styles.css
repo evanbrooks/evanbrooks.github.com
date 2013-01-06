@@ -119,7 +119,7 @@ nav {
   background: white;
   //height: 100%;
   -webkit-transform: translate3d(0,0,0);
-  -webkit-transform-origin: 20% center;
+  //-webkit-transform-origin: 20% center;
   //overflow: scroll;
   border-radius: 3px;
   //-webkit-overflow-scrolling: touch;
