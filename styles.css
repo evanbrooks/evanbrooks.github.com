@@ -227,7 +227,8 @@ nav .dash {
   bottom: 0px;
   padding: 50px;
   opacity: 0;
-  background: rgba(245,245,245,0.9);
+  //background: rgba(245,245,245,0.9);
+  background: rgba(0,0,0,0.2);
   -webkit-transition: all 1s;
 }
 
@@ -268,9 +269,9 @@ nav .dash {
    ---- */
 
 .view {
-  //background: white;
+  background: #f4f4f4;
   //opacity: 0;
-  //box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
   /* ----- */
   position: absolute;
   //max-width: 1200px;
