@@ -355,3 +355,52 @@ function isTouchDevice() {
    el.setAttribute('ongesturestart', 'return;');
    return typeof el.ongesturestart === "function";
 }
+
+
+// ========
+
+$(function(){
+	$("html").on("click", ".box-fold", function(){
+		if ( $(this).hasClass("unfolded") ){
+			stepwiseAnim('backward', 6, 600);
+			$(this).removeClass("unfolded");
+		}
+		else {
+			stepwiseAnim('forward', 6, 600);
+			$(this).addClass("unfolded");
+		}
+	});
+});
+
+function stepwiseAnim(dir, frames, duration) {
+	timePerFrame = duration / frames;
+	posPerFrame = 100 / (frames-1);
+
+	if (dir == "backward") {
+		pos = 100;
+		posPerFrame *= -1;
+	}
+	else if (dir == "forward") {
+		pos = 0;
+	}
+	else {
+		console.log("unkown direction for animation");
+	}
+
+
+	step();
+	
+	function step() {
+		pos += posPerFrame;
+		$(".box-fold").css("background-position", pos+"% 0%");
+		if (pos < 100 && pos > 0) {
+			window.setTimeout(function() {
+			    step();
+			}, timePerFrame);
+		}
+		else {
+			$(".box-fold").removeAttr("style");
+		}
+	}
+}
+
