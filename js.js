@@ -153,7 +153,7 @@ $(function(){
 		if ( whichItem != whichCurrItem ){
 			whichCurrItem = whichItem;
 			url = "/item/"+whichItem+".html";
-			$view.addClass("loading");
+			$body.addClass("loading");
 			$.ajax(url).done(function ( data ) {
 				content = data.split('==');
 
@@ -194,8 +194,7 @@ $(function(){
 				$itemContent.html(html);
 
 				$view.waitForImages(function() {    
-					$view.removeClass("loading");
-					$body.addClass("view-item-mode");
+					$body.removeClass("loading").addClass("view-item-mode");
 				});  
 
 			}).error( function(xhr, textStatus, errorThrown){
@@ -203,9 +202,7 @@ $(function(){
 				$itemName.html("");
 				$itemDate.html("");
 				$itemContent.html("<section class=\"text\">Not available right now</section>");
-				refreshSectionOffsets();
-				$view.removeClass("loading");
-				$body.addClass("view-item-mode");
+				$body.removeClass("loading").addClass("view-item-mode");
 			});
 		}
 		else {

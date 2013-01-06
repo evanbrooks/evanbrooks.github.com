@@ -303,22 +303,44 @@ nav .dash {
 .spinner {
   //height: 0%;
   -webkit-transition: all 1s;
-  background: url('img/eye-roll.gif') center center no-repeat;
-  background-color: transparent;
+  //background: url('img/eye-roll.gif') center center no-repeat;
+  background-color: rgba(245,245,245,0.8);
   position: absolute;
-  z-index: 999;
   top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
   opacity: 0;
   pointer-events: none;
+  text-align: center;
+  z-index: 999;
 }
 
-.view.loading .spinner{
+.loading .spinner{
   //height: 100%;
   opacity: 1;
-  -webkit-transition: none;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.spinner > .icon {
+  display: inline-block;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  margin-top: -100px;
+  font-size: 24px;
+}
+
+.loading .spinner > .icon {
+  -webkit-animation: spin 0.4s linear infinite;
 }
 
 .view-header {
