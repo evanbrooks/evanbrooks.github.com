@@ -3,6 +3,7 @@ $(function(){
 	var $viewScroll = $(".view-scroller");
 	var $body       = $("body");
 	var $index      = $(".index");
+	var $matte      = $(".matte");
 	var $currItem   = null;
 
 	var $itemName    = $(".view .title");
@@ -41,7 +42,7 @@ $(function(){
 		openItem($currItem.attr("data-item"));
 	});
 
-	$(".matte").click(closeItem);
+	$matte.click(closeItem);
 
 	// Bind to touch events
 	// --------------------
@@ -76,8 +77,8 @@ $(function(){
 			drag = true;
 			scroll = BOTH;
 			$view.css("-webkit-transition","none");
-			$viewScroll.css("-webkit-transition","none");
 			$index.css("-webkit-transition","none");
+			$matte.css("-webkit-transition","none");
 		}
 	}
 
@@ -107,7 +108,6 @@ $(function(){
     			if ( Math.abs(dX) > 5 || Math.abs(dY) > 5) {
     				if ( Math.abs(dX) > Math.abs(dY)){
     					scroll = HORIZ;
-    					$viewScroll.removeAttr("style"); // cancel previous vert scroll
     				} 
     				else{
     					scroll = VERT;
@@ -121,22 +121,10 @@ $(function(){
 				e.preventDefault();
     			dPad = 0 + parseInt(dX / 15);
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-	    		if (dPad < 30) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
-	    		else 			$index.css("-webkit-transform", "translate3d(30px,0,0) scale(0.98)");
-	    		var op = 0.01 * parseInt( 100 * (0.7 + ( 0.3 * dX / $(window).width() ) ) );
-	    		$index.css("opacity", op);
-    		}
-    		// Update faked vertical scrolling
-    		// -------------------------------
-    		else if (scroll == VERT){
-    			//np = scrollPos + dY
-    			//if ( np > 0){
-    			//	overScroll = -1 * (scrollPos - dY);
-    			//	$view.css("-webkit-transform", "translate3d(0,"+overScroll+"px,0)");
-    			//}
-    			//else {
-    			//	scrollViewTo(dY);
-    			//}
+	    		//if (dPad < 30) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
+	    		//else 			$index.css("-webkit-transform", "translate3d(30px,0,0) scale(0.98)");
+	    		var op = 1 - dX / $(window).width();
+	    		$matte.css("opacity", op);
     		}
     	}
 	}
@@ -149,71 +137,11 @@ $(function(){
 			if ( scroll == HORIZ && ( dX > ($(window).width()/2)) ){
 				closeItem();
 			}
-			// If scrolled down, snap to section
-			// ---------------------------------
-			else if ( scroll == VERT && 1 == 2){
-				//$viewScroll.css("-webkit-transition", "all 500ms cubic-bezier(0.115, 0.910, 0.470, 1.00)");
-				newScrollPos = scrollPos + dY;
-				newScrollPosMid = newScrollPos - $(window).height()/2;
-				// Check each scrolltop
-				for (i = 0; i < sectionTops.length; i++){
-					// If the midpoint is below this section top
-					if ( newScrollPosMid < -1*sectionTops[i]) {
-						// // If it was flicked more than 100 up but less than halfway, advance
-						// if (dY > 100
-						//     && dY < $(window).height()/2
-						//     && i - 1 >= 0 ){
-						// 		scrollTarget = -1*sectionTops[i-1];
-						// }
-						// // If it was flicked more than 100 down but less than halfway, go back
-						// else if (dY < -100
-						// 	     && dY > -1*$(window).height()/2
-						// 	     && i + 1 < sectionTops.length ) {
-						// 		scrollTarget = -1*sectionTops[i+1];
-						// }
-						// Default just go to this one
-						//else {
-							scrollTarget = -1*sectionTops[i];
-						//}
-					}
-					// We've gone past the midpoint - stop here
-					else { 
-						break;
-					}
-				}
-				// We need to convert the drag translation into true
-				// scroll position, at least for desktop. This way
-				// scrolling with trackpad/scrollbar/mousewheel makes
-				// sense and works right. First we adjust the scroll
-				// position, then do the reverse translation so it
-				// seems like nothing happenned. After that, we
-				// transition the "snap" to section. For some
-				// reason this only seems to work with the transit
-				// plug-in and not with writing the css directly
-				// -----------------------------------------------
-				dTarget = newScrollPos - scrollTarget;
-				$view.scrollTop(-1 * scrollTarget);
-				scrollViewTo(dTarget);
-
-				// THIS IS THE OLD WAY WITH THE PLUGIN
-    			// $viewScroll.transition({"-webkit-transform": "translate3d(0,0,0)"}, function(){
-    			// 	// Clean up this inline-style mess!
-    			// 	$viewScroll.removeAttr("style");
-    			// });
-
-				// AND here's the alternate way of doing it
-				// fadein doesn't do anything, I guess, but
-				// for some reason it delays everything enough
-				$viewScroll.fadeIn("slow", function(){
-					$(this).removeAttr("style");
-				});
-
-    			scrollPos = scrollTarget;
-			}
 			// Snap everything else back to "normal"
 			// -------------------------------------
 			$view.removeAttr("style");
 			$index.removeAttr("style");
+			$matte.removeAttr("style");
 		}
 	}
 
