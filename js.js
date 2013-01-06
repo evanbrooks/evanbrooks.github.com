@@ -392,7 +392,7 @@ function stepwiseAnim(dir, frames, duration) {
 	
 	function step() {
 		pos += posPerFrame;
-		$(".box-fold").css("background-position", pos+"% 0%");
+		$(".box-fold").css("background-position", pos+"% center");
 		if (pos < 100 && pos > 0) {
 			window.setTimeout(function() {
 			    step();
