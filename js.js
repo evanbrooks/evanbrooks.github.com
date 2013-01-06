@@ -53,7 +53,7 @@ $(function(){
 
 	// Bind to mouse events
 	// --------------------
-	$body.mousedown(dragBegin);
+	$(".grabby").mousedown(dragBegin);
 	$body.mousemove(dragMove);
 	$body.mouseup(dragStop);
 
@@ -78,6 +78,7 @@ $(function(){
 			$view.css("-webkit-transition","none");
 			$index.css("-webkit-transition","none");
 			$matte.css("-webkit-transition","none");
+			$body.addClass("dragging");
 		}
 	}
 
@@ -107,10 +108,12 @@ $(function(){
     			if ( Math.abs(dX) > 5 || Math.abs(dY) > 5) {
     				if ( Math.abs(dX) > Math.abs(dY)){
     					scroll = HORIZ;
+						clearTextSelections();
     				} 
     				else{
     					scroll = VERT;
     					$view.removeAttr("style");	// cancel previous horiz scroll
+						$body.removeClass("dragging");
     				}
     			}
     		}
@@ -133,8 +136,11 @@ $(function(){
 			drag = false;
 			// If scrolled halfway over, close item
 			// ------------------------------------
-			if ( scroll == HORIZ && ( dX > ($(window).width()/2)) ){
-				closeItem();
+			if ( scroll == HORIZ) {
+				$body.removeClass("dragging");
+				if ( dX > ($(window).width()/2) ) {
+					closeItem();
+				}
 			}
 			// Snap everything else back to "normal"
 			// -------------------------------------
@@ -271,6 +277,18 @@ function isTouchDevice() {
    var el = document.createElement('div');
    el.setAttribute('ongesturestart', 'return;');
    return typeof el.ongesturestart === "function";
+}
+
+function clearTextSelections() {
+	if (window.getSelection) {
+	  if (window.getSelection().empty) {  // Chrome
+	    window.getSelection().empty();
+	  } else if (window.getSelection().removeAllRanges) {  // Firefox
+	    window.getSelection().removeAllRanges();
+	  }
+	} else if (document.selection) {  // IE?
+	  document.selection.empty();
+	}
 }
 
 
