@@ -149,13 +149,13 @@ $(function(){
 	// ------------------
 	function openItem(whichItem) {
 		history.pushState({}, "", "#/"+whichItem);
-		$body.addClass("view-item-mode");
 		view = ITEM;
 
 		if ( whichItem != whichCurrItem ){
 			whichCurrItem = whichItem;
 			url = "/item/"+whichItem+".html";
-			$view.scrollTop(0).addClass("loading");
+			$view.addClass("loading");
+			$body.addClass("view-item-mode");
 			$.ajax(url).done(function ( data ) {
 				content = data.split('==');
 
@@ -211,7 +211,7 @@ $(function(){
 			});
 		}
 		else {
-			//the item is already loaded!
+			$body.addClass("view-item-mode");
 		}
 	}
 
