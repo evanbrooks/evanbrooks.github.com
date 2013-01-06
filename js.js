@@ -155,7 +155,6 @@ $(function(){
 			whichCurrItem = whichItem;
 			url = "/item/"+whichItem+".html";
 			$view.addClass("loading");
-			$body.addClass("view-item-mode");
 			$.ajax(url).done(function ( data ) {
 				content = data.split('==');
 
@@ -196,8 +195,8 @@ $(function(){
 				$itemContent.html(html);
 
 				$viewScroll.waitForImages(function() {    
-					refreshSectionOffsets();
 					$view.removeClass("loading");
+					$body.addClass("view-item-mode");
 				});  
 
 			}).error( function(xhr, textStatus, errorThrown){
@@ -207,7 +206,7 @@ $(function(){
 				$itemContent.html("<section class=\"text\">Not available right now</section>");
 				refreshSectionOffsets();
 				$view.removeClass("loading");
-
+				$body.addClass("view-item-mode");
 			});
 		}
 		else {
@@ -240,28 +239,15 @@ $(function(){
 	  //updateContent(event.state);
 	});
 
-	function refreshSectionOffsets(){
-		var sectionArr = $(".view section");
-		sectionTops = new Array(); // clear array
-		for (i = 0; i < sectionArr.length; i++) {
-			var offset = $(sectionArr[i]).position().top;
-			sectionTops.push(offset);
-			//console.log(offset);
-		}
-	}
-
-
 	// Detect resizing
 	// ------------------
 	$(window).resize(function(){
 		if (view == ITEM) {
-			refreshSectionOffsets();
 		}
 	});
 
 	$(window).on("onorientationchange", function() {
 		if (view == ITEM) {
-			refreshSectionOffsets();
 		}
 	});
 
