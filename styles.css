@@ -580,7 +580,7 @@ section.text {
   body {
   }
   .index {
-    padding: 50px;
+    padding: 0px;
   }
   .view-item-mode .index {
     //-webkit-transform: translate3d(0,0,0) scale(0.9);
@@ -599,8 +599,8 @@ section.text {
     padding: 20px;
   }
   .item {
-    padding: 0 0 40px 0;
-    margin-bottom: 50px;
+    padding: 0 0 40px 20;
+    margin-bottom: 0px;
     height: auto;
     border-right: none;
     max-width: none;
@@ -608,6 +608,8 @@ section.text {
   }
   .item .inner {
     display: block;
+    padding: 30px 30px;
+    margin: 0px;
   }
   .view-content .img.sidebyside > img {
     width: 100%;
