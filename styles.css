@@ -401,9 +401,14 @@ section.text {
 .view-content section {
   //border-top: 1px solid rgba(0,0,0,0.15);
   position: relative;
-  //overflow: hidden;
+  overflow: hidden;
   -webkit-perspective: 1500;
   -webkit-backface-visibility: hidden;
+}
+
+.view-content section.overflow {
+  overflow: visible;
+  z-index: 2;
 }
 
 .view-content section.img {
