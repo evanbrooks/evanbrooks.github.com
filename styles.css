@@ -55,7 +55,7 @@ html {
 body {
   -webkit-text-size-adjust: none;
   color: #222;
-  //background: #444;
+  background: #444;
   //max-width: 1000px;
   font: 15px/20px "awsans";
   -webkit-transition: all 0.4s;
@@ -118,10 +118,10 @@ nav {
   padding: 80px 0 0 100px;
   background: white;
   //height: 100%;
-  //-webkit-transform: translate3d(0,0,0);
-  //-webkit-transform-origin: 20% center;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform-origin: 20% center;
   //overflow: scroll;
-  //border-radius: 3px;
+  border-radius: 3px;
   //-webkit-overflow-scrolling: touch;
 }
 
@@ -132,7 +132,7 @@ nav {
 .view-item-mode .index {
   /*  opacity: 0.7;*/
   //overflow: hidden;
-  /*-webkit-transform: translate3d(0px,0,0) scale(0.98); translate3d(0,0,0) scale(0.95);*/
+  -webkit-transform: scale(0.98);/* translate3d(0,0,0) scale(0.95);*/
 }
 
 /* Item styles 
