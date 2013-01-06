@@ -345,6 +345,18 @@ $(function(){
 		$(this).toggleClass("flipped");
 	});
 
+	$("html").on("click", ".box-fold", function(){
+		if ( $(this).hasClass("unfolded") ){
+			stepwiseAnim('backward', 6, 600);
+			$(this).removeClass("unfolded");
+		}
+		else {
+			stepwiseAnim('forward', 6, 600);
+			$(this).addClass("unfolded");
+		}
+	});
+
+
 });
 
 
@@ -358,19 +370,6 @@ function isTouchDevice() {
 
 
 // ========
-
-$(function(){
-	$("html").on("click", ".box-fold", function(){
-		if ( $(this).hasClass("unfolded") ){
-			stepwiseAnim('backward', 6, 600);
-			$(this).removeClass("unfolded");
-		}
-		else {
-			stepwiseAnim('forward', 6, 600);
-			$(this).addClass("unfolded");
-		}
-	});
-});
 
 function stepwiseAnim(dir, frames, duration) {
 	timePerFrame = duration / frames;
