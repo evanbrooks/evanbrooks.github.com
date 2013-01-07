@@ -310,8 +310,8 @@ nav {
 .spinner > .icon {
   display: inline-block;
   height: 200px; width: 200px;
-  position: fixed;
-  top: 50%;
+  position: absolute;
+  top: 50%; left: 50%;
   opacity: 0;
   margin: -100px;
   font-size: 100px;
