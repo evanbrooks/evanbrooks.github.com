@@ -101,8 +101,6 @@ $(function(){
     		if ( scroll == BOTH ){
 				//e.preventDefault();
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-    			//newScrollPos = scrollPos + dY;
-    			// scrollViewTo(dY);
     			if ( Math.abs(dX) > 5 || Math.abs(dY) > 5) {
     				if ( Math.abs(dX) > Math.abs(dY)){
     					scroll = HORIZ;
@@ -124,9 +122,8 @@ $(function(){
 				e.preventDefault();
     			dPad = 0 + parseInt(dX / 15);
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-	    		//if (dPad < 30) $index.css("-webkit-transform", "translate3d("+dPad+"px,0,0) scale(0.98)");
-	    		//else 			$index.css("-webkit-transform", "translate3d(30px,0,0) scale(0.98)");
-	    		var op = 1 - parseInt( dX / $(window).width() *100)/100;
+	    		var op = 1 - Math.round( dX / $(window).width() *100)/100;
+	    		// parseInt(z * 100)/100 --> round to hundredths
 	    		$matte.css("opacity", op);
     		}
     	}
@@ -267,13 +264,15 @@ $(function(){
 	$("html").on("click", ".box-toggle-btn", toggleBox);
 	$("html").on("click", ".box-items > li", toggleSpread);
 
+
 	function toggleBox(e){
 		e.preventDefault();
 		var $box = $(".box-fold");
 		if ( $box.hasClass("unfolded") ){
 			$(".box-fold").parent().removeClass("box-open");
+			goHere = $(".box-contents").position().top;
+    		$viewScroll.animate({scrollTop: goHere}, 'slow');
 			$(".box-fold > .frames").stepWise('backward', 6, 600, function(){
-				// callback
 			});
 			$box.removeClass("unfolded");
 		}
@@ -293,7 +292,6 @@ $(function(){
 			$wrapper.attr("data-spread", "closed").parent().removeClass("box-spread");
 			goHere = $wrapper.parent().position().top;
 			// 							  ^ don't use offset() in a scrollable div
-			$viewScroll.animate({scrollTop: goHere}, 'slow');
 		}
 		else {
 			$wrapper.attr("data-spread", "open").parent().addClass("box-spread");
