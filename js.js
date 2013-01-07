@@ -264,11 +264,15 @@ $(function(){
 
 	$("html").on("click", ".box-fold", function(){
 		if ( $(this).hasClass("unfolded") ){
-			stepwiseAnim('backward', 6, 600);
+			$(".box-fold > .frames").stepWise('backward', 6, 600, function(){
+				console.log("backward");
+			});//.parent().css("border", "5px solid red");
 			$(this).removeClass("unfolded");
 		}
 		else {
-			stepwiseAnim('forward', 6, 600);
+			$(".box-fold > .frames").stepWise('forward', 6, 600, function(){
+				console.log("forward");
+			});//.parent().css("border", "5px solid blue");
 			$(this).addClass("unfolded");
 		}
 	});
@@ -299,10 +303,49 @@ function clearTextSelections() {
 
 // ========
 
-function stepwiseAnim(dir, frames, duration) {
+// function stepwiseAnim(dir, frames, duration, callback) {
+// 	var timePerFrame = duration / frames;
+// 	var posPerFrame = -100; //100 / (frames-1);
+// 	var endPos = -1 * (frames-1) * 100;
+
+// 	if (dir == "backward") {
+// 		pos = endPos;
+// 		posPerFrame *= -1;
+// 	}
+// 	else if (dir == "forward") {
+// 		pos = 0;
+// 	}
+// 	else {
+// 		console.log("unkown direction for animation");
+// 	}
+
+
+// 	step();
+	
+// 	function step() {
+// 		pos += posPerFrame;
+// 		$(".box-fold > .frames").css("left", pos+"%");
+// 		if (pos > endPos && pos < 0) {
+// 			window.setTimeout(function() {
+// 			    step();
+// 			}, timePerFrame);
+// 		}
+// 		else {
+// 			$(".box-fold > .frames").removeAttr("style");
+// 			callback();
+// 		}
+// 	}
+// }
+
+/* =========== Stepwise Plugin =========== */
+
+(function( $ ){
+
+  $.fn.stepWise = function(dir, frames, duration, callback) {
 	var timePerFrame = duration / frames;
 	var posPerFrame = -100; //100 / (frames-1);
 	var endPos = -1 * (frames-1) * 100;
+	var framestrip = this;
 
 	if (dir == "backward") {
 		pos = endPos;
@@ -317,18 +360,21 @@ function stepwiseAnim(dir, frames, duration) {
 
 
 	step();
-	
+	return framestrip;
+
 	function step() {
 		pos += posPerFrame;
-		$(".box-fold > .frames").css("left", pos+"%");
+		framestrip.css("left", pos+"%");
 		if (pos > endPos && pos < 0) {
 			window.setTimeout(function() {
 			    step();
 			}, timePerFrame);
 		}
 		else {
-			$(".box-fold > .frames").removeAttr("style");
+			//$(".box-fold > .frames").removeAttr("style");
+			callback();
 		}
 	}
-}
+  };
 
+})( jQuery );
