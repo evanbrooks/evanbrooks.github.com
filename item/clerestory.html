@@ -21,23 +21,33 @@ December 2010
 --
 <style>
 .box-fold {
-	height: 700px;
-	background-size: 600%;
-	background-position: 0% center;
-	background-repeat: no-repeat;
-	background-image: url('img/cl-anim.jpg');
+	//height: 700px;
+	//background-size: 600%;
+	//background-position: 0% center;
+	//background-repeat: no-repeat;
+	//background-image: url('img/cl-anim.jpg');
 	//-webkit-transition: all 0.2s;
-	//margin: -250px 0 -350px;
+	margin: -250px 0 -350px;
 }
 
 .box-fold.unfolded {
-	background-position: 100% center;
+	//background-position: 100% center;
 	//-webkit-animation: OPEN 1s;
+}
+
+.box-fold > .frames {
+	width: 600%;
+	left: 0%;
+	position: relative;
+}
+
+.box-fold.unfolded > .frames {
+	left: -500%;
 }
 
 </style>
 <div class="box-fold" onclick="">
-	.
+	<img class="frames" src="img/cl-anim.png" />
 </div>
 
 

@@ -300,11 +300,12 @@ function clearTextSelections() {
 // ========
 
 function stepwiseAnim(dir, frames, duration) {
-	timePerFrame = duration / frames;
-	posPerFrame = 100 / (frames-1);
+	var timePerFrame = duration / frames;
+	var posPerFrame = -100; //100 / (frames-1);
+	var endPos = -1 * (frames-1) * 100;
 
 	if (dir == "backward") {
-		pos = 100;
+		pos = endPos;
 		posPerFrame *= -1;
 	}
 	else if (dir == "forward") {
@@ -319,14 +320,14 @@ function stepwiseAnim(dir, frames, duration) {
 	
 	function step() {
 		pos += posPerFrame;
-		$(".box-fold").css("background-position", pos+"% center");
-		if (pos < 100 && pos > 0) {
+		$(".box-fold > .frames").css("left", pos+"%");
+		if (pos > endPos && pos < 0) {
 			window.setTimeout(function() {
 			    step();
 			}, timePerFrame);
 		}
 		else {
-			$(".box-fold").removeAttr("style");
+			$(".box-fold > .frames").removeAttr("style");
 		}
 	}
 }
