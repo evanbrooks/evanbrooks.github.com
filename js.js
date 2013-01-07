@@ -75,9 +75,6 @@ $(function(){
 			}
 			drag = true;
 			scroll = BOTH;
-			$view.css("-webkit-transition","none");
-			$index.css("-webkit-transition","none");
-			$matte.css("-webkit-transition","none");
 			$body.addClass("dragging");
 		}
 	}
@@ -108,6 +105,9 @@ $(function(){
     			if ( Math.abs(dX) > 5 || Math.abs(dY) > 5) {
     				if ( Math.abs(dX) > Math.abs(dY)){
     					scroll = HORIZ;
+						$view.css("-webkit-transition","none");
+						// $index.css("-webkit-transition","none");
+						$matte.css("-webkit-transition","none");
 						clearTextSelections();
     				} 
     				else{
@@ -145,7 +145,7 @@ $(function(){
 			// Snap everything else back to "normal"
 			// -------------------------------------
 			$view.removeAttr("style");
-			$index.removeAttr("style");
+			// $index.removeAttr("style");
 			$matte.removeAttr("style");
 		}
 	}
