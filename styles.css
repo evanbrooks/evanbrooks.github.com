@@ -2,31 +2,25 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
 b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead,
 tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
-output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
-
+output, ruby, section, summary, time, mark, audio, video
+{ margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block; }
+footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+*, ::after, ::before
+{ -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-body {
-  line-height: 1; }
 
-ol, ul {
-  list-style: none; }
+/**********************************************************************/
 
-blockquote, q {
-  quotes: none; }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: "";
-  content: none; }
+html {
+  height: 100%;
+}
 
 q:before {
   content:"“";
@@ -36,32 +30,13 @@ q:after {
   content:"”";
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-*, ::after, ::before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-
-/***********************************/
-
-html {
-  height: 100%;
-}
-
 body {
   -webkit-text-size-adjust: none;
   color: #222;
   background: #444;
-  //max-width: 1000px;
-  font: 15px/20px "awsans";
+  font: 15px/1.5em "awsans";
   -webkit-transition: all 0.4s;
-  //height: 100%;
   position: relative;
-  //overflow: hidden;
 }
 
 /* Global styles 
@@ -141,11 +116,7 @@ nav {
 .name {
   padding-bottom: 0.3em;
   margin-bottom: 0.7em;
-  //border-bottom: 1px solid #ddd;
   display: inline-block;
-  //font-size: 60px;
-  //line-height: 1.2em;
-  //font-family: Adobe Garamond Pro;
 }
 
 .item {
@@ -169,9 +140,6 @@ nav {
 }
 
 .item .inner:hover {
-  //color: red;
-  //border-color: red;
-  //box-shadow: 0 0 0 1px rgba(0,0,0,0.07);
   background: rgba(0,0,0,0.04);
 }
 
@@ -209,7 +177,7 @@ nav {
   left: 0px;
   right: 0px;
   bottom: 0px;
-  padding: 50px;
+  padding: 5%;
   opacity: 0;
   //background: rgba(245,245,245,0.9);
   background: rgba(0,0,0,0.2);
@@ -221,7 +189,6 @@ nav {
 }
 
 .view-item-mode .matte:hover {
-  //background: rgba(235,235,235,0.7);
 }
 
 .view-item-mode .matte:hover .icon {
@@ -279,20 +246,18 @@ nav {
 
 .view {
   background: #f4f4f4;
-  //opacity: 0;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
   /* ----- */
   position: absolute;
-  //max-width: 1200px;
-  left: 100px;
+  left: 10%;
   top: 0px;
   right: 0px;
   bottom: 0px;
   border-radius: 3px;
   /* ----- */
   //-webkit-transition: all 0.4s cubic-bezier(0.570, 0.000, 1.000, 0.705);
-  -webkit-transition: all 0.4s cubic-bezier(1.000, 1.380, 0.280, 0.895);
-  -webkit-transform: translate3d(100%, 0, 0); /*translate3d(100%, 0, 0);*/
+  -webkit-transition: all 0.5s cubic-bezier(1.000, 1.380, 0.280, 0.895);
+  -webkit-transform: translate3d(100%, 0, 0);
 }
 
 .view-item-mode .view {
@@ -307,9 +272,7 @@ nav {
 }
 
 .spinner {
-  //height: 0%;
   -webkit-transition: all 1s;
-  //background: url('img/eye-roll.gif') center center no-repeat;
   background-color: rgba(245,245,245,0.8);
   position: absolute;
   top: 0px;
@@ -323,7 +286,6 @@ nav {
 }
 
 .loading .spinner{
-  //height: 100%;
   opacity: 1;
 }
 
@@ -361,7 +323,6 @@ section.text {
 }
 
 .view-item-mode {
-  //padding-left: 40px;
   overflow: hidden;
 }
 
@@ -424,7 +385,6 @@ section.text {
 }
 
 .view section {
-  //border-top: 1px solid rgba(0,0,0,0.15);
   position: relative;
   overflow: hidden;
   -webkit-perspective: 1500;
@@ -550,10 +510,8 @@ section.text {
 .view p {
   margin: 0 0 2em;
   font-size: 22px;
-  line-height: 28px;
-  //font-family: "Chaparral Pro";
+  line-height: 1.3em;
   opacity: 0.8;
-  font-weight: lighter;
 }
 
 .view p b {
@@ -568,8 +526,6 @@ section.text {
 }
 
 .view p.sub {
-  // margin-left: 100px;
-  // opacity: 0.6;
   display: none;
 }
 
@@ -594,11 +550,19 @@ section.text {
 }
 
 
+/**********************************************************************/
+
+
+
 @media (min-width: 1000px){
   .item:nth-child(3n+3) {
     border-right: none;
   }
 }
+
+
+/**********************************************************************/
+
 
 @media (min-width: 700px) and (max-width: 1000px){
   .item:nth-child(2n+2) {
@@ -606,31 +570,34 @@ section.text {
   }
 }
 
+
+/**********************************************************************/
+
+
+
 @media (max-width: 500px){
-  body {
-  }
+
   nav {
     padding: 30px;
   }
+
   .index {
     padding: 0px;
   }
-  .view-item-mode .index {
-    //-webkit-transform: translate3d(0,0,0) scale(0.9);
-  }
+
   .view {
     left: 0px;
   }
+
   .view-header {
     padding-top: 50px;
   }
+
   section.text {
     padding-right: 30px;
     padding-left: 30px;
   }
-  .matte {
-    padding: 20px;
-  }
+
   .item {
     padding: 0 0 40px 20;
     margin: 0px;
@@ -639,31 +606,43 @@ section.text {
     max-width: none;
     border-bottom: 1px solid rgba(0,0,0,0.1);
   }
+
   .item .inner {
     display: block;
     padding: 30px 30px;
     margin: 0px;
   }
+
   .view .img.sidebyside > img {
     width: 100%;
     margin-right: 0%;
   }
+
   .text p {
     font-size: 16px;
-    line-height: 21px;
   }
+
   .meta > li > b {
     display: block;
     line-height: 1em;
     margin-top: 12px;
   }
+
 }
+
+
+/**********************************************************************/
+
+
 
 @media (max-width: 350px){
   .view {
     //left: 18px;
   }
 }
+
+
+/**********************************************************************/
 
 
 /*Generated by Font Squirrel (http://www.fontsquirrel.com) on April 28, 2010 11:11:41 AM America/New_York */

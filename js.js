@@ -137,7 +137,7 @@ $(function(){
 			drag = false;
 			// If scrolled halfway over, close item
 			// ------------------------------------
-			if ( scroll == HORIZ) {
+			if ( scroll == HORIZ || scroll == BOTH ) {
 				$body.removeClass("dragging");
 				if ( dX > ($(window).width()/2) ) {
 					closeItem();
@@ -361,7 +361,7 @@ function clearTextSelections() {
 			}, timePerFrame);
 		}
 		else {
-			//$(".box-fold > .frames").removeAttr("style");
+			$(".box-fold > .frames").removeAttr("style");
 			callback();
 		}
 	}
