@@ -263,38 +263,45 @@ $(function(){
 		$(this).toggleClass("flipped");
 	});
 
-	$("html").on("click", ".box-fold", function(){
-		if ( $(this).hasClass("unfolded") ){
+	$("html").on("click", ".box-fold", toggleBox);
+	$("html").on("click", ".box-toggle-btn", toggleBox);
+	$("html").on("click", ".box-items > li", toggleSpread);
+
+	function toggleBox(e){
+		e.preventDefault();
+		var $box = $(".box-fold");
+		if ( $box.hasClass("unfolded") ){
 			$(".box-fold").parent().removeClass("box-open");
 			$(".box-fold > .frames").stepWise('backward', 6, 600, function(){
 				// callback
 			});
-			$(this).removeClass("unfolded");
+			$box.removeClass("unfolded");
 		}
 		else {
 			$(".box-fold > .frames").stepWise('forward', 6, 600, function(){
 				$(".box-fold").parent().addClass("box-open");
 			});
-			$(this).addClass("unfolded");
+			$box.addClass("unfolded");
 		}
-	});
+	}
 
-	$("html").on("click", ".box-insides", function(){
-		var currState = $(this).attr("data-open");
+	function toggleSpread(e){
+		var $wrapper = $(".box-items");
+		var currState = $wrapper.attr("data-spread");
 		var goHere;
 		if (currState == "open") {
-			$(this).attr("data-open", "closed").removeClass("box-spread");
-			goHere = $(this).parent().position().top;
+			$wrapper.attr("data-spread", "closed").parent().removeClass("box-spread");
+			goHere = $wrapper.parent().position().top;
 			// 							  ^ don't use offset() in a scrollable div
 			$viewScroll.animate({scrollTop: goHere}, 'slow');
 		}
 		else {
-			$(this).attr("data-open", "open").addClass("box-spread");
-			goHere = $(this).prev().position().top + $(this).prev().height();
+			$wrapper.attr("data-spread", "open").parent().addClass("box-spread");
+			goHere = $wrapper.prev().position().top + $wrapper.prev().height();
 			// 					 ^ don't use offset() in a scrollable div
     	}
     	$viewScroll.animate({scrollTop: goHere}, 'slow');
-	});
+	}
 
 });
 

@@ -77,7 +77,7 @@ a {
 
 a:hover {
   border-bottom: 1px solid black;
-  padding-bottom: 8px;
+  //padding-bottom: 8px;
 }
 
 nav {
@@ -228,13 +228,17 @@ nav {
   opacity: 0.6;
 }
 
-.matte .icon {
+.matte .icon{
+  opacity: 0;
+}
+
+.icon {
   display: inline-block;
   width: 30px;
   margin: -15px;
+  border: none;
   line-height: 20px;
   text-align: center;
-  opacity: 0;
   border-radius: 50%;
   padding: 5px;
   cursor: pointer;
@@ -243,7 +247,7 @@ nav {
   -webkit-transition: all 0.2s;
 }
 
-.matte .icon:hover {
+.icon:hover {
   background: rgba(0,0,0,0.05);
   opacity: 1;
   box-shadow: 0 0 0 10px rgba(0,0,0,0.05);
@@ -543,7 +547,7 @@ section.text {
   height: auto;
 }
 
-.text p {
+.view p {
   margin: 0 0 2em;
   font-size: 22px;
   line-height: 28px;
@@ -552,18 +556,18 @@ section.text {
   font-weight: lighter;
 }
 
-.text p b {
+.view p b {
   font-weight: bold;
 }
 
-.text p.h3{
+.view p.h3{
   display: inline-block;
   padding-bottom: 3px;
   margin-bottom: 1.5em;
   border-bottom: 1px solid #222;
 }
 
-.text p.sub {
+.view p.sub {
   // margin-left: 100px;
   // opacity: 0.6;
   display: none;
