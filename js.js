@@ -172,7 +172,7 @@ $(function(){
 
 				// Parse content
 				// -------------
-				var section = content[2].split('#');
+				var section = content[2].split('\n#');
 				var html = "";
 
 				// per http://cubiq.org/testing-memory-usage-on-mobile-safari,
