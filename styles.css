@@ -70,10 +70,10 @@ nav {
 }
 
 .subtitle {
-  border-bottom: 2px solid #444;
+  //border-bottom: 1px solid #444;
   display: inline-block;
   line-height: 1.5em;
-  font-size: 22px;
+  //font-size: 22px;
 }
 
 .title, .name {
@@ -123,7 +123,8 @@ nav {
 .name {
   padding-bottom: 0.3em;
   margin-bottom: 0.7em;
-  font-size: 22px;
+  //font-size: 22px;
+  border-bottom: 1px solid #ccc;
   display: inline-block;
 }
 
@@ -308,17 +309,19 @@ nav {
 
 .spinner > .icon {
   display: inline-block;
-  height: 200px;
+  height: 200px; width: 200px;
   position: fixed;
   top: 50%;
   opacity: 0;
-  margin-top: -100px;
-  font-size: 24px;
+  margin: -100px;
+  font-size: 100px;
+  line-height: 200px;
+  -webkit-transform-origin: 50% 65%;
 }
 
 .loading .spinner > .icon {
   opacity: 1;
-  -webkit-animation: spin 0.4s linear infinite;
+  -webkit-animation: spin 0.7s linear infinite;
 }
 
 .view-header {
