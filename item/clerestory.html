@@ -3,25 +3,11 @@ Clerestory
 December 2010
 ==
 
-# img wide dark: img/clerestory-letter.png
---
-
-<div class="more-info togCap">i</div><div class="caption togCap">Blind embossing on the cover of Issue 57 </div>
-
-
-# text
---
-<h2 class="title">Clerestory</h2>
-<p>
-	Art direction for a Brown +
-	RISD journal of the arts
-</p>
-
 # img overflow
 --
 <style>
 .box-fold {
-	margin: -40% 10%;
+	margin: 0% 10% 0;
 	overflow: hidden;
 }
 
@@ -38,11 +24,69 @@ December 2010
 	left: -500%;
 }
 
-</style>
-<div class="box-fold" onclick="">
-	<img class="frames" src="img/cl-anim.png" />
-</div>
+.box-item {
+	-webkit-transition: all 1s;
+	//visibility: hidden;
+	margin: 20px  25%;
+	max-height: 10px;
+	-webkit-transform: translate3d(0,0,0);
+	/* To fix z-indexing */
+}
 
+.box-insides {
+	display: none;
+	-webkit-transition: all 1s;
+	//-webkit-transform: translate3d(0,-700px,0);
+	margin: -80% 0 80%;
+}
+
+.box-open .box-insides {
+	display: block;
+}
+
+.box-insides.box-spread {
+	//-webkit-transform: translate3d(0,0,0);
+	margin: 0px;
+}
+
+.box-spread .box-item {
+	max-height: 600px;
+}
+
+.box-item > img {
+	width: 100%;
+}
+
+</style>
+
+<div class="box-contents">
+
+	<div class="box-fold" onclick="">
+		<img class="frames" src="img/cl-anim.png" />
+	</div>
+
+	<div class="box-insides">
+		<div class="box-item flip-wrap" onclick="">
+			<div class="flipper">
+				<div class="obverse">
+					<img src="img/cl-folder-innerwhite-front.png"/>
+				</div>
+				<div class="reverse">
+					<img src="img/cl-folder-innerwhite-back.png"/>
+				</div>
+			</div>
+		</div>
+		<div class="box-item">
+			<img src="img/cl-folder-innerwhite-front.png"/>
+		</div>
+		<div class="box-item">
+			<img src="img/cl-folder-innerwhite-front.png"/>
+		</div>
+		<div class="box-item">
+			<img src="img/cl-folder-innerwhite-front.png"/>
+		</div>
+	</div>
+</div>
 
 # text
 --
@@ -55,16 +99,6 @@ December 2010
 
 # img overflow
 --
-<div class="flip-wrap" onclick="">
-	<div class="flipper">
-		<div class="obverse">
-			<img src="img/cl-folder-innerwhite-front.png"/>
-		</div>
-		<div class="reverse">
-			<img src="img/cl-folder-innerwhite-back.png"/>
-		</div>
-	</div>
-</div>
 
 # text meta
 --
@@ -76,3 +110,16 @@ December 2010
 	<li><b>Issue 57</b>June 2011</li>
 </ul>
 
+# img wide dark: img/clerestory-letter.png
+--
+
+<div class="more-info togCap">i</div><div class="caption togCap">Blind embossing on the cover of Issue 57 </div>
+
+
+# text
+--
+<h2 class="title">Clerestory</h2>
+<p>
+	Art direction for a Brown +
+	RISD journal of the arts
+</p>

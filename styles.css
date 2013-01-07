@@ -500,17 +500,16 @@ section.text {
   height: 480px;
 }
 
+.flip-wrap {
+  -webkit-perspective: 1500;
+}
+
 .flipper {
   -webkit-transform-origin: left center;
   -webkit-transform: translate3d(0,0,0);
   -webkit-transform-style: preserve-3d;
   -webkit-transition: all 0.9s;
   cursor: pointer;
-  margin: 20px  10%;
-}
-
-.flipper:hover {
-  opacity: 0.9;
 }
 
 .flipped > .flipper {

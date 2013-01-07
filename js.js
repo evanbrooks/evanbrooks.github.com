@@ -1,5 +1,6 @@
 $(function(){
 	var $view       = $(".view");
+	var $viewScroll = $(".view-content");
 	var $body       = $("body");
 	var $index      = $(".index");
 	var $matte      = $(".matte");
@@ -264,17 +265,35 @@ $(function(){
 
 	$("html").on("click", ".box-fold", function(){
 		if ( $(this).hasClass("unfolded") ){
+			$(".box-fold").parent().removeClass("box-open");
 			$(".box-fold > .frames").stepWise('backward', 6, 600, function(){
-				console.log("backward");
-			});//.parent().css("border", "5px solid red");
+				// callback
+			});
 			$(this).removeClass("unfolded");
 		}
 		else {
 			$(".box-fold > .frames").stepWise('forward', 6, 600, function(){
-				console.log("forward");
-			});//.parent().css("border", "5px solid blue");
+				$(".box-fold").parent().addClass("box-open");
+			});
 			$(this).addClass("unfolded");
 		}
+	});
+
+	$("html").on("click", ".box-insides", function(){
+		var currState = $(this).attr("data-open");
+		var goHere;
+		if (currState == "open") {
+			$(this).attr("data-open", "closed").removeClass("box-spread");
+			goHere = $(this).parent().position().top;
+			// 							  ^ don't use offset() in a scrollable div
+			$viewScroll.animate({scrollTop: goHere}, 'slow');
+		}
+		else {
+			$(this).attr("data-open", "open").addClass("box-spread");
+			goHere = $(this).prev().position().top + $(this).prev().height();
+			// 					 ^ don't use offset() in a scrollable div
+    	}
+    	$viewScroll.animate({scrollTop: goHere}, 'slow');
 	});
 
 });
@@ -282,6 +301,7 @@ $(function(){
 
 // Utility functions
 // -----------------
+
 function isTouchDevice() {
    var el = document.createElement('div');
    el.setAttribute('ongesturestart', 'return;');
@@ -299,43 +319,6 @@ function clearTextSelections() {
 	  document.selection.empty();
 	}
 }
-
-
-// ========
-
-// function stepwiseAnim(dir, frames, duration, callback) {
-// 	var timePerFrame = duration / frames;
-// 	var posPerFrame = -100; //100 / (frames-1);
-// 	var endPos = -1 * (frames-1) * 100;
-
-// 	if (dir == "backward") {
-// 		pos = endPos;
-// 		posPerFrame *= -1;
-// 	}
-// 	else if (dir == "forward") {
-// 		pos = 0;
-// 	}
-// 	else {
-// 		console.log("unkown direction for animation");
-// 	}
-
-
-// 	step();
-	
-// 	function step() {
-// 		pos += posPerFrame;
-// 		$(".box-fold > .frames").css("left", pos+"%");
-// 		if (pos > endPos && pos < 0) {
-// 			window.setTimeout(function() {
-// 			    step();
-// 			}, timePerFrame);
-// 		}
-// 		else {
-// 			$(".box-fold > .frames").removeAttr("style");
-// 			callback();
-// 		}
-// 	}
-// }
 
 /* =========== Stepwise Plugin =========== */
 
