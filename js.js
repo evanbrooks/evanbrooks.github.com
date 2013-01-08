@@ -2,6 +2,7 @@ var $view, $viewScroll, $body, $index, $matte, $currItem;
 var $itemName, $itemDate, $itemContent;
 var whichCurrItem;
 var INDEX, ITEM, view;
+var MY_EMAIL = "ebrooks@risd.edu";
 
 $(function(){
 	$view       = $(".view");
@@ -229,7 +230,7 @@ $(function(){
 
 	$("html").on("click", "[data-action = copy]", function(e){
 		e.preventDefault();
-		$(".actions input").val("evan@evn.io");
+		$(".actions input").val(MY_EMAIL);
 		//window.setTimeout( function(){
 			el = document.getElementById("email");
 			el.selectionStart=0;
