@@ -230,11 +230,11 @@ $(function(){
 	$("html").on("click", "[data-action = copy]", function(e){
 		e.preventDefault();
 		$(".actions input").val("evan@evn.io");
-		window.setTimeout( function(){
+		//window.setTimeout( function(){
 			el = document.getElementById("email");
 			el.selectionStart=0;
 			el.selectionEnd = el.value.length;
-		}, 250);
+		//}, 250);
 	});
 
 	// $(".actions input").blur(function(e){
