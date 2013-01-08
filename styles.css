@@ -112,14 +112,17 @@ nav {
 .title {
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 15px;
+  font-size: 13px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 2em;
+  width: 40px;
+  white-space: nowrap;
 }
 
 .subtitle {
   //border-bottom: 1px solid #444;
-  display: inline-block;
-  line-height: 1.5em;
-  display: none;
+  margin-top: 2em;
+  max-width: 600px;
 }
 
 .name {
@@ -132,6 +135,7 @@ nav {
   display: none;
 }
 
+.subtitle,
 .description,
 .view p {
   opacity: 0.8;
