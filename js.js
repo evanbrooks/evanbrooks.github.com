@@ -219,8 +219,9 @@ $(function(){
 
 	$("html").on("click", "[data-action = copy]", function(e){
 		e.preventDefault();
-		document.getElementById("email").selectionStart=0;
-		document.getElementById("email").selectionEnd=document.getElementById("email").value.length;
+		selectText("email");
+		//document.getElementById("email").selectionStart=0;
+		//document.getElementById("email").selectionEnd=document.getElementById("email").value.length;
 	});
 
 
@@ -375,9 +376,23 @@ function clearTextSelections() {
 	}
 }
 
-// Try to hide top bar
-// -------------------
-
+function selectText(element) {
+    var doc = document
+        , text = doc.getElementById(element)
+        , range, selection
+    ;    
+    if (doc.body.createTextRange) { //ms
+        range = doc.body.createTextRange();
+        range.moveToElementText(text);
+        range.select();
+    } else if (window.getSelection) { //all others
+        selection = window.getSelection();        
+        range = doc.createRange();
+        range.selectNodeContents(text);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    }
+}
 
 /* =========== Stepwise Plugin =========== */
 
