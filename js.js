@@ -227,7 +227,8 @@ $(function(){
 	    var range = document.createRange();
 	    range.selectNodeContents(el);
 	    sel.removeAllRanges();
-	    sel.addRange(range);		
+	    sel.addRange(range);
+	    console.log("select");
 	});
 
 
