@@ -197,7 +197,7 @@ $(function(){
 	});
 
 	// Detect resizing
-	// ------------------
+	// ----------------
 	$(window).resize(function(){
 		if (view == ITEM) {
 		}
@@ -208,9 +208,16 @@ $(function(){
 		}
 	});
 
+	// Toggle caption
+	// --------------
+
 	$("html").on("click", ".togCap", function(e){
 		$(this).parent().toggleClass("show-caption");
 	});
+
+
+	// Action sheet for contact information
+	// ------------------------------------
 
 	$("html").on("click", "[data-action = slideup]", function(e){
 		e.preventDefault();
@@ -225,7 +232,6 @@ $(function(){
 		el.selectionEnd = el.value.length;
 	});
 
-
 	$("html").on("click", ".flip-wrap", function(e){
 		type = $(this).attr("data-flip");
 		if (type == "permanent") {
@@ -235,6 +241,13 @@ $(function(){
 			$(this).toggleClass("flipped");
 		}
 	});
+
+	$(".actions input").blur(function(e){
+		$(".actions .flip-wrap").removeClass("flipped");
+	});
+
+	// Clerestory box fanciness
+	// ------------------------
 
 	$("html").on("click", ".box-fold", toggleBox);
 	$("html").on("click", ".box-toggle-btn", toggleBox);
