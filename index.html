@@ -45,8 +45,8 @@
 					</h3>
 					<hr class="dash" />
 					<p class="description">
-						A new face for a museum <br />
-						of antique toys and dolls
+						the Hop, a new face for a museum<b></b>
+						about play and making things
 					</p>
 				</div>
 			</div><div class="item">
@@ -56,9 +56,8 @@
 					</h3>
 					<hr class="dash" />
 					<p class="description">
-						Product design and branding <br />
-						for a web app catering to <br />
-						small business owners
+						Locu, a website that helps restaurants<b></b>
+						design and manage their menus
 					</p>
 				</div>
 			</div><div class="item">
@@ -68,9 +67,9 @@
 					</h3>
 					<hr class="dash" />
 					<p class="description">
-						Product and interaction <br />
-						concepts for people with <br />
-						diabetes
+						Interaction and product concepts<b></b>
+						for people with diabetes
+						
 					</p>
 				</div>
 			</div><div class="item">
@@ -80,8 +79,8 @@
 					</h3>
 					<hr class="dash" />
 					<p class="description">
-						Art direction for a Brown +<br />
-						RISD journal of the arts<br />
+						Art direction for Clerestory, a<b></b>
+						Brown + RISD journal of the arts
 					</p>
 				</div>
 			</div><div class="item">
@@ -91,18 +90,18 @@
 					</h3>
 					<hr class="dash" />
 					<p class="description">
-						Art is hairy – a proposal <br />
-						for an art museum
+						Art is hairy, a proposal<b></b>
+						for the deYoung museum
 					</p>
 				</div>
 			</div><div class="item">
 				<div class="inner"  data-item="moishe">	
 					<h3 class="name">
-						Moishe&#8217;s <!-- Hamantaschen -->
+						Moishe&#8217;s
 					</h3>
 					<hr class="dash" />
 					<p class="description">
-						Modern packaging for <br />
+						Modern packaging for<b></b>
 						a traditional food
 					</p>
 				</div>
@@ -131,8 +130,8 @@
 					Date
 				</h2>
 			</section>
-			<div class="view-content">
-				Sample content
+			<div class="view-scroller">
+				<!-- content injected here -->
 			</div>
 			<div class="grabby">
 				<i></i><i></i><i></i>
@@ -143,17 +142,12 @@
 		<div class="icon">. .</div>
 	</div>
 	<script>
-		function hideAddressBar()
-		{
-		  if(!window.location.hash)
-		  {
-		      if(document.height <= window.outerHeight)
-		      {
-		          document.body.style.height = (window.outerHeight + 60) + 'px';
-		      }
-		 
-		      setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
-		  }
+		function hideAddressBar() {
+	      if(document.height <= window.outerHeight) {
+	          document.body.style.height = (window.outerHeight + 60) + 'px';
+	      }
+	 
+	      setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
 		}
 		 
 		window.addEventListener("load", function(){ if(!window.pageYOffset){ hideAddressBar(); } } );

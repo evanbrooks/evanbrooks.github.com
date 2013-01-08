@@ -1,6 +1,6 @@
 $(function(){
 	var $view       = $(".view");
-	var $viewScroll = $(".view-content");
+	var $viewScroll = $(".view-scroller");
 	var $body       = $("body");
 	var $index      = $(".index");
 	var $matte      = $(".matte");
@@ -8,7 +8,7 @@ $(function(){
 
 	var $itemName    = $(".view .title");
 	var $itemDate    = $(".view .subtitle");
-	var $itemContent = $(".view-content");
+	var $itemContent = $(".view-scroller");
 	var whichCurrItem = "";
 
 	var strtX = 0;
