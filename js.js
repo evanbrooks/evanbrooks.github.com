@@ -221,14 +221,8 @@ $(function(){
 		e.preventDefault();
 		//selectText("email");
 		el = document.getElementById("email");
-		//el.selectionStart=0;
-		//el.selectionEnd = el.value.length;
-	    var sel = window.getSelection();
-	    var range = document.createRange();
-	    range.selectNodeContents(el);
-	    sel.removeAllRanges();
-	    sel.addRange(range);
-	    console.log("select");
+		el.selectionStart=0;
+		el.selectionEnd = el.value.length;
 	});
 
 
