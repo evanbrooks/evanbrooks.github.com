@@ -140,10 +140,12 @@ nav {
 
 .description {
   display: inline;
+  -webkit-transition: all 0.4s;
+  border-bottom: 1px solid transparent;
 }
 
 .inner:hover .description {
-  border-bottom: 1px dotted #bbb;
+  border-bottom: 1px solid #ccc;
   background: rgba(0,0,0,0.04);
 }
 
