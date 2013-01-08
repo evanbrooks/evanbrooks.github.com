@@ -212,6 +212,18 @@ $(function(){
 		$(this).parent().toggleClass("show-caption");
 	});
 
+	$("html").on("click", "[data-action = slideup]", function(e){
+		e.preventDefault();
+		$body.addClass("slideup");
+	});
+
+	$("html").on("click", "[data-action = copy]", function(e){
+		e.preventDefault();
+		document.getElementById("email").selectionStart=0;
+		document.getElementById("email").selectionEnd=document.getElementById("email").value.length;
+	});
+
+
 	$("html").on("click", ".flip-wrap", function(e){
 		$(this).toggleClass("flipped");
 	});
@@ -333,8 +345,9 @@ function openItem(whichItem) {
 }
 
 function closeItem() {
-	$body.removeClass("view-item-mode");
+	$body.removeClass("view-item-mode slideup");
 	view = INDEX;
+	console.log("close");
 	history.pushState({}, "", "/");
 	document.title = "Evan Brooks — Portfolio";
 }

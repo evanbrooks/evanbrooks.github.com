@@ -169,6 +169,7 @@ footer > a:hover {
 
 .description {
   display: inline;
+  white-space: nowrap;
   -webkit-transition: all 0.4s;
   border-bottom: 1px solid transparent;
 }
@@ -237,7 +238,7 @@ footer > a:hover {
   content:counter(li);
   counter-increment: li; 
   position: absolute;
-  left: -8%;
+  left: -9%;
   font-size: 13px;
   line-height: inherit;
   opacity: 0.7;
@@ -634,19 +635,53 @@ section.text {
   opacity: 0.7;
 }
 
+.actions {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 1em 10% 2em;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
+  -webkit-transform: translate3d(0,100%,0);
+  -webkit-transition: all 0.2s cubic-bezier(0.165, 0.415, 0.435, 0.990);
+}
+
+.actions > a {
+  display: block;
+  border: none;
+  padding: 1em 2em;
+}
+
+.actions > a:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.slideup .actions {
+  -webkit-transform: translate3d(0,0,0);
+}
+
+.slideup .overlay {
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.slideup .matte {
+  opacity: 1;
+}
 
 /**********************************************************************/
 
 
 @media (min-width: 1000px){
-  .item:nth-child(2n+2) .inner {
+  .item:nth-child(2n+2) .inner { /* Hide the right border on the second column */
     border-color: transparent;
     margin-right: 0;
     padding-right: 0;
     margin-left: 10%;
   }
 }
-/* Hide the right border on the second column */
 
 /**********************************************************************/
 
@@ -655,7 +690,10 @@ section.text {
     width: 100%;
   }
   .item .inner {
-    border: none;
+    border-color: transparent;
+  }
+  .item .inner::before {
+      left: -7%;
   }
 }
 
@@ -691,10 +729,6 @@ section.text {
   section.text {
     padding-right: 30px;
     padding-left: 30px;
-  }
-
-  .description > b {
-    display: none
   }
 
   .item .inner {
@@ -737,6 +771,16 @@ section.text {
 
   .item .inner:before {
     left: 0;
+  }
+
+  /* Using the <b> tag for
+     manual line breaks 
+  */
+  .description {
+    white-space: normal;
+  }
+  .description > b { 
+    display: none
   }
 }
 
