@@ -610,9 +610,11 @@ section.text {
 /**********************************************************************/
 
 
-@media (min-width: 700px) and (max-width: 1000px){
+@media (min-width: 700px) {
   .item:nth-child(2n+2) .inner {
     border-right: none;
+    margin-right: 0;
+    padding-right: 0;
   }
 }
 
