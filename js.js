@@ -219,9 +219,15 @@ $(function(){
 
 	$("html").on("click", "[data-action = copy]", function(e){
 		e.preventDefault();
-		selectText("email");
-		//document.getElementById("email").selectionStart=0;
-		//document.getElementById("email").selectionEnd=document.getElementById("email").value.length;
+		//selectText("email");
+		el = document.getElementById("email");
+		//el.selectionStart=0;
+		//el.selectionEnd = el.value.length;
+	    var sel = window.getSelection();
+	    var range = document.createRange();
+	    range.selectNodeContents(el);
+	    sel.removeAllRanges();
+	    sel.addRange(range);		
 	});
 
 
