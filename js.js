@@ -270,7 +270,7 @@ $(function(){
 		var $box = $(".box-fold");
 		if ( $box.hasClass("unfolded") ){
 			$(".box-fold").parent().removeClass("box-open");
-			goHere = $(".box-contents").position().top;
+			goHere = $(".box-top-point").position().top;
     		$viewScroll.animate({scrollTop: goHere}, 'slow');
 			$(".box-fold > .frames").stepWise('backward', 6, 600, function(){
 			});
@@ -290,12 +290,12 @@ $(function(){
 		var goHere;
 		if (currState == "open") {
 			$wrapper.attr("data-spread", "closed").parent().removeClass("box-spread");
-			goHere = $wrapper.parent().position().top;
+			goHere = $(".box-top-point").position().top;
 			// 							  ^ don't use offset() in a scrollable div
 		}
 		else {
 			$wrapper.attr("data-spread", "open").parent().addClass("box-spread");
-			goHere = $wrapper.prev().position().top + $wrapper.prev().height();
+			goHere = $(".box-top-point").position().top + $wrapper.prev().height();
 			// 					 ^ don't use offset() in a scrollable div
     	}
     	$viewScroll.animate({scrollTop: goHere}, 'slow');

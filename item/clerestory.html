@@ -14,6 +14,7 @@ December 2010
 .box-fold {
 	margin: 0% 10% -30%;
 	overflow: hidden;
+	position: relative;
 	-webkit-transition: margin 0.5s;
 }
 
@@ -126,6 +127,11 @@ December 2010
 	-webkit-transform: none;
 }
 
+.box-top-point {
+	position: absolute;
+	top: 30%;
+}
+
 @media (max-width: 500px) {
 	.box-contents {
 		margin: 0 -40%;
@@ -137,6 +143,7 @@ December 2010
 <div class="box-contents">
 
 	<div class="box-fold" onclick="">
+		<div class="box-top-point"></div>
 		<img class="frames" src="img/cl-anim.png" />
 	</div>
 
