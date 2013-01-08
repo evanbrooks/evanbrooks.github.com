@@ -238,9 +238,9 @@ $(function(){
 		//}, 250);
 	});
 
-	// $(".actions input").blur(function(e){
-	// 	$(".actions .flip-wrap").removeClass("flipped");
-	// });
+	$(".actions input").blur(function(e){
+		$(".actions .flip-wrap").removeClass("flipped");
+	});
 
 	// Flip the flippers
 	// -----------------
