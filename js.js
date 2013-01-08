@@ -230,15 +230,14 @@ $(function(){
 	$("html").on("click", "[data-action = copy]", function(e){
 		e.preventDefault();
 		$(".actions input").val("evan@evn.io");
-		$(this).parent().on("webkitTransitionEnd", function(){
+		window.setTimeout( function(){
 			el = document.getElementById("email");
 			el.selectionStart=0;
 			el.selectionEnd = el.value.length;
-		});
+		}, 250);
 	});
 
 	$(".actions input").blur(function(e){
-		$(this).parent().off("webkitTransitionEnd");
 		$(".actions .flip-wrap").removeClass("flipped");
 	});
 
