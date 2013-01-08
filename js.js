@@ -138,18 +138,48 @@ $(function(){
 			drag = false;
 			// If scrolled halfway over, close item
 			// ------------------------------------
-			if ( scroll == HORIZ || scroll == BOTH ) {
+			if ( scroll != VERT ) {
 				$body.removeClass("dragging");
-				if ( dX > ($(window).width()/2) ) {
-					closeItem();
+				if ( dX == 0 ) {
+					bounceView();
 				}
+				else {
+					if ( dX > ($(window).width()/2) ) {
+						closeItem();
+					}
+					$view.removeAttr("style");
+					$matte.removeAttr("style");
+				}
+				dX = 0;
 			}
 			// Snap everything else back to "normal"
 			// -------------------------------------
-			$view.removeAttr("style");
-			// $index.removeAttr("style");
-			$matte.removeAttr("style");
 		}
+	}
+
+	function bounceView(){
+		// Bounce out
+		$view.css({
+			"-webkit-transform": "translate3d(5%,0,0)",
+			"-webkit-transition": "all 0.3s cubic-bezier(0.245, 0.975, 0.605, 1.020)"
+		});
+		// Wait until bounced out, then
+		$view.on("webkitTransitionEnd", function(){
+			// Bounce back
+			$view.css({
+				"-webkit-transform": "translate3d(0%,0,0)",
+				"-webkit-transition": "all 0.4s cubic-bezier(0.470, 1.650, 0.330, 0.690)"
+			});
+			// Unbind this function
+			$view.off("webkitTransitionEnd");
+			// Wait until bounced back, then ...
+			$view.on("webkitTransitionEnd", function(){
+				// Clean up
+				$view.removeAttr("style");
+				// Remove binding
+				$view.off("webkitTransitionEnd");
+			});
+		});
 	}
 
 	// Detect back button
