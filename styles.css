@@ -640,7 +640,7 @@ section.text {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  padding: 1em 10% 2em;
+  padding: 1em 0 2em;
   background: white;
   border-radius: 3px;
   box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
@@ -651,11 +651,15 @@ section.text {
 .actions > a {
   display: block;
   border: none;
-  padding: 1em 2em;
+  padding: 1em 10%;
 }
 
 .actions > a:hover {
   background: rgba(0,0,0,0.05);
+}
+
+#email {
+  width: 50px;
 }
 
 .slideup .actions {
