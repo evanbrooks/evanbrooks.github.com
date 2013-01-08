@@ -121,7 +121,13 @@
 			<!--<span id="email">evan@evn.io"</span>-->
 			<a href="#">Cancel</a>
 		</div>
-		<div class="view">
+		<div class="view" id="iScroll">
+			<div class="view-scroller">
+				<!-- content injected here -->
+			</div>
+			<div class="grabby">
+				<i></i><i></i><i></i>
+			</div>
 			<section class="view-header text" style="display: none">
 				<h1 class="title">
 					Title
@@ -130,12 +136,6 @@
 					Date
 				</h2>
 			</section>
-			<div class="view-scroller">
-				<!-- content injected here -->
-			</div>
-			<div class="grabby">
-				<i></i><i></i><i></i>
-			</div>
 		</div>
 	</div>
 	<div class="spinner">
@@ -147,6 +147,11 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   	<script type="text/javascript" src="jquery.wait.min.js"></script>
   	<script type="text/javascript" src="js.js"></script>
+  	<script type="text/javascript" src="iscroll-lite.js"></script>
   	<!--<script type="text/javascript" src="hidebar.js"></script>-->
+  	<script type="text/javascript">
+		var myScroll = new iScroll('iScroll');
+		$("body").addClass("i-scroll");
+  	</script>
 
 </body>

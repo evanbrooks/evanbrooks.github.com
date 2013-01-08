@@ -359,6 +359,9 @@ function openItem(whichItem) {
 
 			$view.waitForImages(function() {    
 				$body.removeClass("loading").addClass("view-item-mode");
+				setTimeout(function () {
+					myScroll.refresh();
+				}, 0);
 			});  
 
 		}).error( function(xhr, textStatus, errorThrown){

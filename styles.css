@@ -351,11 +351,12 @@ footer > a:hover {
   -webkit-transform: translate3d(0%, 0, 0);
 }
 
-.view-scroller {
+body:not(.i-scroll) .view-scroller {
   overflow: scroll;
   height: 100%;
   -webkit-overflow-scrolling: touch;
 }
+
 
 .spinner {
   -webkit-transition: all 1s;
