@@ -104,6 +104,10 @@ nav {
   margin:  0%  10%;
 }
 
+footer {
+  padding: 5% 0 12%;
+  margin:  0%  10%;
+}
 
 
 /* Type
@@ -113,10 +117,30 @@ nav {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 13px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 2em;
   width: 40px;
   white-space: nowrap;
+}
+
+nav .title {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2em;
+}
+
+footer {
+  border-top: 1px solid #ddd;
+  padding-top: 2em;
+  width: 40px;
+  white-space: nowrap;
+}
+
+footer > a {
+  opacity: 0.5;
+  margin-right: 20px;
+  border-color: transparent;
+}
+
+footer > a:hover {
+  opacity: 0.8;
 }
 
 .subtitle {
@@ -124,6 +148,7 @@ nav {
   margin-top: 2em;
   max-width: 540px;
 }
+
 
 .name {
   padding-bottom: 0.3em;
@@ -190,12 +215,9 @@ nav {
 
 .item {
   width: 50%;
-  //max-width: 350px;
-  //height: 100px;
   vertical-align: top;
   display: inline-block;
-  // padding-right: 50px;
-  margin-bottom: 70px;
+  margin-bottom: 4em;
 }
 
 .item .inner {
@@ -213,9 +235,12 @@ nav {
 
 .item .inner:before {
   content:counter(li);
-  counter-increment:li; 
+  counter-increment: li; 
   position: absolute;
-  left: -45px;
+  left: -8%;
+  font-size: 13px;
+  line-height: inherit;
+  opacity: 0.7;
 }
 
 .view-item-mode .item .active {
@@ -613,7 +638,6 @@ section.text {
 /**********************************************************************/
 
 
-
 @media (min-width: 1000px){
   .item:nth-child(2n+2) .inner {
     border-color: transparent;
@@ -622,7 +646,7 @@ section.text {
     margin-left: 10%;
   }
 }
-
+/* Hide the right border on the second column */
 
 /**********************************************************************/
 
@@ -635,10 +659,13 @@ section.text {
   }
 }
 
-@media (max-width: 500px){
+/**********************************************************************/
+
+
+@media (max-width: 600px){
 
   nav {
-    padding: 50px 0 30px;
+    //padding: 50px 0 30px;
   }
 
   .items {
@@ -646,7 +673,7 @@ section.text {
   }
 
   .subtitle {
-    padding: 0;
+    //padding: 0;
   }
 
   .index {
@@ -680,9 +707,10 @@ section.text {
     width: 100%;
     margin-right: 0%;
   }
-
-  .text p {
-    font-size: 16px;
+  .subtitle,
+  .description,
+  .view p {
+    font-size: 17px;
   }
 
   .meta > li > b {
@@ -698,9 +726,17 @@ section.text {
 
 
 
-@media (max-width: 350px){
+@media (max-width: 400px){
   .view {
     //left: 18px;
+  }
+
+  .item .inner {
+    padding-left: 12%;
+  }
+
+  .item .inner:before {
+    left: 0;
   }
 }
 
