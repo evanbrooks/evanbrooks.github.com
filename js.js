@@ -157,6 +157,9 @@ $(function(){
 		}
 	}
 
+
+	// Bounce the view when the grab bar is tapped
+	// -------------------------------------------
 	function bounceView(){
 		// Bounce out
 		$view.css({
@@ -226,11 +229,21 @@ $(function(){
 
 	$("html").on("click", "[data-action = copy]", function(e){
 		e.preventDefault();
-		//selectText("email");
-		el = document.getElementById("email");
-		el.selectionStart=0;
-		el.selectionEnd = el.value.length;
+		$(".actions input").val("evan@evn.io");
+		$(this).parent().on("webkitTransitionEnd", function(){
+			el = document.getElementById("email");
+			el.selectionStart=0;
+			el.selectionEnd = el.value.length;
+		});
 	});
+
+	$(".actions input").blur(function(e){
+		$(this).parent().off("webkitTransitionEnd");
+		$(".actions .flip-wrap").removeClass("flipped");
+	});
+
+	// Flip the flippers
+	// -----------------
 
 	$("html").on("click", ".flip-wrap", function(e){
 		type = $(this).attr("data-flip");
@@ -240,10 +253,6 @@ $(function(){
 		else {
 			$(this).toggleClass("flipped");
 		}
-	});
-
-	$(".actions input").blur(function(e){
-		$(".actions .flip-wrap").removeClass("flipped");
 	});
 
 	// Clerestory box fanciness
