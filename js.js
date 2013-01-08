@@ -158,6 +158,7 @@ $(function(){
 			whichCurrItem = whichItem;
 			url = "/item/"+whichItem+".html";
 			$body.addClass("loading");
+			$viewScroll.scrollTop(0);
 			$.ajax(url).done(function ( data ) {
 				content = data.split('==');
 
@@ -173,7 +174,7 @@ $(function(){
 				var html = "";
 
 				// per http://cubiq.org/testing-memory-usage-on-mobile-safari,
-				// switching to appendChild instead of innerHTML
+				// consider switching to appendChild instead of innerHTML
 
 				$itemContent.html("");
 
@@ -189,13 +190,6 @@ $(function(){
 					}
 					html += "<section "+ attrHtml +">";
 					html += img;
-					// paragraph = content[1].split("\n\n");
-					// if (paragraph.length > 1) {
-					// 	for (j = 0; j < paragraph.length; j++) {
-					// 		html += "<p>" + paragraph[j] + "</p>";
-					// 		console.log(j);
-					// 	}
-					// }
 					html += content[1];
 
 					html += "</section>";
