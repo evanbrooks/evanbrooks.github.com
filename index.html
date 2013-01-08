@@ -110,11 +110,18 @@
 		</div>
 		<div class="actions">
 			<a href="mailto:ebrooks@risd.edu">New message</a>
-			<a href="#" data-action="copy">
-				Copy address
-				to clipboard
-			</a>
-			<input id="email" value="evan@evn.io" readonly="readonly" />
+			<div class="flip-wrap small" data-flip="permanent">
+				<div class="flipper flipper-horiz">
+					<div class="obverse">
+						<a href="#" data-action="copy">
+							Copy addressto clipboard
+						</a>
+					</div>
+					<div class="reverse">
+						<input id="email" value="evan@evn.io" />
+					</div>
+				</div>
+			</div>
 			<!--<span id="email">evan@evn.io"</span>-->
 			<a href="#">Cancel</a>
 		</div>

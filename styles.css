@@ -557,6 +557,11 @@ section.text {
   -webkit-perspective: 1500;
 }
 
+.flip-wrap.small {
+  -webkit-perspective: 500;
+}
+
+
 .flipper {
   -webkit-transform-origin: left center;
   -webkit-transform: translate3d(0,0,0);
@@ -569,6 +574,15 @@ section.text {
   -webkit-transform: translate3d(100%,0,0) rotateY(-180deg);
 }
 
+.flipper.flipper-horiz {
+  -webkit-transform-origin: center center;
+  -webkit-transition: all 0.4s;
+}
+
+.flipped > .flipper.flipper-horiz {
+  -webkit-transform: rotateX(-180deg);
+}
+
 .flipper > .obverse {
   -webkit-backface-visibility: hidden;
 }
@@ -579,6 +593,12 @@ section.text {
   position: absolute;
   top: 0px;
   left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.flipper.flipper-horiz > .reverse {
+  -webkit-transform: rotateX(180deg);
 }
 
 .flipper img {
@@ -640,26 +660,37 @@ section.text {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  padding: 1em 0 2em;
-  background: white;
   border-radius: 3px;
   box-shadow: 0 -1px 2px rgba(0,0,0,0.1);
   -webkit-transform: translate3d(0,100%,0);
   -webkit-transition: all 0.2s cubic-bezier(0.165, 0.415, 0.435, 0.990);
 }
 
-.actions > a {
+.actions a,
+.actions input {
   display: block;
   border: none;
-  padding: 1em 10%;
+  padding: 1.3em 10%;
+  background: white;
 }
 
-.actions > a:hover {
-  background: rgba(0,0,0,0.05);
+.actions a:hover {
+  background: #f4f4f4;
 }
 
 #email {
-  width: 50px;
+  -webkit-appearance: none;
+  font: inherit;
+  width: 100%;
+  border: none;
+  margin: 0px;
+}
+
+#email:focus {
+  border: none;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+  background: #f4f4f4;
 }
 
 .slideup .actions {

@@ -227,7 +227,13 @@ $(function(){
 
 
 	$("html").on("click", ".flip-wrap", function(e){
-		$(this).toggleClass("flipped");
+		type = $(this).attr("data-flip");
+		if (type == "permanent") {
+			$(this).addClass("flipped");
+		}
+		else {
+			$(this).toggleClass("flipped");
+		}
 	});
 
 	$("html").on("click", ".box-fold", toggleBox);
