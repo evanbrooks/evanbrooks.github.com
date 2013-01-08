@@ -1,15 +1,20 @@
-$(function(){
-	var $view       = $(".view");
-	var $viewScroll = $(".view-scroller");
-	var $body       = $("body");
-	var $index      = $(".index");
-	var $matte      = $(".matte");
-	var $currItem   = null;
+var $view, $viewScroll, $body, $index, $matte, $currItem;
+var $itemName, $itemDate, $itemContent;
+var whichCurrItem;
+var INDEX, ITEM, view;
 
-	var $itemName    = $(".view .title");
-	var $itemDate    = $(".view .subtitle");
-	var $itemContent = $(".view-scroller");
-	var whichCurrItem = "";
+$(function(){
+	$view       = $(".view");
+	$viewScroll = $(".view-scroller");
+	$body       = $("body");
+	$index      = $(".index");
+	$matte      = $(".matte");
+	$currItem   = null;
+
+	$itemName    = $(".view .title");
+	$itemDate    = $(".view .subtitle");
+	$itemContent = $(".view-scroller");
+	whichCurrItem = "";
 
 	var strtX = 0;
 	var strtY = 0;
@@ -19,11 +24,10 @@ $(function(){
 
 	var scrollPos    = 0;
 	var newScrollPos = 0;
-	var sectionTops  = new Array();
 
-	var INDEX  = 0; // const
-	var ITEM   = 1;  // const
-	var view   = INDEX;
+	INDEX  = 0; // const
+	ITEM   = 1;  // const
+	view   = INDEX;
 
 	var VERT   = 0;
 	var HORIZ  = 1;
@@ -148,78 +152,6 @@ $(function(){
 		}
 	}
 
-	// Open or close item
-	// ------------------
-	function openItem(whichItem) {
-		history.pushState({}, "", "#/"+whichItem);
-		view = ITEM;
-
-		if ( whichItem != whichCurrItem ){
-			whichCurrItem = whichItem;
-			url = "/item/"+whichItem+".html";
-			$body.addClass("loading");
-			$viewScroll.scrollTop(0);
-			$.ajax(url).done(function ( data ) {
-				content = data.split('==');
-
-				// Parse metadata
-				// --------------
-				document.title = "Evan Brooks — "+content[0];
-				$itemName.html(content[0]);
-				$itemDate.html(content[1]);
-
-				// Parse content
-				// -------------
-				var section = content[2].split('\n#');
-				var html = "";
-
-				// per http://cubiq.org/testing-memory-usage-on-mobile-safari,
-				// consider switching to appendChild instead of innerHTML
-
-				$itemContent.html("");
-
-				for (i = 1; i < section.length; i++){
-					//   ^ discard first section because we start with #
-					content = section[i].split('\n--');
-					attr = content[0].split(': ');
-					attrHtml = "class=\""+attr[0]+"\"";
-					var img = "";
-					if (attr.length > 1) {
-						//attrHtml += "style=\"background-image: url('"+attr[1]+"')\"";
-						img = "<img src=\""+attr[1]+"\">";
-					}
-					html += "<section "+ attrHtml +">";
-					html += img;
-					html += content[1];
-
-					html += "</section>";
-				}
-				$itemContent.append(html);
-
-				$view.waitForImages(function() {    
-					$body.removeClass("loading").addClass("view-item-mode");
-				});  
-
-			}).error( function(xhr, textStatus, errorThrown){
-				document.title = "Evan Brooks — Nothing";
-				$itemName.html("");
-				$itemDate.html("");
-				$itemContent.html("<section class=\"text\">Not available right now</section>");
-				$body.removeClass("loading").addClass("view-item-mode");
-			});
-		}
-		else {
-			$body.addClass("view-item-mode");
-		}
-	}
-
-	function closeItem() {
-		$body.removeClass("view-item-mode");
-		view = INDEX;
-		history.pushState({}, "", "/");
-		document.title = "Evan Brooks — Portfolio";
-	}
-
 	// Detect back button
 	// ------------------
 	window.addEventListener('popstate', function(event) {
@@ -304,6 +236,79 @@ $(function(){
 	}
 
 });
+
+// Open or close item
+// ------------------
+function openItem(whichItem) {
+	history.pushState({}, "", "#/"+whichItem);
+	view = ITEM;
+
+	if ( whichItem != whichCurrItem ){
+		whichCurrItem = whichItem;
+		url = "/item/"+whichItem+".html";
+		$body.addClass("loading");
+		$viewScroll.scrollTop(0);
+		$.ajax(url).done(function ( data ) {
+			content = data.split('==');
+
+			// Parse metadata
+			// --------------
+			document.title = "Evan Brooks — "+content[0];
+			$itemName.html(content[0]);
+			$itemDate.html(content[1]);
+
+			// Parse content
+			// -------------
+			var section = content[2].split('\n#');
+			var html = "";
+
+			// per http://cubiq.org/testing-memory-usage-on-mobile-safari,
+			// consider switching to appendChild instead of innerHTML
+
+			$itemContent.html("");
+
+			for (i = 1; i < section.length; i++){
+				//   ^ discard first section because we start with #
+				content = section[i].split('\n--');
+				attr = content[0].split(': ');
+				attrHtml = "class=\""+attr[0]+"\"";
+				var img = "";
+				if (attr.length > 1) {
+					//attrHtml += "style=\"background-image: url('"+attr[1]+"')\"";
+					img = "<img src=\""+attr[1]+"\">";
+				}
+				html += "<section "+ attrHtml +">";
+				html += img;
+				html += content[1];
+
+				html += "</section>";
+			}
+			$itemContent.append(html);
+
+			$view.waitForImages(function() {    
+				$body.removeClass("loading").addClass("view-item-mode");
+			});  
+
+		}).error( function(xhr, textStatus, errorThrown){
+			document.title = "Evan Brooks — Nothing";
+			$itemName.html("");
+			$itemDate.html("");
+			$itemContent.html("<section class=\"text\">Not available right now</section>");
+			$body.removeClass("loading").addClass("view-item-mode");
+		});
+	}
+	else {
+		$body.addClass("view-item-mode");
+	}
+}
+
+function closeItem() {
+	$body.removeClass("view-item-mode");
+	view = INDEX;
+	history.pushState({}, "", "/");
+	document.title = "Evan Brooks — Portfolio";
+}
+
 
 
 // Utility functions
