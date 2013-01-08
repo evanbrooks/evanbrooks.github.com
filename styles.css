@@ -57,16 +57,16 @@ a:hover {
 
 .icon {
   display: inline-block;
-  width: 30px;
+  width: 1.4em;
   margin: -15px;
-  padding: 5px;
+  padding: 0px;
   border-radius: 50%;
 
   border: none;
   box-shadow: 0 0 0 0px rgba(0,0,0,0);
 
   font-size: 16px;
-  line-height: 20px;
+  line-height: 1.4em;
 
   text-align: center;
   cursor: pointer;
@@ -76,7 +76,7 @@ a:hover {
 .icon:hover {
   background: rgba(0,0,0,0.05);
   opacity: 1;
-  box-shadow: 0 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 0 15px rgba(0,0,0,0.05);
 }
 
 
@@ -113,7 +113,7 @@ nav {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 13px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ddd;
   padding-bottom: 2em;
   width: 40px;
   white-space: nowrap;
@@ -122,7 +122,7 @@ nav {
 .subtitle {
   //border-bottom: 1px solid #444;
   margin-top: 2em;
-  max-width: 500px;
+  max-width: 540px;
 }
 
 .name {
@@ -178,15 +178,15 @@ nav {
   -webkit-transform: scale(0.96);/* translate3d(0,0,0) scale(0.95);*/
 }
 
-.item-wrapper{
-  padding: 40px 0  ;
-  margin:   0%  10%;
-}
-
-
 
 /* Items 
    ----- */
+
+.items {
+  padding: 40px 0  ;
+  margin:   0%  10%;
+  counter-reset: li;
+}
 
 .item {
   width: 50%;
@@ -200,14 +200,22 @@ nav {
 
 .item .inner {
   cursor: pointer;
-  -webkit-transition: 0.5s;
+  -webkit-transition: background 0.5s, border 0.5s;
   padding-right: 10%;
   margin-right: 10%;
   border-right: 1px solid #DDD;
+  position: relative;
 }
 
 .item .inner:hover {
   //background: rgba(0,0,0,0.04);
+}
+
+.item .inner:before {
+  content:counter(li);
+  counter-increment:li; 
+  position: absolute;
+  left: -45px;
 }
 
 .view-item-mode .item .active {
@@ -608,19 +616,10 @@ section.text {
 
 @media (min-width: 1000px){
   .item:nth-child(2n+2) .inner {
-    border-right: none;
-  }
-}
-
-
-/**********************************************************************/
-
-
-@media (min-width: 700px) {
-  .item:nth-child(2n+2) .inner {
-    border-right: none;
+    border-color: transparent;
     margin-right: 0;
     padding-right: 0;
+    margin-left: 10%;
   }
 }
 
@@ -642,7 +641,7 @@ section.text {
     padding: 50px 0 30px;
   }
 
-  .item-wrapper {
+  .items {
     //padding: 0px;
   }
 
