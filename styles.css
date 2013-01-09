@@ -457,6 +457,11 @@ body:not(.i-scroll) .view-scroller {
   max-width: none;
 }
 
+.view .img.small > img {
+  max-width: 100%;
+  width: auto;
+}
+
 .view .img.sidebyside > img{
   width: 48%;
   margin-right: 2%;
@@ -555,12 +560,13 @@ body:not(.i-scroll) .view-scroller {
 
 .ipad img {
   width: 100%;
-  max-width: 989px;
+  max-width: 800px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .ipad {
-    margin: 0 -20%;
+    margin: 0 -100% 0 20%;
+    padding-bottom: 10%;
   }
 }
 
