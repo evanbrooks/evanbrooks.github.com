@@ -15,8 +15,8 @@ function toggleBox(e){
 	}
 	else if ( boxState == "unfolded" ){
 		$(".box-fold").parent().removeClass("box-open");
-		goHere = $(".box-top-point").position().top;
-		$viewScroll.animate({scrollTop: goHere}, 'slow');
+		goHere = $(".box-top-point").offset().top;
+		clScrollTo(goHere);
 		$(".box-fold > .frames").stepWise('backward', 6, 600, function(){
 		});
 		$box.removeClass("unfolded");
@@ -37,15 +37,24 @@ function toggleSpread(e){
 	var goHere;
 	if (spreadState == "spread") {
 		$wrapper.attr("data-spread", "stacked").removeClass("box-spread");
-		goHere = $(".box-top-point").position().top;
-		// 							  ^ don't use offset() in a scrollable div
+		goHere = $(".box-top-point").offset().top;
 	}
 	else {
 		$wrapper.attr("data-spread", "spread").addClass("box-spread");
-		goHere = $(".box-fold").position().top + $(".box-fold").height();
-		// 					 ^ don't use offset() in a scrollable div
+		goHere = $(".box-fold").offset().top + $(".box-fold").height();
 	}
-	$viewScroll.animate({scrollTop: goHere}, 'slow');
+	clScrollTo(goHere);
+}
+
+function clScrollTo(pos) {
+	if (IS_TOUCH) {
+		// do it my way
+	}
+	else {
+		var currScroll = $viewScroll.scrollTop();
+		var newScroll = pos + currScroll;
+		$viewScroll.animate({scrollTop: newScroll}, 'slow');
+	}
 }
 
 /* =========== Stepwise Plugin =========== */

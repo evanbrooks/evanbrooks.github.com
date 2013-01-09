@@ -76,6 +76,8 @@ a:hover {
 }
 
 
+/*---------------------------------------------*/
+
 
 /* Layout
    ------ */
@@ -104,6 +106,10 @@ footer {
   padding: 5% 0 12%;
   margin:  0%  10%;
 }
+
+
+/*---------------------------------------------*/
+
 
 
 /* Type
@@ -145,7 +151,6 @@ footer > a:hover {
   max-width: 540px;
 }
 
-
 .name {
   padding-bottom: 0.3em;
   margin-bottom: 0.7em;
@@ -160,7 +165,7 @@ footer > a:hover {
 .desc,
 .view p {
   opacity: 0.8;
-  font: 22px/1.3em awsans;
+  font: 20px/1.3em awsans;
 }
 
 .desc {
@@ -183,6 +188,8 @@ footer > a:hover {
 }
 
 
+/*---------------------------------------------*/
+
 
 /* Index 
    ----- */
@@ -204,20 +211,15 @@ footer > a:hover {
 }
 
 
+/*---------------------------------------------*/
+
+
 /* Items 
    ----- */
 
 .item-lists {
   margin: 0 10%;
   max-width: 1100px;
-}
-
-.items {
-  //padding: 40px 0  ;
-  //margin:   0%  10%;
-  width: 50%;
-  display: inline-block;
-  vertical-align: top;
 }
 
 .items > li {
@@ -238,6 +240,8 @@ footer > a:hover {
   opacity: 0.7;
 }
 
+
+/*---------------------------------------------*/
 
 
 /* Overlay 
@@ -260,6 +264,10 @@ footer > a:hover {
   pointer-events: auto;
   -webkit-transition: all 1s cubic-bezier(0,1,0,1);
 }
+
+
+/*---------------------------------------------*/
+
 
 /* Matte 
    ----- */
@@ -290,6 +298,10 @@ footer > a:hover {
   opacity: 0;
 }
 
+
+/*---------------------------------------------*/
+
+
 /* Grabby
    ------ */
 
@@ -315,6 +327,10 @@ footer > a:hover {
   height: 30px;
   margin: -15px 1px;
 }
+
+
+/*---------------------------------------------*/
+
 
 /* View
    ---- */
@@ -348,11 +364,6 @@ body:not(.i-scroll) .view-scroller {
 
 .view-header {
   padding-top: 80px;
-}
-
-section.text {
-  padding-right: 100px;
-  padding-left: 100px;
 }
 
 .item-mode {
@@ -455,8 +466,13 @@ section.text {
 
 .view .fig {
   text-align: center;
-  overflow: visible;
+  overflow: hidden;
 }
+
+
+/*---------------------------------------------*/
+
+
 
 /* iPhone widget
    ------------- */
@@ -497,6 +513,60 @@ section.text {
   width: 320px;
   height: 480px;
 }
+
+
+/*---------------------------------------------*/
+
+
+
+/* iPad widget
+   ----------- */
+
+.ipad {
+  display: inline-block;
+}
+
+.ipad-back {
+  margin: 80px 0;
+  display: inline-block;
+  //background: rgba(230,230,230,0.75);
+  border-radius: 20px;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: all 1s;
+  -webkit-transform: rotateX(0deg) rotateZ(-16deg) rotateY(30deg) rotateX(15deg);
+}
+
+.ipad:hover .ipad-back{
+  //-webkit-transform: none;
+}
+
+.ipad-front{
+  padding: 5%;
+  border-radius: 5%;
+  -webkit-transform: translate3d(0,0,40px);
+  background: #333;
+  box-shadow: 0px 0px 0 5px white;
+  -webkit-transition: all 1s;
+}
+
+.ipad:hover .ipad-front{
+  //box-shadow: 0px 0px 0 5px white;
+}
+
+.ipad img {
+  width: 100%;
+  max-width: 989px;
+}
+
+@media (max-width: 500px) {
+  .ipad {
+    margin: 0 -20%;
+  }
+}
+
+
+/*---------------------------------------------*/
+
 
 /* Flip widget
    ----------- */
@@ -553,13 +623,16 @@ section.text {
   width: 100%;
 }
 
+
+/*---------------------------------------------*/
+
+
 /* View content
    ------------ */
 
-.view section.text {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  max-width: 700px;
+.view .text {
+  padding: 2em 6em;
+  max-width: 750px;
   margin: auto;
 }
 
@@ -568,7 +641,8 @@ section.text {
 }
 
 .view p {
-  margin: 0 0 2em;
+  margin: 0 auto 2em;
+  max-width: 700px;
 }
 
 .view p b {
@@ -585,6 +659,10 @@ section.text {
 .view p.sub {
   display: none;
 }
+
+
+/*---------------------------------------------*/
+
 
 /* Meta section
    ------------ */
@@ -608,6 +686,10 @@ section.text {
   display: inline-block;
   opacity: 0.7;
 }
+
+
+/*---------------------------------------------*/
+
 
 /* Action sheet
    ------------ */
@@ -663,6 +745,10 @@ section.text {
   -webkit-transform: translate3d(0,0,0);
 }
 
+
+/*---------------------------------------------*/
+
+
 /* Loading
    ------- */
    
@@ -710,10 +796,21 @@ section.text {
   -webkit-animation: spin 0.7s linear infinite;
 }
 
+
 /**********************************************************************/
+
+/* 2-column
+   -------- */
 
 
 @media (min-width: 960px){
+
+  .items {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+  }
+
   .items.l > li { /* Hide the right border on the second column */
     border-right: 1px solid #DDD;
   }
@@ -727,15 +824,14 @@ section.text {
   }
 }
 
+
+
 /**********************************************************************/
 
-@media (max-width: 1200px) {
-  .subtitle,
-  .desc,
-  .view p {
-    font-size: 20px;
-  }
-}
+
+/* 1-column
+   -------- */
+
 
 @media (max-width: 960px) {
   .items {
@@ -749,6 +845,26 @@ section.text {
 /**********************************************************************/
 
 
+/* XXL
+   --- */
+
+
+@media (min-width: 1300px) {
+  .subtitle,
+  .desc,
+  .view p {
+    font-size: 22px;
+  }
+}
+
+
+/**********************************************************************/
+
+
+/* Mobile
+   ------ */
+
+
 @media (max-width: 600px){
 
   .view {
@@ -759,9 +875,9 @@ section.text {
     padding-top: 50px;
   }
 
-  section.text {
-    padding-right: 30px;
-    padding-left: 30px;
+  .view .text {
+    padding-right: 4em;
+    padding-left: 4em;
   }
 
   .view .img.sidebyside > img {
@@ -786,6 +902,9 @@ section.text {
 
 /**********************************************************************/
 
+
+/* Tiny
+   ---- */
 
 
 @media (max-width: 500px){

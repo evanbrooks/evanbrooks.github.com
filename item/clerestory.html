@@ -3,142 +3,27 @@ Clerestory
 December 2010
 ==
 
-# img
+# text
 --
-<style>
+<p class="h3">A journal of the arts</p>
 
-.box-contents {
-	margin-bottom: 30px;
-}
+<p>
+  Clerestory is one of the oldest literary magazines on College Hill in Providence. We received submissions of visual art, music, prose, and poetry from Brown and RISD. As Design Editor, I planned, designed, and printed each issue around the pieces our staff selected.
+</p>
+<p>
+  The journal reinvents itself each time it is published. We leave the format at 7" by 5" and the cover in black and white, but otherwise we use the design tell a new story each time.
+</p>
 
-.box-fold {
-	margin: 0% 10% -30%;
-	overflow: hidden;
-	position: relative;
-	-webkit-transition: margin 0.5s;
-}
+# img overflow
+--
 
-.box-fold.unfolded {
-	margin-bottom: 0%;
-}
+<link rel="stylesheet" href="clerestory.css" >
 
-.box-fold > .frames {
-	width: 600%;
-	left: 0%;
-	position: relative;
-}
-
-.box-fold.unfolded > .frames {
-	left: -500%;
-	margin-bottom: 0;
-}
-
-.box-spread .box-fold.unfolded {
-	background-image: url("img/cl-fold-box-inside.png");
-	background-size: 100% 100%;
-}
-
-.box-spread .box-fold.unfolded > .frames {
-	opacity: 0;
-}
-
-.box-items > li {
-	-webkit-transition: margin 1s,
-						max-height 1s,
-						box-shadow 0.2s,
-						background 0.2s,
-						-webkit-transform 0.2s,
-						opacity 1s;
-	//visibility: hidden;
-	margin: 1% 25% 0;
-	max-height: 0px;
-	-webkit-transform: translate3d(0,0,0);
-	/* To fix z-indexing */
-	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0);
-}
-
-.box-spread .box-item:hover {
-	//background: rgba(0,0,0,0.05);
-	//box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
-	-webkit-transform: scale(1.05) rotate(-1deg);
-}
-
-.box-items {
-	display: none;
-	//opacity: 0;
-	//pointer-events: none;
-	-webkit-transition: margin 1s;
-	//-webkit-transform: translate3d(0,-700px,0);
-	margin: -72% 0 72%;
-}
-
-.box-open .box-items {
-	display: block;
-	//opacity: 1;
-	//pointer-events: auto;
-}
-
-.box-spread .box-items {
-	//-webkit-transform: translate3d(0,0,0);
-	margin: 0px;
-}
-
-.box-spread .box-items > li {
-	margin-top: 0px;
-	max-height: 600px;
-}
-
-.box-items > li > img {
-	width: 100%;
-}
-
-.box-items > .divider {
-	border-bottom: 1px solid rgba(0,0,0,0.1);
-	text-align: center;
-	margin: 0 5% 15px;
-	opacity: 0;
-}
-
-.box-spread .box-items > .divider {
-	opacity: 1;
-}
-
-.box-items > .divider > h4 {
-	position: relative;
-	background: whitesmoke;
-	display: inline-block;
-	bottom: -12px;
-	padding: 0 15px;
-}
-
-.box-toggle-btn {
-	position: relative;
-	left: 50%;
-	-webkit-transform: rotate(-45deg);
-	margin-bottom: 30px;
-	opacity: 0.6;
-}
-
-.box-toggle-btn:hover {
-	border: none;
-}
-
-.box-open .box-toggle-btn {
-	-webkit-transform: none;
-}
-
-.box-top-point {
-	position: absolute;
-	top: 30%;
-}
-
-@media (max-width: 500px) {
-	.box-contents {
-		margin: 0 -40%;
-	}
-}
-
-</style>
+<div class="text">
+	<p class="h3">
+		Issue 43
+	</p>
+</div>
 
 <div class="box-contents">
 
@@ -165,13 +50,20 @@ December 2010
 		<li><img src="img/cl-folder-innerwhite-front.png"/></li>
 		<li><img src="img/cl-folder-innerwhite-front.png"/></li>
 	</ul>
-	<a href="#" class="box-toggle-btn icon">✕</a>
+	<div class="box-toggle-btn">
+		<a href="#">
+			<span class="open">See inside</span>
+			<span class="close">Close issue</span>
+		</a>
+	</div>
 </div>
 
 # text
 --
-<p class="h3">This is all about Clerestory </p>
 
+<p class="h3">
+	Issue 44
+</p>
 <p>Hello there </p>
 
 # img contain: img/clerestory.png
