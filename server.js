@@ -16,6 +16,18 @@ var url = require("url");						// for parsing URLs
 //     response.send('Hello Express!!');
 // });
 
+var compressor = require('node-minify');
+
+new compressor.minify({
+    type: 'gcc',
+    fileIn: ['js/jquery.wait.min.js', 'js/drag.js', 'js/clerestory.js', 'js/iscroll-lite.js', 'js/js.js'],
+    fileOut: 'evn.min.js',
+    callback: function(err){
+        console.log(err);
+    }
+});
+
+
 // Access files in the same directory this file is in
 // --------------------------------------------------
 application.use(express.static(__dirname));
