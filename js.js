@@ -43,7 +43,7 @@ $(function(){
 	// ---------------------
 
 	// Open item
-	$(".item .inner").click(function(e){
+	$("html").on("click", ".inner", function(e){
 		if ($currItem != null)
 			$currItem.removeClass("active"); // remove from old item
 		$currItem = $(this);			     // switch to new item
