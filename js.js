@@ -90,7 +90,7 @@ $(function(){
 			}
 			drag = true;
 			scroll = BOTH;
-			$body.addClass("dragging");
+			//$body.addClass("dragging");
 		}
 	}
 
