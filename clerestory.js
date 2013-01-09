@@ -47,3 +47,46 @@ function toggleSpread(e){
 	}
 	$viewScroll.animate({scrollTop: goHere}, 'slow');
 }
+
+/* =========== Stepwise Plugin =========== */
+
+(function( $ ){
+
+  $.fn.stepWise = function(dir, frames, duration, callback) {
+	var timePerFrame = duration / frames;
+	var posPerFrame = -100; //100 / (frames-1);
+	var endPos = -1 * (frames-1) * 100;
+	var framestrip = this;
+
+	if (dir == "backward") {
+		pos = endPos;
+		posPerFrame *= -1;
+	}
+	else if (dir == "forward") {
+		pos = 0;
+	}
+	else {
+		console.log("unkown direction for animation");
+	}
+
+
+	step();
+	return framestrip;
+
+	function step() {
+		pos += posPerFrame;
+		framestrip.css("left", pos+"%");
+		if (pos > endPos && pos < 0) {
+			window.setTimeout(function() {
+			    step();
+			}, timePerFrame);
+		}
+		else {
+			$(".box-fold > .frames").removeAttr("style");
+			callback();
+		}
+	}
+  };
+
+})( jQuery );
+

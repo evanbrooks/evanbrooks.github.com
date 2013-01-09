@@ -39,8 +39,10 @@ $(function(){
 		$("body").addClass("i-scroll");
 	}
 
-	// On click
-	// --------
+	// Button click handlers
+	// ---------------------
+
+	// Open item
 	$(".item .inner").click(function(e){
 		if ($currItem != null)
 			$currItem.removeClass("active"); // remove from old item
@@ -51,6 +53,10 @@ $(function(){
 
 	$matte.click(closeItem);
 
+	// Toggle caption
+	$("html").on("click", ".togCap", function(e){
+		$(this).parent().toggleClass("show-caption");
+	});
 
 	draggingSetup();
 
@@ -71,15 +77,7 @@ $(function(){
 	// Detect resizing
 	// ----------------
 	$(window).resize(iRefresh);
-
 	$(window).on("onorientationchange", iRefresh);
-
-	// Toggle caption
-	// --------------
-
-	$("html").on("click", ".togCap", function(e){
-		$(this).parent().toggleClass("show-caption");
-	});
 
 
 	// Action sheet for contact information
@@ -106,8 +104,10 @@ $(function(){
 
 	// Flip the flippers
 	// -----------------
+	// Use a flipper by putting the [data-flip] attribute
+	// on the wrapper div
 
-	$("html").on("click", ".flip-wrap", function(e){
+	$("html").on("click", "[data-flip]", function(e){
 		type = $(this).attr("data-flip");
 		if (type == "permanent") {
 			$(this).addClass("flipped");
@@ -116,9 +116,6 @@ $(function(){
 			$(this).toggleClass("flipped");
 		}
 	});
-
-	// Clerestory box fanciness
-	// ------------------------
 
 	clerestorySetup();
 
@@ -140,7 +137,7 @@ function openItem(whichItem) {
 
 			// Parse metadata
 			// --------------
-			document.title = MY_NAME+" — "+content[0];
+			setTitle(content[0]);
 			$itemName.html(content[0]);
 			$itemDate.html(content[1]);
 
@@ -178,7 +175,7 @@ function openItem(whichItem) {
 			});  
 
 		}).error( function(xhr, textStatus, errorThrown){
-			document.title = MY_NAME+" — Nothing";
+			setTitle("Nothing");
 			$itemName.html("");
 			$itemDate.html("");
 			$itemContent.html("<section class=\"text\">Not available right now</section>");
@@ -193,9 +190,8 @@ function openItem(whichItem) {
 function closeItem() {
 	$body.removeClass("view-item-mode slideup");
 	view = INDEX;
-	console.log("close");
 	history.pushState({}, "", "/");
-	document.title = MY_NAME+"— Portfolio";
+	setTitle("Portfolio");
 }
 
 // Utility functions
@@ -227,44 +223,6 @@ function clearTextSelections() {
 	}
 }
 
-/* =========== Stepwise Plugin =========== */
-
-(function( $ ){
-
-  $.fn.stepWise = function(dir, frames, duration, callback) {
-	var timePerFrame = duration / frames;
-	var posPerFrame = -100; //100 / (frames-1);
-	var endPos = -1 * (frames-1) * 100;
-	var framestrip = this;
-
-	if (dir == "backward") {
-		pos = endPos;
-		posPerFrame *= -1;
-	}
-	else if (dir == "forward") {
-		pos = 0;
-	}
-	else {
-		console.log("unkown direction for animation");
-	}
-
-
-	step();
-	return framestrip;
-
-	function step() {
-		pos += posPerFrame;
-		framestrip.css("left", pos+"%");
-		if (pos > endPos && pos < 0) {
-			window.setTimeout(function() {
-			    step();
-			}, timePerFrame);
-		}
-		else {
-			$(".box-fold > .frames").removeAttr("style");
-			callback();
-		}
-	}
-  };
-
-})( jQuery );
+function setTitle(title) {
+	document.title = MY_NAME+" — "+title;
+}
