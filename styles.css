@@ -96,13 +96,13 @@ body {
 }
 
 nav {
-  padding: 8% 0 5%;
-  margin:  0%  10%;
+  padding: 8% 0 6em;
+  margin:  0 10% 0 5%;
 }
 
 footer {
-  padding: 5% 0 12%;
-  margin:  0%  10%;
+  padding: 4em 0 12%;
+  margin:  0 10% 0 5%;
 }
 
 
@@ -122,20 +122,26 @@ nav .title {
   padding-bottom: 2em;
 }
 
-footer {
+nav .title,
+nav .subtitle,
+footer .links {
+  margin-left: 5%;
+}
+
+footer .links {
   border-top: 1px solid #ddd;
   padding-top: 2em;
   width: 40px;
   white-space: nowrap;
 }
 
-footer > a {
+footer .links > a {
   opacity: 0.5;
   margin-right: 20px;
   border-color: transparent;
 }
 
-footer > a:hover {
+footer .links > a:hover {
   opacity: 0.8;
 }
 
@@ -160,7 +166,7 @@ footer > a:hover {
 .desc,
 .view p {
   opacity: 0.8;
-  font: 22px/1.3em awsans;
+  font: 20px/1.3em awsans;
 }
 
 .desc {
@@ -204,13 +210,13 @@ footer > a:hover {
    ----- */
 
 .items {
-  padding: 40px 0  ;
-  margin:   0%  10%;
+  margin:  0 10% 0 5%;
   counter-reset: li;
+  -webkit-columns: 2 0;
 }
 
 .items > li {
-  width: 50%;
+  width: 100%;
   vertical-align: top;
   display: inline-block;
   margin-bottom: 4em;
@@ -219,9 +225,7 @@ footer > a:hover {
 .items > li .inner {
   cursor: pointer;
   -webkit-transition: background 0.5s, border 0.5s;
-  padding-right: 10%;
-  margin-right: 10%;
-  border-right: 1px solid #DDD;
+  margin-left: 10%;
   position: relative;
 }
 
@@ -714,25 +718,39 @@ section.text {
 
 
 @media (min-width: 1000px){
-  .items > li:nth-child(2n+2) .inner { /* Hide the right border on the second column */
-    border-color: transparent;
-    margin-right: 0;
-    padding-right: 0;
-    margin-left: 10%;
+  .items > li:nth-child(1) .inner,  
+  .items > li:nth-child(2) .inner,  
+  .items > li:nth-child(3) .inner {  
+    border-right: 1px solid #DDD;
+    margin-right: 8%;
+    padding-right: 10%;
   }
 }
+
 
 /**********************************************************************/
 
 @media (max-width: 1000px) {
-  .items > li {
-    width: 100%;
+  .items {
+    -webkit-columns: 1;
   }
   .items > li .inner {
+    margin-left: 6%;
     border-color: transparent;
   }
-  .items > li .inner::before {
-      left: -7%;
+
+  nav .title,
+  nav .subtitle,
+  footer .links {
+    margin-left: 6%;
+  }
+/*  .subtitle,
+  .desc,
+  .view p {
+    font-size: 19px;
+  }
+*/  .items > li .inner::before {
+      left: -6%;
   }
 }
 
@@ -778,14 +796,10 @@ section.text {
 
 
 @media (max-width: 420px){
-  .view {
-    //left: 18px;
-  }
 
   .items > li .inner {
-    padding-left: 12%;
+    padding-left: 10%;
     margin-right: 0;
-    padding-right: 0;
   }
 
   .items > li .inner:before {
