@@ -357,9 +357,10 @@ footer > a:hover {
 }
 
 body:not(.i-scroll) .view-scroller {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 100%;
   -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
 }
 
 .view-header {
