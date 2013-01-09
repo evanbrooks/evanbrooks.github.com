@@ -3,6 +3,7 @@ var $itemName, $itemDate, $itemContent;
 var whichCurrItem;
 var INDEX, ITEM, view;
 var MY_EMAIL = "ebrooks@risd.edu";
+var IS_TOUCH;
 
 $(function(){
 	$view       = $(".view");
@@ -16,6 +17,8 @@ $(function(){
 	$itemDate    = $(".view .subtitle");
 	$itemContent = $(".view-scroller");
 	whichCurrItem = "";
+
+	IS_TOUCH = isTouchDevice();
 
 	var strtX = 0;
 	var strtY = 0;
@@ -37,6 +40,12 @@ $(function(){
 
 	$.ajaxSetup({ cache: false });
 
+	if (IS_TOUCH) {
+		var myScroll = new iScroll('iScroll');
+		$("body").addClass("i-scroll");
+	}
+
+
 	// On click
 	// --------
 	$(".item .inner").click(function(e){
@@ -51,7 +60,7 @@ $(function(){
 
 	// Bind to touch events
 	// --------------------
-	if(isTouchDevice()) {
+	if(IS_TOUCH) {
 		document.addEventListener('touchstart', dragBegin);
 		document.addEventListener('touchmove', dragMove);
 		document.addEventListener('touchend', dragStop);
@@ -203,12 +212,18 @@ $(function(){
 	// Detect resizing
 	// ----------------
 	$(window).resize(function(){
-		if (view == ITEM) {
+		if (IS_TOUCH) {
+			setTimeout(function () {
+				myScroll.refresh();
+			}, 0);
 		}
 	});
 
 	$(window).on("onorientationchange", function() {
-		if (view == ITEM) {
+		if (IS_TOUCH) {
+			setTimeout(function () {
+				myScroll.refresh();
+			}, 0);
 		}
 	});
 
@@ -359,9 +374,11 @@ function openItem(whichItem) {
 
 			$view.waitForImages(function() {    
 				$body.removeClass("loading").addClass("view-item-mode");
-				setTimeout(function () {
-					myScroll.refresh();
-				}, 0);
+				if (IS_TOUCH) {
+					setTimeout(function () {
+						myScroll.refresh();
+					}, 0);
+				}
 			});  
 
 		}).error( function(xhr, textStatus, errorThrown){
@@ -403,27 +420,9 @@ function clearTextSelections() {
 	  } else if (window.getSelection().removeAllRanges) {  // Firefox
 	    window.getSelection().removeAllRanges();
 	  }
-	} else if (document.selection) {  // IE?
+	} else if (document.selection) {  // IE
 	  document.selection.empty();
 	}
-}
-
-function selectText(element) {
-    var doc = document
-        , text = doc.getElementById(element)
-        , range, selection
-    ;    
-    if (doc.body.createTextRange) { //ms
-        range = doc.body.createTextRange();
-        range.moveToElementText(text);
-        range.select();
-    } else if (window.getSelection) { //all others
-        selection = window.getSelection();        
-        range = doc.createRange();
-        range.selectNodeContents(text);
-        selection.removeAllRanges();
-        selection.addRange(range);
-    }
 }
 
 /* =========== Stepwise Plugin =========== */

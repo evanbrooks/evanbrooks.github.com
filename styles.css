@@ -179,6 +179,10 @@ footer > a:hover {
   background: rgba(0,0,0,0.04);
 }
 
+.view-item-mode .inner.active .description {
+  background: rgba(255,255,0,0.13);
+}
+
 .description b {
   display: block;
 }
@@ -241,11 +245,6 @@ footer > a:hover {
   font-size: 13px;
   line-height: inherit;
   opacity: 0.7;
-}
-
-.view-item-mode .item .active {
-  background: rgba(0,0,0,0.04);
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.07);
 }
 
 
