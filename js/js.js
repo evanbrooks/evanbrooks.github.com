@@ -83,9 +83,9 @@ $(function(){
 	// Action sheet for contact information
 	// ------------------------------------
 
-	$("html").on("click", "[data-action = slideup]", function(e){
+	$("html").on("click", "[data-action = actionsheet]", function(e){
 		e.preventDefault();
-		$body.addClass("slideup");
+		$body.addClass("action-mode");
 	});
 
 	$("html").on("click", "[data-action = copy]", function(e){
@@ -170,7 +170,7 @@ function openItem(whichItem) {
 			$itemContent.append(html);
 
 			$view.waitForImages(function() {    
-				$body.removeClass("loading").addClass("view-item-mode");
+				$body.removeClass("loading").addClass("item-mode");
 				iRefresh();
 			});  
 
@@ -179,16 +179,16 @@ function openItem(whichItem) {
 			$itemName.html("");
 			$itemDate.html("");
 			$itemContent.html("<section class=\"text\">Not available right now</section>");
-			$body.removeClass("loading").addClass("view-item-mode");
+			$body.removeClass("loading").addClass("item-mode");
 		});
 	}
 	else {
-		$body.addClass("view-item-mode");
+		$body.addClass("item-mode");
 	}
 }
 
 function closeItem() {
-	$body.removeClass("view-item-mode slideup");
+	$body.removeClass("item-mode action-mode");
 	view = INDEX;
 	history.pushState({}, "", "/");
 	setTitle("Portfolio");
