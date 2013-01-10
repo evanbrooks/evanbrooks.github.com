@@ -575,6 +575,48 @@ body:not(.i-scroll) .view-scroller {
 /*---------------------------------------------*/
 
 
+
+/* Window widget
+   ------------- */
+
+.browser {
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+  margin: 1px;
+  border-radius: 8px;
+  display: inline-block;
+  padding-top: 2em;
+  position: relative;
+}
+
+.browser::after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  padding: 0 0.5em;
+  content: "⊗⊖⊕";
+  //content: "⊗⊖⊕●●●";
+  letter-spacing: 10px;
+  color: rgba(0,0,0,0.25);
+  text-align: left;
+  background: rgba(0,0,0,0.07);
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.browser img {
+  max-width: 100%;
+  border-radius: 0 0 8px 8px;
+  margin-bottom: -5px;
+}
+
+
+/*---------------------------------------------*/
+
+
 /* Flip widget
    ----------- */
 
@@ -843,9 +885,6 @@ body:not(.i-scroll) .view-scroller {
 @media (max-width: 960px) {
   .items {
     width: 100%;
-  }
-  .items > li .inner {
-    border-color: transparent;
   }
 }
 

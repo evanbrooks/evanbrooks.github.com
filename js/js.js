@@ -157,12 +157,19 @@ function openItem(whichItem) {
 				attr = content[0].split(':');
 				attrHtml = "class=\""+attr[0]+"\"";
 				var img = "";
-				if (attr.length > 1) {
-					//attrHtml += "style=\"background-image: url('"+attr[1]+"')\"";
+				if (attr[0].indexOf("img") !== -1) {
 					for (j = 1; j < attr.length; j++) {
+						//   ^ discard the class name
 						src = attr[j].replace(/(^\s+|\s+$)/g, '');
 						img += "<img src=\""+src+"\">";
 					}
+				}
+				if (attr[0].indexOf("windowed") !== -1) {
+					img = "";
+					src = attr[1].replace(/(^\s+|\s+$)/g, '');
+					img += "<div class=\"browser\">";
+					img += "<img src=\""+src+"\">";
+					img += "</div>"
 				}
 				html += "<section "+ attrHtml +">";
 				html += img;
