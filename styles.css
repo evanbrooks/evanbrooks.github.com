@@ -883,8 +883,8 @@ body:not(.i-scroll) .view-scroller {
   }
 
   .view .text {
-    padding-right: 4em;
-    padding-left: 4em;
+    padding-right: 3em;
+    padding-left: 3em;
   }
 
   .view .img.sidebyside > img {

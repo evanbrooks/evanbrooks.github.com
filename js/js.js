@@ -154,12 +154,15 @@ function openItem(whichItem) {
 			for (i = 1; i < section.length; i++){
 				//   ^ discard first section because we start with #
 				content = section[i].split('\n--');
-				attr = content[0].split(': ');
+				attr = content[0].split(':');
 				attrHtml = "class=\""+attr[0]+"\"";
 				var img = "";
 				if (attr.length > 1) {
 					//attrHtml += "style=\"background-image: url('"+attr[1]+"')\"";
-					img = "<img src=\""+attr[1]+"\">";
+					for (j = 1; j < attr.length; j++) {
+						src = attr[j].replace(/(^\s+|\s+$)/g, '');
+						img += "<img src=\""+src+"\">";
+					}
 				}
 				html += "<section "+ attrHtml +">";
 				html += img;
