@@ -343,7 +343,8 @@ footer > a:hover {
   bottom: 0px;
   border-radius: 3px;
 
-  background: #f4f4f4;
+  //background: #f4f4f4;
+  background: rgba(240, 240, 240, 0.8);
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 
   //-webkit-transition: all 0.4s cubic-bezier(0.570, 0.000, 1.000, 0.705);
@@ -885,6 +886,9 @@ body:not(.i-scroll) .view-scroller {
 @media (max-width: 960px) {
   .items {
     width: 100%;
+  }
+  .view {
+    background: #f4f4f4;
   }
 }
 
