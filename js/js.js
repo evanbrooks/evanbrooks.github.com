@@ -35,8 +35,8 @@ $(function(){
 	// Set up iScroll
 	// --------------
 	if (IS_TOUCH) {
-		var myScroll = new iScroll('iScroll');
-		$("body").addClass("i-scroll");
+		//var myScroll = new iScroll('iScroll');
+		//$("body").addClass("i-scroll");
 	}
 
 	// Button click handlers
