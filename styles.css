@@ -323,9 +323,13 @@ footer > a:hover {
 
 .grabby > i {
   display: inline-block;
-  border-right: 1px solid rgba(120,120,120,0.5);
+  border-right: 1px solid rgba(120,120,120,0.15);
   height: 30px;
   margin: 50vh 1px;
+}
+
+.grabby:hover > i {
+  border-right: 1px solid rgba(120,120,120,0.5);
 }
 
 
@@ -338,13 +342,13 @@ footer > a:hover {
 .view {
   position: absolute;
   /*left: 10%;*/
-  left: 0;
+  left: 10%;
   top: 0px;
   right: 0px;
   bottom: 0px;
   border-radius: 3px;
 
-  background: #f4f4f4;
+  //background: #f4f4f4;
   //background: rgba(240, 240, 240, 0.9);
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 
@@ -435,6 +439,7 @@ body:not(.i-scroll) .view-scroller {
   position: relative;
   overflow: hidden;
   -webkit-perspective: 1500;
+  background: #f4f4f4;
   -webkit-backface-visibility: hidden;
 }
 
@@ -625,7 +630,7 @@ body:not(.i-scroll) .view-scroller {
 }
 
 .browser img {
-  max-width: 100%;
+  //max-width: 100%;
   border-radius: 0 0 8px 8px;
   margin-bottom: -5px;
 }
@@ -732,13 +737,13 @@ body:not(.i-scroll) .view-scroller {
 /* Meta section
    ------------ */
 
-.meta{
+ul.meta{
   line-height: 3em;
+  width: 400px;
+  opacity: 0.6;
 }
 
 .meta li {
-  opacity: 0.6;
-  width: 200px;
   white-space: nowrap;
 }
 
@@ -914,11 +919,11 @@ body:not(.i-scroll) .view-scroller {
    --- */
 
 
-@media (min-width: 1300px) {
+@media (min-width: 1350px) {
   .subtitle,
   .desc,
   .view p {
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 
