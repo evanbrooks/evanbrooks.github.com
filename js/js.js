@@ -117,6 +117,13 @@ $(function(){
 		}
 	});
 
+	// Crop and uncrop
+	// ---------------
+
+	$("html").on("click", ".cropped", function(e){
+		$(this).toggleClass("uncropped");
+	});
+
 	clerestorySetup();
 
 });

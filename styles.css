@@ -325,7 +325,7 @@ footer > a:hover {
   display: inline-block;
   border-right: 1px solid rgba(120,120,120,0.5);
   height: 30px;
-  margin: -15px 1px;
+  margin: 50vh 1px;
 }
 
 
@@ -337,14 +337,15 @@ footer > a:hover {
 
 .view {
   position: absolute;
-  left: 10%;
+  /*left: 10%;*/
+  left: 0;
   top: 0px;
   right: 0px;
   bottom: 0px;
   border-radius: 3px;
 
-  //background: #f4f4f4;
-  background: rgba(240, 240, 240, 0.9);
+  background: #f4f4f4;
+  //background: rgba(240, 240, 240, 0.9);
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 
   //-webkit-transition: all 0.4s cubic-bezier(0.570, 0.000, 1.000, 0.705);
@@ -476,6 +477,18 @@ body:not(.i-scroll) .view-scroller {
   overflow: hidden;
 }
 
+.view .fig.cropped {
+  max-height: 60%;
+  -webkit-transition: all 0.6s;
+  margin-bottom: 5%;
+  box-shadow: inset 0 -1px 1px rgba(0, 0, 0, 0.08),
+              inset 0 -60px 60px rgba(0, 0, 0, 0.015);
+}
+
+.view .fig.uncropped {
+  max-height: 120%;
+  box-shadow: none;
+}
 
 /*---------------------------------------------*/
 
@@ -486,6 +499,8 @@ body:not(.i-scroll) .view-scroller {
 
 .iphone {
   display: inline-block;
+  margin-bottom: 5%;
+  cursor: pointer;
 }
 
 .iphone-back {
@@ -499,7 +514,7 @@ body:not(.i-scroll) .view-scroller {
   box-shadow: 0 50px 100px rgba(0, 0, 0, 0.2);
 }
 
-.iphone:hover .iphone-back{
+.uncropped .iphone .iphone-back{
   -webkit-transform: none;
 }
 
@@ -508,11 +523,11 @@ body:not(.i-scroll) .view-scroller {
   border-radius: 20px;
   -webkit-transform: translate3d(0,0,40px);
   background: rgba(245,245,245,0.95);
-  box-shadow: -3px 3px 0 5px white;
+  box-shadow: -3px -3px 0 5px white;
   -webkit-transition: all 1s;
 }
 
-.iphone:hover .iphone-front{
+.uncropped .iphone .iphone-front{
   box-shadow: 0px 0px 0 5px white;
 }
 
@@ -683,7 +698,7 @@ body:not(.i-scroll) .view-scroller {
 
 .view .text {
   padding: 2em 6em;
-  max-width: 750px;
+  max-width: 950px;
   margin: auto;
 }
 
@@ -693,7 +708,6 @@ body:not(.i-scroll) .view-scroller {
 
 .view p {
   margin: 0 auto 2em;
-  max-width: 700px;
 }
 
 .view p b {
