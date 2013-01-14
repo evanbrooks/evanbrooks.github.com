@@ -198,8 +198,10 @@ function AddressBar() {
 		});
 		setTimeout( function(){
 			$index.removeAttr("style");
-			$body.removeAttr("style");
 		}, delay );
+		setTimeout( function(){
+			$body.removeAttr("style");
+		}, 250 );
 		state = "visible";
 	}
 
