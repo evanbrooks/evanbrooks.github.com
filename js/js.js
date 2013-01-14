@@ -130,7 +130,7 @@ $(function(){
 
 	aBar = new AddressBar();
 
-	$("html").on("click", ".title", function(e){
+	$("html").on("click", "[data-action = fullscreen]", function(e){
 		aBar.toggle();
 	});
 
