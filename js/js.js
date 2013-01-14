@@ -130,6 +130,10 @@ $(function(){
 
 	aBar = new AddressBar();
 
+	$("html").on("click", ".title", function(){
+		aBar.toggle();
+	})
+
 });
 
 // Open or close item
@@ -137,8 +141,6 @@ $(function(){
 function openItem(whichItem) {
 	history.pushState({}, "", "#/"+whichItem);
 	view = ITEM;
-
-	aBar.hide();
 
 	if ( whichItem != whichCurrItem ){
 		whichCurrItem = whichItem;
@@ -211,7 +213,6 @@ function openItem(whichItem) {
 }
 
 function closeItem() {
-	aBar.show();
 	$body.removeClass("item-mode action-mode");
 	view = INDEX;
 	history.pushState({}, "", "/");

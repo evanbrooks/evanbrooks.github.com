@@ -186,24 +186,31 @@ function AddressBar() {
 
 		setTimeout( function(){
 			window.scrollTo(0, 1);
-			//$index.removeAttr("style");
+			$index.removeAttr("style");
 			state = "hidden";
 		}, delay );
 	}
 
 	var show = function() {
-		if (bar = "hidden") {
-			$body.removeAttr("style");
-			$index.css({
-				"-webkit-transition": "none",
-				"padding-top": "0px"
-				//"margin-top": -1*barH+"px"
-			});
-			setTimeout( function(){ $index.removeAttr("style"); }, delay );
-			state = "visible";
+		$body.removeAttr("style");
+		$index.css({
+			"-webkit-transition": "none",
+			"margin-top": -1*barH+"px"
+		});
+		setTimeout( function(){ $index.removeAttr("style"); }, delay );
+		state = "visible";
+	}
+
+	var toggle = function() {
+		if (state == "hidden") {
+			show();
+		}
+		else if (state == "visible") {
+			hide();
 		}
 	}
 
 	this.hide = hide;
 	this.show = show;
+	this.toggle = toggle;
 }
