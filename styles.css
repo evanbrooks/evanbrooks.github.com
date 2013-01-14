@@ -98,13 +98,13 @@ body {
 }
 
 nav {
-  padding: 8% 0 4em;
-  margin:  0%  10%;
+  padding: 8% 0 0;
+  margin:  0  10% 3em;
 }
 
 footer {
   padding: 5% 0 12%;
-  margin:  0%  10%;
+  margin:  3em 10% 0;
 }
 
 
@@ -170,7 +170,7 @@ footer > a:hover {
 
 .desc {
   display: inline;
-  white-space: pre-line;
+  //white-space: pre-line;
   -webkit-transition: border 0.4s, background 0.4s;
   border-bottom: 1px solid transparent;
   -webkit-transition: background 6s, border 0.5s;
@@ -223,7 +223,7 @@ footer > a:hover {
 }
 
 .items > li {
-  margin-bottom: 4em;
+  margin-bottom: 2em;
   padding-right: 5%;
   margin-right: 10%;
   position: relative;
@@ -877,7 +877,7 @@ ul.meta{
    -------- */
 
 
-@media (min-width: 960px){
+@mediaa (min-width: 960px){
 
   .items {
     width: 50%;

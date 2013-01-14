@@ -47,6 +47,9 @@ function draggingSetup() {
 			if (!IS_TOUCH){
 				$body.addClass("dragging");
 			}
+			if ($viewScroll.scrollTop() <= 0) {
+				$viewScroll.scrollTop(1);
+			}
 		}
 	}
 
