@@ -177,14 +177,19 @@ function hideBar() {
 
   setTimeout( function(){
   	window.scrollTo(0, 1);
-  	$index.hide().css("padding-top", "60px").show();
+  	$index.css({
+  		"-webkit-transition": "none",
+  		"padding-top": "60px"
+  	});
   	bar = "hidden";
   }, 50 );
 }
 
 function showBar() {
-  if (bar = "hidden") {
-  	$body.removeAttr("style");
-  	$index.hide().removeAttr("style").show();
-  }
+	if (bar = "hidden") {
+		$body.removeAttr("style");
+		$index.css("padding-top", "0px");
+		setTimeout( function(){ $index.removeAttr("style"); }, 50 );
+		bar = "visible";
+	}
 }
