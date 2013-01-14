@@ -134,6 +134,15 @@ $(function(){
 		aBar.toggle();
 	});
 
+	// If capable of fullscreen mode but not in it 
+	if ( IS_TOUCH
+		 && ("standalone" in window.navigator)
+		 && !window.navigator.standalone
+		){
+		$("[data-action = fullscreen]").show();
+	}
+
+
 });
 
 // Open or close item
