@@ -192,12 +192,14 @@ function AddressBar() {
 	}
 
 	var show = function() {
-		$body.removeAttr("style");
 		$index.css({
 			"-webkit-transition": "none",
 			"margin-top": -1*barH+"px"
 		});
-		setTimeout( function(){ $index.removeAttr("style"); }, delay );
+		setTimeout( function(){
+			$index.removeAttr("style");
+			$body.removeAttr("style");
+		}, delay );
 		state = "visible";
 	}
 

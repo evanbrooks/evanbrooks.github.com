@@ -130,9 +130,9 @@ $(function(){
 
 	aBar = new AddressBar();
 
-	$("html").on("click", ".title", function(){
+	$("html").on("click", ".title", function(e){
 		aBar.toggle();
-	})
+	});
 
 });
 
