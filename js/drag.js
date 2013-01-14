@@ -176,8 +176,8 @@ function hideBar() {
   }
 
   setTimeout( function(){
-  	//window.scrollTo(0, 1);
-  	$(window).animate({scrollTop: "1px"}, 400);
+  	window.scrollTo(0, 1);
+  	$index.css("padding-top", "60px");
   	bar = "hidden";
   }, 50 );
 }
@@ -185,5 +185,6 @@ function hideBar() {
 function showBar() {
   if (bar = "hidden") {
   	$body.removeAttr("style");
+  	$index.removeAttr("style");
   }
 }
