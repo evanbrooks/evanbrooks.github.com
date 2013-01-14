@@ -168,32 +168,37 @@ function draggingSetup() {
 	}
 }
 
-bar = "visible";
+var aBar = {
 
-function hideBar() {
-	if(document.height <= window.outerHeight) {
-	  	document.body.style.height = (window.outerHeight + 60) + 'px';
-		$index.css({
-			"-webkit-transition": "none",
-			"padding-top": "60px"
-		});
+	var state = "visible";
+	var barH = 60;  // px
+	var delay = 50; // ms
+
+	function hide() {
+		if(document.height <= window.outerHeight) {
+		  	document.body.style.height = (window.outerHeight + barH) + 'px';
+			$index.css({
+				"-webkit-transition": "none",
+				"padding-top": barH + "px"
+			});
+		}
+
+		setTimeout( function(){
+			window.scrollTo(0, 1);
+			$index.removeAttr("style");
+			state = "hidden";
+		}, delay );
 	}
 
-	setTimeout( function(){
-		window.scrollTo(0, 1);
-		$index.removeAttr("style");
-		bar = "hidden";
-	}, 50 );
-}
-
-function showBar() {
-	if (bar = "hidden") {
-		$body.removeAttr("style");
-		$index.css({
-			"-webkit-transition": "none",
-			"margin-top": "-60px"
-		});
-		setTimeout( function(){ $index.removeAttr("style"); }, 50 );
-		bar = "visible";
+	function show() {
+		if (bar = "hidden") {
+			$body.removeAttr("style");
+			$index.css({
+				"-webkit-transition": "none",
+				"margin-top": -1*barH+"px"
+			});
+			setTimeout( function(){ $index.removeAttr("style"); }, delay );
+			state = "visible";
+		}
 	}
 }

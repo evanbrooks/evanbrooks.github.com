@@ -195,7 +195,7 @@ footer > a:hover {
    ----- */
 
 .index {
-  -webkit-transition: all 0.4s;
+  -webkit-transition: -webkit-transform 0.4s, margin 0.2s, padding 0.2s;
   background: white;
   height: 100%;
   -webkit-transform: translate3d(0,0,0);
