@@ -153,13 +153,13 @@ footer > a:hover {
 }
 
 .subtitle,
-.desc,
+.item-desc,
 .view p {
   opacity: 0.8;
   font: 20px/1.3em awsans;
 }
 
-.desc {
+.item-desc {
   display: inline;
   //white-space: pre-line;
   -webkit-transition: border 0.4s, background 0.4s;
@@ -167,13 +167,13 @@ footer > a:hover {
   -webkit-transition: background 6s, border 0.5s;
 }
 
-.desc:hover {
+.item-desc:hover {
   border-bottom: 1px solid #ccc;
   background: rgba(0,0,0,0.04);
   -webkit-transition: background 0.5s, border 0.5s;
 }
 
-.item-mode .desc.active {
+.item-mode .item-desc.active {
   background: rgba(255,230,0,0.18);
   -webkit-transition: background 0.5s, border 0.5s;
 }
@@ -956,7 +956,7 @@ ul.meta{
 
 @media (min-width: 1350px) {
   .subtitle,
-  .desc,
+  .item-desc,
   .view p {
     font-size: 24px;
   }
@@ -991,7 +991,7 @@ ul.meta{
   }
 
   .subtitle,
-  .desc,
+  .item-desc,
   .view p {
     font-size: 17px;
   }
@@ -1027,7 +1027,7 @@ ul.meta{
     left: 0;
   }
 
-  .desc {
+  .item-desc {
     white-space: normal;
   }
 }
