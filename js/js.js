@@ -126,6 +126,8 @@ $(function(){
 
 	clerestorySetup();
 
+	var aBar = new AddressBar();
+
 });
 
 // Open or close item

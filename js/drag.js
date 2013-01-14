@@ -168,13 +168,13 @@ function draggingSetup() {
 	}
 }
 
-function AdressBar() {
+function AddressBar() {
 	var state = "visible";
 	var barH = 60;  // px
 	var delay = 50; // ms
 }
 
-AdressBar.prototype.hide = function()
+AddressBar.prototype.hide = function()
 	if(document.height <= window.outerHeight) {
 	  	document.body.style.height = (window.outerHeight + barH) + 'px';
 		$index.css({
@@ -190,7 +190,7 @@ AdressBar.prototype.hide = function()
 	}, delay );
 }
 
-AdressBar.prototype.show = function()
+AddressBar.prototype.show = function()
 	if (bar = "hidden") {
 		$body.removeAttr("style");
 		$index.css({
@@ -201,5 +201,3 @@ AdressBar.prototype.show = function()
 		state = "visible";
 	}
 }
-
-var aBar = new AddressBar();
