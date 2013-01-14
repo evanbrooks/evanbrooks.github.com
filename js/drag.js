@@ -181,6 +181,7 @@ function hideBar() {
 
 	setTimeout( function(){
 		window.scrollTo(0, 1);
+		$index.removeAttr("style");
 		bar = "hidden";
 	}, 50 );
 }
@@ -188,7 +189,10 @@ function hideBar() {
 function showBar() {
 	if (bar = "hidden") {
 		$body.removeAttr("style");
-		$index.css("padding-top", "0px");
+		$index.css({
+			"-webkit-transition": "none",
+			"margin-top": "-60px"
+		});
 		setTimeout( function(){ $index.removeAttr("style"); }, 50 );
 		bar = "visible";
 	}
