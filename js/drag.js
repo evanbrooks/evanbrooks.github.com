@@ -168,13 +168,16 @@ function draggingSetup() {
 	}
 }
 
-var aBar = {
+function aBar() {
 
 	var state = "visible";
 	var barH = 60;  // px
 	var delay = 50; // ms
 
-	function hide() {
+	this.hide = hide;
+	this.show = show;
+
+	hide = function() {
 		if(document.height <= window.outerHeight) {
 		  	document.body.style.height = (window.outerHeight + barH) + 'px';
 			$index.css({
@@ -190,7 +193,7 @@ var aBar = {
 		}, delay );
 	}
 
-	function show() {
+	show = function() {
 		if (bar = "hidden") {
 			$body.removeAttr("style");
 			$index.css({
