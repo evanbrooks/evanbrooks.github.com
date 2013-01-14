@@ -55,6 +55,15 @@ function draggingSetup() {
 				$viewScroll.scrollTop(s);
 			}
 		}
+		else if ( view == INDEX ){
+			if ($index.scrollTop() <= 0) {
+				$index.scrollTop(1);
+			}
+			else if ($index.scrollTop() + $(window).height() >= $index.height()) {
+				s = $index.scrollTop() - 1;
+				$index.scrollTop(s);
+			}
+		}
 	}
 
 	function dragMove(e){
