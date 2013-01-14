@@ -168,41 +168,38 @@ function draggingSetup() {
 	}
 }
 
-function aBar() {
-
+function AdressBar() {
 	var state = "visible";
 	var barH = 60;  // px
 	var delay = 50; // ms
-
-	var hide = function() {
-		if(document.height <= window.outerHeight) {
-		  	document.body.style.height = (window.outerHeight + barH) + 'px';
-			$index.css({
-				"-webkit-transition": "none",
-				"padding-top": barH + "px"
-			});
-		}
-
-		setTimeout( function(){
-			window.scrollTo(0, 1);
-			$index.removeAttr("style");
-			state = "hidden";
-		}, delay );
-	}
-
-	var show = function() {
-		if (bar = "hidden") {
-			$body.removeAttr("style");
-			$index.css({
-				"-webkit-transition": "none",
-				"margin-top": -1*barH+"px"
-			});
-			setTimeout( function(){ $index.removeAttr("style"); }, delay );
-			state = "visible";
-		}
-	}
-
-	this.hide = hide;
-	this.show = show;
-
 }
+
+AdressBar.prototype.hide = function()
+	if(document.height <= window.outerHeight) {
+	  	document.body.style.height = (window.outerHeight + barH) + 'px';
+		$index.css({
+			"-webkit-transition": "none",
+			"padding-top": barH + "px"
+		});
+	}
+
+	setTimeout( function(){
+		window.scrollTo(0, 1);
+		$index.removeAttr("style");
+		state = "hidden";
+	}, delay );
+}
+
+AdressBar.prototype.show = function()
+	if (bar = "hidden") {
+		$body.removeAttr("style");
+		$index.css({
+			"-webkit-transition": "none",
+			"margin-top": -1*barH+"px"
+		});
+		setTimeout( function(){ $index.removeAttr("style"); }, delay );
+		state = "visible";
+	}
+}
+
+var aBar = new AddressBar();
