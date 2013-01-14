@@ -118,8 +118,9 @@ footer {
 .title {
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 13px;
+  font-size: 12px;
   width: 40px;
+  //color: rgba(0,0,0,0.5);
   white-space: nowrap;
 }
 
@@ -281,7 +282,7 @@ footer > a:hover {
   padding: 5%;
   opacity: 0;
   //background: rgba(245,245,245,0.9);
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.7);
   -webkit-transition: all 1s;
 }
 
