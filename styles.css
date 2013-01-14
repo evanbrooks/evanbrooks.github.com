@@ -281,7 +281,7 @@ footer > a:hover {
   padding: 5%;
   opacity: 0;
   //background: rgba(245,245,245,0.9);
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.4);
   -webkit-transition: all 1s;
 }
 

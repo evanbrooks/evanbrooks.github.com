@@ -108,7 +108,7 @@ function draggingSetup() {
 				e.preventDefault();
     			dPad = 0 + parseInt(dX / 15);
     			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0)");
-	    		var op = 1 - Math.round( dX / $(window).width() *100)/100;
+	    		var op = 1 - 0.5*Math.round( dX / $(window).width() *100)/100;
 	    		// parseInt(z * 100)/100 --> round to hundredths
 	    		$matte.css("opacity", op);
     		}
