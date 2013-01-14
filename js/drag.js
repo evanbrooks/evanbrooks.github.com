@@ -186,7 +186,7 @@ function AddressBar() {
 
 		setTimeout( function(){
 			window.scrollTo(0, 1);
-			$index.removeAttr("style");
+			//$index.removeAttr("style");
 			state = "hidden";
 		}, delay );
 	}
@@ -196,7 +196,8 @@ function AddressBar() {
 			$body.removeAttr("style");
 			$index.css({
 				"-webkit-transition": "none",
-				"margin-top": -1*barH+"px"
+				"padding-top": "0px"
+				//"margin-top": -1*barH+"px"
 			});
 			setTimeout( function(){ $index.removeAttr("style"); }, delay );
 			state = "visible";
