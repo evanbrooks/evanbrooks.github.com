@@ -7,6 +7,8 @@ var whichCurrItem;
 var INDEX, ITEM, view;
 var IS_TOUCH;
 
+var aBar;
+
 $(function(){
 	// Cache jQuery objects
 	// --------------------
@@ -126,7 +128,7 @@ $(function(){
 
 	clerestorySetup();
 
-	var aBar = new AddressBar();
+	aBar = new AddressBar();
 
 });
 

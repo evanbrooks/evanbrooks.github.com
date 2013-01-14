@@ -168,36 +168,41 @@ function draggingSetup() {
 	}
 }
 
+/* =========== Address Bar object =========== */
+
 function AddressBar() {
 	var state = "visible";
 	var barH = 60;  // px
 	var delay = 50; // ms
-}
 
-AddressBar.prototype.hide = function() {
-	if(document.height <= window.outerHeight) {
-	  	document.body.style.height = (window.outerHeight + barH) + 'px';
-		$index.css({
-			"-webkit-transition": "none",
-			"padding-top": barH + "px"
-		});
+	var hide = function() {
+		if(document.height <= window.outerHeight) {
+		  	document.body.style.height = (window.outerHeight + barH) + 'px';
+			$index.css({
+				"-webkit-transition": "none",
+				"padding-top": barH + "px"
+			});
+		}
+
+		setTimeout( function(){
+			window.scrollTo(0, 1);
+			$index.removeAttr("style");
+			state = "hidden";
+		}, delay );
 	}
 
-	setTimeout( function(){
-		window.scrollTo(0, 1);
-		$index.removeAttr("style");
-		state = "hidden";
-	}, delay );
-}
-
-AddressBar.prototype.show = function() {
-	if (bar = "hidden") {
-		$body.removeAttr("style");
-		$index.css({
-			"-webkit-transition": "none",
-			"margin-top": -1*barH+"px"
-		});
-		setTimeout( function(){ $index.removeAttr("style"); }, delay );
-		state = "visible";
+	var show = function() {
+		if (bar = "hidden") {
+			$body.removeAttr("style");
+			$index.css({
+				"-webkit-transition": "none",
+				"margin-top": -1*barH+"px"
+			});
+			setTimeout( function(){ $index.removeAttr("style"); }, delay );
+			state = "visible";
+		}
 	}
+
+	this.hide = hide;
+	this.show = show;
 }

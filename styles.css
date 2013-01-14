@@ -504,7 +504,7 @@ body:not(.i-scroll) .view-scroller {
 
 .iphone {
   display: inline-block;
-  margin-bottom: 5%;
+  margin: 0 10% 5%;
   cursor: pointer;
 }
 
@@ -512,7 +512,7 @@ body:not(.i-scroll) .view-scroller {
   margin: 80px 0;
   display: inline-block;
   background: rgba(230,230,230,0.75);
-  border-radius: 20px;
+  border-radius: 10%/5%;
   -webkit-transform-style: preserve-3d;
   -webkit-transition: all 1s;
   -webkit-transform: rotateX(-25deg) rotateY(30deg) rotateX(10deg);
@@ -524,8 +524,8 @@ body:not(.i-scroll) .view-scroller {
 }
 
 .iphone-front{
-  padding: 80px 5px;
-  border-radius: 20px;
+  padding: 20% 1%;
+  border-radius: 10%/5%;
   -webkit-transform: translate3d(0,0,40px);
   background: rgba(245,245,245,0.95);
   box-shadow: -3px -3px 0 5px white;
@@ -537,8 +537,18 @@ body:not(.i-scroll) .view-scroller {
 }
 
 .iphone img {
-  width: 320px;
-  height: 480px;
+  max-width: 320px;
+  width: 100%;
+}
+
+@media (max-width: 500px) {
+  .iphone-front {
+    box-shadow: -2px -2px 0 3px white;
+    -webkit-transform: translate3d(0,0,20px);
+  }
+  .uncropped .iphone .iphone-front {
+    box-shadow: 0px 0px 0 3px white;
+  }
 }
 
 
