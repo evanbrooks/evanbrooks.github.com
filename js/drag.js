@@ -50,6 +50,10 @@ function draggingSetup() {
 			if ($viewScroll.scrollTop() <= 0) {
 				$viewScroll.scrollTop(1);
 			}
+			else if ($viewScroll.scrollTop() + $(window).height() >= $viewScroll.height()) {
+				s = $viewScroll.scrollTop() - 1;
+				$viewScroll.scrollTop(s);
+			}
 		}
 	}
 
