@@ -168,10 +168,21 @@ function draggingSetup() {
 	}
 }
 
+bar = "visible";
+
 function hideBar() {
   if(document.height <= window.outerHeight) {
       document.body.style.height = (window.outerHeight + 60) + 'px';
   }
 
-  setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+  setTimeout( function(){
+  	window.scrollTo(0, 1);
+  	bar = "hidden";
+  }, 50 );
+}
+
+function showBar() {
+  if (bar = "hidden") {
+  	$body.removeAttr("style");
+  }
 }
