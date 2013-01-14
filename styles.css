@@ -152,16 +152,6 @@ footer > a:hover {
   max-width: 540px;
 }
 
-.name {
-  padding-bottom: 0.3em;
-  margin-bottom: 0.7em;
-  display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 13px;
-  display: none;
-}
-
 .subtitle,
 .desc,
 .view p {
@@ -884,6 +874,32 @@ ul.meta{
 [data-action = fullscreen] {
   display: none;
 }
+
+/**********************************************************************/
+
+/* Resume
+   ------ */
+
+.events {
+  margin: 0 10%;
+}
+
+.events .name {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
+
+.events .name > i {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.events .desc {
+  display: block;
+}
+
 
 
 /**********************************************************************/

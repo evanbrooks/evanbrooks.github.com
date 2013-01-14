@@ -46,6 +46,7 @@ $(function(){
 
 	// Open item
 	$("html").on("click", "[data-item]", function(e){
+		e.preventDefault();
 		if ($currItem != null)
 			$currItem.removeClass("active"); // remove from old item
 		$currItem = $(this);			     // switch to new item
@@ -147,13 +148,13 @@ $(function(){
 
 // Open or close item
 // ------------------
-function openItem(whichItem) {
-	history.pushState({}, "", "#/"+whichItem);
+function openItem(openThisItem) {
+	history.pushState({}, "", "#/"+openThisItem);
 	view = ITEM;
 
-	if ( whichItem != whichCurrItem ){
-		whichCurrItem = whichItem;
-		url = "/item/"+whichItem+".html";
+	if ( openThisItem != whichCurrItem ){
+		whichCurrItem = openThisItem;
+		url = "/item/"+openThisItem+".html";
 		$body.addClass("loading");
 		$viewScroll.scrollTop(0);
 		$.ajax(url).done(function ( data ) {
@@ -167,37 +168,83 @@ function openItem(whichItem) {
 
 			// Parse content
 			// -------------
-			var section = content[2].split('\n#');
-			var html = "";
 
 			// per http://cubiq.org/testing-memory-usage-on-mobile-safari,
 			// consider switching to appendChild instead of innerHTML
 
 			$itemContent.html("");
+			var section = content[2].split('\n#');
+			var html = "";
 
+			// For each section
+			// ----------------
 			for (i = 1; i < section.length; i++){
 				//   ^ discard first section because we start with #
+				
 				content = section[i].split('\n--');
-				attr = content[0].split(':');
-				attrHtml = "class=\""+attr[0]+"\"";
-				var img = "";
-				if (attr[0].indexOf("img") !== -1) {
-					for (j = 1; j < attr.length; j++) {
+				contentAttr = content[0].split(':');
+				contentBody = content[1];
+				
+				classNames_str = "class=\""+contentAttr[0]+"\"";
+				var parsedContent = "";
+
+				// Image and/or sidebyside Image
+				// -----------------------------
+				if (classNames_str.indexOf("img") !== -1) {
+					var img = "";
+					for (j = 1; j < contentAttr.length; j++) {
 						//   ^ discard the class name
-						src = attr[j].replace(/(^\s+|\s+$)/g, '');
+						src = contentAttr[j].replace(/(^\s+|\s+$)/g, '');
 						img += "<img src=\""+src+"\">";
 					}
+					parsedContent = img + contentBody;
 				}
-				if (attr[0].indexOf("windowed") !== -1) {
-					img = "";
-					src = attr[1].replace(/(^\s+|\s+$)/g, '');
+
+				// Browser window section
+				// ----------------------
+				else if (classNames_str.indexOf("windowed") !== -1) {
+					var img = "";
+					src = contentAttr[1].replace(/(^\s+|\s+$)/g, '');
 					img += "<div class=\"browser\">";
 					img += "<img src=\""+src+"\">";
 					img += "</div>"
+					parsedContent = img + contentBody;
 				}
-				html += "<section "+ attrHtml +">";
-				html += img;
-				html += content[1];
+
+				// Resume section
+				// --------------
+				else if (classNames_str.indexOf("resume") !== -1) {
+					parsedContent += "<ul class=\"events\">";
+					var resevents = section[i].split('------');
+					for (j = 1; j < resevents.length; j++) {
+						var resparts = resevents[j].split('--');
+						var reshead = resparts[0].split(':');
+						var resdate = reshead[0];
+						var resname = reshead[1];
+						resname = resname.replace('(', '<i>').replace(')', '</i>');
+						var resdesc = resparts[1].split('\n\n');
+						var resparagraphs = "";
+						for (k = 0; k < resdesc.length; k++) {
+							resparagraphs += "<p>"+resdesc[k]+"</p>";
+						}
+						parsedContent += "<li>";
+						parsedContent += "<div class=\"date\">"+resdate+"</div>";
+						parsedContent += "<div class=\"name\">"+resname+"</div>";
+						parsedContent += "<div class=\"desc\">"+resparagraphs+"</div>";
+						parsedContent += "</li>";
+					}
+					parsedContent += "</ul>";
+				}
+
+				// Unknown section
+				// ---------------
+				else {
+					parsedContent = content[1];
+				}
+
+
+				html += "<section "+ classNames_str +">";
+				html += parsedContent;
 
 				html += "</section>";
 			}
@@ -218,6 +265,7 @@ function openItem(whichItem) {
 	}
 	else {
 		$body.addClass("item-mode");
+		setTitle($itemName.text());
 	}
 }
 
@@ -238,11 +286,11 @@ function isTouchDevice() {
 }
 
 function iRefresh() {
-	if (IS_TOUCH) {
-		setTimeout(function () {
-			myScroll.refresh();
-		}, 0);
-	}
+	// if (IS_TOUCH) {
+	// 	setTimeout(function () {
+	// 		myScroll.refresh();
+	// 	}, 0);
+	// }
 }
 
 function clearTextSelections() {
@@ -259,4 +307,5 @@ function clearTextSelections() {
 
 function setTitle(title) {
 	document.title = MY_NAME+" — "+title;
+	console.log("set title: "+title);
 }
