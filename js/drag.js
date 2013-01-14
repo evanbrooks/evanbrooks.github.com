@@ -176,7 +176,8 @@ function hideBar() {
   }
 
   setTimeout( function(){
-  	window.scrollTo(0, 1);
+  	//window.scrollTo(0, 1);
+  	$(window).animate({scrollTop: "1px"}, 400);
   	bar = "hidden";
   }, 50 );
 }
