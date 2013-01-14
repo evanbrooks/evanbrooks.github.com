@@ -174,10 +174,7 @@ function aBar() {
 	var barH = 60;  // px
 	var delay = 50; // ms
 
-	this.hide = hide;
-	this.show = show;
-
-	hide = function() {
+	var hide = function() {
 		if(document.height <= window.outerHeight) {
 		  	document.body.style.height = (window.outerHeight + barH) + 'px';
 			$index.css({
@@ -193,7 +190,7 @@ function aBar() {
 		}, delay );
 	}
 
-	show = function() {
+	var show = function() {
 		if (bar = "hidden") {
 			$body.removeAttr("style");
 			$index.css({
@@ -204,4 +201,8 @@ function aBar() {
 			state = "visible";
 		}
 	}
+
+	this.hide = hide;
+	this.show = show;
+
 }
