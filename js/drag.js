@@ -174,7 +174,7 @@ function AddressBar() {
 	var delay = 50; // ms
 }
 
-AddressBar.prototype.hide = function()
+AddressBar.prototype.hide = function() {
 	if(document.height <= window.outerHeight) {
 	  	document.body.style.height = (window.outerHeight + barH) + 'px';
 		$index.css({
@@ -190,7 +190,7 @@ AddressBar.prototype.hide = function()
 	}, delay );
 }
 
-AddressBar.prototype.show = function()
+AddressBar.prototype.show = function() {
 	if (bar = "hidden") {
 		$body.removeAttr("style");
 		$index.css({
