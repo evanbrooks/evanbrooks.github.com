@@ -138,6 +138,8 @@ function openItem(whichItem) {
 	history.pushState({}, "", "#/"+whichItem);
 	view = ITEM;
 
+	aBar.hide();
+
 	if ( whichItem != whichCurrItem ){
 		whichCurrItem = whichItem;
 		url = "/item/"+whichItem+".html";
@@ -209,6 +211,7 @@ function openItem(whichItem) {
 }
 
 function closeItem() {
+	aBar.show();
 	$body.removeClass("item-mode action-mode");
 	view = INDEX;
 	history.pushState({}, "", "/");

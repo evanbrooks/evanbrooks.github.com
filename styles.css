@@ -491,7 +491,7 @@ body:not(.i-scroll) .view-scroller {
 }
 
 .view .fig.uncropped {
-  max-height: 150%;
+  max-height: 120%;
   box-shadow: none;
 }
 
