@@ -171,18 +171,18 @@ function draggingSetup() {
 bar = "visible";
 
 function hideBar() {
-  if(document.height <= window.outerHeight) {
-      document.body.style.height = (window.outerHeight + 60) + 'px';
-  }
+	if(document.height <= window.outerHeight) {
+	  	document.body.style.height = (window.outerHeight + 60) + 'px';
+		$index.css({
+			"-webkit-transition": "none",
+			"padding-top": "60px"
+		});
+	}
 
-  setTimeout( function(){
-  	window.scrollTo(0, 1);
-  	$index.css({
-  		"-webkit-transition": "none",
-  		"padding-top": "60px"
-  	});
-  	bar = "hidden";
-  }, 50 );
+	setTimeout( function(){
+		window.scrollTo(0, 1);
+		bar = "hidden";
+	}, 50 );
 }
 
 function showBar() {
