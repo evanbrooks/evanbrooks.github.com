@@ -126,7 +126,7 @@ function draggingSetup() {
 					//bounceView();
 				}
 				else {
-					if ( dX > ($(window).width()/2) ) {
+					if ( dX > ($(window).width()/2) || dX < -1*($(window).width()/2) ) {
 						closeItem();
 					}
 					$view.removeAttr("style");
