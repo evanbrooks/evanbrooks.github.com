@@ -29,6 +29,12 @@ function draggingSetup() {
 
 	$body.mouseleave(dragStop);
 
+
+	// Bind to touch events
+	// --------------------
+
+	$viewScroll.scroll(detectOverScroll);
+
 	// Dragging
 	// --------
 	function dragBegin(e){
@@ -185,6 +191,25 @@ function draggingSetup() {
 			});
 		});
 	}
+
+	function detectOverScroll(){
+		var currScroll = $viewScroll.scrollTop();
+		var triggerPoint = $(window).height()/4;
+		if ( currScroll < -1*triggerPoint ){
+			$matte.addClass("danger top").removeClass("bottom");
+		}
+		else if ( (currScroll + $(window).height())
+					>=
+				  ($(".inner-scroll-wrap").outerHeight() + triggerPoint)
+				) {
+			$matte.addClass("danger bottom").removeClass("top");
+		}
+		else {
+			$matte.removeClass("danger");
+		}
+		//console.log(currScroll + $(window).height() +" >= "+($(".inner-scroll-wrap").height() + triggerPoint));
+    }
+
 }
 
 /* =========== Address Bar object =========== */

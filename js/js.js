@@ -158,24 +158,6 @@ $(function(){
 		$("[data-action = fullscreen]").show();
 	}
 
-
-	$viewScroll.scroll(function(){
-		var currScroll = $viewScroll.scrollTop();
-		var triggerPoint = $(window).height()/4;
-		if ( currScroll < -1*triggerPoint ){
-			$matte.addClass("danger top").removeClass("bottom");
-		}
-		else if ( (currScroll + $(window).height())
-					>=
-				  ($(".inner-scroll-wrap").outerHeight() + triggerPoint)
-				) {
-			$matte.addClass("danger bottom").removeClass("top");
-		}
-		else {
-			$matte.removeClass("danger");
-		}
-		//console.log(currScroll + $(window).height() +" >= "+($(".inner-scroll-wrap").height() + triggerPoint));
-    });
 });
 
 // Open or close item
