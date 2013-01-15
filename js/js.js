@@ -167,11 +167,11 @@ $(function(){
 		}
 		else if ( currScroll + $(window).height()
 					>=
-				  $("inner-scroll-wrap").height() + triggerPoint
+				  $(".inner-scroll-wrap").height() + triggerPoint
 				) {
 			closeItemReverse();
 		}
-		console.log(currScroll);
+		// console.log(currScroll + $(window).height() +" >= "+($(".inner-scroll-wrap").height() + triggerPoint));
     });
 });
 
