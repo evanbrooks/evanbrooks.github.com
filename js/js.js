@@ -165,6 +165,9 @@ function openItem(openThisItem) {
 	history.pushState({}, "", "#/"+openThisItem);
 	view = ITEM;
 
+	$body.removeClass("item-mode");
+
+
 	if ( openThisItem != whichCurrItem ){
 		whichCurrItem = openThisItem;
 		url = "/item/"+openThisItem+".html";
