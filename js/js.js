@@ -312,7 +312,7 @@ function closeItem() {
 
 function closeItemReverse() {
 	$body.addClass("closed-up");
-	closeItem;
+	closeItem();
 	setTimeout(function(){
 		$view.addClass("freeze");
 		$body.removeClass("closed-up");
