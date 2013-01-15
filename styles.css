@@ -75,6 +75,17 @@ a:hover {
   box-shadow: 0 0 0 15px rgba(0,0,0,0.05);
 }
 
+::selection {
+  background:rgba(255,255,0,0.2);
+}
+
+::-moz-selection {
+  background:rgba(255,255,0,0.2);
+}
+
+::-webkit-selection {
+  background:rgba(255,255,0,0.2);
+}
 
 /*---------------------------------------------*/
 
@@ -92,7 +103,7 @@ body {
   background: #444;
   font: 15px/1.3em "awsans";
   font: 20px/1.3em "awsans";
-  -webkit-transition: all 0.4s;
+  //-webkit-transition: all 0.4s;
   position: relative;
   height: 100%;
   overflow: hidden;
@@ -140,7 +151,7 @@ footer {
 
 footer > a {
   color: rgba(0,0,0,0.5);
-  margin-right: 20px;
+  margin-right: 1.5em;
   border-color: transparent;
   font-size: 75%;
   -webkit-transition: background 6s, border 0.15s, color 0.15s;
@@ -423,6 +434,18 @@ body:not(.i-scroll) .view-scroller {
 .show-caption .more-info {
   opacity: 0;
   -webkit-transform: scale(0.6);
+}
+
+.view section:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.view section:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.view section::first-child:last-child {
+  border-radius: 5px;
 }
 
 .view section {
@@ -888,7 +911,7 @@ section.resume {
 
 .events {
   margin: 10%;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .events > li {
@@ -932,7 +955,7 @@ section.resume {
 
 .events .desc::before {
   content: "";
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.15);
   display: inline-block;
   width: 20px;
   top: 0px;
@@ -1011,8 +1034,9 @@ section.resume {
 
 
 @media (min-width: 1350px) {
-  body {
-    font-size: 22px;
+  .item-desc {
+    font-size: 24px;
+    line-height: 1.5em;
   }
 }
 
@@ -1028,6 +1052,16 @@ section.resume {
 
   body {
     font-size: 17px;
+  }
+
+  footer a,
+  .actions a,
+  .actions input, {
+    font-size: 85%;
+  }
+
+  .title {
+    font-size: 70%;
   }
 
   .view {
