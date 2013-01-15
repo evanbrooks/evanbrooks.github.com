@@ -898,7 +898,8 @@ section.resume {
 }
 
 .events .name {
-  font-size: 16px;
+  font-size: 80%;
+  line-height: 1.4em;
   white-space: nowrap;
 }
 
@@ -906,7 +907,8 @@ section.resume {
   display: inline-block;
   //text-transform: uppercase;
   //letter-spacing: 2px;
-  font-size: 16px;
+  font-size: 80%;
+  line-height: 1.4em;
   position: absolute;
   text-align: right;
   color: rgba(0,0,0,0.3);
@@ -938,7 +940,8 @@ section.resume {
 }
 
 .events .desc p {
-  font-size: 16px;
+  font-size: 80%;
+  line-height: 1.4em;
   margin-bottom: 1em;
 }
 
