@@ -354,9 +354,9 @@ footer > a:hover {
   -webkit-transform: translate3d(0, 100%, 0);
 }
 
-.closed-up .view {
-  -webkit-transform: translate3d(0, -100%, 0);
-}
+.closed-up    .view { -webkit-transform: translate3d(0, -100%, 0); }
+.closed-left  .view { -webkit-transform: translate3d(-100%, 0, 0); }
+.closed-right .view { -webkit-transform: translate3d( 100%, 0, 0); }
 
 .view.freeze {
   -webkit-transition: none;

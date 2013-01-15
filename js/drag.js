@@ -126,8 +126,11 @@ function draggingSetup() {
 					//bounceView();
 				}
 				else {
-					if ( dX > ($(window).width()/2) || dX < -1*($(window).width()/2) ) {
-						closeItem();
+					if ( dX > ($(window).width()/2) ) {
+						closeItemDir("right");
+					}
+					else if ( dX < -1*($(window).width()/2) ) {
+						closeItemDir("left");
 					}
 					$view.removeAttr("style");
 					$matte.removeAttr("style");

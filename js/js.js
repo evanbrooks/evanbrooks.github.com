@@ -169,7 +169,7 @@ $(function(){
 					>=
 				  ($(".inner-scroll-wrap").height() + triggerPoint)
 				) {
-			closeItemReverse();
+			closeItemDir("up");
 			console.log("triggered");
 		}
 		console.log(currScroll + $(window).height() +" >= "+($(".inner-scroll-wrap").height() + triggerPoint));
@@ -310,12 +310,12 @@ function closeItem() {
 	setTitle("Portfolio");
 }
 
-function closeItemReverse() {
-	$body.addClass("closed-up");
+function closeItemDir(dir) {
+	$body.addClass("closed-"+dir);
 	closeItem();
 	setTimeout(function(){
 		$view.addClass("freeze");
-		$body.removeClass("closed-up");
+		$body.removeClass("closed-"+dir);
 	},500);
 	setTimeout(function(){
 		$view.removeClass("freeze");
