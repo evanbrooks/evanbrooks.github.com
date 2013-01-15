@@ -171,7 +171,7 @@ $(function(){
 				) {
 			closeItemReverse();
 		}
-		// console.log(currScroll + $(window).height() +" >= "+($(".inner-scroll-wrap").height() + triggerPoint));
+		console.log(currScroll + $(window).height() +" >= "+($(".inner-scroll-wrap").height() + triggerPoint));
     });
 });
 
