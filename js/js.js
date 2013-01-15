@@ -163,13 +163,13 @@ $(function(){
 		var currScroll = $viewScroll.scrollTop();
 		var triggerPoint = $(window).height()/4;
 		if ( currScroll < -1*triggerPoint ){
-			$matte.addClass("danger");
+			$matte.addClass("danger top");
 		}
 		else if ( (currScroll + $(window).height())
 					>=
 				  ($(".inner-scroll-wrap").height() + triggerPoint)
 				) {
-			$matte.addClass("danger");
+			$matte.addClass("danger bottom");
 		}
 		else {
 			$matte.removeClass("danger");

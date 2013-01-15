@@ -316,11 +316,11 @@ footer > a:hover {
   -webkit-transform: scale(0.2) rotate(270deg);
 }
 
-.matte .close-this.top {
+.matte.top .close-this {
   top: 0px;
 }
 
-.matte .close-this.bottom {
+.matte.bottom .close-this {
   bottom: 0px;
 }
 
