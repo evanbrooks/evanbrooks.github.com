@@ -285,6 +285,10 @@ footer > a:hover {
   -webkit-transition: all 1s;
 }
 
+.matte.danger {
+  background: rgba(255,0,0,0.3);
+}
+
 .item-mode .matte,
 .action-mode .matte {
   opacity: 1;
