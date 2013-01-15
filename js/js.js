@@ -172,7 +172,7 @@ $(function(){
 			$matte.addClass("danger bottom");
 		}
 		else {
-			$matte.removeClass("danger");
+			$matte.removeClass("danger top bottom");
 		}
 		//console.log(currScroll + $(window).height() +" >= "+($(".inner-scroll-wrap").height() + triggerPoint));
     });
@@ -307,6 +307,7 @@ function openItem(openThisItem) {
 
 function closeItem() {
 	$body.removeClass("item-mode action-mode");
+	$matte.removeClass("danger top bottom");
 	view = INDEX;
 	history.pushState({}, "", "/");
 	setTitle("Portfolio");
