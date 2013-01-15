@@ -1105,8 +1105,7 @@ section.resume {
 
   .view section {
     background: #f4f4f4;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 0px;
   }
 
   .view .img.sidebyside > img {
