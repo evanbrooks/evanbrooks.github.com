@@ -23,7 +23,7 @@ function draggingSetup() {
 
 	// Bind to mouse events
 	// --------------------
-	$(".grabby").mousedown(dragBegin);
+	$view.mousedown(dragBegin);
 	$body.mousemove(dragMove);
 	$body.mouseup(dragStop);
 
@@ -123,7 +123,7 @@ function draggingSetup() {
 			if ( scroll != VERT ) {
 				$body.removeClass("dragging");
 				if ( dX == 0 ) {
-					bounceView();
+					//bounceView();
 				}
 				else {
 					if ( dX > ($(window).width()/2) ) {
