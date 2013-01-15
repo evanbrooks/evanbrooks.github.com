@@ -1091,6 +1091,7 @@ section.resume {
 
   .view {
     left: 0px;
+    right: 0px;
   }
 
   .view-header {
@@ -1104,6 +1105,8 @@ section.resume {
 
   .view section {
     background: #f4f4f4;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   .view .img.sidebyside > img {
