@@ -793,6 +793,7 @@ ul.meta{
   font-size: 75%;
   padding: 1em 10%;
   background: white;
+  margin: -1px 0; /* fix weird alignment */
 }
 
 .actions a:hover,
@@ -1008,7 +1009,7 @@ section.resume {
 
 @media (min-width: 1350px) {
   body {
-    font-size: 23px;
+    font-size: 22px;
   }
 }
 
