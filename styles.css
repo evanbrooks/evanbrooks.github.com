@@ -472,12 +472,10 @@ body:not(.i-scroll) .view-scroller {
 
 .view section:first-child {
   border-radius: 5px 5px 0 0;
-  margin-top:30px;
 }
 
 .view section:last-child {
   border-radius: 0 0 5px 5px;
-  margin-bottom:30px;
 }
 
 .view section:first-child:last-child {
@@ -487,10 +485,14 @@ body:not(.i-scroll) .view-scroller {
 .view section {
   position: relative;
   overflow: hidden;
-  margin: 0 30px;
+  margin: 0 px;
   -webkit-perspective: 1500;
   background: #f4f4f4;
   -webkit-backface-visibility: hidden;
+}
+
+.view .inner-scroll-wrap {
+  padding: 30px;
 }
 
 .view section.overflow {
