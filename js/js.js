@@ -167,13 +167,12 @@ function openItem(openThisItem) {
 	view = ITEM;
 
 	$body.removeClass("item-mode");
-
+	$viewScroll.scrollTop(0);
 
 	if ( openThisItem != whichCurrItem ){
 		whichCurrItem = openThisItem;
 		url = "/item/"+openThisItem+".html";
 		$body.addClass("loading");
-		$viewScroll.scrollTop(0);
 		$.ajax(url).done(function ( data ) {
 			content = data.split('==');
 
