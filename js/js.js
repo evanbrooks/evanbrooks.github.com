@@ -161,7 +161,7 @@ $(function(){
 
 	$viewScroll.scroll(function(){
 		var currScroll = $viewScroll.scrollTop();
-		if ( currScroll < ( -1*$(window).height()/2 ) ){
+		if ( currScroll < ( -1*$(window).height()/4 ) ){
 			closeItem();
 		}
 		console.log(currScroll);
