@@ -100,7 +100,7 @@ html {
 body {
   -webkit-text-size-adjust: none;
   color: #222;
-  background: #444;
+  background: black;
   font: 15px/1.3em "awsans";
   font: 20px/1.3em "awsans";
   //-webkit-transition: all 0.4s;
