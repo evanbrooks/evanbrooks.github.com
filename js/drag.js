@@ -106,10 +106,11 @@ function draggingSetup() {
 			// --------------------------------------------------------
     		else if ( scroll == HORIZ ){
 				e.preventDefault();
-    			dPad = 0 + parseInt(dX / 15);
-    			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0) rotate("+0.01*dX+"deg)");
-	    		var op = 1 - 0.5*Math.round( dX / $(window).width() *100)/100;
-	    		// parseInt(z * 100)/100 --> round to hundredths
+    			var maxRotate = 5;
+    			var winWidth = $(window).width();
+    			var rotateStep = maxRotate / winWidth;
+    			$view.css("-webkit-transform", "translate3d("+dX+"px,0,0) rotate("+rotateStep*dX+"deg)");
+	    		var op = 1 - 0.5*Math.round( dX / winWidth *100)/100;
 	    		$matte.css("opacity", op);
     		}
     	}
