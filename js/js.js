@@ -167,7 +167,7 @@ $(function(){
 		}
 		else if ( currScroll + $(window).height()
 					>=
-				  $viewScroll.height() + triggerPoint
+				  $("inner-scroll-wrap").height() + triggerPoint
 				) {
 			closeItemReverse();
 		}
@@ -280,6 +280,7 @@ function openItem(openThisItem) {
 
 				html += "</section>";
 			}
+			html = "<div class='inner-scroll-wrap'>"+html+"</div>";
 			$itemContent.append(html);
 
 			$view.waitForImages(function() {    
