@@ -161,8 +161,15 @@ $(function(){
 
 	$viewScroll.scroll(function(){
 		var currScroll = $viewScroll.scrollTop();
-		if ( currScroll < ( -1*$(window).height()/4 ) ){
+		var triggerPoint = $(window).height()/4;
+		if ( currScroll < -1*triggerPoint ){
 			closeItem();
+		}
+		else if ( currScroll + $(window).height()
+					>=
+				  $viewScroll.height() + triggerPoint
+				) {
+			closeItemReverse();
 		}
 		console.log(currScroll);
     });
@@ -299,6 +306,18 @@ function closeItem() {
 	view = INDEX;
 	history.pushState({}, "", "/");
 	setTitle("Portfolio");
+}
+
+function closeItemReverse() {
+	$body.addClass("closed-up");
+	closeItem;
+	setTimeout(function(){
+		$view.addClass("freeze");
+		$body.removeClass("closed-up");
+	},500);
+	setTimeout(function(){
+		$view.removeClass("freeze");
+	},550);
 }
 
 // Utility functions
