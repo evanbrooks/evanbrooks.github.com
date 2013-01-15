@@ -48,9 +48,9 @@ $(function(){
 	$("html").on("click", "[data-item]", function(e){
 		e.preventDefault();
 		if ($currItem != null)
-			$currItem.removeClass("active"); // remove from old item
+			$currItem.removeClass("last-visited"); // remove from old item
 		$currItem = $(this);			     // switch to new item
-		$currItem.addClass("active");	     // make active
+		$currItem.addClass("last-visited");	     // make active
 		openItem($currItem.attr("data-item"));
 	});
 
@@ -93,17 +93,32 @@ $(function(){
 
 	$("html").on("click", "[data-action = copy]", function(e){
 		e.preventDefault();
-		$(".actions input").val(MY_EMAIL);
-		//window.setTimeout( function(){
-			el = document.getElementById("email");
-			el.selectionStart=0;
-			el.selectionEnd = el.value.length;
-		//}, 250);
+		revealCopied();
 	});
+
+	function revealCopied(){
+		msg = $("#copyButton").attr("data-clipboard-text");
+		$("#email").val(msg);
+		el = document.getElementById("email");
+		el.selectionStart=0;
+		el.selectionEnd = el.value.length;
+	}
 
 	$(".actions input").blur(function(e){
 		$(".actions .flip-wrap").removeClass("flipped");
 	});
+
+	// Zeroclip for copy/paste
+	var clip = new ZeroClipboard( $("#copyButton"), {
+	  moviePath: "/js/zeroclip.swf"
+	} );
+
+	clip.on( 'complete', function(client, args) {
+	  	$("#copyButton").parent().parent().parent().addClass("flipped");
+	  	revealCopied();
+	  	alert("Copied text to clipboard: " + args.text );
+	});
+
 
 	// Flip the flippers
 	// -----------------
@@ -142,8 +157,6 @@ $(function(){
 		){
 		$("[data-action = fullscreen]").show();
 	}
-
-
 });
 
 // Open or close item
@@ -224,12 +237,12 @@ function openItem(openThisItem) {
 						resname = resname.replace('(', '<i>').replace(')', '</i>');
 						var resdesc = resparts[1].split('\n\n');
 						var resparagraphs = "";
-						for (k = 0; k < resdesc.length; k++) {
+						for (k = 1; k < resdesc.length; k++) {
 							resparagraphs += "<p>"+resdesc[k]+"</p>";
 						}
 						parsedContent += "<li>";
-						parsedContent += "<div class=\"date\">"+resdate+"</div>";
 						parsedContent += "<div class=\"name\">"+resname+"</div>";
+						parsedContent += "<div class=\"date\">"+resdate+"</div>";
 						parsedContent += "<div class=\"desc\">"+resparagraphs+"</div>";
 						parsedContent += "</li>";
 					}
