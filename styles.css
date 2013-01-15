@@ -91,6 +91,7 @@ body {
   color: #222;
   background: #444;
   font: 15px/1.3em "awsans";
+  font: 20px/1.3em "awsans";
   -webkit-transition: all 0.4s;
   position: relative;
   height: 100%;
@@ -99,12 +100,12 @@ body {
 
 nav {
   padding: 8% 0 0;
-  margin:  0  10% 3em;
+  margin:  0  10% 2.25em;
 }
 
 footer {
   padding: 5% 0 12%;
-  margin:  3em 10% 0;
+  margin:  2.25em 10% 0;
 }
 
 
@@ -118,7 +119,8 @@ footer {
 .title {
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 12px;
+  font-size: 60%;
+  line-height: 19.5px;
   width: 40px;
   //color: rgba(0,0,0,0.5);
   white-space: nowrap;
@@ -131,7 +133,7 @@ nav .title {
 
 footer {
   border-top: 1px solid #ddd;
-  padding-top: 2em;
+  padding-top: 1.5em;
   width: 40px;
   white-space: nowrap;
 }
@@ -140,6 +142,7 @@ footer > a {
   color: rgba(0,0,0,0.5);
   margin-right: 20px;
   border-color: transparent;
+  font-size: 75%;
   -webkit-transition: background 6s, border 0.15s, color 0.15s;
 }
 
@@ -152,13 +155,6 @@ footer > a:hover {
   //border-bottom: 1px solid #444;
   margin-top: 2em;
   max-width: 540px;
-}
-
-.subtitle,
-.item-desc,
-.view p {
-  opacity: 0.8;
-  font: 20px/1.3em awsans;
 }
 
 .item-desc {
@@ -216,7 +212,7 @@ footer > a:hover {
 }
 
 .items > li {
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
   padding-right: 5%;
   margin-right: 10%;
   position: relative;
@@ -228,8 +224,8 @@ footer > a:hover {
   counter-increment: li; 
   position: absolute;
   left: -6%;
-  font-size: 70%;
-  line-height: inherit;
+  font-size: 54%;
+  line-height: 2.5em;
   opacity: 0.7;
 }
 
@@ -794,7 +790,8 @@ ul.meta{
 .actions input {
   display: block;
   border: none;
-  padding: 1.3em 10%;
+  font-size: 75%;
+  padding: 1em 10%;
   background: white;
 }
 
@@ -806,6 +803,7 @@ ul.meta{
 .actions input {
   -webkit-appearance: none;
   font: inherit;
+  font-size: 75%;
   width: 100%;
   border: none;
   border-radius: 0px;
@@ -1009,10 +1007,8 @@ section.resume {
 
 
 @media (min-width: 1350px) {
-  .subtitle,
-  .item-desc,
-  .view p {
-    font-size: 24px;
+  body {
+    font-size: 23px;
   }
 }
 
@@ -1025,6 +1021,10 @@ section.resume {
 
 
 @media (max-width: 600px){
+
+  body {
+    font-size: 17px;
+  }
 
   .view {
     left: 0px;
@@ -1044,12 +1044,6 @@ section.resume {
     margin-right: 0%;
   }
 
-  .subtitle,
-  .item-desc,
-  .view p {
-    font-size: 17px;
-  }
-
   .meta > li > b {
     display: block;
     line-height: 1em;
@@ -1067,9 +1061,6 @@ section.resume {
 
 
 @media (max-width: 500px){
-  .view {
-    //left: 18px;
-  }
 
   .items > li {
     padding-left: 12%;
