@@ -281,7 +281,7 @@ footer > a:hover {
   padding: 5%;
   opacity: 0;
   //background: rgba(245,245,245,0.9);
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.2);
   -webkit-transition: all 1s;
 }
 
@@ -916,22 +916,18 @@ section.resume {
 
 .events > li {
   margin-bottom: 3em;
+  font-size: 75%;
+  line-height: 1.4em;
   position: relative;
   margin-left: 200px;
 }
 
 .events .name {
-  font-size: 80%;
-  line-height: 1.4em;
   white-space: nowrap;
 }
 
 .events .date {
   display: inline-block;
-  //text-transform: uppercase;
-  //letter-spacing: 2px;
-  font-size: 80%;
-  line-height: 1.4em;
   position: absolute;
   text-align: right;
   color: rgba(0,0,0,0.3);
@@ -963,9 +959,27 @@ section.resume {
 }
 
 .events .desc p {
-  font-size: 80%;
-  line-height: 1.4em;
   margin-bottom: 1em;
+}
+
+.events a {
+  position: absolute;
+  top:1em;
+  //width: 100px;
+  text-align: right;
+  right: 100%;
+  white-space: nowrap;
+  margin-right: 50px;
+  border-color: rgba(0,0,0,0.15);
+  color: rgba(0,0,0,0.5);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 70%;
+  opacity: 0.4;
+}
+
+.events > li:hover a {
+  opacity: 1;
 }
 
 @media (max-width: 800px){
@@ -974,6 +988,15 @@ section.resume {
     display: block;
     text-align: left;
     margin-bottom: 0.2em;
+  }
+  .events a {
+    font-size: 80%;
+    position: static;
+    opacity: 0.8;
+    display: block;
+    text-align: center;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
   }
   .events > li {
     margin-left: 0px;
