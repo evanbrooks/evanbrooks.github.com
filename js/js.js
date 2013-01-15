@@ -167,7 +167,7 @@ $(function(){
 		}
 		else if ( (currScroll + $(window).height())
 					>=
-				  ($(".inner-scroll-wrap").height() + triggerPoint)
+				  ($(".inner-scroll-wrap").outerHeight() + triggerPoint)
 				) {
 			$matte.addClass("danger bottom");
 		}
