@@ -453,7 +453,7 @@ body:not(.i-scroll) .view-scroller {
   overflow: hidden;
   -webkit-perspective: 1500;
   background: #f4f4f4;
-  //-webkit-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .view section.overflow {
