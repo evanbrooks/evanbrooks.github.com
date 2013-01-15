@@ -159,21 +159,21 @@ $(function(){
 	}
 
 
-	$viewScroll.scroll(function(){
-		var currScroll = $viewScroll.scrollTop();
-		var triggerPoint = $(window).height()/4;
-		if ( currScroll < -1*triggerPoint ){
-			closeItem();
-		}
-		else if ( (currScroll + $(window).height())
-					>=
-				  ($(".inner-scroll-wrap").height() + triggerPoint)
-				) {
-			closeItemDir("up");
-			console.log("triggered");
-		}
-		console.log(currScroll + $(window).height() +" >= "+($(".inner-scroll-wrap").height() + triggerPoint));
-    });
+	// $viewScroll.scroll(function(){
+	// 	var currScroll = $viewScroll.scrollTop();
+	// 	var triggerPoint = $(window).height()/4;
+	// 	if ( currScroll < -1*triggerPoint ){
+	// 		closeItem();
+	// 	}
+	// 	else if ( (currScroll + $(window).height())
+	// 				>=
+	// 			  ($(".inner-scroll-wrap").height() + triggerPoint)
+	// 			) {
+	// 		closeItemDir("up");
+	// 		console.log("triggered");
+	// 	}
+	// 	console.log(currScroll + $(window).height() +" >= "+($(".inner-scroll-wrap").height() + triggerPoint));
+ //    });
 });
 
 // Open or close item

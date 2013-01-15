@@ -50,7 +50,7 @@ function draggingSetup() {
 			if ($viewScroll.scrollTop() <= 0) {
 				$viewScroll.scrollTop(1);
 			}
-			else if ($viewScroll.scrollTop() + $(window).height() >= $viewScroll.height()) {
+			else if ($viewScroll.scrollTop() + $(window).height() >= $(".inner-scroll-wrap").height()) {
 				s = $viewScroll.scrollTop() - 1;
 				$viewScroll.scrollTop(s);
 			}
@@ -137,6 +137,21 @@ function draggingSetup() {
 					$matte.removeAttr("style");
 				}
 				dX = 0;
+			}
+			else {
+				var currScroll = $viewScroll.scrollTop();
+				var triggerPoint = $(window).height()/4;
+				if ( currScroll < -1*triggerPoint ){
+					closeItem();
+				}
+				else if ( (currScroll + $(window).height())
+							>=
+						  ($(".inner-scroll-wrap").height() + triggerPoint)
+						) {
+					closeItemDir("up");
+					console.log("triggered");
+				}
+				console.log(currScroll + $(window).height() +" >= "+($(".inner-scroll-wrap").height() + triggerPoint));
 			}
 			// Snap everything else back to "normal"
 			// -------------------------------------
