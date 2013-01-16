@@ -196,13 +196,19 @@ footer > a:hover {
 
 .index {
   -webkit-transition: -webkit-transform 0.4s, margin 0.2s, padding 0.2s;
-  background: white;
+  background: black;
   height: 100%;
   -webkit-transform: translate3d(0,0,0);
   overflow: scroll;
   border-radius: 5px;
   -webkit-overflow-scrolling: touch;
   counter-reset: li;
+}
+
+.index-inner-wrap {
+  background: white;
+  min-height: 100%;
+  border-radius: 5px;
 }
 
 .item-mode .index,
