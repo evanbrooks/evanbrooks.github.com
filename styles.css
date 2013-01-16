@@ -214,6 +214,12 @@ footer > a:hover {
 .item-mode .index,
 .action-mode .index {
   -webkit-transform: scale(0.97);/* translate3d(0,0,0) scale(0.95);*/
+  background: white;
+}
+
+.item-mode .index-inner-wrap,
+.action-mode .index-inner-wrap  {
+  background: transparent;
 }
 
 
