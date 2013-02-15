@@ -1,147 +1,136 @@
 <!DOCTYPE html>
 <head>
-	  <title>Evan Brooks — Portfolio</title>
-	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	  <meta
-	    name="viewport"
-	    content="width=device-width,
-	             initial-scale=1.0,
-	             maximum-scale=1.0,
-	             user-scalable=no"/>
-	  <meta
-	    name="apple-mobile-web-app-capable"
-	    content="yes" />
-	  <meta
-	    name="apple-mobile-web-app-status-bar-style"
-	    content="black" />
-
-  	<link rel="stylesheet" href="styles.css" >
-
-<!-- <script type="text/javascript" src="//use.typekit.net/fft7wzp.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
- --> 
+  <title>Evan Brooks</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <link rel="stylesheet" href="style.css" >
 </head>
 <body>
-	<div class="index">
-		<div class="index-inner-wrap">
-			<!-- Navigation -->
-			<nav>
-				<h1 class="title">
-					Evan Brooks
-				</h1>
-				<!--<h2 class="subtitle">
-					Hello there! I design interfaces, products, and brands. I have a meticulous eye for the big picture. Here are a few recent projects, with more on their way:
-				</h2>-->
-			</nav>
-			<!-- Items -->
-			<div class="item-lists">
-				<ol class="items">
-					<li>
-						<div class="item-desc"
-						 data-item="thehop"
-						 > 	the Hop, a new face for a museum
-							about play and making things
-						</div>
-					</li><li>
-						<div class="item-desc"
-						 data-item="locu"
-						 > 	Locu, a website that helps restaurants
-							design and manage their menus
-						</div>
-					</li><li>
-						<div class="item-desc" 
-						 data-item="clerestory"
-						 > 	Clerestory, a
-							Brown + RISD journal of the arts
-						</div>
-					</li>
-					<li>
-						<div class="item-desc"
-						 data-item="agamatrix"
-						 > 	Interaction and product concepts
-							for people with diabetes
-						</div>
-					</li><li>
-						<div class="item-desc"
-						 data-item="deyoung"
-						 >	Art is hairy,</q> a proposal
-							for the deYoung museum
-						</div>
-					</li><li>
-						<div class="item-desc" 
-						 data-item="moishe"
-						 > 	Modern packaging for
-							Moishe's Hamantaschen
-						</div>
-					</li>
-				</ol>
+	<nav>
+		<div class="inner">
+			<div class="subnav">
+				<a href="#" data-item-name="resume">Résumé</a>
+				<a href="#" data-item-name="friends">Friends</a>
+				<a href="#" data-item-name="email">Email</a>
+				<!--<button class="prev-btn" id="prev">◀</button>
+				<button class="next-btn" id="next">▶</button>-->
 			</div>
-			<footer>
-				<a href="#" data-action="actionsheet">Email</a>
-				<a href="#" data-item="resume">Résumé</a>
-				<a href="#">Friends</a>
-				<a href="#" data-action="fullscreen">∴</a>
-			</footer>
+			<h1 class="title">
+				<a href="#">Evan Brooks</a><!-- — Recent work -->
+			</h1>
 		</div>
- 	</div>
-	<div class="overlay">
-		<div class="matte">
-			<!--<span class="icon">✕</span>-->
-			<div class="close-this">✕</div>
-		</div>
-		<div class="actions">
-			<a href="mailto:ebrooks@risd.edu">New message</a>
-			<div class="flip-wrap small" data-flip="permanent">
-				<div class="flipper flipper-horiz">
-					<div class="obverse">
-						<a id="copyButton" data-clipboard-text="ebrooks@risd.edu" href="#" data-action="copy">
-							Copy email to clipboard
-						</a>
+	</nav>
+	<div class="scroller">
+		<section class="items">
+			<article class="item">
+				<a class="item-name" href="#" data-item-name="locu">
+					Rethinking the menu at Locu
+				</a>
+				<figure>
+					<div class="browser">
+						<img src="img/locu-ui2.png"/>
 					</div>
-					<div class="reverse">
-						<input id="email" value="(email)" />
-					</div>
-				</div>
-			</div>
-			<a href="#" style="color: rgba(0,0,0,0.7)">Cancel</a>
-		</div>
-		<div class="view" id="iScroll">
-			<div class="view-scroller">
-				<!-- content injected here -->
-			</div>
-			<!--<div class="grabby">
-				<i></i><i></i><i></i>
-			</div>-->
-			<section class="view-header text" style="display: none">
-				<h1 class="title">
-					Title
-				</h1>
-				<h2 class="subtitle">
-					Date
-				</h2>
-			</section>
-		</div>
-	</div>
-	<div class="spinner desc">
-		<div class="icon">. .</div>
+				</figure>
+			</article>
+			<article class="item">
+				<a class="item-name" href="#" data-item-name="hop">
+					A museum
+					about play and making things
+				</a>
+				<figure>
+					<img src="img/hop.png"/>
+				</figure>
+			</article>
+			<article class="item">
+				<a class="item-name" href="#" data-item-name="agamatrix">
+					Mobile healthcare for
+					people with diabetes 
+				</a>
+				<figure>
+					<img src="img/agam.png" />
+				</figure>
+			</article>
+			<article class="item">
+				<a class="item-name" href="#" data-item-name="clerestory">
+					A Brown +
+					RISD journal of the arts
+				</a>
+				<figure style="margin-left: -8%">
+					<img src="img/clere.png" />
+				</figure>
+			</article>
+			<article class="item">
+				<a class="item-name" href="#" data-item-name="artishairy">
+					Art is hairy, for a museum of
+					art both old and new
+				</a>
+				<figure>
+					<img src="img/deyoung.jpg" />
+				</figure>
+			</article>
+			<article class="item">
+				<h3 class="archive-name">More projects</h3>
+				<ul class="archive">
+					<li><a href="#" data-item-name="ripta">
+						Live transit data visualizations
+					</a></li>
+					<li><a href="#" data-item-name="abwxd">
+						A mobile site for the A Better World by Design conference
+					</a></li>
+					<li><a href="#" data-item-name="hamantaschen">
+						Packaging hamantaschen
+					</a></li>
+					<li><a href="#" data-item-name="newsarcade">
+						NYT News Arcade
+					</a></li>
+					<li><a href="#" data-item-name="icons">
+						Desktop icons
+					</a></li>
+				</ul>
+			</article>
+		</section>
 	</div>
 
+	<!-- Project page -->
 
-  	<!-- Scripts -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<div class="project-compenents">
+		<div class="project-back">
+		</div>
 
-  	<!--
-	Hey there, feel free to poke around and check
-	out the scripts and plugins in their unminified form! -->
+		<h1 class="project-title">A museum
+			about play and making things
+		</h1>
 
-  	<script type="text/javascript" src="js/jquery.wait.min.js"></script>
-  	<script type="text/javascript" src="js/drag.js"></script>
-  	<script type="text/javascript" src="js/clerestory.js"></script>
-  	<!--<script type="text/javascript" src="js/iscroll-lite.js"></script>-->
-  	<script type="text/javascript" src="js/zeroclip.min.js"></script>
-  	<script type="text/javascript" src="js/js.js"></script>
-  	
-<!-- 
-  	<script type="text/javascript" src="evn.min.js"></script>
- -->
+		<div class="project">
+		</div>
+
+		<figure class="project-main-figure">
+		</figure>
+	</div>
+
+<!-- 	<div class="ex">✕</div> -->
+
+	<div class="spinner">
+		<i></i><i></i>
+	</div>
+
+	<!-- Lightbox -->
+
+	<div class="lightbox-back">
+		<div class="ex">✕</div>
+	</div>
+	<div class="lightbox">
+		<img src="" />
+	</div>
+
+	<!-- Script -->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="js/lb.js"></script>
+	<script src="js/showdown.js"></script>
+	<script src="js/ajax.js"></script>
+	<script src="js/script.js"></script>
+
 </body>
