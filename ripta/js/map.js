@@ -85,26 +85,26 @@ function Map(el) {
     }
 
     function refresh() {
-      visible = true;
-      loaded = true;
+     //  visible = true;
+     //  loaded = true;
 
-      visibleStops = stops.filter(view.isInView);
+     //  visibleStops = stops.filter(view.isInView);
 
-	    stopdata = stopLayer.selectAll(".stop")
-	      .data(visibleStops);
+	    // stopdata = stopLayer.selectAll(".stop")
+	    //   .data(visibleStops);
 
-	    stopdata.enter()
-        .append("circle")
-        .attr("id", function(d) { return parseInt(d.id, 10) })
-        .attr("class", "stop");
+	    // stopdata.enter()
+     //    .append("circle")
+     //    .attr("id", function(d) { return parseInt(d.id, 10) })
+     //    .attr("class", "stop");
 
-	    stopdata
-	      .attr("cx", function(d) { return xScale(d.x) })
-	      .attr("cy", function(d) { return yScale(d.y) });
+	    // stopdata
+	    //   .attr("cx", function(d) { return xScale(d.x) })
+	    //   .attr("cy", function(d) { return yScale(d.y) });
 
-      stopdata
-        .exit()
-        .remove();
+     //  stopdata
+     //    .exit()
+     //    .remove();
 	  }
 
     function hide(){
@@ -291,9 +291,11 @@ function Map(el) {
     function displayBus(time) {
       var currentBus = getData(time).filter(view.isInView);
 
+      // var drawThese = []
       // currentBus.forEach(function(bus){
-      //   canvas.addPt( xScale(bus.x), yScale(bus.y) );
-      // }); 
+      //   drawThese.push({x: xScale(bus.x), y: yScale(bus.y) });
+      // });
+      // canvas.addArr(drawThese);
 
       // Main
       // ----
@@ -317,10 +319,7 @@ function Map(el) {
               .attr("transform",
                 function(d) {
                   return "translate("+xScale(d.x)+","+yScale(d.y)+") rotate("+d.a+")"; })
-              .attr("height", 0)
-              .attr("width", 0)
-              .attr("fill", "blue")
-              .attr("r", 2);
+              .attr("r", 1.1);
 
           busEnter.append("text")
               .text(function(d) { return d.route })
@@ -378,7 +377,7 @@ function Map(el) {
           //console.log("no stops?");
         }
       });
-      // showShapeUsed(currentBus);                  //DEBUG
+      showShapeUsed(currentBus);                  //DEBUG
       // showStopInterps(currentStopInterps);        //DEBUG
       return currentBus;
     }
@@ -493,13 +492,12 @@ function Map(el) {
       function showShapeUsed(current) {
         shapeLayer
           .selectAll(".line")
-          .attr('style="stroke-width: 0.15, stroke: black"');
+          .attr("class", "line");
 
         current.forEach(function(curr) {
           shapeLayer
             .select("#l"+curr.shape)
-            .attr("stroke-width", "3")
-            .attr("stroke", "red");
+            .attr("class", "line selected");
         });
       }
 

@@ -28,7 +28,7 @@ function TimeControl(tripControl, viewControl) {
     $("#autoRunCheck").change(function(e) {
       if (!autoRun) {
         autoRun = true;
-        d3.timer(timeStep, 50);
+        d3.timer(timeStep);
       }
       else autoRun = false;
     });
@@ -48,6 +48,8 @@ function TimeControl(tripControl, viewControl) {
     else {
       self.prevTime = self.currentTime;
       self.currentTime = parseFloat(self.currentTime) + 0.05;
+      if (self.currentTime > 1440) self.currentTime = 0;
+      $("#time-slide").val(self.currentTime);
       tripControl.set(self.currentTime);
       //colorize();
       return false;                         // keep running
