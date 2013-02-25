@@ -170,7 +170,7 @@ a.item-name,
 	//position: absolute
 	top: 100px
 	width: 70%
-	text-shadow: 0 0 300px white//, 0 -1px 2px rgba(255,255,255,0.18)
+	text-shadow: 0 0 300px white, 0 -1px 2px rgba(255,255,255,0.18)
 	.btn
 		display: none
 		margin-top: 2em
@@ -602,6 +602,11 @@ a:hover .copy
 
 // @ Media -------------
 
+@media (-webkit-min-device-pixel-ratio: 1.5)
+	a.item-name,
+	.project-title
+		text-shadow: none
+
 @media (max-height: 500px)
 	a.item-name,
 	.project-title
@@ -621,7 +626,7 @@ a:hover .copy
 
 @media (max-width: 700px)
 	.item
-		width: 100vw
+		width: auto
 		padding: 120px 10vw 10px
 	a.item-name,
 	.project-title
@@ -643,6 +648,9 @@ a:hover .copy
 	a.item-name,
 	.project-title
 		font-size: 2em
+		border-width: 2px
+	.item
+		padding: 70px 10vw 10px
 
 	.item figure
 		display: none
@@ -654,6 +662,9 @@ a:hover .copy
 
 	.project blockquote p
 		font-size: 1em
+
+	br
+		display: none
 
 // Extras -------------
 
