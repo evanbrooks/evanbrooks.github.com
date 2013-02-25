@@ -4,12 +4,13 @@
 
 
 html, body, h1, h2, h3, h4, p, ul, li,
-figure, blockquote
+section, article, div, a, figure, blockquote
 	margin: 0
 	padding: 0
 	font-size: 100%
 	text-align: left
 	font-weight: normal
+	-webkit-text-size-adjust: none
 
 @mixin nolist
 	padding: 0
@@ -59,8 +60,7 @@ figure, blockquote
 
 body,
 html
-	//height: 100%
-	//overflow-y: hidden
+	-webkit-overflow-scrolling: touch
 
 hr
 	border: none

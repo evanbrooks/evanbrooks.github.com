@@ -1,16 +1,21 @@
 html, body, h1, h2, h3, h4, p, ul, li,
-figure, blockquote {
+section, article, div, a, figure, blockquote {
   margin: 0;
   padding: 0;
   font-size: 100%;
   text-align: left;
-  font-weight: normal; }
+  font-weight: normal;
+  -webkit-text-size-adjust: none; }
 
 .no-trans {
   -webkit-transition: none !important; }
 
 .no-scroll {
   overflow: hidden !important; }
+
+body,
+html {
+  -webkit-overflow-scrolling: touch; }
 
 hr {
   border: none;
