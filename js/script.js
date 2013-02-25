@@ -29,7 +29,7 @@ function bindHandlers() {
 
 	html.on("click", "[data-item-name]", proj.viewItemClick)
 			.on("click", "[data-item-link]", proj.viewItemInterLink)
-			.on("click", ".spinner", proj.clearItemClick)
+			.on("click", ".spinner, .ex, .project-back", proj.clearItemClick)
 			.on("click", "[data-lightbox]", lb.viewImage)
 			.on("click", ".lightbox, .lightbox-back .ex", lb.clearImage);
 
@@ -91,6 +91,7 @@ function Scroller() {
 function Projectbox(projectElement) {
 	var el = $(projectElement);
 	var targ;
+	var id;
 	var title = $(".project-title");
 	var fig = $(".project-main-figure");
 	var tH, tW, tT, tL;
@@ -129,11 +130,18 @@ function Projectbox(projectElement) {
 	}
 
 	function viewItem() {
+		id = targ.attr("data-item-name");
 		body.addClass("loading");
-		cont.getItem(targ.attr("data-item-name"), function(data){
+		el.html("");
+		cont.getItem(id, function(data){
 			el.html(data);
-			body.removeClass("loading");
+			setTimeout(function(){
+				body.removeClass("loading");
+			}, 1000);
+
 		});
+
+		body.addClass(id);
 
 		var title_str = targ.html();
 		tW = targ.width();
@@ -155,6 +163,7 @@ function Projectbox(projectElement) {
 
 		el.css("padding-top", (tH + 80) + "px");
 
+		title.children("span").html(title_str);
 		title
 			.freeze()
 			.css({
@@ -167,7 +176,6 @@ function Projectbox(projectElement) {
 				"color": "black",
 				"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)"
 			})
-			.html(title_str)
 			.show()
 			.fadeIn()
 			.unfreeze()
@@ -183,7 +191,7 @@ function Projectbox(projectElement) {
 		});
 		body.addClass("viewing-item");
 		body.afterTransition(function(){
-			body.addClass("viewing-item-ready");
+			//
 		});
 	}
 
@@ -201,7 +209,6 @@ function Projectbox(projectElement) {
 		tH = targ.height();
 		tT = targ.offset().top - wind.scrollTop();
 		tL = targ.offset().left - wind.scrollLeft();
-
 		body.removeClass("viewing-item");
 		title.unfreeze().css({
 			"width": tW,
@@ -219,6 +226,7 @@ function Projectbox(projectElement) {
 
 		setTimeout(function(){
 			title.removeAttr("style");
+			body.removeClass(id);
 			cb();
 		},500);
 	}

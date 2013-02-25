@@ -41,7 +41,7 @@ function Lightbox() {
 			"top": tT,
 			"left": tL
 		}).fadeIn().css({
-			"-webkit-transition": "all 0.4s",
+			"-webkit-transition": "all 0.3s",
 			"width": endW,
 			"height": endH,
 			"top": endT,

@@ -1,22 +1,3 @@
-<style>
-.project-back {
-	background: rgba(240, 240, 240, 0.9);
-}
-.project-title,
-.project p,
-.project a,
-.project li,
-.project h3 { 
-	color: black;
-	border-color: black;
-}
-
-.spinner i {
-	background: black
-}
-
-</style>
-
 <figure>
 	<img data-lightbox="" src="img/hop/logo.png" />
 </figure>

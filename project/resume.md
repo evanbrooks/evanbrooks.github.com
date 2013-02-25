@@ -1,88 +1,94 @@
-<style>
+<!-- <h2 style="font-size: 50px; font-family: 'apercumedium'; padding-bottom: 1.5rem">
+	Hello there, I'm Evan. I'm a designer who likes to code.
+</h2> -->
 
-.project-title {
-	font-size: 15px;
-	letter-spacing: 4px;
-}
+> I'm Evan, and I'm a designer and San Francisco native who likes to code. I'm currently studying at [RISD](//risd.edu) in Providence, RI. I've also worked to design better diabetes care at <a href="/#/agamatrix" data-item-link="agamatrix">Agamatrix</a> and helped build a company called <a href="/#/locu" data-item-link="locu">Locu</a>.
 
-.sidebar h2 {
-	padding-bottom: 50px
-}
+> Say <a class="at" href="mailto:hi@evn.io">hi <b>@</b><i>at</i> evn.io <span class="copy btn">copy</span></a>
 
-.sidebar li {
-	list-style: none;
-	padding-bottom: 5px
-}
+<!-- %aside
 
-@media (min-width: 1200px) {
-	.sidebar {
-		position: absolute;
-		top: 50%;
-		left: 60%;
-	}
-}
-</style>
+# Friends
 
-### Rhode Island School of Design *Fall 2009 - Present* 
+- [Annie Wu](//anniewu.net/) *Product Design*
+- [Andrea Nguyen](//andrealikes.to/) *Graphic Design*
+- [Daisy Sun](//daisy-sun.com) *Product Design*
+- [Isaac Blankensmith](//isaacblankensmith.com) *Product Design*
+- [Mary Tao](//marytaodesign.com/) *Graphic Design*
+- [Tabitha Yong](//tabithayong.com/) *Graphic Design*
+- [Tori Hinn](//vhinn.com) *Graphic Design*
+- [Victoria Rushton](//victoriarushton.com) *Lettering, illustration, and design*
 
-Working towards a BFA in Graphic Design
+%endaside -->
 
-### Product Designer at Locu *Fall 2010 - Spring 2012*
+%aside
 
-I met the Locu founding team members while they were students at MIT, and have worked closely with them creating publishing tools for small business owners. I helped to found the product design team, and I researched, designed, and did front-end development for the product. I also designed the brand, logo, and marketing materials.
+# Skills
 
-I continued to work on projects and advise the company part-time while finishing my degree.
+#### Design
 
-<a href="#" data-item-link="locu">See projects</a>
+- Typography
+- Brand and identity
+- Print design
+- Web, app, and interface design
+- Adobe InDesign, Illustrator, Photoshop
 
-### UI/UX Design Intern at Agamatrix *June 2011 - April 2012*
+#### Web
 
-AgaMatrix is a mobile health company that created the first iPhone-compatible glucose meters for people with diabetes.
+- HTML and CSS
+- Responsive web design practices
+- Javascript and JQuery
+- D3.js and Processing
 
-I designed interfaces for the iPhone and for small lcd displays, as well as hardware device concepts and informational web sites.
+#### Programming
 
-I worked closely with people with diabetes, hardware and software engineers, medical and regulatory experts, and other designers. While I had planned for a summer internship, I ended up staying for 10 months as a member of the design team.
+- Databases, Node.js, and RESTful APIs
+- Java and Python
+- Algorithms and data structures
 
-<a href="#" data-item-link="agamatrix">See projects</a>
+%endaside
 
-### Art Director at Clerestory *Fall 2009 - June 2011*
 
-I defined the visual language and concept for a biannual  anthology of writing, visual art, and music selected from RISD and Brown students. I led a small team of designers and oversaw printing.
 
-<a href="#" data-item-link="clerestory">See project</a>
+# Experience
 
-### Freelance design *2006 - present*
+-	### Rhode Island School of Design *Fall 2009 &#10132; Present* 
 
-Miscellaneous freelance projects
+	Studying Graphic Design with courses in Industrial Design
 
-### California College of the Arts *Summer 2008*
+-	### Brown University *Fall 2012 &#10132; Present* 
 
-Pre-college program in Industrial Design, one of 5 student awarded a scholarship for outstanding achievement.
+	Courses on programming and on algorithms & data structures
 
-<div class="sidebar">
-<h2>What I can do</h2>
 
-<h4>Design Basics</h4>
-<ul> <li>Typography
-</li><li>Branding and identity
-</li><li>Print design
-</li><li>Web, app, and interface design
-</li><li>Adobe InDesign, Illustrator, Photoshop
-</li></ul>
+-	### Product Designer at Locu *Fall 2010 &#10132; Spring 2012*
 
-<h4>Experienced with</h4>
+	I met the Locu founding team members while they were students at MIT, and have worked closely with them creating publishing tools for small business owners. I helped to found the product design team, and I researched, designed, and did front-end development for the product. I also designed the brand, logo, and marketing materials.
 
-<ul class="noL"> <li>HTML and CSS
-</li><li>Responsive web design practices
-</li><li>Javascript and JQuery
-</li><li>D3.js and Processing
-</li></ul>
+	I continued to work on projects and advise the company part-time while finishing my degree.
 
-<h4>Getting better at</h4>
+	<a class="btn" href="#" data-item-link="locu">See projects</a>
 
-<ul> <li>Node.js, databases, and RESTful APIs
-</li><li>Java and Python
-</li><li>Algorithms and data structures
-</li></ul>
+-	### UI/UX Design Intern at Agamatrix *June 2011 &#10132; April 2012*
 
-</div>
+	AgaMatrix is a mobile health company that created the first iPhone-compatible glucose meters for people with diabetes.
+
+	I designed interfaces for the iPhone and for small lcd displays, as well as hardware device concepts and informational web sites.
+
+	I worked closely with people with diabetes, hardware and software engineers, medical and regulatory experts, and other designers. While I had planned for a summer internship, I ended up staying for 10 months as a member of the design team.
+
+	<a class="btn" href="#" data-item-link="agamatrix">See projects</a>
+
+-	### Art Director at Clerestory *Fall 2009 &#10132; June 2011*
+
+	I defined the visual language and concept for a biannual  anthology of writing, visual art, and music selected from RISD and Brown students. I led a small team of designers and oversaw printing.
+
+	<a class="btn" href="#" data-item-link="clerestory">See project</a>
+
+-	### Freelance design *2006 &#10132; present*
+
+	Miscellaneous freelance projects
+
+-	### California College of the Arts *Summer 2008*
+
+	Pre-college program in Industrial Design, one of 5 student awarded a scholarship for outstanding achievement.

@@ -1,20 +1,3 @@
-<style>
-.project-back {
-	background: rgba(245, 245, 245, .9);
-	border-top: 20px solid #fed000;
-}
-.project-title,
-.project p,
-.project h3,
-.project a { 
-	color: black;
-	border-color: black;
-}
-.spinner i {
-	background: black
-}
-</style>
-
 <figure>
 	<div class="browser">
 		<img src="img/locu-ui.png"/>
@@ -25,7 +8,7 @@ Locu combines business tools, data science, and design. When I first met them, t
 
 My task was to reconcile the structured nature of the raw data with the messy and complicated needs of business owners. That meant pushing the limits of digital publishing while remaining compatible with old computers and friendly enough to win over businesses.
 
-<button class="btn">Visit Locu.com</button>
+<a href="//locu.com" class="btn">Visit Locu.com</a>
 
 ### Editing structured data
 
