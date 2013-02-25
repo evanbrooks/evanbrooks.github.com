@@ -26,6 +26,7 @@ function bindHandlers() {
 	$("#next").click(scroller.nextItem);
 
 	$(".project").scroll(proj.scrolling);
+	$(".project").on("touchmove", proj.scrolling);
 
 	html.on("click", "[data-item-name]", proj.viewItemClick)
 			.on("click", "[data-item-link]", proj.viewItemInterLink)
@@ -186,9 +187,9 @@ function Projectbox(projectElement) {
 			});
 
 		pos = targ.parent().offset().top;
-		body.animate({"scrollTop": pos}, 500, function(){
+		// body.animate({"scrollTop": pos}, 500, function(){
 			body.css("overflow", "hidden");
-		});
+		// });
 		body.addClass("viewing-item");
 		body.afterTransition(function(){
 			//
