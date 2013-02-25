@@ -249,6 +249,7 @@ a.item-name {
   color: black;
   opacity: 0;
   overflow: scroll;
+  -webkit-overflow-scroll: touch;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   -ms-transition: all 0.4s;
