@@ -31,9 +31,8 @@ section, article, div, a, figure, blockquote
 @mixin title
 	line-height: 1.1em
 	text-align: left
-	//letter-spacing: -2px
 	font:
-		size: 5em
+		size: 6em
 		family: "apercubold", sans-serif
 
 @mixin caption
@@ -83,13 +82,13 @@ body
 a, a:visited
 	color: black
 	border:
-		bottom: 1px solid transparent
+		bottom: 2px solid rgba(0,0,0,0.2)
 	@include trans(0.5s)
 	text:
 		decoration: none
 	&:hover
 		border:
-			bottom: 1px solid black
+			bottom: 2px solid black
 
 .btn
 	@include trans(0.2s)
@@ -111,19 +110,22 @@ a, a:visited
 // Nav -----
 
 nav
-	padding: 50px 10%
 	left: 0
 	right: 0
 	top: 0
 	position: fixed
 	z-index: 2
-
-	// .inner
-	// 	border-bottom: 1px solid rgb(224, 224, 224)
+	//background: white
+	padding: 0 10%
+	.inner
+		// border-bottom: 1px solid rgba(0,0,0, 1)
+		padding: 50px 0
 	// 	padding-bottom: 25px
 
 .title
 	//@include caption
+	color: black
+	&:hover + 
 
 .subnav
 	position: absolute
@@ -132,6 +134,7 @@ nav
 	a
 		margin-right: 20px
 		padding-bottom: 5px
+		color: black
 	.subnav:hover
 		opacity: 0.6
 		> a
@@ -142,54 +145,57 @@ nav
 // Item -----
 
 .items
-	//display: inline-block
-	//white-space: nowrap
-	//height: 100%
 	padding-top: 50px
 
 .item
 	@include boxfix
 	-webkit-backface-visibility: hidden
-	//white-space: normal
 	position: relative
-	//height: 100%
-	//width: 90%
-	//max-width: 1200px
-	//display: inline-block
-	//vertical-align: top
-	//overflow: hidden
-	padding: 180px 17% 80px 10%
-	//padding: 180px 200px 100px 100px
-	//border-top: 1px solid #ddd
+	padding: 160px 0 200px 0
+	margin: 0 17% 0 10%
+	// border-bottom: 1px dotted black
+	&::after
+		content: ""
+		width: 50px
+		display: block
+		position: absolute
+		bottom: 0
+		border-bottom: 1px solid rgba(0,0,0,0.5)
 
 a.item-name,
 	@include trans(0.3s)
 	@include title
 	z-index: 9
-	border-width: 3px
-	//position: absolute
-	top: 100px
 	width: 70%
+	color: black
+	border-width: 0
+	display: inline-block
 	text-shadow: 0 0 300px white, 0 -1px 2px rgba(255,255,255,0.18)
-	.btn
-		display: none
-		margin-top: 2em
+	&:hover
+		// background: rgba(#fed000, 0.1)
+		b
+			border-bottom: 8px solid black
+
+.project-title b,
+.item-name b
+	@include trans(0.2s)
+	display: inline-block
+	font-weight: normal
+	line-height: 1em
+	border-bottom: 8px solid transparent
+	white-space: nowrap
 
 [data-position = above]
-	//background: blue
-	h2
-		bottom: 0
-		top: auto
+	// h2
+	// 	bottom: 0
+	// 	top: auto
 
 [data-position = below]
-	//background: brown
 
 [data-position = current]
-	//background: green
-	h2
-		position: fixed
-		top: 0
-
+	// .item-name::after
+	// 	content: "➔"
+	// 	font-size: 16px
 // Index -----
 
 
@@ -197,7 +203,7 @@ a.item-name,
 
 .archive-name
 	@include caption
-	padding-bottom: 2em
+	padding-bottom: 4em
 
 .archive
 	@include nolist
@@ -219,7 +225,7 @@ a.item-name,
 	top: 100px
 	right: 100px
 	bottom: 100px
-	@include trans(0.5s)
+	@include trans(0.3s)
 	opacity: 0
 	-webkit-transform: translate3d(15%,0,0) scale(0.9)
 	//-webkit-backface-visibility: hidden
@@ -227,7 +233,7 @@ a.item-name,
 	//vertical-align: top
 	// display: inline-block
 	z-index: -1
-	-webkit-filter: blur(40px)
+	// -webkit-filter: blur(40px)
 	img, video
 		display: block
 		margin: auto
@@ -235,20 +241,20 @@ a.item-name,
 		max-width: 100%
 		//@include trans(0.5s)
 
-[data-position=current] + figure
+[data-position=current] figure
 	opacity: 1
-	-webkit-filter: blur(0px)
+	//-webkit-filter: blur(0px)
 	-webkit-transform: translate3d(15%,0,0)
 	//-webkit-transition-delay: 0.2s
 	.viewing-item &
 		opacity: 0
 		-webkit-transform: translate3d(30%,0,0)
 
-[data-position=above] + figure
-	//-webkit-transform: translate3d(15%,-50%,0)
+[data-position=above] figure
+	-webkit-transform: translate3d(15%, 0 ,0) scale(0.9)
 
-[data-position=below] + figure
-	//-webkit-transform: translate3d(15%,50%,0)
+[data-position=below] figure
+	-webkit-transform: translate3d(15%, 0 ,0) scale(0.9)
 
 
 .browser
@@ -286,8 +292,9 @@ a.item-name,
 .project-back
 	@include fixlayer
 	@include trans(0.3s)
-	background: hsla(0,0,5%,0.9)
-	background: rgba(250, 250, 250, 0.9)
+	//background: hsla(0,0,5%,0.9)
+	//background: rgba(250, 250, 250, 0.9)
+	background: #eee
 	pointer-events: none
 	opacity: 0
 	z-index: 3
@@ -297,16 +304,15 @@ a.item-name,
 
 .project-title
 	@include title
-	@include trans(0.3s)
+	@include trans(0.3s cubic-bezier(0.680, -0.550, 0.265, 1.550))
 	position: fixed
 	display: none
 	top: 0
 	color: black
 	left: 0
 	z-index: 4
-	pointer-events: none
 	-webkit-backface-visibility: hidden
-	-webkit-transform: translate3d(0,0,0)
+	-webkit-transform: translate3d(0,0,0) scale(0.5)
 
 .project
 	@include fixlayer
@@ -317,7 +323,7 @@ a.item-name,
 	// text-align: center
 	margin: auto
 	color: black
-	opacity: 0
+	//opacity: 0
 	overflow: scroll
 	-webkit-overflow-scrolling: touch
 	@include trans(0.4s)
@@ -328,6 +334,7 @@ a.item-name,
 		pointer-events: auto
 		-webkit-transform: translate3d(0, 0, 0) scale(1)
 	.viewing-item.loading &
+		//opacity: 0
 		-webkit-transform: translate3d(0, 100%, 0) scale(1)
 	h2, h3, h4, p, ul
 		max-width: 600px
@@ -365,14 +372,20 @@ a.item-name,
 		@include caption
 	p
 		font-family: "aperculight"
+		em
+			text-transform: uppercase
+			letter-spacing: 1px
+			//font-family: "apercumedium"
+			font-size: 0.8em
+			font-style: normal
 	figure
 		max-width: 1800px
 		margin: auto
 		padding-bottom: 1.5em
 		img
 			display: block
-			width: 100%
-			margin: auto
+			max-width: 100%
+			//margin: auto
 	li
 		list-style: none
 		position: relative
@@ -385,14 +398,19 @@ a.item-name,
 			display: block
 		ul
 			padding-bottom: 3em
+
 	blockquote
 		p
-			font-size: 2.5em
+			font-size: 2em
 			line-height: 1.25em
 			width: auto
+			font-family: "apercumedium"
 			max-width: 1200px
 		a
-			border-width: 3px
+			@include trans(0s)
+			border-bottom: 1px solid black
+			&:hover
+				border-bottom: 3px solid black
 
 
 .being-viewed
@@ -407,6 +425,10 @@ a.item-name,
 		content: ""
 		display: table
 		clear: both
+
+[data-lightbox]
+	cursor: -webkit-zoom-in
+	cursor: zoom-in
 
 .lightbox-back
 	@include fixlayer
@@ -425,11 +447,13 @@ a.item-name,
 	overflow: scroll
 	top:    0
 	left:   0
+	cursor: -webkit-zoom-out
+	cursor: zoom-out
 	// box-shadow: inset 0 0 0 1px red
 	img
-		//max-width: 100%
-		width: 100%
-		//max-height: 100%
+		max-width: 100%
+		//width: 100%
+		max-height: 100%
 		margin: auto
 		display: block
 
@@ -440,7 +464,7 @@ a.item-name,
 	z-index: 7
 	top: 50px
 	right: 10%
-	font-size: 80px
+	font-size: 60px
 	width: 40px
 	text-align: center
 	line-height: 40px
@@ -480,6 +504,7 @@ a.item-name,
 	// -webkit-transform: translate3d(50%,0,0)
 	// margin-top: 0.5em
 	line-height: 0em
+	margin-top: 20px
 	white-space: nowrap
 	i
 		@include trans(0.5s)
@@ -504,34 +529,34 @@ a.item-name,
 // Resume
 .resume
 	.project-back
-		background: rgba(0,0,0,0.9)
+		//background: rgba(0,0,0,0.9)
 	.ex,
 	.project-title
-		color: white
+		//color: white
 	.spinner i
-		background: white
+		//background: white
 
 	.project-title
 		font-size: 1em
 
 	.project
-		color: white
+		//color: white
 		.p, a, li > a, .btn
-			color: white
+			//color: white
 		.copy
-			color: black
+			//color: black
 		p > a 
 			font-family: "apercubold"
 		li > a
 			line-height: 1.5em
 			-webkit-transition: none
 		.btn
-			border: 1px solid rgba(255,255,255,0.5)
+			//border: 1px solid rgba(255,255,255,0.5)
 			&:hover
-				background: white
-				color: black
+				//background: white
+				//color: black
 		a:hover
-			border-color: white
+			//border-color: white
 		li
 			em 
 				-webkit-transition: all 0.3s
@@ -545,19 +570,35 @@ a.item-name,
 				display: none
 				white-space: nowrap
 
-	.viewing-item.loading .spinner i
-		-webkit-animation: pulsewhite 0.8s infinite
+	.viewing-item.loading .spinner
+		i
+			-webkit-animation: pulsewhite 0.8s infinite
+		i:nth-child(2)
+			-webkit-animation-delay: 0.3s
+		i:nth-child(3)
+			-webkit-animation-delay: 0.6s
 
-.copy
-	opacity: 0
+.copy-wrapper
+	@include trans(0.3s)
 	-webkit-transform: translate3d(-10px,0,0)
+	position: absolute
 	margin-top: 20px
 	margin-left: 20px
-	position: absolute
+	opacity: 0
 	line-height: normal
-	background: white
-	color: black
-	// Spacer for hovering
+	font-size: 1rem
+	.copy
+		background: black
+		color: white
+		@include boxfix
+		display: inline-block
+		padding: 0 15px
+		line-height: 30px
+		border: none
+		i
+			position: absolute
+			opacity: 0
+			white-space: nowrap
 	&::before
 		content: ""
 		position: absolute
@@ -569,16 +610,27 @@ a.item-name,
 	&::after
 		content: ""
 		position: absolute
-		left: -9px
-		top: 7px
+		left: -8px
+		top: 10px
 		border: 4px solid transparent
-		border-right-color: white
+		border-right-color: black
+	&.done
+		opacity: 1
+		-webkit-transform: translate3d(0,0,0)
+		.copy
+			//background: #12c2ff
+			color: rgba(0,0,0,0)
+			padding-right: 50px
+			i
+				color: white
+				opacity: 1
 
-a:hover .copy
-	opacity: 1
-	-webkit-transform: translate3d(0,0,0)
-	&:hover
-		opacity: 0.8
+a:hover
+	.loaded
+		opacity: 1
+		-webkit-transform: translate3d(0,0,0)
+		&:hover
+			opacity: 0.8
 
 .at
 	border: 0
@@ -607,10 +659,10 @@ a:hover .copy
 	.project-title
 		text-shadow: none
 
-@media (max-height: 500px)
-	a.item-name,
-	.project-title
-		font-size: 3em
+// @media (max-height: 500px)
+// 	a.item-name,
+// 	.project-title
+// 		font-size: 3em
 
 @media (min-width: 1200px)
 	aside
@@ -620,17 +672,9 @@ a:hover .copy
 	.project blockquote p
 		width: 80%
 
-@media (max-width: 900px)
+@media (max-width: 800px)
 	.item
-		padding: 160px 10vw 10px
-
-@media (max-width: 700px)
-	.item
-		width: auto
-		padding: 120px 10vw 10px
-	a.item-name,
-	.project-title
-		font-size: 3em
+		padding: 100px 0 110px
 	.project blockquote p
 		font-size: 1.7em
 	.ex
@@ -644,21 +688,21 @@ a:hover .copy
 	.project figure
 		margin: 0 -10vw
 
-@media (max-width: 500px)
+@media (max-width: 600px)
 	a.item-name,
 	.project-title
 		font-size: 2em
 		border-width: 2px
+	.items
+		padding-top: 80px
 	.item
-		padding: 70px 10vw 10px
-
+		padding: 40px 0 50px
 	.item figure
-		display: none
 		position: static
 		opacity: 1
 		-webkit-transform: none
 		-webkit-filter: none
-		margin-top: 20px
+		margin-top: 50px
 
 	.project blockquote p
 		font-size: 1em

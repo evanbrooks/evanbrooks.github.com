@@ -16,6 +16,8 @@ function ContentGetter() {
 		$.ajax(url).done(function (data) {
 			var html = converter.makeHtml(data);
 			cb(html);
+		}).error(function(){
+			cb("Coming soon");
 		});
 	}
 

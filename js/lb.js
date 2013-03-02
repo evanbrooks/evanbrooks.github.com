@@ -23,14 +23,16 @@ function Lightbox() {
 
 		endW = wind.width();
 		endH = wind.height();
-		endL = 0;
-		endT = 0;
+
+		nW = targ.get(0).naturalWidth;
+		nH = targ.get(0).naturalHeight;
+
+		marg = endH / 2;
+		if (nH < endH) {
+			marg = nH / 2;
+		}
 
 		img.find("img").attr("src", src);
-
-		// if (tW/tH > endW/endH) {
-		//	endT = (endH - tH) / 2;
-		// }
 
 		// Starting position
 		// ----
@@ -44,8 +46,9 @@ function Lightbox() {
 			"-webkit-transition": "all 0.3s",
 			"width": endW,
 			"height": endH,
-			"top": endT,
-			"left": endL
+			"margin-top": -1 * marg + "px",
+			"top": endH / 2,
+			"left": 0
 		});
 		targ.addClass("being-viewed");
 		body.addClass("viewing-lightbox");
@@ -56,10 +59,12 @@ function Lightbox() {
 		// Ending position
 		// ----
 		img.css({
+			"margin-top": 0,
 			"width": tW,
 			"height": tH,
 			"top": tT,
-			"left": tL
+			"left": tL,
+			"-webkit-transform": "none"
 		}).afterTransition(function(){
 			targ.removeClass("being-viewed");
 			body.removeClass("viewing-lightbox");

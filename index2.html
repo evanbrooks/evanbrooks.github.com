@@ -12,50 +12,56 @@
 	<nav>
 		<div class="inner">
 			<div class="subnav">
-				<a href="#" data-item-name="resume">Info<!-- Résumé --></a>
+				 <a href="#" data-item-name="resume">Info</a> 
 <!--				<a href="#" data-item-name="friends"> Friends </a>-->
 <!-- 				<a href="#" data-item-name="email">Email</a>  -->
 			</div>
 			<h1 class="title">
-				<a href="#">Evan Brooks</a><!--  — Recent Work -->
+				<!-- Evan Brooks -->
 			</h1>
 		</div>
 	</nav>
 	<section class="items">
+
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="resume">
+				
+			</a>
+		</article>
 		<article class="item">
 			<a class="item-name" href="#" data-item-name="ripta">
-				Every bus in <br>
-				Rhode Island
+				<b>Every bus in</b><br>
+				<b>Rhode Island</b>
 			</a>
 			<figure>
-					<video autoplay loop webkit-playsinline src="img/ripta.mov">
-						Great movie man
+				<div class="browser">
+					<video loop webkit-playsinline>
+						<source src="/img/ripta.mp4" type="video/mp4" />
+  						<source src="/img/ripta.webm" type="video/webm" />
+  						Couldn't load video :/
 					</video>
+				</div>
 			</figure>
 		</article>
 		<article class="item">
 			<a class="item-name" href="#" data-item-name="locu">
-				A tool to make <br>
-				a better menu
+				<b>A tool to make</b> <br>
+				<b>a better menu</b>
 			</a>
 			<figure>
 				<div class="browser">
-					<video autoplay loop webkit-playsinline src="img/locu.mov">
+					<video loop webkit-playsinline>
+						<source src="/img/locu.mp4" type="video/mp4" />
+  						<source src="/img/locu.webm" type="video/webm" />
 						<img src="img/locu-ui.png"/>
 					</video>
 				</div>
 			</figure>
-<!-- 				<figure>
-				<div class="browser">
-					<img src="img/locu-ui.png"/>
-				</div>
-			</figure>
--->			</article>
+		</article>
 		<article class="item">
 			<a class="item-name" href="#" data-item-name="hop">
-				A museum about <br>
-				play, toys and <br>
-				making things
+				<b>Toys, play and</b> <br>
+				<b>making things</b>
 			</a>
 			<figure>
 				<img src="img/hop.png"/>
@@ -63,8 +69,8 @@
 		</article>
 		<article class="item">
 			<a class="item-name" href="#" data-item-name="agamatrix">
-				Mobile diabetes <br>
-				projects
+				<b>Mobile diabetes</b> <br>
+				<b>projects</b>
 			</a>
 			<figure>
 				<img src="img/agam.png" />
@@ -72,8 +78,8 @@
 		</article>
 		<article class="item">
 			<a class="item-name" href="#" data-item-name="clerestory">
-				A Brown + RISD <br>
-				journal of the arts
+				<b>A Brown + RISD</b> <br>
+				<b>journal of the arts</b>
 			</a>
 			<figure style="margin-left: -8%">
 				<img src="img/clere.png" />
@@ -81,18 +87,32 @@
 		</article>
 		<article class="item">
 			<a class="item-name" href="#" data-item-name="artishairy">
-				Art is hairy
+				<b>Art is hairy</b>
 			</a>
 			<figure>
 				<img src="img/deyoung.jpg" />
 			</figure>
 		</article>
 		<article class="item">
-			<h3 class="archive-name">More projects</h3>
+			<a class="item-name" href="#" data-item-name="nyt">
+				<b>NYT News Arcade</b>
+			</a>
+			<figure>
+				<img src="img/dng.jpg" />
+			</figure>
+		</article>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="abwxd">
+				<b>A Better World</b><br>
+				<b>by Design</b>
+			</a>
+			<figure>
+				<img src="img/de.jpg" />
+			</figure>
+		</article>
+<!-- 		<article class="item">
+			<! <h3 class="archive-name">More projects</h3> >
 			<ul class="archive">
-				<li><a href="#" data-item-name="ripta">
-					Live transit data visualizations
-				</a></li>
 				<li><a href="#" data-item-name="abwxd">
 					A mobile site for the A Better World by Design conference
 				</a></li>
@@ -106,7 +126,7 @@
 					Desktop icons
 				</a></li>
 			</ul>
-		</article>
+		</article> -->
 	</section>
 
 	<!-- Project page -->
@@ -148,5 +168,6 @@
 	<script src="js/showdown.js"></script>
 	<script src="js/ext/showmore.js"></script>
 	<script src="js/ajax.js"></script>
+	<script src="js/zeroclip.js"></script>
 	<script src="js/script.js"></script>
 </body>
