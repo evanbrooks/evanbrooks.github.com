@@ -95,15 +95,16 @@ function Projectbox(projectElement) {
 	this.scrolling = scrolling;
 
 	function scrolling(){
-		if (el.scrollTop() > 100) {
-			title.css("opacity", "0");
-		}
-		else {
-			title.css("opacity", "1");
-		}
-		// title.css({
-		// 	"top": (-1 * el.scrollTop() / 4)+"px"
-		// });
+		// if (el.scrollTop() > 100) {
+		// 	title.css("opacity", "0.1");
+		// }
+		// else {
+		// 	title.css("opacity", "1");
+		// }
+		title.freeze().css({
+			"top": (-1 * el.scrollTop() * 0.5)+"px",
+			"opacity": 1
+		});
 	}
 
 	function viewItemPop(str) {
@@ -176,9 +177,8 @@ function Projectbox(projectElement) {
 			.unfreeze()
 			.css({
 				"font-size": "",
-				"-webkit-transform": "translate3d("+endL+",50px,0) scale(5)",
-				"color": "",
-				"opacity": "0.6"
+				"-webkit-transform": "translate3d("+endL+",50px,0)",
+				"color": ""
 			});
 
 		pos = targ.parent().offset().top - 150;
@@ -202,6 +202,11 @@ function Projectbox(projectElement) {
 		if (typeof cb == "undefined") cb = function(){};
 		if (!targ) return;
 
+		// Avoid removing the flash bridge
+		var flash = $("#global-zeroclipboard-html-bridge").remove();
+		$("body").append(flash);
+
+
 		//tW = targ.width();
 		//tH = targ.height();
 		tT = targ.offset().top - wind.scrollTop();
@@ -214,7 +219,7 @@ function Projectbox(projectElement) {
 			"top": 0,
 			"font-size": fS,
 			"color": "black",
-			"opacity": "1",
+			"opacity": 1,
 			"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)"
 		});
 		function finish(){

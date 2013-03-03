@@ -32,14 +32,12 @@ section, article, div, a, figure, blockquote
 	line-height: 1.1em
 	text-align: left
 	font:
-		size: 6em
-		family: "apercubold", sans-serif
+		size: 2em
 
 @mixin caption
 	font:
 		size: 11px
 		weight: normal
-		family: "apercu_monoregular"
 	text-transform: uppercase
 	letter-spacing: 0.3em
 
@@ -49,11 +47,14 @@ section, article, div, a, figure, blockquote
 	-ms-transition: all $time
 	transition: all $time
 
+@mixin tf($tform)
+	-webkit-transform: $tform
+	-moz-transform: $tform
+	-ms-transform: $tform
+	transform: $tform
+
 .no-trans
 	-webkit-transition: none !important
-
-.no-scroll
-	overflow: hidden !important
 
 // Design -----------
 
@@ -72,7 +73,7 @@ body
 	color: black
 	background: white
 	font:
-		family: "apercumedium", sans-serif
+		family: "nta"
 		size: 20px
 
 // .scroller
@@ -82,7 +83,7 @@ body
 a, a:visited
 	color: black
 	border:
-		bottom: 2px solid rgba(0,0,0,0.2)
+		bottom: 2px solid transparent
 	@include trans(0.5s)
 	text:
 		decoration: none
@@ -110,49 +111,30 @@ a, a:visited
 // Nav -----
 
 nav
-	left: 0
 	right: 0
 	top: 0
 	position: fixed
 	z-index: 2
-	//background: white
-	padding: 0 10%
-	.inner
-		// border-bottom: 1px solid rgba(0,0,0, 1)
-		padding: 50px 0
-	// 	padding-bottom: 25px
-
-.title
-	//@include caption
-	color: black
-	&:hover + 
-
-.subnav
-	position: absolute
-	right: 10vw
-	// @include caption
+	padding: 30px 10%
 	a
 		margin-right: 20px
 		padding-bottom: 5px
 		color: black
-	.subnav:hover
-		opacity: 0.6
-		> a
-			opacity: 0.5
-		a:hover
-			opacity: 1
+		b
+			font-weight: normal
 
 // Item -----
 
 .items
 	padding-top: 50px
+	display: inline-block
+	margin: 0 17% 0 10%
 
 .item
 	@include boxfix
 	-webkit-backface-visibility: hidden
 	position: relative
-	padding: 160px 0 200px 0
-	margin: 0 17% 0 10%
+	padding: 2em 0 4em 0
 	// border-bottom: 1px dotted black
 	&::after
 		content: ""
@@ -160,42 +142,50 @@ nav
 		display: block
 		position: absolute
 		bottom: 0
-		border-bottom: 1px solid rgba(0,0,0,0.5)
+		//border-bottom: 1px solid rgba(0,0,0,0.5)
 
-a.item-name,
+
+.project-title,
+.item-name
+	text-shadow: 0 0 300px white, 0 -1px 2px rgba(255,255,255,0.18)
+	b
+		@include trans(0.5s)
+		font-weight: normal
+		line-height: 0.9em
+		display: inline-block
+		white-space: nowrap
+		border-bottom: 2px solid transparent
+	i
+		@include tf(translate3d(-20%, 0, 0))
+		@include trans(0.15s)
+		display: inline-block
+		font-style: normal
+		opacity: 0
+		font-size: 0.5em
+
+.item-name,
 	@include trans(0.3s)
 	@include title
-	z-index: 9
-	width: 70%
-	color: black
 	border-width: 0
+	position: relative
 	display: inline-block
-	text-shadow: 0 0 300px white, 0 -1px 2px rgba(255,255,255,0.18)
 	&:hover
-		// background: rgba(#fed000, 0.1)
+		border-width: 0
 		b
-			border-bottom: 8px solid black
+			border-bottom: 2px solid black
+	&:hover, [data-position = current] &
+		i
+			@include tf(translate3d(0%, 0, 0))
+			opacity: 1
 
-.project-title b,
-.item-name b
-	@include trans(0.2s)
-	display: inline-block
-	font-weight: normal
-	line-height: 1em
-	border-bottom: 8px solid transparent
-	white-space: nowrap
 
-[data-position = above]
-	// h2
-	// 	bottom: 0
-	// 	top: auto
+.items:hover .item .item-name i
+	color: rgba(0,0,0,0)
 
-[data-position = below]
+.items .item:hover .item-name i
+	color: black
 
-[data-position = current]
-	// .item-name::after
-	// 	content: "➔"
-	// 	font-size: 16px
+
 // Index -----
 
 
@@ -217,23 +207,17 @@ a.item-name,
 // Figure -------
 
 .item figure
+	@include tf(translate3d(15%,0,0) scale(0.9))
+	@include trans(0.3s)
 	position: fixed
 	text-align: center
 	pointer-events: none
-	// position: absolute
 	left: 100px
 	top: 100px
 	right: 100px
 	bottom: 100px
-	@include trans(0.3s)
 	opacity: 0
-	-webkit-transform: translate3d(15%,0,0) scale(0.9)
-	//-webkit-backface-visibility: hidden
-	//margin: auto
-	//vertical-align: top
-	// display: inline-block
 	z-index: -1
-	// -webkit-filter: blur(40px)
 	img, video
 		display: block
 		margin: auto
@@ -241,7 +225,12 @@ a.item-name,
 		max-width: 100%
 		//@include trans(0.5s)
 
-[data-position=current] figure
+.items:hover .item figure
+	opacity: 0
+	-webkit-transform: translate3d(15%,0,0) scale(0.9)
+
+[data-position=current] figure,
+.items .item:hover figure
 	opacity: 1
 	//-webkit-filter: blur(0px)
 	-webkit-transform: translate3d(15%,0,0)
@@ -304,7 +293,7 @@ a.item-name,
 
 .project-title
 	@include title
-	@include trans(0.3s cubic-bezier(0.680, -0.550, 0.265, 1.550))
+	@include trans(0.4s cubic-bezier(0.680, -0.550, 0.265, 1.550))
 	position: fixed
 	display: none
 	top: 0
@@ -337,11 +326,13 @@ a.item-name,
 		//opacity: 0
 		-webkit-transform: translate3d(0, 100%, 0) scale(1)
 	h2, h3, h4, p, ul
-		max-width: 600px
+		max-width: 500px
 		width: 100%
-		font-weight: normal
+		font-size: 16px
 		padding: 0 0 1.5em
 		//margin: auto
+	h2, h3, h4
+		font-weight: bold
 	a
 		//color: white
 		//border-color: white
@@ -350,28 +341,36 @@ a.item-name,
 		@include trans(0.1s)
 		padding: 5px 10px
 	h1
-		display: inline-block
-		line-height: 4em
+		// display: inline-block
+		line-height: 1em
 		font-size: 1.2em
-		// text-transform: uppercase
-		// letter-spacing: 3px
-		// font-family: "Apercu Mono"
-		// font-size: 0.7em
-		// border-bottom: 1px solid rgba(255,255,255,0.5)
 		margin: 3em 0
-		// white-space: nowrap
-		// width: 20px
+		//border-top: 1px solid black
+		padding-top: 3em
+		max-width: 500px
+		@include caption
+		font-weight: bold
 	h3
 		position: relative
+		padding-top: 1em
 		padding-bottom: 0.5em
 		em
-			@include caption
+			// @include caption
 			font-style: normal
-			float: right
+			// float: right
+			text-align: left
+			// position: absolute
+			// top: 3em
+			// left: 0
+			// width: 0px
+			white-space: nowrap
+			margin-left: 0.5em
+			font-weight: normal
+			display: inline-block
+			// @include tf(rotate(90deg))
 	h4
 		@include caption
 	p
-		font-family: "aperculight"
 		em
 			text-transform: uppercase
 			letter-spacing: 1px
@@ -392,22 +391,29 @@ a.item-name,
 	aside
 		h2 
 			padding-bottom: 1em
+		h3
+			@include caption
+			padding-bottom: 3em
+			padding-top: 2em
+			display: inline-block
 		li
 			padding-bottom: 5px
-			font-family: "aperculight"
 			display: block
 		ul
 			padding-bottom: 3em
 
 	blockquote
 		p
-			font-size: 2em
-			line-height: 1.25em
+			font-size: 2.7em
+			line-height: 1.3em
 			width: auto
-			font-family: "apercumedium"
 			max-width: 1200px
+			text-rendering: optimizeLegibility
 		a
 			@include trans(0s)
+			line-height: 1em
+			display: inline-block
+			color: black
 			border-bottom: 1px solid black
 			&:hover
 				border-bottom: 3px solid black
@@ -528,77 +534,59 @@ a.item-name,
 
 // Resume
 .resume
-	.project-back
-		//background: rgba(0,0,0,0.9)
-	.ex,
-	.project-title
-		//color: white
-	.spinner i
-		//background: white
-
 	.project-title
 		font-size: 1em
 
 	.project
-		//color: white
-		.p, a, li > a, .btn
-			//color: white
-		.copy
-			//color: black
-		p > a 
-			font-family: "apercubold"
 		li > a
 			line-height: 1.5em
 			-webkit-transition: none
-		.btn
-			//border: 1px solid rgba(255,255,255,0.5)
-			&:hover
-				//background: white
-				//color: black
-		a:hover
-			//border-color: white
 		li
 			em 
 				-webkit-transition: all 0.3s
 				font-size: 11px
 				font-weight: normal
 				font-style: normal
-				font-family: "apercu_monoregular"
 				text-transform: uppercase
 				letter-spacing: 0.2em
-				opacity: 0
-				display: none
 				white-space: nowrap
-
-	.viewing-item.loading .spinner
-		i
-			-webkit-animation: pulsewhite 0.8s infinite
-		i:nth-child(2)
-			-webkit-animation-delay: 0.3s
-		i:nth-child(3)
-			-webkit-animation-delay: 0.6s
 
 .copy-wrapper
 	@include trans(0.3s)
 	-webkit-transform: translate3d(-10px,0,0)
 	position: absolute
-	margin-top: 20px
+	margin-top: 10px
 	margin-left: 20px
 	opacity: 0
 	line-height: normal
 	font-size: 1rem
+	cursor: hand
 	.copy
-		background: black
-		color: white
-		@include boxfix
+		@include trans(0)
+		position: relative
 		display: inline-block
 		padding: 0 15px
-		line-height: 30px
-		border: none
+		border: 1px solid black
+		line-height: 28px
+		font-weight: bold
 		i
 			position: absolute
 			opacity: 0
 			white-space: nowrap
+		&::after
+			content: ""
+			position: absolute
+			left: -8px
+			top: 9px
+			border: 4px solid transparent
+			border-right-color: #eee
+			z-index: 9
+	&:hover
+		.copy
+			background: black
+			color: white
+			&::after
+				border-right-color: black
 	&::before
 		content: ""
 		position: absolute
@@ -618,12 +606,15 @@ a.item-name,
 		opacity: 1
 		-webkit-transform: translate3d(0,0,0)
 		.copy
-			//background: #12c2ff
+			@include trans(0.2s)
 			color: rgba(0,0,0,0)
 			padding-right: 50px
+			background: black
 			i
 				color: white
 				opacity: 1
+			&::after
+				border-right-color: black
 
 a:hover
 	.loaded
@@ -640,17 +631,17 @@ a:hover
 		display: inline-block
 	b
 		@include trans(0.2s)
+		@include tf(scale(0.6))
 		font-weight: normal
 		opacity: 0
 		position: absolute
-		-webkit-transform: scale(0.8)
 	&:hover
 		border: 0
 		i
 			opacity: 0
 		b
 			opacity: 1
-			-webkit-transform: scale(1)
+			@include tf(scale(1))
 
 // @ Media -------------
 
@@ -668,7 +659,7 @@ a:hover
 	aside
 		position: absolute
 		// top: 104px
-		margin-left: 600px + 120px
+		margin-left: 550px + 120px
 	.project blockquote p
 		width: 80%
 
