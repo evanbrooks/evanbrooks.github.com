@@ -23,7 +23,7 @@ function bindHandlers() {
 	$(".project").scroll(proj.scrolling);
 	$(".project").on("touchmove", proj.scrolling);
 
-	html.on("click", "[data-item-name]", proj.viewItemClick)
+	html.on("click", "[data-item-name] b", proj.viewItemClick)
 			.on("click", "[data-item-link]", proj.viewItemInterLink)
 			.on("click", ".spinner, .ex, .project-back", proj.clearItemClick)
 			.on("click", "[data-lightbox]", lb.viewImage)
