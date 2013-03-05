@@ -11,7 +11,7 @@
 <body>
 	<section class="items">
 		<article class="item">
-			I’m Evan. View my <a href="#" data-item-name="resume" data-title="Info"><b>résumé</b></a> or say
+			I’m Evan. View my <a href="#" data-item-name="resume" data-title="Info" class="force-lower"><b>Résumé</b></a> or say
 			<a class="at" href="mailto:hi@evn.io">
 				hello @ evn.io
 				<span class="flash-wrapper">
@@ -75,4 +75,17 @@
 		mixpanel.track("Load");
 	</script>
 	<!-- end Mixpanel -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39031601-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>

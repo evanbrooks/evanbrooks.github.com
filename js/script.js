@@ -167,6 +167,11 @@ function Projectbox(projectElement) {
 			setTimeout(function(){
 				body.removeClass("loading");
 				mixpanel.track("Viewed an item", {'item': id});
+
+				// analytics.track("Viewed item", {
+				// 	item: id
+				// });
+
 			}, 100);
 		});
 
