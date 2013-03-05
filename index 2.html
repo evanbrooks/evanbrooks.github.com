@@ -5,27 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-  <link rel="stylesheet" href="nta.css" >
-  <link rel="stylesheet" href="style.css" >
+  <link rel="stylesheet" href="css/nta.css" >
+  <link rel="stylesheet" href="css/style.css" >
 </head>
 <body>
-	<nav>
+<!-- 	<nav>
 		<a href="#" data-item-name="resume"><b>Info</b></a> 
 	</nav>
-	<section class="items">
+ -->	<section class="items">
 		<article class="item">
 			<a class="item-name" href="#" data-item-name="resume">
 			</a>
 		</article>
 		<article class="item">
-			<a class="item-name" href="#" data-item-name="ripta">
+			<a class="item-name" href="#" data-item-name="ripta" data-title="RIPTA">
 				<b>Every bus in</b><br>
 				<b>Rhode Island</b>
 				<i>➔</i>
 			</a>
 			<figure>
 				<div class="browser">
-					<video loop webkit-playsinline>
+					<video loop autoplay="autoplay" webkit-playsinline>
 						<source src="/img/ripta.mp4" type="video/mp4" />
   						<source src="/img/ripta.webm" type="video/webm" />
   						Couldn't load video :/
@@ -34,14 +34,14 @@
 			</figure>
 		</article>
 		<article class="item">
-			<a class="item-name" href="#" data-item-name="locu">
+			<a class="item-name" href="#" data-item-name="locu" data-title="Locu">
 				<b>A tool to make</b> <br>
 				<b>a better menu</b>
 				<i>➔</i>
 			</a>
 			<figure>
 				<div class="browser">
-					<video loop webkit-playsinline>
+					<video loop autoplay="autoplay" webkit-playsinline>
 						<source src="/img/locu.mp4" type="video/mp4" />
   						<source src="/img/locu.webm" type="video/webm" />
 						<img src="img/locu-ui.png"/>
@@ -50,7 +50,7 @@
 			</figure>
 		</article>
 		<article class="item">
-			<a class="item-name" href="#" data-item-name="hop">
+			<a class="item-name" href="#" data-item-name="hop" data-title="The Hop!">
 				<b>Toys, play and</b> <br>
 				<b>making things</b>
 				<i>➔</i>
@@ -60,7 +60,7 @@
 			</figure>
 		</article>
 		<article class="item">
-			<a class="item-name" href="#" data-item-name="agamatrix">
+			<a class="item-name" href="#" data-item-name="agamatrix" data-title="Agamatrix">
 				<b>Mobile diabetes</b> <br>
 				<b>projects</b>
 				<i>➔</i>
@@ -70,7 +70,7 @@
 			</figure>
 		</article>
 		<article class="item">
-			<a class="item-name" href="#" data-item-name="clerestory">
+			<a class="item-name" href="#" data-item-name="clerestory" data-title="Clerestory">
 				<b>A Brown + RISD</b> <br>
 				<b>journal of the arts</b>
 				<i>➔</i>
@@ -80,7 +80,7 @@
 			</figure>
 		</article>
 		<article class="item">
-			<a class="item-name" href="#" data-item-name="artishairy">
+			<a class="item-name" href="#" data-item-name="artishairy" data-title="Art is Hairy">
 				<b>Art is hairy</b>
 				<i>➔</i>
 			</a>
@@ -89,8 +89,8 @@
 			</figure>
 		</article>
 		<article class="item">
-			<a class="item-name" href="#" data-item-name="nyt">
-				<b>NYT News Arcade</b>
+			<a class="item-name" href="#" data-item-name="nyt" data-title="News Arcade">
+				<b>News Arcade</b>
 				<i>➔</i>
 			</a>
 			<figure>
@@ -98,7 +98,7 @@
 			</figure>
 		</article>
 		<article class="item">
-			<a class="item-name" href="#" data-item-name="abwxd">
+			<a class="item-name" href="#" data-item-name="abwxd" data-title="ABWxD">
 				<b>A Better World</b><br>
 				<b>by Design</b>
 				<i>➔</i>
@@ -116,8 +116,18 @@
 			</a>
 		</article>
 		<article class="item">
-			<a class="item-name" href="#" data-item-name="resume">
+			I’m Evan. View my <a href="#" data-item-name="resume" data-title="Info"><b>résumé</b></a> or say
+			<a class="at" href="mailto:hi@evn.io">
+				hello @ evn.io
+				<span class="flash-wrapper">
+					<span class="copy-wrapper">
+						<span class="copy btn" id="copybtn" data-clipboard-text="hi@evn.io">
+							<i>copied ✔</i> copy
+						</span>
+					</span>
+				<span>
 			</a>
+
 		</article>
 <!-- 		<article class="item">
 			<! <h3 class="archive-name">More projects</h3> >
@@ -174,10 +184,17 @@
 	<!-- Script -->
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="js/plugins.js"></script>
 	<script src="js/lb.js"></script>
 	<script src="js/showdown.js"></script>
 	<script src="js/ext/showmore.js"></script>
 	<script src="js/ajax.js"></script>
 	<script src="js/zeroclip.js"></script>
 	<script src="js/script.js"></script>
+	<!-- start Mixpanel -->
+	<script src="js/mixpanel.js"></script>
+	<script>
+		mixpanel.track("Load");
+	</script>
+	<!-- end Mixpanel -->
 </body>

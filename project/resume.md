@@ -2,9 +2,13 @@
 	Hello there, I'm Evan. I'm a designer who likes to code.
 </h2> -->
 
-> Hello there, I’m Evan. I design, code, and make things. I’m currently studying at [RISD](//risd.edu). I worked to design better diabetes care at <a href="/#/agamatrix" data-item-link="agamatrix">Agamatrix</a> and helped build a company called <a href="/#/locu" data-item-link="locu">Locu</a>.
+> Hello there, I’m Evan. I’m  a designer from San Francisco, and I’m currently studying at [RISD](//risd.edu) in Providence. I design with paper, pixels and code. Previously, I worked to design better diabetes care at <a href="/#/agamatrix" data-item-link="agamatrix">Agamatrix</a> and helped grow a company called <a href="/#/locu" data-item-link="locu">Locu</a>.
 
->  View my [résumé](//) or say <a class="at" href="mailto:hi@evn.io"> hi @ evanbrooks.co<span class="copy-wrapper"><span class="copy btn" id="copybtn" data-clipboard-text="hi@evn.io"><i>copied ✔</i> copy </span></span></a>
+> I’m looking for an internship making useful things with thoughtful people who care deeply about what they do.
+
+<!-- > Hello there, I’m Evan. I design, code, and make things. I’m currently studying at [RISD](//risd.edu). I worked to design better diabetes care at <a href="/#/agamatrix" data-item-link="agamatrix">Agamatrix</a> and helped build a company called <a href="/#/locu" data-item-link="locu">Locu</a>.
+
+>  View my [résumé](//) or say <a class="at" href="mailto:hi@evn.io"> hi @ evanbrooks.co<span class="copy-wrapper"><span class="copy btn" id="copybtn" data-clipboard-text="hi@evn.io"><i>copied ✔</i> copy </span></span></a> -->
 
 <!-- 
 
@@ -28,7 +32,7 @@
 %aside
 
 
-<!-- # Skills
+# Skills
 
 ### Design
 
@@ -57,7 +61,7 @@
 
 # Experience
 
-### Rhode Island School of Design *Fall 2009 &#10132; Present* 
+### Rhode Island School of Design *Fall 2009 – present* 
 
 Studying Graphic Design with courses in Industrial Design
 
@@ -66,13 +70,13 @@ Studying Graphic Design with courses in Industrial Design
 Courses in computer science
 
 
-### Product Designer at Locu *Fall 2010 &#10132; Spring 2012*
+### Product Designer at Locu *Fall 2010 – Spring 2012*
 
 I met the Locu founding team members while they were students at MIT, and have worked closely with them creating publishing tools for small business owners. I helped to found the product design team, and I researched, designed, and did front-end development for the product. I also designed the brand, logo, and marketing materials.
 
 <a href="#" data-item-link="locu">See projects</a>
 
-### UI/UX Design Intern at Agamatrix *June 2011 &#10132; April 2012*
+### UI/UX Design Intern at Agamatrix *June 2011 – April 2012*
 
 AgaMatrix is a mobile health company that created the first iPhone-compatible glucose meters for people with diabetes. I designed interfaces for the iPhone and for low-cost devices, as well as hardware concepts and promotional material.
 
@@ -80,23 +84,23 @@ I learned to work closely with people with diabetes, hardware and software engin
 
 <a href="#" data-item-link="agamatrix">See projects</a>
 
-### Art Director at Clerestory *Fall 2009 &#10132; June 2011*
+### Art Director at Clerestory *Fall 2009 – June 2011*
 
 I defined the visual language and concept for a biannual  anthology of writing, visual art, and music selected from RISD and Brown students. I led a small team of designers and oversaw printing.
 
 <a href="#" data-item-link="clerestory">See project</a>
 
-### Freelance design *2006 &#10132; present*
+### Freelance designer *2006 – present*
 
-Miscellaneous freelance projects
+Apps, icons, logos, websites and other projects
 
 ### California College of the Arts *Summer 2008*
 
-Pre-college program in Industrial Design, one of 5 student awarded a scholarship for outstanding achievement.
- -->
+Pre-college program in Industrial Design, one of 5 students awarded a scholarship for outstanding achievement.
 
 
 
+<!-- 
 
 
 <script>
@@ -121,16 +125,22 @@ Pre-college program in Industrial Design, one of 5 student awarded a scholarship
 	btn.before(flash); 
 
 	clip.on( 'load', function(client) {
-		clip.setText(btn.attr("data-clipboard-text")); // set the text after loaded
-	 	btn.parent().addClass("loaded"); // button won't display until loaded
+		setTimeout(function(){
+			clip.setText(btn.attr("data-clipboard-text")); // set the text after loaded
+		 	btn.parent().addClass("loaded"); // button won't display until loaded
+		 	$(".copy-wrapper").on("click", function(e) {
+				e.preventDefault();
+			});
+		}, 200);
 	});
 
 	clip.on( 'complete', function(client, args) {
 		// Show the indicator
 		btn.parent().addClass("done")
 		setTimeout(function(){
-			// Hide the indicator after 5s
+			// Hide the indicator after 4s
 			btn.parent().removeClass("done")
-		}, 5000);
+		}, 4000);
 	});
 </script>
+ -->

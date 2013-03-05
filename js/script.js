@@ -19,19 +19,57 @@ var cont = new ContentGetter();
 bindHandlers();
 
 function bindHandlers() {
-
 	wind.scroll(scroller.scrolling).resize(refresh);
-
 	$(".project").scroll(proj.scrolling);
 	$(".project").on("touchmove", proj.scrolling);
 
 	html.on("click", "[data-item-name]", proj.viewItemClick)
 			.on("click", "[data-item-link]", proj.viewItemInterLink)
-			.on("click", "#copybtn", function(e) { e.preventDefault(); })
 			.on("click", ".spinner, .ex, .project-back", proj.clearItemClick)
 			.on("click", "[data-lightbox]", lb.viewImage)
 			.on("click", ".lightbox, .lightbox-back .ex", lb.clearImage);
 
+	// Listen for history state changes
+	cont.listen();
+
+	// Load zeroclip here to support copying
+	// the email address instead of using the mailto:
+	ZeroClipboard.setDefaults({moviePath: "/js/zeroclip.swf"});
+	var btn = $("#copybtn");
+	var clip = new ZeroClipboard();
+
+	// // Because we're in a different scrolling context we need to move the zeroclipboard's flash movie from the end of the DOM
+	var flash = $("#global-zeroclipboard-html-bridge").remove();
+	flash = $(flash).removeAttr("style").css({
+		"position": "absolute",
+		"left": "100%",
+		"top": "0",
+		"width": 60 + btn.width() + "px",
+		"height": btn.height() + "px",
+		"z-index": 999
+	});
+	// insert it right before our button
+	btn.parent().before(flash);
+
+	clip.on( 'load', function(client) {
+		setTimeout(function(){
+			clip.setText(btn.attr("data-clipboard-text")); // set the text after loaded
+			btn.parent().addClass("loaded"); // button won't display until loaded
+			$(".flash-wrapper").on("click", function(e) {
+				e.preventDefault();
+			});
+		}, 200);
+	});
+
+	clip.on( 'complete', function(client, args) {
+		// Show the indicator
+		btn.parent().addClass("done");
+		setTimeout(function(){
+			// Hide the indicator after 4s
+			btn.parent().removeClass("done");
+		}, 4000);
+		mixpanel.track("copied email");
+	});
 
 
 }
@@ -46,14 +84,6 @@ function Scroller() {
 		topScroll = wind.scrollTop();
 		midScroll = topScroll + wind.height()/2;
 		bottomScroll = topScroll + wind.height();
-
-
-		// if (topScroll < 300) {
-		// 	$("nav .inner").css({
-		// 		"padding": 50 - (1 * topScroll / 10)+"px 0"
-		// 	});
-		// }
-
 
 		var foundCurrent = false;
 		$.each(itemData, function(i, item) {
@@ -95,16 +125,16 @@ function Projectbox(projectElement) {
 	this.scrolling = scrolling;
 
 	function scrolling(){
-		// if (el.scrollTop() > 100) {
-		// 	title.css("opacity", "0.1");
-		// }
-		// else {
-		// 	title.css("opacity", "1");
-		// }
-		title.freeze().css({
-			"top": (-1 * el.scrollTop() * 0.5)+"px",
-			"opacity": 1
-		});
+		if (el.scrollTop() > 100) {
+			title.css("opacity", "0");
+		}
+		else {
+			title.css("opacity", "1");
+		}
+		// title.freeze().css({
+		// 	"top": (-1 * el.scrollTop() * 0.5)+"px",
+		// 	"opacity": 1
+		// });
 	}
 
 	function viewItemPop(str) {
@@ -129,14 +159,15 @@ function Projectbox(projectElement) {
 
 	function viewItem() {
 		id = targ.attr("data-item-name");
+		t = targ.attr("data-title");
 		body.addClass("loading");
 		el.html("");
-		cont.getItem(id, function(data){
+		cont.getItem(id, t, function(data){
 			el.html(data);
 			setTimeout(function(){
 				body.removeClass("loading");
+				mixpanel.track("Viewed an item", {'item': id});
 			}, 100);
-
 		});
 
 		body.addClass(id);
@@ -149,12 +180,7 @@ function Projectbox(projectElement) {
 		fS = targ.css("font-size");
 		fF = targ.css("font-family");
 
-		console.log(tL);
-		if (tL > wind.width()/2) endL = wind.width()/10 + "px";
-		else                     endL = tL + "px";
-
-		if (tW < wind.width()/3) tW = wind.width()/3 + "px";
-		else                     tW = tW + "px";
+		endL = wind.width()/10 + "px";
 
 		targ.freeze().addClass("being-viewed");
 
@@ -170,7 +196,8 @@ function Projectbox(projectElement) {
 				"font-size": fS,
 				"font-family": fF,
 				"color": "black",
-				"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)"
+				"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)",
+				"-moz-transform": "translate3d("+tL+"px,"+tT+"px,0)"
 			})
 			.show()
 			.fadeIn()
@@ -178,13 +205,14 @@ function Projectbox(projectElement) {
 			.css({
 				"font-size": "",
 				"-webkit-transform": "translate3d("+endL+",50px,0)",
+				"-moz-transform": "translate3d("+endL+",50px,0)",
 				"color": ""
 			});
 
 		pos = targ.parent().offset().top - 150;
 		body.animate({"scrollTop": pos}, 500, function(){
 			body.css("overflow", "hidden");
-			$(".item figure").hide();
+			// $(".item figure").hide();
 		});
 		body.addClass("viewing-item");
 		body.afterTransition(function(){
@@ -203,15 +231,15 @@ function Projectbox(projectElement) {
 		if (!targ) return;
 
 		// Avoid removing the flash bridge
-		var flash = $("#global-zeroclipboard-html-bridge").remove();
-		$("body").append(flash);
+		// var flash = $("#global-zeroclipboard-html-bridge").remove();
+		// $("body").append(flash);
 
 
 		//tW = targ.width();
 		//tH = targ.height();
 		tT = targ.offset().top - wind.scrollTop();
 		//tL = targ.offset().left - wind.scrollLeft();
-		$(".item figure").show();
+		// $(".item figure").show();
 		body.removeClass("viewing-item");
 		title.unfreeze().css({
 			"width": tW,
@@ -220,7 +248,8 @@ function Projectbox(projectElement) {
 			"font-size": fS,
 			"color": "black",
 			"opacity": 1,
-			"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)"
+			"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)",
+			"-moz-transform": "translate3d("+tL+"px,"+tT+"px,0)"
 		});
 		function finish(){
 			targ.removeClass("being-viewed").fadeIn().unfreeze();
@@ -250,27 +279,3 @@ function refresh() {
 		};
 	});
 }
-
-(function( $ ){
-  $.fn.afterTransition = function(cb){
-	var self = this;
-    self.on("webkitTransitionEnd", function(){
-		cb();
-		self.off("webkitTransitionEnd");
-    });
-  };
-})( jQuery );
-
-(function( $ ){
-	$.fn.freeze = function(cb){
-		this.addClass("no-trans");
-		return this;
-  };
-})( jQuery );
-
-(function( $ ){
-  $.fn.unfreeze = function(cb){
-		this.removeClass("no-trans");
-		return this;
-  };
-})( jQuery );
