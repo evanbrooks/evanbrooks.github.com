@@ -22,6 +22,12 @@ function bindHandlers() {
 	wind.scroll(scroller.scrolling).resize(refresh);
 	$(".project").scroll(proj.scrolling);
 	$(".project").on("touchmove", proj.scrolling);
+	$(".project").on("mousedown touchstart", function(){
+		$(".project-title").css("opacity", 0);
+	});
+	$(".project").on("touchend mouseup", function(){
+		proj.scrolling();
+	});
 
 	html.on("click", "[data-item-name] b", proj.viewItemClick)
 			.on("click", "[data-item-link]", proj.viewItemInterLink)
