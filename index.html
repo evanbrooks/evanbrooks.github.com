@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <head>
-  <title>Evan Brooks</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-  <link rel="stylesheet" href="css/nta.css" >
-  <link rel="stylesheet" href="css/style.css" >
+	<title>Evan Brooks</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+	<link rel="stylesheet" href="css/nta.css" >
+	<link rel="stylesheet" href="css/style.css" >
+	<script type="text/javascript">
+	  var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
+	  analytics.load("vpjunpgx66");
+	</script>
 </head>
 <body>
-	<section class="items">
+<!-- 	<nav>
+		<a href="#" data-item-name="resume"><b>Info</b></a> 
+	</nav>
+ -->	
+ 	<section class="items">
 		<article class="item">
-			I’m Evan. View my <a href="#" data-item-name="resume" data-title="Info" class="force-lower"><b>Résumé</b></a> or say
-			<a class="at" href="mailto:hi@evn.io">
+			I’m Evan. View my <a href="#" data-item-name="resume" data-title="Info" id="resumelink"><b>résumé</b></a> or say
+			<a class="at" href="mailto:hello@evn.io?subject=Hello!%20&body=Hello,%20">
 				hello @ evn.io
 				<span class="flash-wrapper">
 					<span class="copy-wrapper">
-						<span class="copy btn" id="copybtn" data-clipboard-text="hi@evn.io">
+						<span class="copy btn" id="copybtn" data-clipboard-text="hello@evn.io">
 							<i>copied ✔</i> copy
 						</span>
 					</span>
 				<span>
 			</a>
-
 		</article>
+		<article class="error">
+			<a id="missing" class="item-name" href="#" data-item-name="huh" data-title="Huh?">
+				<b>Huh?</b>
+			</a>
+		</article>
+
 	</section>
 
 
@@ -69,23 +82,4 @@
 	<script src="js/ajax.js"></script>
 	<script src="js/zeroclip.js"></script>
 	<script src="js/script.js"></script>
-	<!-- start Mixpanel -->
-	<script src="js/mixpanel.js"></script>
-	<script>
-		mixpanel.track("Load");
-	</script>
-	<!-- end Mixpanel -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-39031601-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 </body>

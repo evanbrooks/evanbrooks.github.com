@@ -9,7 +9,7 @@ Unfortunately, it doesn't sounds like much fun. Especially to kids.
 
 ### Make × Play
 
-The Hop! encourages active and imaginative play—celebrating the curiosity and created worlds that children make in their minds from the simplest toys. These ideas put the museum in line with the "Maker Movement." Do-it-yourself-ers of all ages are the modern-day toymakers, and Make Magazine and its associated Makerfaires are full of enthusiasm, project ideas, and wonder at what other makers have made.
+The Hop! encourages active and imaginative play—celebrating the curiosity and created worlds that children make in their minds from the simplest toys. These ideas put the museum in line with the "Maker Movement." Do-it-yourself-ers of all ages are the modern-day toymakers, and Make Magazine and its associated [Makerfaires](http://makerfaire.com/) are full of enthusiasm, project ideas, and wonder at what other makers have made.
 
 The proposed  __Make × Play__ festival brings together the stories, trust, and infrastructure of the museum with the relentless energy of a Makerfaire. It integrates and focuses the Shelburne's existing summer camps with the core identity. The name is both an exclamation, "Make Play!", and a mission statement, "Make by play."
 

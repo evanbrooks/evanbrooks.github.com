@@ -9,7 +9,7 @@ var body = $("body, html");
 var slide = $("article");
 
 var itemData = [];
-
+var catchme;
 
 var lb = new Lightbox();
 var scroller = new Scroller();
@@ -63,12 +63,15 @@ function bindHandlers() {
 
 	clip.on( 'complete', function(client, args) {
 		// Show the indicator
-		btn.parent().addClass("done");
+		btn.parent().addClass("done open");
 		setTimeout(function(){
 			// Hide the indicator after 4s
+			btn.parent().removeClass("open");
+		}, 2000);
+		setTimeout(function(){
 			btn.parent().removeClass("done");
-		}, 4000);
-		mixpanel.track("copied email");
+		}, 2200);
+		analytics.track("copied email");
 	});
 
 
@@ -84,6 +87,18 @@ function Scroller() {
 		topScroll = wind.scrollTop();
 		midScroll = topScroll + wind.height()/2;
 		bottomScroll = topScroll + wind.height();
+
+		if (topScroll > catchme) {
+			$("#catch").css({
+				"position": "fixed",
+				"overflow": "auto",
+				"-webkit-backface-visibility": "hidden",
+				"top": "1em"
+			});
+		}
+		else {
+			$("#catch").removeAttr("style");
+		}
 
 		var foundCurrent = false;
 		$.each(itemData, function(i, item) {
@@ -139,6 +154,9 @@ function Projectbox(projectElement) {
 
 	function viewItemPop(str) {
 		targ = $("[data-item-name = "+str+"]");
+		if (targ.length < 1){
+			targ = $("#missing");
+		}
 		viewItem();
 	}
 
@@ -151,6 +169,7 @@ function Projectbox(projectElement) {
 	function viewItemInterLink(e) {
 		e.preventDefault();
 		str = $(e.target).attr("data-item-link");
+		analytics.track("Interlink to " + str);
 		clearItem(function(){
 			targ = $("[data-item-name = "+str+"]");
 			viewItem();
@@ -166,12 +185,7 @@ function Projectbox(projectElement) {
 			el.html(data);
 			setTimeout(function(){
 				body.removeClass("loading");
-				mixpanel.track("Viewed an item", {'item': id});
-
-				// analytics.track("Viewed item", {
-				// 	item: id
-				// });
-
+				analytics.track("Viewed " + id);
 			}, 100);
 		});
 
@@ -187,7 +201,7 @@ function Projectbox(projectElement) {
 
 		endL = wind.width()/10 + "px";
 
-		targ.freeze().addClass("being-viewed");
+		targ.freeze().addClass("being-viewed").css("border-color", "transparent");
 
 		el.css("padding-top", (tH + 80) + "px");
 
@@ -214,7 +228,7 @@ function Projectbox(projectElement) {
 				"color": ""
 			});
 
-		pos = targ.parent().offset().top - 150;
+		pos = targ.parent().offset().top - 80;
 		body.animate({"scrollTop": pos}, 500, function(){
 			body.css("overflow", "hidden");
 			// $(".item figure").hide();
@@ -235,11 +249,6 @@ function Projectbox(projectElement) {
 		if (typeof cb == "undefined") cb = function(){};
 		if (!targ) return;
 
-		// Avoid removing the flash bridge
-		// var flash = $("#global-zeroclipboard-html-bridge").remove();
-		// $("body").append(flash);
-
-
 		//tW = targ.width();
 		//tH = targ.height();
 		tT = targ.offset().top - wind.scrollTop();
@@ -257,10 +266,11 @@ function Projectbox(projectElement) {
 			"-moz-transform": "translate3d("+tL+"px,"+tT+"px,0)"
 		});
 		function finish(){
-			targ.removeClass("being-viewed").fadeIn().unfreeze();
+			targ.removeClass("being-viewed").fadeIn().unfreeze().removeAttr("style");
 			title.hide();
 			body.css("overflow", "");
 			el.scrollTop(0);
+			analytics.track("Closed " + id);
 		}
 		setTimeout(function(){
 			finish();
@@ -272,6 +282,8 @@ function Projectbox(projectElement) {
 }
 
 function refresh() {
+	$(".item figure").hide().fadeOut().show();
+	catchme = $("#catch").offset().top;
 	itemData = [];
 	$.each($(".item"), function(i, item) {
 		var self = $(item);

@@ -17,7 +17,7 @@ function ContentGetter() {
 			var html = converter.makeHtml(data);
 			cb(html);
 		}).error(function(){
-			cb("Coming soon");
+			cb("I don't have anything here right now. <a href='mailto:hello@evn.io?subject=I have a question%20'>Get in touch</a> if you have any questions.");
 		});
 	}
 
@@ -41,8 +41,9 @@ function ContentGetter() {
 	function updateState() {
 		console.log(window.location.hash);
 		if (window.location.hash !== "") {
-			whichItem = window.location.hash.split("#/");
-			proj.viewItemPop(whichItem[1]);
+			whichItem = window.location.hash.split("#");
+			whichItem = whichItem[1].replace("/","");
+			proj.viewItemPop(whichItem);
 		}
 		else {
 			proj.clearItem();

@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <head>
-  <title>Evan Brooks</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-  <link rel="stylesheet" href="css/nta.css" >
-  <link rel="stylesheet" href="css/style.css" >
+	<title>Evan Brooks</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+	<link rel="stylesheet" href="css/nta.css" >
+	<link rel="stylesheet" href="css/style.css" >
+	<script type="text/javascript">
+	  var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
+	  analytics.load("vpjunpgx66");
+	</script>
 </head>
 <body>
 <!-- 	<nav>
 		<a href="#" data-item-name="resume"><b>Info</b></a> 
 	</nav>
- -->	<section class="items">
+ -->	
+ 	<section class="items">
+		<article class="item">
+			I’m Evan. View my <a href="#" data-item-name="resume" data-title="Info" id="resumelink"><b>résumé</b></a> or say
+			<a class="at" href="mailto:hello@evn.io?subject=Hello!%20&body=Hello,%20">
+				hello @ evn.io
+				<span class="flash-wrapper">
+					<span class="copy-wrapper">
+						<span class="copy btn" id="copybtn" data-clipboard-text="hello@evn.io">
+							<i>copied ✔</i> copy
+						</span>
+					</span>
+				<span>
+			</a>
+		</article>
 		<article class="item">
 			<a class="item-name" href="#" data-item-name="resume">
 			</a>
+			<div id="catch" style="position: relative; width: 600px">
+				<h3>Recent Work</h3>
+
+<!-- 				<select>
+					<option>All</option>
+					<option>Interactive</option>
+					<option>Print</option>
+					<option>Branding</option>
+				</select> -->
+<!-- 				<div style="margin: -1.3em 0 0 9em; white-space: nowrap;">◉ All  &nbsp;&nbsp; &nbsp; Interactive &nbsp;&nbsp; &nbsp; Print &nbsp;&nbsp; &nbsp; Branding</div>
+ -->			</div>
 		</article>
 		<article class="item">
 			<a class="item-name" href="#" data-item-name="ripta" data-title="RIPTA">
@@ -42,8 +71,8 @@
 			<figure>
 				<div class="browser">
 					<video loop autoplay="autoplay" webkit-playsinline>
-						<source src="/img/locu.mp4" type="video/mp4" />
-  						<source src="/img/locu.webm" type="video/webm" />
+						<source src="/img/locu/locu.mp4" type="video/mp4" />
+  						<source src="/img/locu/locu.webm" type="video/webm" />
 						<img src="img/locu-ui.png"/>
 					</video>
 				</div>
@@ -53,6 +82,16 @@
 			<a class="item-name" href="#" data-item-name="hop" data-title="The Hop!">
 				<b>Toys, play and</b> <br>
 				<b>making things</b>
+				<i>➔</i>
+			</a>
+			<figure>
+				<img src="img/hop.png"/>
+			</figure>
+		</article>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="arduino" data-title="TeenyDuino">
+				<b></b> <br>
+				<b>TeeniDuino</b>
 				<i>➔</i>
 			</a>
 			<figure>
@@ -111,23 +150,10 @@
 			<a class="item-name" href="#" data-item-name="resume">
 			</a>
 		</article>
-		<article class="item">
-			<a class="item-name" href="#" data-item-name="resume">
+		<article class="error">
+			<a id="missing" class="item-name" href="#" data-item-name="huh" data-title="Huh?">
+				<b>Huh?</b>
 			</a>
-		</article>
-		<article class="item">
-			I’m Evan. View my <a href="#" data-item-name="resume" data-title="Info"><b>résumé</b></a> or say
-			<a class="at" href="mailto:hi@evn.io">
-				hello @ evn.io
-				<span class="flash-wrapper">
-					<span class="copy-wrapper">
-						<span class="copy btn" id="copybtn" data-clipboard-text="hi@evn.io">
-							<i>copied ✔</i> copy
-						</span>
-					</span>
-				<span>
-			</a>
-
 		</article>
 <!-- 		<article class="item">
 			<! <h3 class="archive-name">More projects</h3> >
@@ -191,10 +217,4 @@
 	<script src="js/ajax.js"></script>
 	<script src="js/zeroclip.js"></script>
 	<script src="js/script.js"></script>
-	<!-- start Mixpanel -->
-	<script src="js/mixpanel.js"></script>
-	<script>
-		mixpanel.track("Load");
-	</script>
-	<!-- end Mixpanel -->
 </body>

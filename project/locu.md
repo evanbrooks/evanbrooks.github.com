@@ -1,44 +1,79 @@
 <figure>
 	<div class="browser">
-		<img src="img/locu-ui.png"/>
+		<img src="img/locu/locu-ui.png"/>
 	</div>
 </figure>
 
-%aside
+Restaurant owners have been sold a whole tangled mess of services to appease their tech-savvy customers, and Locu's task is to untangle it.
 
-### Contents
+When I first met Locu, they had set out to collect and organize all the small business data available. My task was to reconcile the structured nature of data with the messy and complicated needs of business owners.
 
-- 1 - Editor
-- 2 - Design + publish
-- 3 - Brand guidelines
-- 4 - Current status
 
-%endaside
+### 1 - Editing structured datas
 
-When I first met Locu, they had set out to collect and organize all the small business data available. My task was to reconcile the structured nature of the raw data with the messy and complicated needs of business owners. That meant pushing the limits of digital publishing while friendly enough to win over businesses.
+A restaurant menu has clear hierarchy and typographic contrast, so the form interface does too. 
 
-### 1 - Editing structured data
+<figure class="inset">
+	<img src="img/locu/locu-edit.gif"/>
+</figure>
 
-Developers need data with structure: Menu > Section > Subsection > Menu Item > Option Group > Option. But most of Locu's users have been designing and editing their menus in Microsoft Word. 
+Click on any text, and you're editing it in place — each item doesn't need its own “Edit” button.
 
-<!-- This works alright for one or two quick edits, but it's awful if you're trying to enter a menu. -->
+<figure class="inset">
+	<img src="img/locu/locu-options.gif"/>
+</figure>
 
-<!-- The Locu interface addresses this in two ways. First off, the app uses machine learning and human-powered quality control to import existing menus.
- -->
+By contrast, older interfaces for structured data suffer from an explosion of form inputs. They're designed to accomodate the developer, and they get pretty irritating when you need to get something done.
 
-We flatten the interaction depth to zero and represent hierarchy with scale and design, just like in Word. Click on any text, you're editing it in place. Each edit doesn't need its own "Okay" button to confirm - there's one master save button.
+<p style="padding: 30px; background:rgb(241, 218, 218); margin: 20px 0 2.5em; position: relative;">
+	Item 1 - Editing<br>
+	<span>
+		<input value="This" />
+		<select>
+			<option>is going to be</option>
+			<option>already is</option>
+			<option>shouldn't have to be</option>
+		</select>
+		<input value="a" />
+		<input value="pain" />
+		<input value="in" />
+		<select>
+			<option>the neck</option>
+			<option>the ass</option>
+		</select>
+		<input value="to" />
+		<input value="keep" />
+		<input value="up to date" />
+		<button>show more options</button>
+		<button>cancel</button>
+		<button class="primary" onclick='var retVal = prompt("These popups are extremeley irritating, don’t you think? ", "Yeah");
+	   alert("You have entered: " +  retVal );'>save</button>
+	</span>
+	<br><br>Item 2<br>
+	This shouldn't have to be a pain in the neck.
+	<button>Edit</button>
+	<button>Delete</button>
+</p>
+
+
+Restaurant people are always busy, so the interface is designed to have few interruptions. Instead of stopping everything to confirm a delete, we use an in-place undo button that persists until the user publishes. 
+<figure class="inset">
+	<img src="img/locu/locu-undo.gif"/>
+</figure>
 
 ### 2 - Design + Publish
 
-Restaurants have to manage a mess of technology to actually get anything published. Their in-restaurant menu is a local Word doc or *PDF*. Updates to the web site require emailing a web master and either linking their print *PDF* or retyping it as *HTML*. And now they are expected to put it on Facebook, make it mobile-friendly, add an online-ordering system, and keep track of themselves on every new food/social app?
+Restaurants have to manage a mess of technology to actually get anything published. Their in-restaurant menu is a local Word *.doc* or *PDF*. Updates to the web site require emailing a web master and either linking their print *PDF* or retyping it as *HTML*. And now they are expected to put it on Facebook, make it mobile-friendly, add an online-ordering system, and keep track of themselves on every new food/social app?
 
 The design/publish workflow consolidates everything into one step - the save button. That's it.
 
-<figure>
-	<div class="browser">
-		<img src="img/locu-ui.png"/>
-	</div>
+
+<figure class="inset">
+	<img src="img/locu/locu-scroll.gif"/>
 </figure>
+
+
+
 
 ### 3 - Branding guidelines
 

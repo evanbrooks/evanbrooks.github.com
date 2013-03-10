@@ -2,7 +2,7 @@
 	Hello there, I'm Evan. I'm a designer who likes to code.
 </h2> -->
 
-> Hello there, I’m Evan. I’m  a designer from San Francisco, and I’m currently studying at [RISD](//risd.edu) in Providence. I design with paper, pixels and code. Previously, I worked to design better diabetes care at <a href="/#/agamatrix" data-item-link="agamatrix">Agamatrix</a> and helped grow a company called <a href="/#/locu" data-item-link="locu">Locu</a>.
+> I’m a designer currently studying at [RISD](//risd.edu) in Providence. I grew up in San Francisco, and I design with paper, pixels and code. Previously, I designed better diabetes care at <a href="/#/agamatrix" data-item-link="agamatrix">Agamatrix</a> and helped grow a company called <a href="/#/locu" data-item-link="locu">Locu</a>.
 
 > I’m looking for an internship making useful things with thoughtful people who care deeply about what they do.
 
@@ -65,14 +65,14 @@
 
 Studying Graphic Design with courses in Industrial Design
 
-### Brown University *Fall 2012 &#10132; Present* 
+### Brown University *Fall 2012 – Present* 
 
 Courses in computer science
 
 
-### Product Designer at Locu *Fall 2010 – Spring 2012*
+### Designer at Locu *Fall 2010 – Spring 2012*
 
-I met the Locu founding team members while they were students at MIT, and have worked closely with them creating publishing tools for small business owners. I helped to found the product design team, and I researched, designed, and did front-end development for the product. I also designed the brand, logo, and marketing materials.
+I met the Locu founding team members while they were students at MIT, and have worked closely with them creating publishing tools for small business owners. I designed and did front-end development for the core product. I also helped define the brand strategy and designed logo, web site, and other materials.
 
 <a href="#" data-item-link="locu">See projects</a>
 

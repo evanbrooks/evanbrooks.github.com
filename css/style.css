@@ -1,10 +1,10 @@
 html, body, h1, h2, h3, h4, p, ul, li,
 section, article, div, a, figure, blockquote {
+  font-size: 100%;
+  font-weight: normal;
   margin: 0;
   padding: 0;
-  font-size: 100%;
   text-align: left;
-  font-weight: normal;
   -webkit-text-size-adjust: none; }
 
 b {
@@ -18,9 +18,6 @@ i {
   -moz-transition: none !important;
   -ms-transition: none !important;
   transition: none !important; }
-
-.force-lower {
-  text-transform: lowercase; }
 
 body,
 html {
@@ -40,15 +37,18 @@ body {
   font-size: 20px; }
 
 a, a:visited {
-  color: black;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
   border-bottom: 1px solid black;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  transition: all 0.5s;
+  color: black;
+  display: inline-block;
+  line-height: 1.1em;
   text-decoration: none; }
   a:hover, a:visited:hover {
-    border-bottom: 2px solid black; }
+    color: rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
 
 .btn {
   -webkit-transition: all 0.2s;
@@ -100,12 +100,6 @@ nav {
   -webkit-backface-visibility: hidden;
   position: relative;
   padding: 2em 0 4em 0; }
-  .item::after {
-    content: "";
-    width: 50px;
-    display: block;
-    position: absolute;
-    bottom: 0; }
 
 .project-title b,
 .item-name b {
@@ -113,10 +107,10 @@ nav {
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
   transition: all 0.5s;
-  line-height: 0.9em;
+  border-bottom: 2px solid transparent;
   display: inline-block;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent; }
+  line-height: 0.9em;
+  white-space: nowrap; }
 .project-title i,
 .item-name i {
   -webkit-transform: translate3d(-20%, 0, 0);
@@ -128,23 +122,24 @@ nav {
   -ms-transition: all 0.15s;
   transition: all 0.15s;
   display: inline-block;
+  font-size: 0.5em;
   font-style: normal;
-  opacity: 0;
-  font-size: 0.5em; }
+  opacity: 0; }
 
 .item-name {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   transition: all 0.3s;
+  text-rendering: optimizeLegibility;
   line-height: 1.1em;
-  text-align: left;
   font-size: 2em;
   border-width: 0;
   position: relative;
   display: inline-block; }
   .item:hover .item-name {
-    border-width: 0; }
+    border-width: 0;
+    color: black; }
     .item:hover .item-name b {
       border-bottom: 2px solid black; }
   [data-position=current] .item-name i {
@@ -153,22 +148,6 @@ nav {
     -ms-transform: translate3d(0%, 0, 0);
     transform: translate3d(0%, 0, 0);
     opacity: 1; }
-
-.archive-name {
-  font-size: 11px;
-  font-weight: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  padding-bottom: 4em; }
-
-.archive {
-  padding: 0;
-  list-style: none;
-  padding-bottom: 100px; }
-  .archive li {
-    padding-bottom: 0.5em; }
-    .archive li a {
-      width: 100%; }
 
 .item figure {
   -webkit-transform: translate3d(15%, 0, 0) scale(0.9);
@@ -182,10 +161,10 @@ nav {
   position: fixed;
   text-align: center;
   pointer-events: none;
-  left: 100px;
-  top: 100px;
-  right: 100px;
-  bottom: 100px;
+  left: 10%;
+  top: 10%;
+  right: 10%;
+  bottom: 10%;
   opacity: 0;
   z-index: -1; }
   .item figure img, .item figure video {
@@ -207,12 +186,7 @@ nav {
     -ms-transform: translate3d(30%, 0, 0);
     transform: translate3d(30%, 0, 0); }
 
-[data-position=above] figure {
-  -webkit-transform: translate3d(15%, 0, 0) scale(0.9);
-  -moz-transform: translate3d(15%, 0, 0) scale(0.9);
-  -ms-transform: translate3d(15%, 0, 0) scale(0.9);
-  transform: translate3d(15%, 0, 0) scale(0.9); }
-
+[data-position=above] figure,
 [data-position=below] figure {
   -webkit-transform: translate3d(15%, 0, 0) scale(0.9);
   -moz-transform: translate3d(15%, 0, 0) scale(0.9);
@@ -236,7 +210,6 @@ nav {
     position: absolute;
     top: 0px;
     left: 0px;
-    right: 0px;
     height: 25px;
     padding: 0 0.8em;
     z-index: 999;
@@ -245,8 +218,6 @@ nav {
     font-size: 15px;
     letter-spacing: 10px;
     color: white; }
-  .browser:hover::after {
-    color: rgba(255, 255, 255, 0.5); }
 
 .project-back {
   position: fixed;
@@ -267,8 +238,8 @@ nav {
     pointer-events: auto; }
 
 .project-title {
+  text-rendering: optimizeLegibility;
   line-height: 1.1em;
-  text-align: left;
   font-size: 2em;
   -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   -moz-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -291,13 +262,6 @@ nav {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  z-index: 4;
-  padding: 300px 10% 0;
-  white-space: normal;
-  margin: auto;
-  color: black;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   -ms-transition: all 0.4s;
@@ -306,51 +270,42 @@ nav {
   -moz-transform: translate3d(0, 100%, 0);
   -ms-transform: translate3d(0, 100%, 0);
   transform: translate3d(0, 100%, 0);
+  z-index: 4;
+  padding: 300px 10% 0;
+  white-space: normal;
+  margin: auto;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   pointer-events: none; }
   .viewing-item .project {
-    opacity: 1;
-    pointer-events: auto;
     -webkit-transform: translate3d(0, 0, 0) scale(1);
     -moz-transform: translate3d(0, 0, 0) scale(1);
     -ms-transform: translate3d(0, 0, 0) scale(1);
-    transform: translate3d(0, 0, 0) scale(1); }
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    pointer-events: auto; }
   .viewing-item.loading .project {
     -webkit-transform: translate3d(0, 100%, 0) scale(1);
     -moz-transform: translate3d(0, 100%, 0) scale(1);
     -ms-transform: translate3d(0, 100%, 0) scale(1);
     transform: translate3d(0, 100%, 0) scale(1); }
   .project h2, .project h3, .project h4, .project p, .project ul {
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
-    font-size: 16px;
+    font-size: 1em;
     padding: 0 0 1.5em; }
   .project h2, .project h3, .project h4 {
     font-weight: bold; }
-  .project .btn {
-    font-size: 11px;
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    -webkit-transition: all 0.1s;
-    -moz-transition: all 0.1s;
-    -ms-transition: all 0.1s;
-    transition: all 0.1s;
-    padding: 5px 10px; }
   .project h1 {
-    line-height: 1em;
-    font-size: 1.2em;
-    margin: 3em 0;
-    padding-top: 3em;
-    max-width: 500px;
     font-size: 11px;
     font-weight: normal;
     text-transform: uppercase;
     letter-spacing: 0.3em;
+    margin: 6em 0;
     font-weight: bold; }
   .project h3 {
     position: relative;
-    padding-top: 1em;
-    padding-bottom: 0.5em; }
+    padding-top: 1em 0 0.5em; }
     .project h3 em {
       font-style: normal;
       text-align: left;
@@ -366,16 +321,8 @@ nav {
     letter-spacing: 0.3em; }
   .project p em {
     text-transform: uppercase;
-    letter-spacing: 1px;
     font-size: 0.8em;
     font-style: normal; }
-  .project figure {
-    max-width: 1800px;
-    margin: auto;
-    padding-bottom: 1.5em; }
-    .project figure img {
-      display: block;
-      max-width: 100%; }
   .project li {
     list-style: none;
     position: relative; }
@@ -396,22 +343,37 @@ nav {
   .project aside ul {
     padding-bottom: 3em; }
   .project blockquote p {
-    font-size: 2em;
+    font-size: 1em;
     line-height: 1.3em;
-    width: auto;
-    max-width: 1200px;
-    text-rendering: optimizeLegibility; }
+    width: auto; }
   .project blockquote a {
-    -webkit-transition: all 0s;
-    -moz-transition: all 0s;
-    -ms-transition: all 0s;
-    transition: all 0s;
     line-height: 1em;
-    display: inline-block;
-    color: black;
-    border-bottom: 1px solid black; }
-    .project blockquote a:hover {
-      border-bottom: 3px solid black; }
+    display: inline-block; }
+
+.project figure {
+  max-width: 1800px;
+  margin: auto;
+  margin-bottom: 1.5em; }
+  .project figure img {
+    display: block;
+    max-width: 100%; }
+.project .inset {
+  position: relative;
+  max-width: none;
+  width: auto;
+  display: inline-block; }
+  .project .inset:hover::after {
+    background: transparent; }
+  .project .inset::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    box-shadow: inset 0 1px 20px rgba(0, 0, 0, 0.1), inset 0 1px 3px rgba(0, 0, 0, 0.1); }
+  .project .inset::after {
+    display: block; }
 
 .being-viewed {
   opacity: 0 !important; }
@@ -474,6 +436,7 @@ nav {
   z-index: 7;
   top: 50px;
   right: 10%;
+  white-space: nowrap;
   font-size: 60px;
   width: 40px;
   text-align: center;
@@ -504,16 +467,6 @@ nav {
 
   50% {
     box-shadow: 0 0 0 0 black; } }
-
-@-webkit-keyframes pulsewhite {
-  0% {
-    box-shadow: 0 0 0 0 white; }
-
-  25% {
-    box-shadow: 0 0 0 3px white; }
-
-  50% {
-    box-shadow: 0 0 0 0 white; } }
 
 .spinner {
   -webkit-transition: all 0.2s;
@@ -549,29 +502,19 @@ nav {
 
 .resume .project-title {
   font-size: 1em; }
-.resume .project li > a {
-  line-height: 1.5em;
-  -webkit-transition: none; }
-.resume .project li em {
-  -webkit-transition: all 0.3s;
-  font-size: 11px;
-  font-style: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  white-space: nowrap; }
 
 .copy-wrapper {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  transition: all 0.3s;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  transition: all 0.1s;
   -webkit-transform: translate3d(-10px, 0, 0);
   -moz-transform: translate3d(-10px, 0, 0);
   -ms-transform: translate3d(-10px, 0, 0);
   transform: translate3d(-10px, 0, 0);
   position: absolute;
   left: 110%;
-  bottom: 0;
+  top: 0;
   opacity: 0;
   line-height: normal;
   font-size: 1rem;
@@ -584,9 +527,10 @@ nav {
     white-space: nowrap;
     position: relative;
     display: inline-block;
-    padding: 0 15px;
+    padding: 0 10px;
+    font-size: 0.7em;
     border: 1px solid black;
-    line-height: 28px;
+    line-height: 24px;
     font-weight: bold; }
     .copy-wrapper .copy i {
       position: absolute;
@@ -596,7 +540,7 @@ nav {
       content: "";
       position: absolute;
       left: -8px;
-      top: 9px;
+      top: 7px;
       border: 4px solid transparent;
       border-right-color: #eeeeee;
       z-index: 9; }
@@ -605,34 +549,28 @@ nav {
     color: white; }
     .flash-wrapper:hover .copy-wrapper .copy::after {
       border-right-color: black; }
-  .copy-wrapper::before {
-    content: "";
-    position: absolute;
-    left: -30px;
-    top: 0px;
-    background: transparent;
-    width: 50px;
-    height: 30px; }
   .copy-wrapper::after {
     content: "";
     position: absolute;
     left: -8px;
-    top: 10px;
+    top: 8px;
     border: 4px solid transparent;
     border-right-color: black; }
-  .flash-wrapper .copy-wrapper.done {
+  .flash-wrapper .copy-wrapper.open {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
+  .flash-wrapper .copy-wrapper.done {
+    -webkit-animation: pulse 0.3s 1; }
     .flash-wrapper .copy-wrapper.done .copy {
       -webkit-transition: all 0.2s;
       -moz-transition: all 0.2s;
       -ms-transition: all 0.2s;
       transition: all 0.2s;
       color: rgba(0, 0, 0, 0);
-      padding-right: 50px;
+      padding-right: 42px;
       background: black; }
       .flash-wrapper .copy-wrapper.done .copy i {
         color: white;
@@ -640,49 +578,23 @@ nav {
       .flash-wrapper .copy-wrapper.done .copy::after {
         border-right-color: black; }
 
-a:hover .loaded {
+.at:hover .loaded {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0); }
-  a:hover .loaded:hover {
+  .at:hover .loaded:hover {
     opacity: 0.8; }
 
 .at {
   display: inline-block;
   position: relative; }
-  .at i {
-    -webkit-transition: all 0.1s;
-    -moz-transition: all 0.1s;
-    -ms-transition: all 0.1s;
-    transition: all 0.1s;
-    font-style: normal;
-    display: inline-block; }
-  .at b {
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    transition: all 0.2s;
-    -webkit-transform: scale(0.6);
-    -moz-transform: scale(0.6);
-    -ms-transform: scale(0.6);
-    transform: scale(0.6);
-    opacity: 0;
-    position: absolute; }
-  .at:hover i {
-    opacity: 0; }
-  .at:hover b {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1); }
 
-@media (-webkit-min-device-pixel-ratio: 1.5) {
-  a.item-name,
-  .project-title {
-    text-shadow: none; } }
+.error {
+  position: absolute;
+  top: -300px; }
+
 @media (min-width: 1200px) {
   aside {
     position: absolute;
@@ -691,11 +603,11 @@ a:hover .loaded {
   .project blockquote p {
     width: 80%; } }
 @media (max-width: 800px) {
+  .items {
+    display: block; }
+
   .item {
     padding: 100px 0 110px; }
-
-  .project blockquote p {
-    font-size: 1.7em; }
 
   .ex {
     font-size: 40px;
@@ -716,13 +628,12 @@ a:hover .loaded {
     padding: 40px 0 50px; }
 
   .item > figure {
-    position: static;
-    opacity: 1;
     -webkit-transform: none;
     -moz-transform: none;
     -ms-transform: none;
     transform: none;
-    -webkit-filter: none;
+    position: static;
+    opacity: 1;
     margin-top: 1em; }
 
   .items:hover .item > figure {
@@ -730,10 +641,4 @@ a:hover .loaded {
     -moz-transform: none;
     -ms-transform: none;
     transform: none;
-    opacity: 1; }
-
-  .project blockquote p {
-    font-size: 1em; }
-
-  br {
-    display: none; } }
+    opacity: 1; } }
