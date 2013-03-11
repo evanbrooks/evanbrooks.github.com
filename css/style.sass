@@ -520,7 +520,7 @@ nav
 	line-height: 0em
 	margin-top: 20px
 	white-space: nowrap
-	i
+	span
 		@include trans(0.5s)
 		-webkit-transform: scale(0)
 		display: inline-block
@@ -531,13 +531,13 @@ nav
 		height: 10px
 	.viewing-item.loading &
 		-webkit-transform: translate3d(0%,0,0)
-		i
+		span
 			-webkit-transform: scale(1)
 			box-shadow: 0 0 0 0 black
 			-webkit-animation: pulse 0.8s infinite
-		i:nth-child(2)
+		span:nth-child(2)
 			-webkit-animation-delay: 0.3s
-		i:nth-child(3)
+		span:nth-child(3)
 			-webkit-animation-delay: 0.6s
 
 // Resume
@@ -711,7 +711,7 @@ nav
 		font-size: 40px
 		right: 5%
 		top: 5%
-	.project figure
+	.project .bleed // figure.bleed
 		margin: 0 -10vw
 	.project figure .slider
 		margin: 0

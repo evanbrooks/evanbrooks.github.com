@@ -530,7 +530,7 @@ nav {
   line-height: 0em;
   margin-top: 20px;
   white-space: nowrap; }
-  .spinner i {
+  .spinner span {
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -544,13 +544,13 @@ nav {
     height: 10px; }
   .viewing-item.loading .spinner {
     -webkit-transform: translate3d(0%, 0, 0); }
-    .viewing-item.loading .spinner i {
+    .viewing-item.loading .spinner span {
       -webkit-transform: scale(1);
       box-shadow: 0 0 0 0 black;
       -webkit-animation: pulse 0.8s infinite; }
-    .viewing-item.loading .spinner i:nth-child(2) {
+    .viewing-item.loading .spinner span:nth-child(2) {
       -webkit-animation-delay: 0.3s; }
-    .viewing-item.loading .spinner i:nth-child(3) {
+    .viewing-item.loading .spinner span:nth-child(3) {
       -webkit-animation-delay: 0.6s; }
 
 .resume .project-title {
@@ -721,7 +721,7 @@ nav {
     right: 5%;
     top: 5%; }
 
-  .project figure {
+  .project .bleed {
     margin: 0 -10vw; }
 
   .project figure .slider {
