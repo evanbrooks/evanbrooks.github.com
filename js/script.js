@@ -2,6 +2,8 @@
 // way you like, no attribution required!
 // - Evan
 
+var iphone = isiPhone();
+
 var wind = $(window);
 var html = $("html");
 var index = $(".scroller");
@@ -17,6 +19,8 @@ var proj = new Projectbox(".project");
 var cont = new ContentGetter();
 
 bindHandlers();
+cont.listen(); // Listen for history state changes
+setupZClip();
 
 function bindHandlers() {
 	wind.scroll(scroller.scrolling).resize(refresh);
@@ -34,53 +38,6 @@ function bindHandlers() {
 			.on("click", ".spinner, .ex, .project-back", proj.clearItemClick)
 			.on("click", "[data-lightbox]", lb.viewImage)
 			.on("click", ".lightbox, .lightbox-back .ex", lb.clearImage);
-
-	// Listen for history state changes
-	cont.listen();
-
-	// Load zeroclip here to support copying
-	// the email address instead of using the mailto:
-	ZeroClipboard.setDefaults({moviePath: "/js/zeroclip.swf"});
-	var btn = $("#copybtn");
-	var clip = new ZeroClipboard();
-
-	// // Because we're in a different scrolling context we need to move the zeroclipboard's flash movie from the end of the DOM
-	var flash = $("#global-zeroclipboard-html-bridge").remove();
-	flash = $(flash).removeAttr("style").css({
-		"position": "absolute",
-		"left": "100%",
-		"top": "0",
-		"width": 60 + btn.width() + "px",
-		"height": btn.height() + "px",
-		"z-index": 999
-	});
-	// insert it right before our button
-	btn.parent().before(flash);
-
-	clip.on( 'load', function(client) {
-		setTimeout(function(){
-			clip.setText(btn.attr("data-clipboard-text")); // set the text after loaded
-			btn.parent().addClass("loaded"); // button won't display until loaded
-			$(".flash-wrapper").on("click", function(e) {
-				e.preventDefault();
-			});
-		}, 200);
-	});
-
-	clip.on( 'complete', function(client, args) {
-		// Show the indicator
-		btn.parent().addClass("done open");
-		setTimeout(function(){
-			// Hide the indicator after 4s
-			btn.parent().removeClass("open");
-		}, 2000);
-		setTimeout(function(){
-			btn.parent().removeClass("done");
-		}, 2200);
-		analytics.track("copied email");
-	});
-
-
 }
 
 function Scroller() {
@@ -112,12 +69,12 @@ function Scroller() {
 				// Above the current item
 				if ( item.top < topScroll ) {
 					item.div.attr("data-position", "above");
-					if (typeof item.vid != "undefined") item.vid.pause();
+					if (!iphone && typeof item.vid != "undefined") item.vid.pause();
 				}
 				// The current item
 				if ( item.top > topScroll && item.top < midScroll /*&& item.bottom < bottomScroll*/) {
 					item.div.attr("data-position", "current");
-					if (typeof item.vid != "undefined") item.vid.play();
+					if (!iphone && typeof item.vid != "undefined") item.vid.play();
 					foundCurrent = true;
 				}
 			}
@@ -300,5 +257,49 @@ function refresh() {
 			bottom: self.offset().top + self.innerHeight(),
 			vid: video
 		};
+	});
+}
+
+function setupZClip() {
+	// Load zeroclip here to support copying
+	// the email address instead of using the mailto:
+	ZeroClipboard.setDefaults({moviePath: "/js/zeroclip.swf"});
+	var btn = $("#copybtn");
+	var clip = new ZeroClipboard();
+
+	// // Because we're in a different scrolling context we need to move the zeroclipboard's flash movie from the end of the DOM
+	var flash = $("#global-zeroclipboard-html-bridge").remove();
+	flash = $(flash).removeAttr("style").css({
+		"position": "absolute",
+		"left": "100%",
+		"top": "0",
+		"width": 60 + btn.width() + "px",
+		"height": btn.height() + "px",
+		"z-index": 999
+	});
+	// insert it right before our button
+	btn.parent().before(flash);
+
+	clip.on( 'load', function(client) {
+		setTimeout(function(){
+			clip.setText(btn.attr("data-clipboard-text")); // set the text after loaded
+			btn.parent().addClass("loaded"); // button won't display until loaded
+			$(".flash-wrapper").on("click", function(e) {
+				e.preventDefault();
+			});
+		}, 200);
+	});
+
+	clip.on( 'complete', function(client, args) {
+		// Show the indicator
+		btn.parent().addClass("done open");
+		setTimeout(function(){
+			// Hide the indicator after 4s
+			btn.parent().removeClass("open");
+		}, 2000);
+		setTimeout(function(){
+			btn.parent().removeClass("done");
+		}, 2200);
+		analytics.track("copied email");
 	});
 }

@@ -459,15 +459,16 @@ figure:hover
 	cursor: pointer
 
 .prev
-	@include tf(rotate(180deg))
+	@include tf(rotate(180deg) translate3d(-10px,0,0))
 	left: 0%
 	figure:hover &
-		@include tf(rotate(180deg) translate3d(-10px,0,0))
+		@include tf(rotate(180deg))
 
 .next
 	right: 0%
+	@include tf(translate3d(-10px,0,0))
 	figure:hover &
-		@include tf(translate3d(-10px,0,0))
+		@include tf(translate3d(0,0,0))
 
 .ex
 	@include trans(0.2s)

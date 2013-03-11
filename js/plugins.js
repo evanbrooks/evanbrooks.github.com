@@ -1,3 +1,12 @@
+function isiPhone(){
+    return (
+        //Detect iPhone
+        (navigator.platform.indexOf("iPhone") != -1) ||
+        //Detect iPod
+        (navigator.platform.indexOf("iPod") != -1)
+    );
+}
+
 (function( $ ){
   $.fn.afterTransition = function(cb){
 	var self = this;
