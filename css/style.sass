@@ -192,7 +192,6 @@ nav
 // Figure in list view -------
 
 .item figure
-	@include tf(translate3d(15%,0,0) scale(0.9))
 	@include trans(0.3s)
 	position: fixed
 	text-align: center
@@ -650,9 +649,11 @@ figure:hover
 	top: -300px
 
 
-// @ Media
+// Fancy transitions ----------
 
 @media (min-width: 600px)
+	.item figure
+		@include tf(translate3d(15%,0,0) scale(0.9))
 	[data-position = current] .item-name i
 		@include tf(translate3d(0%, 0, 0))
 		opacity: 1

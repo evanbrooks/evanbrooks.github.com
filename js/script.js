@@ -23,7 +23,10 @@ cont.listen(); // Listen for history state changes
 setupZClip();
 
 function bindHandlers() {
-	wind.scroll(scroller.scrolling).resize(refresh);
+	if (!iphone) {
+		wind.scroll(scroller.scrolling);
+	}
+	wind.resize(refresh);
 	$(".project").scroll(proj.scrolling);
 	$(".project").on("touchmove", proj.scrolling);
 	$(".project").on("mousedown touchstart", function(){
@@ -63,30 +66,27 @@ function Scroller() {
 			$("#catch").removeAttr("style");
 		}
 
-		/// Don't run this on the iphone, it won't like it
-		if (!iphone) {
-			var foundCurrent = false;
-			$.each(itemData, function(i, item) {
-				if (!foundCurrent) {
-					// Above the current item
-					if ( item.top < topScroll ) {
-						item.div.attr("data-position", "above");
-						if (typeof item.vid != "undefined") item.vid.pause();
-					}
-					// The current item
-					if ( item.top > topScroll && item.top < midScroll /*&& item.bottom < bottomScroll*/) {
-						item.div.attr("data-position", "current");
-						if (typeof item.vid != "undefined") item.vid.play();
-						foundCurrent = true;
-					}
-				}
-				else {
-					// Below the current item
-					item.div.attr("data-position", "below");
+		var foundCurrent = false;
+		$.each(itemData, function(i, item) {
+			if (!foundCurrent) {
+				// Above the current item
+				if ( item.top < topScroll ) {
+					item.div.attr("data-position", "above");
 					if (typeof item.vid != "undefined") item.vid.pause();
 				}
-			});
-		}
+				// The current item
+				if ( item.top > topScroll && item.top < midScroll /*&& item.bottom < bottomScroll*/) {
+					item.div.attr("data-position", "current");
+					if (typeof item.vid != "undefined") item.vid.play();
+					foundCurrent = true;
+				}
+			}
+			else {
+				// Below the current item
+				item.div.attr("data-position", "below");
+				if (typeof item.vid != "undefined") item.vid.pause();
+			}
+		});
 	}
 }
 

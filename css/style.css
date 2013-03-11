@@ -144,10 +144,6 @@ nav {
       border-bottom: 2px solid black; }
 
 .item figure {
-  -webkit-transform: translate3d(15%, 0, 0) scale(0.9);
-  -moz-transform: translate3d(15%, 0, 0) scale(0.9);
-  -ms-transform: translate3d(15%, 0, 0) scale(0.9);
-  transform: translate3d(15%, 0, 0) scale(0.9);
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
@@ -646,6 +642,12 @@ figure:hover .prev, figure:hover .next {
   top: -300px; }
 
 @media (min-width: 600px) {
+  .item figure {
+    -webkit-transform: translate3d(15%, 0, 0) scale(0.9);
+    -moz-transform: translate3d(15%, 0, 0) scale(0.9);
+    -ms-transform: translate3d(15%, 0, 0) scale(0.9);
+    transform: translate3d(15%, 0, 0) scale(0.9); }
+
   [data-position=current] .item-name i {
     -webkit-transform: translate3d(0%, 0, 0);
     -moz-transform: translate3d(0%, 0, 0);
