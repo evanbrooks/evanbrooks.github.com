@@ -344,6 +344,8 @@ nav
 		img
 			display: block
 			max-width: 100%
+		h4
+			margin-top: 4em
 	.inset
 		position: relative
 		max-width: none
@@ -365,8 +367,6 @@ nav
 			//border-radius: 10px
 		&::after
 			display: block
-	h4
-		margin-top: 4em
 
 
 .being-viewed
@@ -424,6 +424,7 @@ nav
 	-webkit-backface-visibility: hidden
 	ul
 		max-width: none
+		padding: 0
 	img
 		@include trans(0.2s)
 		width: 100%
@@ -437,15 +438,6 @@ nav
 		top: 0
 		left: 0
 		position: absolute
-	.a
-		@include tf(translate3d(-5%,0,0) scale(0.9))
-	.b
-		@include tf(translate3d(0,-5%,0) scale(0.9))
-	.c
-		@include tf(translate3d(0,5%,0) scale(0.9))
-	.current img
-		&.a, &.b, &.c
-		@include tf(none)
 
 .project .pagination
 	display: inline-block
@@ -688,6 +680,18 @@ nav
 	[data-position=above] figure,
 	[data-position=below] figure
 		@include tf(translate3d(15%, 0 ,0) scale(0.9))
+
+	.project figure .slider
+		.a
+			@include tf(translate3d(-5%,0,0) scale(0.9))
+		.b
+			@include tf(translate3d(0,-5%,0) scale(0.9))
+		.c
+			@include tf(translate3d(0,5%,0) scale(0.9))
+		.current img
+			&.a, &.b, &.c
+			@include tf(none)
+
 
 // @ Media -------------
 
