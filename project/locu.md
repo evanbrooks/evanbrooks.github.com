@@ -72,8 +72,45 @@ The design/publish workflow consolidates everything into one step - the save but
 	<img src="img/locu/locu-scroll.gif"/>
 </figure>
 
+### 3 - Building a flexible system for design
 
+<figure>
+	<div class="prev" onclick='slider.prev();return false;'>➔</div> 
+	<div class="next" onclick='slider.next();return false;'>➔</div>
+	<div id="slider1" class="slider">
+		<ul>
+			<li>
+				<img src="img/locu/theme/circle.png"/>
+			</li>
+			<li>
+				<img src="img/locu/theme/metric.png"/>
+			</li>
+			<li>
+				<img src="img/locu/theme/slab.png"/>
+			</li>
+			<li>
+				<img src="img/locu/theme/original.png"/>
+			</li>
+			<li>
+				<img src="img/locu/theme/squares.png"/>
+			</li>
+			<li>
+				<img src="img/locu/theme/metropolitan.png"/>
+			</li>
+			<li>
+				<img src="img/locu/theme/grid.png"/>
+			</li>
+		</ul>
+	</div>
+</figure>
 
+<script>
+	var slider = new Swipe(document.getElementById('slider1'));
+</script>
+
+Locu treats the menu’s physical and online representation as a single document. We used responsive web design practices plus a custom print layout system to tie everything together. Each media type can be previewed in the browser.
+
+The publishing feature caters to both professional designers and restaurant owners. Every starting template exposes variables for color type, and scale, so restaurants can maintain their identities, but underneath it’s simply **HTML** and CSS**. We tppk inspiration from tumblr's templating system — no limits to design, but the structure of the content remains the same.
 
 ### 3 - Branding guidelines
 
