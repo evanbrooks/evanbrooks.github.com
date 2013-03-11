@@ -63,27 +63,30 @@ function Scroller() {
 			$("#catch").removeAttr("style");
 		}
 
-		var foundCurrent = false;
-		$.each(itemData, function(i, item) {
-			if (!foundCurrent) {
-				// Above the current item
-				if ( item.top < topScroll ) {
-					item.div.attr("data-position", "above");
-					if (!iphone && typeof item.vid != "undefined") item.vid.pause();
+		/// Don't run this on the iphone, it won't like it
+		if (!iphone) {
+			var foundCurrent = false;
+			$.each(itemData, function(i, item) {
+				if (!foundCurrent) {
+					// Above the current item
+					if ( item.top < topScroll ) {
+						item.div.attr("data-position", "above");
+						if (typeof item.vid != "undefined") item.vid.pause();
+					}
+					// The current item
+					if ( item.top > topScroll && item.top < midScroll /*&& item.bottom < bottomScroll*/) {
+						item.div.attr("data-position", "current");
+						if (typeof item.vid != "undefined") item.vid.play();
+						foundCurrent = true;
+					}
 				}
-				// The current item
-				if ( item.top > topScroll && item.top < midScroll /*&& item.bottom < bottomScroll*/) {
-					item.div.attr("data-position", "current");
-					if (!iphone && typeof item.vid != "undefined") item.vid.play();
-					foundCurrent = true;
+				else {
+					// Below the current item
+					item.div.attr("data-position", "below");
+					if (typeof item.vid != "undefined") item.vid.pause();
 				}
-			}
-			else {
-				// Below the current item
-				item.div.attr("data-position", "below");
-				if (typeof item.vid != "undefined") item.vid.pause();
-			}
-		});
+			});
+		}
 	}
 }
 
