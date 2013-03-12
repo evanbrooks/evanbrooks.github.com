@@ -258,6 +258,7 @@ nav
 	top: 0
 	color: black
 	left: 0
+	width: 100%
 	z-index: 4
 	-webkit-backface-visibility: hidden
 
@@ -270,7 +271,8 @@ nav
 	padding: 300px 10% 0
 	white-space: normal
 	margin: auto
-	overflow: scroll
+	overflow-x: hidden
+	overflow-y: scroll
 	-webkit-overflow-scrolling: touch
 	pointer-events: none
 	.viewing-item & // Show when viewing item
@@ -714,8 +716,9 @@ nav
 	.project .bleed // figure.bleed
 		margin: 0 -10vw
 	.project figure .slider
-		margin: 0
+		margin: 0 -20vw
 		padding: 0
+		width: 120vw
 	.project .pagination
 		margin: 0 10%
 		> li

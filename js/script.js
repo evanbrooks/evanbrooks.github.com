@@ -181,7 +181,6 @@ function Projectbox(projectElement) {
 		title
 			.freeze()
 			.css({
-				"width": tW,
 				"height": tH,
 				"padding": "0px",
 				"font-size": fS,
@@ -198,6 +197,9 @@ function Projectbox(projectElement) {
 				"-webkit-transform": "translate3d("+endL+",50px,0)",
 				"-moz-transform": "translate3d("+endL+",50px,0)",
 				"color": ""
+			}).fadeIn().css({
+				"-webkit-transform": "translate3d(10%, 50px,0)",
+				"-moz-transform": "translate3d(10%,50px,0)"
 			});
 
 		pos = targ.parent().offset().top - 80;
@@ -224,15 +226,10 @@ function Projectbox(projectElement) {
 		//tW = targ.width();
 		//tH = targ.height();
 		tT = targ.offset().top - wind.scrollTop();
-		//tL = targ.offset().left - wind.scrollLeft();
+		tL = targ.offset().left - wind.scrollLeft();
 		// $(".item figure").show();
 		body.removeClass("viewing-item");
 		title.unfreeze().css({
-			"width": tW,
-			"height": tH,
-			"top": 0,
-			"font-size": fS,
-			"color": "black",
 			"opacity": 1,
 			"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)",
 			"-moz-transform": "translate3d("+tL+"px,"+tT+"px,0)"
