@@ -21,9 +21,6 @@ i {
 
 body,
 html {
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
   -webkit-overflow-scrolling: touch; }
 
 hr {
@@ -219,6 +216,7 @@ nav {
   -ms-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: fixed;
+  -webkit-transform-origin: 5% 5%;
   display: none;
   top: 0;
   color: black;
@@ -334,7 +332,8 @@ nav {
     display: block;
     max-width: 100%; }
   .project figure h4 {
-    margin-top: 4em; }
+    margin-top: 4em;
+    padding: 0; }
 .project .inset {
   position: relative;
   max-width: none;
@@ -403,6 +402,9 @@ nav {
     margin: auto;
     display: block; }
 
+.scrollwrap {
+  background: #eeeeee; }
+
 .project figure .slider {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -418,13 +420,15 @@ nav {
   .project figure .slider ul {
     max-width: none;
     padding: 0; }
+  .project figure .slider li .wrapper {
+    position: relative; }
   .project figure .slider img {
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -ms-transition: all 0.2s;
     transition: all 0.2s;
     width: 100%;
-    max-width: 600px; }
+    max-width: 700px; }
   .project figure .slider .wrap {
     position: relative;
     display: inline-block; }
@@ -478,10 +482,10 @@ nav {
     opacity: 1; }
 
 .prev {
-  -webkit-transform: rotate(180deg) translate3d(0, 4px, 0);
-  -moz-transform: rotate(180deg) translate3d(0, 4px, 0);
-  -ms-transform: rotate(180deg) translate3d(0, 4px, 0);
-  transform: rotate(180deg) translate3d(0, 4px, 0); }
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1); }
 
 .ex {
   -webkit-transition: all 0.2s;
@@ -527,6 +531,16 @@ nav {
   50% {
     box-shadow: 0 0 0 0 black; } }
 
+@-moz-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 black; }
+
+  25% {
+    box-shadow: 0 0 0 3px black; }
+
+  50% {
+    box-shadow: 0 0 0 0 black; } }
+
 .spinner {
   -webkit-transition: all 0.2s;
   -moz-transition: all 0.2s;
@@ -542,25 +556,29 @@ nav {
     -ms-transition: all 0.5s;
     transition: all 0.5s;
     -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
     display: inline-block;
-    margin-right: 40px;
+    margin-right: 30px;
     border-radius: 50%;
     background: black;
-    width: 10px;
-    height: 10px; }
-  .viewing-item.loading .spinner {
-    -webkit-transform: translate3d(0%, 0, 0); }
-    .viewing-item.loading .spinner span {
-      -webkit-transform: scale(1);
-      box-shadow: 0 0 0 0 black;
-      -webkit-animation: pulse 0.8s infinite; }
-    .viewing-item.loading .spinner span:nth-child(2) {
-      -webkit-animation-delay: 0.3s; }
-    .viewing-item.loading .spinner span:nth-child(3) {
-      -webkit-animation-delay: 0.6s; }
-
-.resume .project-title {
-  font-size: 1em; }
+    width: 7px;
+    height: 7px; }
+  .viewing-item.loading .spinner span {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    box-shadow: 0 0 0 0 black;
+    -webkit-animation: pulse 0.8s infinite;
+    -moz-animation: pulse 0.8s infinite; }
+  .viewing-item.loading .spinner span:nth-child(2) {
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s; }
+  .viewing-item.loading .spinner span:nth-child(3) {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s; }
 
 .copy-wrapper {
   -webkit-user-select: none;
@@ -733,14 +751,15 @@ nav {
     margin: 0 -10vw; }
 
   .project figure .slider {
-    margin: 0 -20vw;
+    margin: 0 -10vw;
     padding: 0;
-    width: 120vw; }
+    width: 110vw; }
+    .project figure .slider h4 {
+      width: auto;
+      padding: 0 10vw; }
 
-  .project .pagination {
-    margin: 0 10%; }
-    .project .pagination > li {
-      padding: 3px; }
+  .project .pagination > li {
+    padding: 3px; }
 
   .prev, .next {
     display: none; } }
@@ -754,6 +773,14 @@ nav {
 
   .item {
     padding: 40px 0 50px; }
+
+  .project figure .slider {
+    margin: 0 -20vw;
+    padding: 0;
+    width: 120vw; }
+    .project figure .slider h4 {
+      width: auto;
+      padding: 0 20vw; }
 
   .item > figure {
     position: static;

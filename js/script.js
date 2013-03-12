@@ -152,11 +152,11 @@ function Projectbox(projectElement) {
 		el.html("");
 		cont.getItem(id, t, function(data){
 			setTimeout(function(){
-				el.html(data);
+				el.html("<div class='scrollwrap'>"+data+"</div>");
 				el.imagesLoaded(function(){
 					body.removeClass("loading");
 					analytics.track("Viewed " + id);
-					initiateProject();
+					if (typeof initiateProject == "function") initiateProject();
 				});
 			}, 500);
 		});
@@ -194,18 +194,15 @@ function Projectbox(projectElement) {
 			.unfreeze()
 			.css({
 				"font-size": "",
-				"-webkit-transform": "translate3d("+endL+",50px,0)",
+				"-webkit-transform": "translate3d("+endL+",50px,0) scale(4)",
 				"-moz-transform": "translate3d("+endL+",50px,0)",
 				"color": ""
-			}).fadeIn().css({
-				"-webkit-transform": "translate3d(10%, 50px,0)",
-				"-moz-transform": "translate3d(10%,50px,0)"
 			});
 
 		pos = targ.parent().offset().top - 80;
 		body.animate({"scrollTop": pos}, 500, function(){
 			body.css("overflow", "hidden");
-			(".item figure").hide();
+			// $(".item figure").hide();
 		});
 		body.addClass("viewing-item");
 		body.afterTransition(function(){
