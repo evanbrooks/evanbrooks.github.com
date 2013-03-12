@@ -42,7 +42,7 @@ function bindHandlers() {
 			.on("click", "[data-lightbox]", lb.viewImage)
 			.on("click", ".lightbox, .lightbox-back .ex", lb.clearImage);
 }
-
+var currentvid;
 function Scroller() {
 	this.scrolling = scrolling;
 
@@ -77,7 +77,10 @@ function Scroller() {
 				// The current item
 				if ( item.top > topScroll && item.top < midScroll /*&& item.bottom < bottomScroll*/) {
 					item.div.attr("data-position", "current");
-					if (typeof item.vid != "undefined") item.vid.play();
+					if (typeof item.vid != "undefined") {
+						currentvid = item.vid;
+						item.vid.play();
+					}
 					foundCurrent = true;
 				}
 			}
@@ -148,11 +151,14 @@ function Projectbox(projectElement) {
 		body.addClass("loading");
 		el.html("");
 		cont.getItem(id, t, function(data){
-			el.html(data);
 			setTimeout(function(){
-				body.removeClass("loading");
-				analytics.track("Viewed " + id);
-			}, 100);
+				el.html(data);
+				el.imagesLoaded(function(){
+					body.removeClass("loading");
+					analytics.track("Viewed " + id);
+					initiateProject();
+				});
+			}, 500);
 		});
 
 		body.addClass(id);
@@ -197,7 +203,7 @@ function Projectbox(projectElement) {
 		pos = targ.parent().offset().top - 80;
 		body.animate({"scrollTop": pos}, 500, function(){
 			body.css("overflow", "hidden");
-			// $(".item figure").hide();
+			(".item figure").hide();
 		});
 		body.addClass("viewing-item");
 		body.afterTransition(function(){

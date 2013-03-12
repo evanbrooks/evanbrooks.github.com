@@ -1,3 +1,29 @@
+<script>
+	initiateProject = function() {
+		var slider = new Swipe(document.getElementById('slider1'), {
+			speed: 400,
+			//auto: 3000,
+	    	callback: function(event, index, elem) {
+	    		$(".pagination .current").removeClass("current");
+				$(".pagination :nth-child("+(index+1)+")").addClass("current");
+	    		$("#slider1 .current").removeClass("current");
+	    		$(elem).addClass("current");
+			}
+	    });
+		//$("#slider1").mouseup(function(){slider.next()});
+		$(".pagination > li").mouseup(function(){
+			ind = $(this).index();
+			slider.slide(ind, 300);
+		});
+		$(".prev").click(function(){
+			slider.prev();
+		});
+		$(".next").click(function(){
+			slider.next();
+		});
+	}
+</script>
+
 <figure>
 	<div class="browser">
 		<img src="img/locu/locu-ui.png"/>
@@ -90,30 +116,6 @@ Locu treats the menu’s physical and online representation as a single document
 	<div class="next">➔</div>
 </figure>
 
-<script>
-	var slider = new Swipe(document.getElementById('slider1'), {
-		speed: 400,
-		//auto: 3000,
-    	callback: function(event, index, elem) {
-    		$(".pagination .current").removeClass("current");
-			$(".pagination :nth-child("+(index+1)+")").addClass("current");
-    		$("#slider1 .current").removeClass("current");
-    		$(elem).addClass("current");
-		}
-    });
-	//$("#slider1").mouseup(function(){slider.next()});
-	$(".pagination > li").mouseup(function(){
-		ind = $(this).index();
-		slider.slide(ind, 300);
-	});
-	$(".prev").click(function(){
-		slider.prev();
-	});
-	$(".next").click(function(){
-		slider.next();
-	});
-</script>
-
 Every starting template has simple controls for color and type so restaurants can maintain their identities, but underneath it’s simply *HTML* and *CSS*. Designers and developers can choose to make simple templates with lots of options or ones specialized to a specific purpose. We took inspiration from tumblr's theming ecosystem—no limits to design, but the structure of the content remains the same.
 
 
@@ -121,15 +123,15 @@ Every starting template has simple controls for color and type so restaurants ca
 
 A restaurant menu has clear hierarchy and typographic contrast, so the form interface does too. 
 
-<figure class="inset">
+<!-- <figure class="inset bleed">
 	<img src="img/locu/locu-edit.gif"/>
-</figure>
+</figure> -->
 
 Click on any text, and you're editing it in place — each item doesn't need its own “Edit” button.
 
-<figure class="inset">
+<!-- <figure class="inset bleed">
 	<img src="img/locu/locu-options.gif"/>
-</figure>
+</figure> -->
 
 By contrast, older interfaces for structured data suffer from an explosion of form inputs. They're designed to accomodate the developer, and they get pretty irritating when you need to get something done.
 
@@ -166,10 +168,11 @@ By contrast, older interfaces for structured data suffer from an explosion of fo
 
 
 Restaurant people are always busy, so the interface is designed to have few interruptions. Instead of stopping everything to confirm a delete, we use an in-place undo button that persists until the user publishes. 
-<figure class="inset">
+
+<!-- <figure class="inset bleed">
 	<img src="img/locu/locu-undo.gif"/>
 </figure>
-
+ -->
 ### 2 - Design + Publish
 
 Restaurants have to manage a mess of technology to actually get anything published. Their in-restaurant menu is a local Word *.doc* or *PDF*. Updates to the web site require emailing a web master and either linking their print *PDF* or retyping it as *HTML*. And now they are expected to put it on Facebook, make it mobile-friendly, add an online-ordering system, and keep track of themselves on every new food/social app?
@@ -177,16 +180,16 @@ Restaurants have to manage a mess of technology to actually get anything publish
 The design/publish workflow consolidates everything into one step - the save button. That's it.
 
 
-<figure class="inset">
+<!-- <figure class="inset bleed">
 	<img src="img/locu/locu-scroll.gif"/>
 </figure>
-
+ -->
 ### 3 - Branding
 
-I designed and built a small internal website for our brand guidelines.
 
-<figure>
+<figure class="bleed">
 	<img src="img/locu/brandguide.png"/>
+	<caption>I designed and built a small internal website for our brand guidelines.</caption>
 </figure>
 
 
@@ -194,7 +197,7 @@ The name Locu stuck early on - it manages to be both unique and descriptive with
 
 The identity system conveys a fresh, bright confidence.
 
-<figure class="inset">
+<figure class="inset bleed">
 	<img src="img/locu/sticker.png"/>
 </figure>
 #### Die-cut stickers by [stickermule](//stickermule.com)
