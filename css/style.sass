@@ -1,7 +1,7 @@
 // Tiny reset -----------
 
 
-html, body, h1, h2, h3, h4, p, ul, li,
+html, body, h1, h2, h3, h4, h5, p, ul, li,
 section, article, div, a, figure, blockquote
 	font-size: 100%
 	font-weight: normal
@@ -38,7 +38,7 @@ i
 @mixin title
 	text-rendering: optimizeLegibility
 	line-height: 1.1em
-	font-size: 2em
+	font-size: 4em
 
 @mixin caption
 	font:
@@ -87,8 +87,10 @@ hr
 body
 	color: black
 	background: white
+	overflow-x: hidden
+	@include trans(1s)
 	font:
-		family: "nta", sans-serif
+		family: "a", sans-serif //"nta", sans-serif
 		size: 20px
 
 a, a:visited
@@ -137,8 +139,8 @@ nav
 
 .items
 	@include boxfix
-	display: inline-block
-	margin: 50px 17% 0 10%
+	//display: inline-block
+	margin: 50px 0 0 0
 	max-width: 100%
 
 // .archive-name
@@ -157,26 +159,54 @@ nav
 
 .item
 	@include boxfix
+	@include trans(0.3s)
 	-webkit-backface-visibility: hidden
 	position: relative
-	padding: 2em 0 4em 0
+	padding: 5em 0 7em 0
+	// overflow: hidden
 	// border-bottom: 1px dotted black
+	&.nav
+		padding: 4em 10% 3em
 
-.project-title,
+.viewing-item .item-name
+	opacity: 0.1
+	// @include tf(scale(0.5))
+
+.viewing-item
+	background: #ddd
+
+.item.current, .viewing-item .item.current
+	background: white
+	.item-name
+		opacity: 1
+		@include tf(scale(1))
+		pointer-events: none
+		&:hover
+			b
+				border: none !important
+		i
+			opacity: 0
+
+.current.locu, .viewing-item .current.locu
+	background: #f4f4f4
+
+
+.details-title,
 .item-name
 	b // Text content
 		@include trans(0.5s)
-		border-bottom: 2px solid transparent
+		border-bottom: 4px solid transparent
 		display: inline-block
 		line-height: 0.9em
 		white-space: nowrap
 	i // Arrow icon
-		@include tf(translate3d(-20%, 0, 0))
-		@include trans(0.15s)
-		display: inline-block
-		font-size: 0.5em
-		font-style: normal
-		opacity: 0
+		display: none
+		// @include tf(translate3d(-20%, 0, 0))
+		// @include trans(0.15s)
+		// display: inline-block
+		// font-size: 0.5em
+		// font-style: normal
+		// opacity: 0
 
 .item-name
 	@include trans(0.3s)
@@ -184,16 +214,18 @@ nav
 	border-width: 0
 	position: relative
 	display: inline-block
-	.item:hover &
+	margin: 0 17% 0 10%
+	z-index: 99 
+	&:hover
 		border-width: 0
 		color: black
 		b
-			border-bottom: 2px solid black
+			border-bottom: 4px solid black
 
 
 // Figure in list view -------
 
-.item figure
+.item > figure
 	@include trans(0.3s)
 	position: fixed
 	text-align: center
@@ -201,7 +233,7 @@ nav
 	left: 10%
 	top: 10%
 	right: 10%
-	bottom: 10%
+	//bottom: 10%
 	opacity: 0
 	z-index: -1
 	img, video
@@ -241,49 +273,49 @@ nav
 
 // Overlay -----------
 
-.project-back
-	@include fixlayer
-	@include trans(0.3s)
-	background: #eee
-	pointer-events: none
-	opacity: 0
-	z-index: 3
-	.viewing-item &
-		opacity: 1
-		pointer-events: auto
+// .details-back
+// 	//@include fixlayer
+// 	@include trans(0.3s)
+// 	background: #eee
+// 	pointer-events: none
+// 	opacity: 0
+// 	z-index: 3
+// 	.viewing-item &
+// 		opacity: 1
+// 		pointer-events: auto
 
-.project-title
-	@include title
-	@include trans(0.4s cubic-bezier(0.680, -0.550, 0.265, 1.550))
-	position: fixed
-	-webkit-transform-origin: 5% 5%
-	display: none
-	top: 0
-	color: black
-	left: 0
-	width: 100%
-	z-index: 4
-	-webkit-backface-visibility: hidden
+// .details-title
+// 	@include title
+// 	@include trans(0.4s cubic-bezier(0.680, -0.550, 0.265, 1.550))
+// 	//position: fixed
+// 	-webkit-transform-origin: 5% 5%
+// 	display: none
+// 	top: 0
+// 	color: black
+// 	left: 0
+// 	width: 100%
+// 	z-index: 4
+// 	-webkit-backface-visibility: hidden
 
-.project
-	@include fixlayer
+.details
 	@include boxfix
 	@include trans(0.4s)
-	@include tf(translate3d(0, 100%, 0))
-	z-index: 4
-	padding: 300px 10% 0
-	white-space: normal
-	margin: auto
-	overflow-x: hidden
-	overflow-y: scroll
-	-webkit-overflow-scrolling: touch
-	pointer-events: none
-	.viewing-item & // Show when viewing item
-		@include tf(translate3d(0, 0, 0) scale(1))
+	//@include tf(translate3d(0, 100%, 0))
+	padding: 1em 10% 0
+	z-index: 1
+	position: relative
+	.nav &
+		padding: 1em 0 0
+	height: 0px
+	overflow: hidden
+	.current & // Show when viewing item
+		//@include tf(translate3d(0, 0, 0) scale(1))
+		height: auto
 		opacity: 1
-		pointer-events: auto
-	.viewing-item.loading & // But not when loading
-		@include tf(translate3d(0, 100%, 0) scale(1))
+	.current.loading & // But not when loading
+		//@include tf(translate3d(0, 100%, 0) scale(1))
+		height: 0
+		opacity: 0
 	h2, h3, h4, p, ul
 		max-width: 600px
 		width: 100%
@@ -319,17 +351,15 @@ nav
 	aside
 		h2 
 			padding-bottom: 1em
-		h3
-			@include caption
-			font-weight: normal
-			padding-bottom: 3em
-			padding-top: 2em
-			display: inline-block
-		li
-			padding-bottom: 5px
-			display: block
-		ul
-			padding-bottom: 3em
+		// h3
+		// 	@include caption
+		// 	font-weight: normal
+		// 	padding-bottom: 3em
+		// 	padding-top: 2em
+		// 	display: inline-block
+		// li
+		// 	padding-bottom: 5px
+		// 	display: block
 
 	blockquote
 		p
@@ -340,26 +370,23 @@ nav
 			line-height: 1em
 			display: inline-block
 
-.project
+.details
 	figure
 		max-width: 1800px
 		margin: auto
 		margin-bottom: 1.5em
 		position: relative
-		img
-			display: block
-			max-width: 100%
-		h4
-			margin-top: 4em
-			padding: 0
-	.inset
-		position: relative
 		max-width: none
 		width: auto
 		display: inline-block
-		img
-			//border-radius: 4px
-			//border: 1px solid black
+		h5
+			display: inline-block
+			vertical-align: top
+			width: 180px
+		img, video
+			display: inline-block
+			max-width: 100%
+			margin-right: 20px
 		&:hover::after
 			background: transparent
 		&::before
@@ -374,14 +401,18 @@ nav
 		&::after
 			display: block
 
+h5
+	opacity: 0.5
+	font-size: 0.7em
 
 .being-viewed
 	opacity: 0 !important
 
-.project .row2
+.details .row2
 	img
 		width: 50%
 		float: left
+		margin: 0
 		@include boxfix
 	&::before, &::after
 		content: ""
@@ -421,7 +452,7 @@ nav
 .scrollwrap
 	background: #eee
 
-.project figure .slider
+.details figure .slider
 	@include boxfix
 	margin-left: -10vw
 	padding-left: 10vw
@@ -436,10 +467,12 @@ nav
 		padding: 0
 	li .wrapper
 		position: relative
+	h5
+		left: 60%
 	img
 		@include trans(0.2s)
 		width: 100%
-		max-width: 700px
+		max-width: 1000px
 	.wrap
 		position: relative
 		display: inline-block
@@ -450,7 +483,7 @@ nav
 		left: 0
 		position: absolute
 
-.project .pagination
+.details .pagination
 	display: inline-block
 	max-width: none
 	width: auto
@@ -475,6 +508,9 @@ nav
 	@include trans(0.5s)
 	@include noselect
 	display: inline-block
+	position: absolute
+	top: 50%
+	right: 0%
 	vertical-align: top
 	padding: 10px
 	z-index: 999
@@ -489,19 +525,21 @@ nav
 .prev
 	@include tf(scale(-1, 1))
 	figure:hover &
+	left: -7%
+	right: auto
 
 .next
 
-.ex
+#ex
 	@include trans(0.2s)
 	@include noselect
 	cursor: pointer
-	position: fixed
+	position: absolute
 	z-index: 7
-	top: 50px
+	top: 1.5em
 	right: 10%
 	white-space: nowrap
-	font-size: 60px
+	font-size: 80px
 	width: 40px
 	text-align: center
 	line-height: 40px
@@ -534,12 +572,14 @@ nav
 	50%
 		box-shadow: 0 0 0 0 black
 
-.spinner
+#spinner
 	@include trans(0.2s)
 	cursor: pointer
 	line-height: 0em
-	margin-top: 20px
+	padding-top: 20px
 	white-space: nowrap
+	margin: 0 10%
+	position: absolute
 	span
 		@include trans(0.5s)
 		@include tf(scale(0))
@@ -549,7 +589,7 @@ nav
 		background: black
 		width: 7px
 		height: 7px
-	.viewing-item.loading &
+	.current.loading &
 		span
 			@include tf(scale(1))
 			box-shadow: 0 0 0 0 black
@@ -562,12 +602,24 @@ nav
 			-webkit-animation-delay: 0.6s
 			-moz-animation-delay: 0.6s
 
+.details .allbleed
+	margin: 0 -10vw
+	img, video
+		opacity: 0.5
+		width: 100%
+
 // Resume
 .resume
-	.project-title
-		//font-size: 1em
-
-	// .project
+	h3, p, li
+		font-size: 0.8em
+		max-width: 500px
+	h3
+		padding: 2em 0 0em
+	// p
+	// 	padding: 0
+	// h3 + p + p
+	// 	text-indent: 2em
+	// .details
 	// 	li > a
 	// 		line-height: 1.5em
 	// 		-webkit-transition: none
@@ -656,21 +708,23 @@ nav
 .at
 	display: inline-block
 	position: relative
-	// i
-	// 	@include trans(0.1s)
-	// 	font-style: normal
-	// 	display: inline-block
-	// b
-	// 	@include trans(0.2s)
-	// 	@include tf(scale(0.6))
-	// 	opacity: 0
-	// 	position: absolute
-	// &:hover
-	// 	i
-	// 		opacity: 0
-	// 	b
-	// 		opacity: 1
-	// 		@include tf(scale(1))
+	&:hover
+		color: black
+	i
+		@include trans(0.1s)
+		font-style: normal
+		display: inline-block
+	b
+		@include trans(0.2s)
+		@include tf(scale(0.6))
+		opacity: 0
+		position: absolute
+	&:hover
+		i
+			opacity: 0
+		b
+			opacity: 1
+			@include tf(scale(1))
 
 
 // Input -------------
@@ -685,24 +739,34 @@ nav
 // Fancy transitions ----------
 
 @media (min-width: 600px)
-	.item figure
+	.item > figure
 		@include tf(translate3d(15%,0,0) scale(0.9))
 	[data-position = current] .item-name i
 		@include tf(translate3d(0%, 0, 0))
 		opacity: 1
 
-	[data-position=current] figure
+	[data-position=current] > figure
 		opacity: 1
 		@include tf(translate3d(15%,0,0))
 		.viewing-item &
-			opacity: 0
-			@include tf(translate3d(30%,0,0))
+			opacity: 0.3
+			// @include tf(translate3d(30%,0,0))
 
-	[data-position=above] figure,
-	[data-position=below] figure
+	[data-position=above] > figure,
+	[data-position=below] > figure
 		@include tf(translate3d(15%, 0 ,0) scale(0.9))
 
-	.project figure .slider
+	.viewing-item .current > figure
+		@include tf(translate3d(15%,0,0))
+		position: absolute
+		z-index: 1
+		bottom: auto
+		top: 0
+		.viewing-item &
+			opacity: 1
+
+
+	.details figure .slider
 		.a
 			@include tf(translate3d(-5%,0,0) scale(0.9))
 		.b
@@ -717,10 +781,10 @@ nav
 // @ Media -------------
 
 @media (min-width: 1200px)
-	aside
+	.resume aside
 		position: absolute
 		margin-left: 550px + 120px
-	.project blockquote p
+	.details blockquote p
 		width: 80%
 
 @media (max-width: 800px)
@@ -728,42 +792,53 @@ nav
 		display: block
 	.item
 		padding: 100px 0 110px
-	.ex
+	#ex
+		top: 0.8em
 		font-size: 40px
 		right: 5%
-		top: 5%
-	.project .bleed // figure.bleed
+	.details .bleed // figure.bleed
 		margin: 0 -10vw
-	.project figure .slider
+	.details figure .slider
 		margin: 0 -10vw
 		padding: 0
 		width: 110vw
 		h4
 			width: auto
 			padding: 0 10vw
-	.project .pagination
+	.details .pagination
 		> li
 			padding: 3px
 	.prev, .next
 		display: none
 
 @media (max-width: 600px)
-	a.item-name,
-	.project-title
+	a.item-name
 		font-size: 1.6em
 	.items
 		padding-top: 80px
 	.item
 		padding: 40px 0 50px
-	.project figure .slider
-		margin: 0 -20vw
-		padding: 0
-		width: 120vw
-		h4
+	.details figure
+		h5
 			width: auto
-			padding: 0 20vw
-	.item > figure
+		&.bleed h5
+			padding: 0 10%
+		.slider
+			margin: 0 -20vw
+			padding: 0
+			width: 120vw
+			h4
+				width: auto
+				padding: 0 20vw
+
+	.viewing-item .item > figure
+		opacity: 0.2
+
+	.item > figure,
+	.viewing-item .current > figure
+		padding: 0 10%
 		position: static
+		width: auto
 		opacity: 1
 		margin-top: 1em
 
