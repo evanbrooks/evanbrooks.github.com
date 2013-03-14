@@ -32,9 +32,9 @@
 	</div>
 </figure>
  -->
-Small business owners have been sold a whole tangled mess of services to appease their tech-savvy customers, and Locu's task is to untangle it.
+Restaurant owners have been sold a whole tangled mess of services to appease their tech-savvy customers, and Locu's task is to untangle it.
 
-When I first met Locu, they had set out to collect and organize all the local business data available. My task was to reconcile the structured nature of data with the messy and complicated needs of people busy running their restaurant.
+When I first met Locu, they had set out to collect and organize all the small business data available. My task was to reconcile the structured nature of data with the messy and complicated needs of business owners.
 
 ### 1 - Branding
 
@@ -47,16 +47,16 @@ The name Locu stuck early on - it manages to be both unique and descriptive with
 
 <figure class="bleed">
 	<img src="img/locu/brandguide.png"/>
-	<h5>I designed and built a small internal website for our <a target="_blank" href="//locu.com/brand/">brand guidelines</a>.</h5>
+	<h5>I designed and built a small internal website for our brand guidelines.</h5>
 </figure>
 
 
-<!-- The identity system conveys a fresh, bright confidence.
+The identity system conveys a fresh, bright confidence.
 
 <figure class="inset bleed">
 	<img src="img/locu/sticker.png"/>
 	<h5>Die-cut stickers by [stickermule](//stickermule.com)</h5>
-</figure> -->
+</figure>
 
 
 ### 2 - A flexible design system
@@ -141,9 +141,13 @@ Locu treats the menu’s physical and online representation as a single document
 	<div class="next">➔</div>
 </figure>
 
-Every starting template has simple controls for color and type so restaurants can maintain their identities, but underneath it’s simply *HTML* and *CSS*.
+Every starting template has simple controls for color and type so restaurants can maintain their identities, but underneath it’s simply *HTML* and *CSS*. Designers and developers can choose to make simple templates with lots of options or ones specialized to a specific purpose. We took inspiration from tumblr's theming ecosystem—no limits to design, but the structure of the content remains the same.
 
-In the past, restaurants had to manage a mess of technology to actually get anything published. Their in-restaurant menu is a local Word *.doc* or *PDF*. Updates to the web site require emailing a web master. And now they are expected to put it on Facebook, make it mobile-friendly, add an online-ordering system, and keep track of themselves on every new food/social app?
+
+### 3 - Design + Publish
+
+Restaurants have to manage a mess of technology to actually get anything published. Their in-restaurant menu is a local Word *.doc* or *PDF*. Updates to the web site require emailing a web master and either linking their print *PDF* or retyping it as *HTML*. And now they are expected to put it on Facebook, make it mobile-friendly, add an online-ordering system, and keep track of themselves on every new food/social app? 
+
 
 ### 4 - Editing structured datas
 
@@ -195,7 +199,7 @@ Restaurant people are always busy, so the interface is designed to have few inte
 
 10,000 restaurants use the tools. OpenTable, CitySearch, TimeOut and countless others use Locu data.
 
-<a href="//locu.com" target="_blank">Visit Locu.com</a>
+<a href="//locu.com">Visit Locu.com</a>
 
 
 -----

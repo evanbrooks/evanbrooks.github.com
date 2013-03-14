@@ -1,12 +1,10 @@
-<figure>
-	<img data-lightbox="" src="img/hop/logo.png" />
-</figure>
-
-
+<br>
 The Shelburne Museum's Collection of Toys, Dolls, Dollhouses, and Automata is an incredible place. Located in Shelburne, Vermont, it's packed with the beautifully crafted playthings of past toymakers.
 
 Unfortunately, it doesn't sounds like much fun. Especially to kids.
 
+<a target="_blank" href="/img/hop/hop.pdf">PDF Booklet</a>
+<!-- 
 ### Make × Play
 
 The Hop! encourages active and imaginative play—celebrating the curiosity and created worlds that children make in their minds from the simplest toys. These ideas put the museum in line with the "Maker Movement." Do-it-yourself-ers of all ages are the modern-day toymakers, and Make Magazine and its associated [Makerfaires](http://makerfaire.com/) are full of enthusiasm, project ideas, and wonder at what other makers have made.
@@ -34,10 +32,11 @@ The web site brings the artifacts in the collection to the forefront.
 
 <figure>
 	<img data-lightbox="" src="img/hop/web.png" />
-</figure>
+</figure> -->
 
-<hr>
+-----
 
-### Details
+#### Details
 
-Brand assets set in the wonderfully playful [Edmondsans](http://www.losttype.com/font/?name=edmondsans) <br/> Completed under the instruction of [Rich Rose](http://www.popkitchen.net/) <br/> Fall 2012
+##### Brand assets set in [Edmondsans](http://www.losttype.com/font/?name=edmondsans)
+##### Completed under the instruction of [Rich Rose](http://www.popkitchen.net/)

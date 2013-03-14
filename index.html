@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-	<link rel="stylesheet" href="css/nta.css" >
+	<link rel="stylesheet" href="css/type.css" >
 	<link rel="stylesheet" href="css/style.css" >
 	<script type="text/javascript">
 	  var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
@@ -18,10 +18,10 @@
 	</nav>
  -->	
  	<section class="items">
-		<article class="item">
+		<article class="item nav">
 			I’m Evan. View my <a href="#" data-item-name="resume" data-title="Info" id="resumelink"><b>résumé</b></a> or say
 			<a class="at" href="mailto:hello@evn.io?subject=Hello!%20&body=Hello,%20">
-				hello @ evn.io
+				hello <b>@</b><i>at</i> evn.io
 				<span class="flash-wrapper">
 					<span class="copy-wrapper">
 						<span class="copy btn" id="copybtn" data-clipboard-text="hello@evn.io">
@@ -30,16 +30,132 @@
 					</span>
 				<span>
 			</a>
+			<div class="details"></div>
 		</article>
-		<article>
-			<a class="item-name" href="#" data-item-name="huh" data-title="Huh?"></a>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="ripta" data-title="RIPTA">
+				<b>Every bus in</b><br>
+				<b>Rhode Island</b>
+				<i>➔</i>
+			</a>
+			<figure>
+				<video loop autoplay="autoplay" webkit-playsinline>
+					<source src="/img/ripta/ripta.mp4" type="video/mp4" />
+					<source src="/img/ripta/ripta.webm" type="video/webm" />
+				</video>
+			</figure>
+			<div class="details"></div>
+		</article>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="locu" data-title="Locu">
+				<b>A tool to make</b> <br>
+				<b>a better menu</b>
+				<i>➔</i>
+			</a>
+			<figure>
+				<div class="browser">
+					<video loop autoplay="autoplay" webkit-playsinline>
+						<source src="/img/locu/locu.mp4" type="video/mp4" />
+							<source src="/img/locu/locu.webm" type="video/webm" />
+						<img src="img/locu/locu-ui.png"/>
+					</video>
+				</div>
+			</figure>
+			<div class="details"></div>
+		</article>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="hop" data-title="The Hop!">
+				<b>Toys, play and</b> <br>
+				<b>making things</b>
+				<i>➔</i>
+			</a>
+			<figure style="margin-top: -150px">
+				<img src="img/hop.png"/>
+			</figure>
+			<div class="details"></div>
+		</article>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="asteroids" data-title="News Arcade">
+				<b>News Arcade</b>
+				<i>➔</i>
+			</a>
+			<figure>
+				<video loop autoplay="autoplay" webkit-playsinline>
+					<source src="/img/asteroid/asteroid.mp4" type="video/mp4" />
+						<source src="/img/asteroid/asteroid.webm" type="video/webm" />
+				</video>
+			</figure>
+			<div class="details"></div>
+		</article>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="agamatrix" data-title="Agamatrix">
+				<b>Mobile diabetes</b> <br>
+				<b>projects</b>
+				<i>➔</i>
+			</a>
+			<figure>
+				<img src="img/agam.png" />
+			</figure>
+			<div class="details"></div>
+		</article>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="clerestory" data-title="Clerestory">
+				<b>A Brown + RISD</b> <br>
+				<b>journal of the arts</b>
+				<i>➔</i>
+			</a>
+			<figure>
+				<img src="img/clere.png" />
+			</figure>
+			<div class="details"></div>
+		</article>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="artishairy" data-title="Art is Hairy">
+				<b>Art is hairy</b>
+				<i>➔</i>
+			</a>
+			<figure>
+				<img src="img/deyoung/hairy.jpg" />
+			</figure>
+			<div class="details"></div>
+		</article>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="abwxd" data-title="ABWxD">
+				<b>A Better World</b><br>
+				<b>by Design</b>
+				<i>➔</i>
+			</a>
+			<figure>
+				<img src="img/abwxd/abwxd_icons.png" />
+			</figure>
+			<div class="details"></div>
+		</article>
+		<article class="item">
+			<a class="item-name" href="#" data-item-name="resume">
+			</a>
 		</article>
 		<article class="error">
 			<a id="missing" class="item-name" href="#" data-item-name="huh" data-title="Huh?">
 				<b>Huh?</b>
 			</a>
 		</article>
-
+<!-- 		<article class="item">
+			<! <h3 class="archive-name">More projects</h3> >
+			<ul class="archive">
+				<li><a href="#" data-item-name="abwxd">
+					A mobile site for the A Better World by Design conference
+				</a></li>
+				<li><a href="#" data-item-name="hamantaschen">
+					Packaging hamantaschen
+				</a></li>
+				<li><a href="#" data-item-name="newsarcade">
+					NYT News Arcade
+				</a></li>
+				<li><a href="#" data-item-name="icons">
+					Desktop icons
+				</a></li>
+			</ul>
+		</article> -->
 	</section>
 
 
@@ -51,20 +167,12 @@
 
 		<h1 class="project-title">
 			<span>
-				A museum<br>
-				about play and<br>
-				making things
 			</span>
-			<div class="spinner">
-				<i></i><i></i><i></i>
-			</div>
 		</h1>
 
 		<div class="project">
 		</div>
 	</div>
-
-	<div class="ex">✕</div>
 
 	<!-- Lightbox -->
 
@@ -84,5 +192,6 @@
 	<script src="js/ext/showmore.js"></script>
 	<script src="js/ajax.js"></script>
 	<script src="js/zeroclip.js"></script>
+	<script src="js/swipe.js"></script>
 	<script src="js/script.js"></script>
 </body>

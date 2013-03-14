@@ -11,12 +11,14 @@ var body = $("body, html");
 var slide = $("article");
 
 var itemData = [];
-var catchme;
 
 var lb = new Lightbox();
 var scroller = new Scroller();
 var proj = new Projectbox(".project");
 var cont = new ContentGetter();
+
+var spinner = "<div id=\"spinner\"><span></span><span></span><span></span></div>";
+var ex = "<div id=\"ex\">✕</div>"
 
 bindHandlers();
 cont.listen(); // Listen for history state changes
@@ -38,7 +40,7 @@ function bindHandlers() {
 
 	html.on("click", "[data-item-name] b", proj.viewItemClick)
 			.on("click", "[data-item-link]", proj.viewItemInterLink)
-			.on("click", ".spinner, .ex, .project-back", proj.clearItemClick)
+			.on("click", "#spinner, #ex, .project-back", proj.clearItemClick)
 			.on("click", "[data-lightbox]", lb.viewImage)
 			.on("click", ".lightbox, .lightbox-back .ex", lb.clearImage);
 }
@@ -53,18 +55,6 @@ function Scroller() {
 		topScroll = wind.scrollTop();
 		midScroll = topScroll + wind.height()/2;
 		bottomScroll = topScroll + wind.height();
-
-		if (topScroll > catchme) {
-			$("#catch").css({
-				"position": "fixed",
-				"overflow": "auto",
-				"-webkit-backface-visibility": "hidden",
-				"top": "1em"
-			});
-		}
-		else {
-			$("#catch").removeAttr("style");
-		}
 
 		var foundCurrent = false;
 		$.each(itemData, function(i, item) {
@@ -94,10 +84,11 @@ function Scroller() {
 }
 
 function Projectbox(projectElement) {
-	var el = $(projectElement);
+	// var el = $(projectElement);
+	var el;
 	var targ;
 	var id;
-	var title = $(".project-title");
+	// var title = $(".project-title");
 	var fig = $(".project-main-figure");
 	var tH, tW, tT, tL;
 
@@ -122,6 +113,7 @@ function Projectbox(projectElement) {
 	}
 
 	function viewItemPop(str) {
+		if (targ !== null) clearItem();
 		targ = $("[data-item-name = "+str+"]");
 		if (targ.length < 1){
 			targ = $("#missing");
@@ -131,6 +123,7 @@ function Projectbox(projectElement) {
 
 	function viewItemClick(e) {
 		e.preventDefault();
+		if (targ !== null) clearItem();
 		targ = $(e.target).parent();
 		viewItem();
 	}
@@ -148,20 +141,26 @@ function Projectbox(projectElement) {
 	function viewItem() {
 		id = targ.attr("data-item-name");
 		t = targ.attr("data-title");
-		body.addClass("loading");
+		el = $(targ).siblings(".details");
+		parent = $(targ).parent();
+		parent.addClass("loading "+id);
+		el.before(spinner);
+		targ.before(ex);
 		el.html("");
 		cont.getItem(id, t, function(data){
 			setTimeout(function(){
-				el.html("<div class='scrollwrap'>"+data+"</div>");
-				el.imagesLoaded(function(){
-					body.removeClass("loading");
-					analytics.track("Viewed " + id);
-					if (typeof initiateProject == "function") initiateProject();
+				el.css("height", "1000px");
+				el.afterTransition(function(){
+					el.html(data);
+					el.imagesLoaded(function(){
+						el.freeze().css("height", "auto").fadeIn().unfreeze();
+						parent.removeClass("loading");
+						analytics.track("Viewed " + id);
+						if (typeof initiateProject == "function") initiateProject();
+					});
 				});
 			}, 500);
 		});
-
-		body.addClass(id);
 
 		var title_str = targ.html();
 		tW = targ.width();
@@ -173,44 +172,48 @@ function Projectbox(projectElement) {
 
 		endL = wind.width()/10 + "px";
 
-		targ.freeze().addClass("being-viewed").css("border-color", "transparent");
+		// targ.freeze().addClass("being-viewed").css("border-color", "transparent");
 
-		el.css("padding-top", (tH + 80) + "px");
+		// el.css("padding-top", (tH + 80) + "px");
 
-		title.children("span").html(title_str);
-		title
-			.freeze()
-			.css({
-				"height": tH,
-				"padding": "0px",
-				"font-size": fS,
-				"font-family": fF,
-				"color": "black",
-				"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)",
-				"-moz-transform": "translate3d("+tL+"px,"+tT+"px,0)"
-			})
-			.show()
-			.fadeIn()
-			.unfreeze()
-			.css({
-				"font-size": "",
-				"-webkit-transform": "translate3d("+endL+",50px,0) scale(4)",
-				"-moz-transform": "translate3d("+endL+",50px,0)",
-				"color": ""
-			});
+		// title.children("span").html(title_str);
+		// title
+		// 	.freeze()
+		// 	.css({
+		// 		"height": tH,
+		// 		"padding": "0px",
+		// 		"font-size": fS,
+		// 		"font-family": fF,
+		// 		"color": "black",
+		// 		"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)",
+		// 		"-moz-transform": "translate3d("+tL+"px,"+tT+"px,0)"
+		// 	})
+		// 	.show()
+		// 	.fadeIn()
+		// 	.unfreeze()
+		// 	.css({
+		// 		"font-size": "",
+		// 		"-webkit-transform": "translate3d("+endL+",50px,0)",
+		// 		"-moz-transform": "translate3d("+endL+",50px,0)",
+		// 		"color": ""
+		// 	});
 
-		pos = targ.parent().offset().top - 80;
-		body.animate({"scrollTop": pos}, 500, function(){
-			body.css("overflow", "hidden");
-			// $(".item figure").hide();
+		pos = targ.parent().offset().top - 1;
+		body.animate({"scrollTop": pos}, 200, function(){
+			parent.addClass("current");
+			body.addClass("viewing-item");
 		});
-		body.addClass("viewing-item");
 		body.afterTransition(function(){
 			//
 		});
 	}
 
 	function clearItemClick(e){
+		body.animate({"scrollTop": pos}, 200, function(){
+			// body.css("overflow", "hidden");
+			// $(".item figure").hide();
+		});
+
 		e.preventDefault();
 		cont.clearItem();
 		clearItem(function(){});
@@ -220,28 +223,22 @@ function Projectbox(projectElement) {
 		if (typeof cb == "undefined") cb = function(){};
 		if (!targ) return;
 
-		//tW = targ.width();
-		//tH = targ.height();
-		tT = targ.offset().top - wind.scrollTop();
-		tL = targ.offset().left - wind.scrollLeft();
-		// $(".item figure").show();
+
+		el.css("height", el.height());
+		el.html("");
+		el.removeAttr("style");
+		$("#spinner").remove();
+		$("#ex").remove();
+
+		parent.removeClass("current");
 		body.removeClass("viewing-item");
-		title.unfreeze().css({
-			"opacity": 1,
-			"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)",
-			"-moz-transform": "translate3d("+tL+"px,"+tT+"px,0)"
-		});
+		parent.removeClass(id);
 		function finish(){
-			targ.removeClass("being-viewed").fadeIn().unfreeze().removeAttr("style");
-			title.hide();
-			body.css("overflow", "");
-			el.scrollTop(0);
 			analytics.track("Closed " + id);
+			refresh();
 		}
 		setTimeout(function(){
 			finish();
-			title.removeAttr("style");
-			body.removeClass(id);
 			cb();
 		}, 500);
 	}
@@ -249,7 +246,6 @@ function Projectbox(projectElement) {
 
 function refresh() {
 	$(".item figure").hide().fadeOut().show();
-	catchme = $("#catch").offset().top;
 	itemData = [];
 	$.each($(".item"), function(i, item) {
 		var self = $(item);

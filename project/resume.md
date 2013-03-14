@@ -1,15 +1,3 @@
-<!-- <h2 style="font-size: 50px; font-family: 'apercumedium'; padding-bottom: 1.5rem">
-	Hello there, I'm Evan. I'm a designer who likes to code.
-</h2> -->
-
-> I’m a designer currently studying at [RISD](//risd.edu) in Providence. I grew up in San Francisco, and I design with paper, pixels and code. Previously, I designed better diabetes care at <a href="/#/agamatrix" data-item-link="agamatrix">Agamatrix</a> and helped grow a company called <a href="/#/locu" data-item-link="locu">Locu</a>.
-
-> I’m looking for an internship making useful things with thoughtful people who care deeply about what they do.
-
-<!-- > Hello there, I’m Evan. I design, code, and make things. I’m currently studying at [RISD](//risd.edu). I worked to design better diabetes care at <a href="/#/agamatrix" data-item-link="agamatrix">Agamatrix</a> and helped build a company called <a href="/#/locu" data-item-link="locu">Locu</a>.
-
->  View my [résumé](//) or say <a class="at" href="mailto:hi@evn.io"> hi @ evanbrooks.co<span class="copy-wrapper"><span class="copy btn" id="copybtn" data-clipboard-text="hi@evn.io"><i>copied ✔</i> copy </span></span></a> -->
-
 <!-- 
 
 %aside
@@ -59,16 +47,21 @@
 
 
 
-# Experience
+# Education
 
 ### Rhode Island School of Design *Fall 2009 – present* 
 
-Studying Graphic Design with courses in Industrial Design
+BFA Graphic Design with courses in Industrial Design
 
 ### Brown University *Fall 2012 – Present* 
 
 Courses in computer science
 
+### California College of the Arts *Summer 2008*
+
+Pre-college program in Industrial Design, one of 5 students awarded a scholarship for outstanding achievement.
+
+# Experience
 
 ### Designer at Locu *Fall 2010 – Spring 2012*
 
@@ -93,10 +86,6 @@ I defined the visual language and concept for a biannual  anthology of writing, 
 ### Freelance designer *2006 – present*
 
 Apps, icons, logos, websites and other projects
-
-### California College of the Arts *Summer 2008*
-
-Pre-college program in Industrial Design, one of 5 students awarded a scholarship for outstanding achievement.
 
 
 
