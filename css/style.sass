@@ -115,9 +115,9 @@ a, a:visited
 		color: white
 
 
-// -------------------
-// List view ---------
-// -------------------
+// ---------------------------------------------------
+// List view -----------------------------------------
+// ---------------------------------------------------
 
 .items
 	@include boxfix
@@ -125,7 +125,8 @@ a, a:visited
 	max-width: 100%
 
 
-// Item in list view -----------
+// Item in list view
+// -----------------
 
 .item
 	@include boxfix
@@ -133,14 +134,11 @@ a, a:visited
 	-webkit-backface-visibility: hidden
 	position: relative
 	padding: 5em 0 7em 0
-	// overflow: hidden
-	// border-bottom: 1px dotted black
 	&.nav
 		padding: 4em 10% 3em
 
 .viewing-item .item-name
 	opacity: 0.1
-	// @include tf(scale(0.5))
 
 .viewing-item
 	background: #ddd
@@ -171,12 +169,6 @@ a, a:visited
 		white-space: nowrap
 	i // Arrow icon
 		display: none
-		// @include tf(translate3d(-20%, 0, 0))
-		// @include trans(0.15s)
-		// display: inline-block
-		// font-size: 0.5em
-		// font-style: normal
-		// opacity: 0
 
 .item-name
 	@include trans(0.3s)
@@ -193,7 +185,8 @@ a, a:visited
 			border-bottom: 4px solid black
 
 
-// Figure in list view -------
+// Figure in list view
+// -------------------
 
 .item > figure
 	@include trans(0.3s)
@@ -237,40 +230,13 @@ a, a:visited
 		letter-spacing: 10px
 		color: white
 
-// -------------------
-// Project view ------
-// -------------------
-
-// Overlay -----------
-
-// .details-back
-// 	//@include fixlayer
-// 	@include trans(0.3s)
-// 	background: #eee
-// 	pointer-events: none
-// 	opacity: 0
-// 	z-index: 3
-// 	.viewing-item &
-// 		opacity: 1
-// 		pointer-events: auto
-
-// .details-title
-// 	@include title
-// 	@include trans(0.4s cubic-bezier(0.680, -0.550, 0.265, 1.550))
-// 	//position: fixed
-// 	-webkit-transform-origin: 5% 5%
-// 	display: none
-// 	top: 0
-// 	color: black
-// 	left: 0
-// 	width: 100%
-// 	z-index: 4
-// 	-webkit-backface-visibility: hidden
+// ---------------------------------------------------
+// Detail view ---------------------------------------
+// ---------------------------------------------------
 
 .details
 	@include boxfix
 	@include trans(0.4s)
-	//@include tf(translate3d(0, 100%, 0))
 	padding: 1em 10% 0
 	z-index: 1
 	position: relative
@@ -279,11 +245,9 @@ a, a:visited
 	height: 0px
 	overflow: hidden
 	.current & // Show when viewing item
-		//@include tf(translate3d(0, 0, 0) scale(1))
 		height: auto
 		opacity: 1
 	.current.loading & // But not when loading
-		//@include tf(translate3d(0, 100%, 0) scale(1))
 		height: 0
 		opacity: 0
 	h2, h3, h4, p, ul
@@ -321,15 +285,6 @@ a, a:visited
 	aside
 		h2 
 			padding-bottom: 1em
-		// h3
-		// 	@include caption
-		// 	font-weight: normal
-		// 	padding-bottom: 3em
-		// 	padding-top: 2em
-		// 	display: inline-block
-		// li
-		// 	padding-bottom: 5px
-		// 	display: block
 
 	blockquote
 		p
@@ -366,8 +321,6 @@ a, a:visited
 			right: 0
 			left: 0
 			bottom: 0
-			//box-shadow: inset 0 1px 20px rgba(0,0,0,0.1), inset 0 1px 3px rgba(0,0,0,0.1)
-			//border-radius: 10px
 		&::after
 			display: block
 
@@ -480,7 +433,6 @@ h5
 	display: inline-block
 	position: absolute
 	top: 50%
-	right: 0%
 	vertical-align: top
 	padding: 10px
 	z-index: 999
@@ -493,12 +445,12 @@ h5
 		opacity: 1
 
 .prev
-	@include tf(scale(-1, 1))
-	figure:hover &
+	@include tf(scale(-1, 1)) // mirror
 	left: -7%
 	right: auto
 
 .next
+	right: 0%
 
 #ex
 	@include trans(0.2s)
@@ -523,7 +475,6 @@ h5
 		@include tf(scale(1))
 	&:hover
 		opacity: 0.5
-
 
 
 @-webkit-keyframes pulse
@@ -585,22 +536,6 @@ h5
 		max-width: 500px
 	h3
 		padding: 2em 0 0em
-	// p
-	// 	padding: 0
-	// h3 + p + p
-	// 	text-indent: 2em
-	// .details
-	// 	li > a
-	// 		line-height: 1.5em
-	// 		-webkit-transition: none
-	// 	li
-	// 		em 
-	// 			-webkit-transition: all 0.3s
-	// 			font-size: 11px
-	// 			font-style: normal
-	// 			text-transform: uppercase
-	// 			letter-spacing: 0.2em
-	// 			white-space: nowrap
 
 .copy-wrapper
 	@include noselect
@@ -696,14 +631,6 @@ h5
 			opacity: 1
 			@include tf(scale(1))
 
-
-// Input -------------
-
-// Error -------------
-
-.error
-	position: absolute
-	top: -300px
 
 
 // Fancy transitions ----------
@@ -817,7 +744,7 @@ h5
 
 // body
 // 	&::-webkit-scrollbar
-// 		height: 10px
+// 		width: 6px
 // 		background: white
 // 	&::-webkit-scrollbar-thumb
 // 		background: rgba(0,0,0,1)

@@ -421,7 +421,6 @@ h5 {
   display: inline-block;
   position: absolute;
   top: 50%;
-  right: 0%;
   vertical-align: top;
   padding: 10px;
   z-index: 999;
@@ -440,6 +439,9 @@ h5 {
   transform: scale(-1, 1);
   left: -7%;
   right: auto; }
+
+.next {
+  right: 0%; }
 
 #ex {
   -webkit-transition: all 0.2s;
@@ -665,10 +667,6 @@ h5 {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1); }
-
-.error {
-  position: absolute;
-  top: -300px; }
 
 @media (min-width: 600px) {
   .item > figure {
