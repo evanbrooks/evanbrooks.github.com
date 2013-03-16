@@ -1,4 +1,6 @@
-// Tiny reset -----------
+// ---------------------------------------------------
+// Tiny-reset ----------------------------------------
+// ---------------------------------------------------
 
 html, body, h1, h2, h3, h4, h5, p, ul, li,
 section, article, div, a, figure, blockquote
@@ -12,6 +14,9 @@ b
 	font-weight: normal
 i
 	font-style: normal
+
+
+
 
 
 // ---------------------------------------------------
@@ -68,15 +73,15 @@ i
 	-ms-transition: none !important
 	transition: none !important
 
-// Universal -----------
 
 
-hr
-	border: none
-	width: 100px
-	margin: 50px 0
-	display: block
-	border-bottom: 1px solid rgba(120,120,120,0.5)
+
+
+
+// ---------------------------------------------------
+// Main ----------------------------------------------
+// ---------------------------------------------------
+
 
 body
 	color: black
@@ -86,6 +91,13 @@ body
 	font:
 		family: "a", sans-serif
 		size: 20px
+
+hr
+	border: none
+	width: 100px
+	margin: 50px 0
+	display: block
+	border-bottom: 1px solid rgba(120,120,120,0.5)
 
 a, a:visited
 	@include trans(0.3s)
@@ -113,6 +125,11 @@ a, a:visited
 	&:hover
 		background: black
 		color: white
+
+
+
+
+
 
 
 // ---------------------------------------------------
@@ -155,6 +172,7 @@ a, a:visited
 		i
 			opacity: 0
 
+// ** Locu-specific
 .current.locu, .viewing-item .current.locu
 	background: #f4f4f4
 
@@ -167,8 +185,6 @@ a, a:visited
 		display: inline-block
 		line-height: 0.9em
 		white-space: nowrap
-	i // Arrow icon
-		display: none
 
 .item-name
 	@include trans(0.3s)
@@ -205,15 +221,17 @@ a, a:visited
 		max-height: 100%
 		max-width: 100%
 
-.browser // Wrapper for item figures
+
+$browsercolor: #2b2b2b
+.browser // Wrapper
 	display: inline-block
 	position: relative
-	img, video
+	img, video // What gets wrapped
 		position: relative
 		display: inline-block
-		box-shadow: 0 0 0 1px #2b2b2b
+		box-shadow: 0 0 0 1px $browsercolor
 		padding-top: 25px
-		background: #2b2b2b
+		background: $browsercolor
 		@include boxfix
 	&::after
 		text-align: left
@@ -229,6 +247,7 @@ a, a:visited
 		font-size: 15px
 		letter-spacing: 10px
 		color: white
+
 
 // ---------------------------------------------------
 // Detail view ---------------------------------------
@@ -342,6 +361,21 @@ h5
 		display: table
 		clear: both
 
+.details .allbleed
+	margin: 0 -10vw
+	img, video
+		opacity: 0.5
+		width: 100%
+
+
+
+
+
+// ---------------------------------------------------
+// Lightbox ------------------------------------------
+// ---------------------------------------------------
+
+
 [data-lightbox]
 	cursor: -webkit-zoom-in
 	cursor: zoom-in
@@ -372,8 +406,13 @@ h5
 		display: block
 
 
-.scrollwrap
-	background: #eee
+
+
+
+// ---------------------------------------------------
+// Slider --------------------------------------------
+// ---------------------------------------------------
+
 
 .details figure .slider
 	@include boxfix
@@ -452,6 +491,12 @@ h5
 .next
 	right: 0%
 
+
+
+// ---------------------------------------------------
+// Ex button -----------------------------------------
+// ---------------------------------------------------
+
 #ex
 	@include trans(0.2s)
 	@include noselect
@@ -477,6 +522,11 @@ h5
 		opacity: 0.5
 
 
+// ---------------------------------------------------
+// Loading spinner -----------------------------------
+// ---------------------------------------------------
+
+
 @-webkit-keyframes pulse
 	0%
 		box-shadow: 0 0 0 0 black
@@ -492,6 +542,7 @@ h5
 		box-shadow: 0 0 0 3px black
 	50%
 		box-shadow: 0 0 0 0 black
+
 
 #spinner
 	@include trans(0.2s)
@@ -523,19 +574,57 @@ h5
 			-webkit-animation-delay: 0.6s
 			-moz-animation-delay: 0.6s
 
-.details .allbleed
-	margin: 0 -10vw
-	img, video
-		opacity: 0.5
-		width: 100%
 
-// Resume
+
+
+
+// ---------------------------------------------------
+// Resume --------------------------------------------
+// ---------------------------------------------------
+
 .resume
 	h3, p, li
 		font-size: 0.8em
 		max-width: 500px
 	h3
 		padding: 2em 0 0em
+
+
+
+
+
+// ---------------------------------------------------
+// Copy/Paste ----------------------------------------
+// ---------------------------------------------------
+
+.at:hover
+	// Copy button when loaded
+	.loaded
+		opacity: 1
+		@include tf(translate3d(0,0,0))
+		&:hover
+			opacity: 0.8
+
+.at
+	display: inline-block
+	position: relative
+	&:hover
+		color: black
+	i
+		@include trans(0.1s)
+		font-style: normal
+		display: inline-block
+	b
+		@include trans(0.2s)
+		@include tf(scale(0.6))
+		opacity: 0
+		position: absolute
+	&:hover
+		i
+			opacity: 0
+		b
+			opacity: 1
+			@include tf(scale(1))
 
 .copy-wrapper
 	@include noselect
@@ -600,40 +689,13 @@ h5
 				&::after
 					border-right-color: black
 
-// @ Email -------------
 
-.at:hover
-	// Copy button when loaded
-	.loaded
-		opacity: 1
-		@include tf(translate3d(0,0,0))
-		&:hover
-			opacity: 0.8
+// ---------------------------------------------------
+// Responsiveness ------------------------------------
+// ---------------------------------------------------
 
-.at
-	display: inline-block
-	position: relative
-	&:hover
-		color: black
-	i
-		@include trans(0.1s)
-		font-style: normal
-		display: inline-block
-	b
-		@include trans(0.2s)
-		@include tf(scale(0.6))
-		opacity: 0
-		position: absolute
-	&:hover
-		i
-			opacity: 0
-		b
-			opacity: 1
-			@include tf(scale(1))
-
-
-
-// Fancy transitions ----------
+// Not on phones
+// -------------
 
 @media (min-width: 600px)
 	.item > figure
@@ -675,7 +737,9 @@ h5
 			@include tf(none)
 
 
-// @ Media -------------
+
+// Desktop-only
+// ------------
 
 @media (min-width: 1200px)
 	.resume aside
@@ -708,9 +772,16 @@ h5
 	.prev, .next
 		display: none
 
+
+
+// Small screens
+// -------------
+
 @media (max-width: 600px)
 	a.item-name
 		font-size: 1.6em
+		b, &:hover b
+			border-width: 2px
 	.items
 		padding-top: 80px
 	.item
@@ -738,15 +809,3 @@ h5
 		width: auto
 		opacity: 1
 		margin-top: 1em
-
-// Extras -------------
-
-
-// body
-// 	&::-webkit-scrollbar
-// 		width: 6px
-// 		background: white
-// 	&::-webkit-scrollbar-thumb
-// 		background: rgba(0,0,0,1)
-// 		&:hover
-// 			background: rgba(0,0,0,0.6)
