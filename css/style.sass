@@ -1,6 +1,5 @@
 // Tiny reset -----------
 
-
 html, body, h1, h2, h3, h4, h5, p, ul, li,
 section, article, div, a, figure, blockquote
 	font-size: 100%
@@ -9,15 +8,15 @@ section, article, div, a, figure, blockquote
 	padding: 0
 	text-align: left
 	-webkit-text-size-adjust: none
-
-// So I can misuse these tags -----------
 b
 	font-weight: normal
 i
 	font-style: normal
 
 
-// Mixins -----------
+// ---------------------------------------------------
+// Mixins --------------------------------------------
+// ---------------------------------------------------
 
 @mixin nolist
 	list-style: none
@@ -71,11 +70,6 @@ i
 
 // Universal -----------
 
-body,
-html
-	-webkit-overflow-scrolling: touch
-
-
 
 hr
 	border: none
@@ -90,7 +84,7 @@ body
 	overflow-x: hidden
 	@include trans(1s)
 	font:
-		family: "a", sans-serif //"nta", sans-serif
+		family: "a", sans-serif
 		size: 20px
 
 a, a:visited
@@ -120,18 +114,6 @@ a, a:visited
 		background: black
 		color: white
 
-// Nav -----
-
-nav
-	right: 0
-	top: 0
-	position: fixed
-	z-index: 2
-	padding: 30px 10%
-	a
-		margin-right: 20px
-		padding-bottom: 5px
-		color: black
 
 // -------------------
 // List view ---------
@@ -139,21 +121,9 @@ nav
 
 .items
 	@include boxfix
-	//display: inline-block
 	margin: 50px 0 0 0
 	max-width: 100%
 
-// .archive-name
-// 	@include caption
-// 	padding-bottom: 4em
-
-// .archive
-// 	@include nolist
-// 	padding-bottom: 100px
-// 	li
-// 		padding-bottom: 0.5em
-// 		a
-// 			width: 100%
 
 // Item in list view -----------
 
