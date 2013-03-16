@@ -77,48 +77,42 @@ Locu treats the menu’s physical and online representation as a single document
 					<img class="a" src="img/locu/theme/circle_a.png"/>
 				</div>
 				<h5>Pop — fun and retro-inspired</h5>
-			</li>
-			<li style="display: none">
+			</li><li style="display: none">
 				<div class="wrapper">
 					<img class="c" src="img/locu/theme/metric_c.png"/>
 					<img class="b" src="img/locu/theme/metric_b.png"/>
 					<img class="a" src="img/locu/theme/metric_a.png"/>
 				</div>
 				<h5>Metric — clean and precise</h5>
-			</li>
-			<li style="display: none">
+			</li><li style="display: none">
 				<div class="wrapper">
 					<img class="c" src="img/locu/theme/slab_c.png"/>
 					<img class="b" src="img/locu/theme/slab_b.png"/>
 					<img class="a" src="img/locu/theme/slab_a.png"/>
 				</div>
 				<h5>Slab — sturdy and honest</h5>
-			</li>
-			<li style="display: none">
+			</li><li style="display: none">
 				<div class="wrapper">
 					<img class="c" src="img/locu/theme/original_c.png"/>
 					<img class="b" src="img/locu/theme/original_b.png"/>
 					<img class="a" src="img/locu/theme/original_a.png"/>
 				</div>
 				<h5>Original — simple and sophisticated</h5>
-			</li>
-			<li style="display: none">
+			</li><li style="display: none">
 				<div class="wrapper">
 					<img class="c" src="img/locu/theme/grid_c.png"/>
 					<img class="b" src="img/locu/theme/grid_b.png"/>
 					<img class="a" src="img/locu/theme/grid_a.png"/>
 				</div>
 				<h5>Grid — bold and vibrant</h5>
-			</li>
-			<li style="display: none">
+			</li><li style="display: none">
 				<div class="wrapper">
 					<img class="c" src="img/locu/theme/metropolitan_c.png"/>
 					<img class="b" src="img/locu/theme/metropolitan_b.png"/>
 					<img class="a" src="img/locu/theme/metropolitan_a.png"/>
 				</div>
 				<h5>Metroplitan — dramatic and playful</h5>
-			</li>
-			<li style="display: none">
+			</li><li style="display: none">
 				<div class="wrapper">
 					<img class="c" src="img/locu/theme/squares_c.png"/>
 					<img class="b" src="img/locu/theme/squares_b.png"/>

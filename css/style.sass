@@ -87,10 +87,13 @@ body
 	color: black
 	background: white
 	overflow-x: hidden
-	@include trans(1s)
 	font:
 		family: "a", sans-serif
 		size: 20px
+
+.viewing-item // body
+	@include trans(1s)
+	background: #ddd
 
 hr
 	border: none
@@ -156,9 +159,6 @@ a, a:visited
 
 .viewing-item .item-name
 	opacity: 0.1
-
-.viewing-item
-	background: #ddd
 
 .item.current, .viewing-item .item.current
 	background: white
