@@ -15,13 +15,12 @@ This piece explores an alternative to the automobile-centric and user-centric vi
 </figure>
 
 
-<a href="/ripta/">See a work-in-progress\*</a>
+<a href="/ripta-beta/">See a work-in-progress\*</a>
 #####\*This works best in Google Chrome! Drag to pan, scroll to zoom, drag the bar along the bottom to move through the day.</h5>
 
 -----
 
 #### Details
 
-#####Data is based on schedules, and is not live. <br>
-#####Provided by [RIPTA](//ripta.com/) (the Rhode Island Public Transit Authority).  <br> Visualization uses [d3.js](//d3js.org) and SVG<br><br>
+#####Data is provided by [RIPTA](//ripta.com/) (the Rhode Island Public Transit Authority).Visualization uses [d3.js](//d3js.org) and SVG<br><br>
 #####Completed under the instruction of [Sophia Sobers](http://sophiasobers.net/) as part of the Digital + Media course “Systems and Structures”

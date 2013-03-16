@@ -20,8 +20,8 @@ var compressor = require('node-minify');
 
 new compressor.minify({
     type: 'gcc',
-    fileIn: ['js/jquery.wait.min.js', 'js/drag.js', 'js/clerestory.js', 'js/iscroll-lite.js', 'js/js.js'],
-    fileOut: 'evn.min.js',
+    fileIn: ['js/plugins.js', 'js/zeroclip.js', 'js/ajax.js', 'js/lb.js', 'js/swipe.js', 'js/showdown.js', 'js/showmore.js', 'js/script.js'],
+    fileOut: 'js/min.js',
     callback: function(err){
         console.log(err);
     }
