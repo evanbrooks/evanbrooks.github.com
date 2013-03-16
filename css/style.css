@@ -367,6 +367,9 @@ h5 {
 .scrollwrap {
   background: #eeeeee; }
 
+.details figure .slider ul {
+  white-space: nowrap; }
+
 .details figure .slider {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

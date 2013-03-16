@@ -34,14 +34,21 @@
 
 - HTML and CSS
 - Responsive web design practices
-- Javascript and JQuery
-- D3.js and Processing
-- Databases, Node.js, REST
+- Javascript, JQuery, D3.js
+- Databases, REST, Node.js
 
 ### Programming
 
+- Processing
 - Basic Java and Python
-- Introduction to algorithms
+- Intro to algorithms
+
+### 3d
+
+- Solidworks
+- Rapid prototyping
+- Modelmaking (wood, metal, foam)
+
 
 %endaside
 
@@ -51,7 +58,7 @@
 
 ### Rhode Island School of Design *Fall 2009 – present* 
 
-BFA Graphic Design with courses in Industrial Design
+BFA Graphic Design 2014 with courses in Industrial Design
 
 ### Brown University *Fall 2012 – Present* 
 
@@ -59,21 +66,21 @@ Courses in computer science
 
 ### California College of the Arts *Summer 2008*
 
-Pre-college program in Industrial Design, one of 5 students awarded a scholarship for outstanding achievement.
+Pre-college program in Industrial Design in Oakland, CA
 
 # Experience
 
 ### Designer at Locu *Fall 2010 – Spring 2012*
 
-I met the Locu founding team members while they were students at MIT, and have worked closely with them creating publishing tools for small business owners. I designed and did front-end development for the core product. I also helped define the brand strategy and designed logo, web site, and other materials.
+I met the Locu founding team members when they were students at MIT, and have worked closely with them as the company expanded, first in Cambridge, MA and then in San Francisco, CA. Started the product design team, and researched, designed, and helped develop the product. Designed the brand, logo, and marketing materials.
 
 <a href="#" data-item-link="locu">See projects</a>
 
 ### UI/UX Design Intern at Agamatrix *June 2011 – April 2012*
 
-AgaMatrix is a mobile health company that created the first iPhone-compatible glucose meters for people with diabetes. I designed interfaces for the iPhone and for low-cost devices, as well as hardware concepts and promotional material.
+AgaMatrix is a mobile health company based in Salem, NH. They created the first iPhone-compatible glucose meters for people with diabetes. I designed apps, interfaces, and hardware concepts.
 
-I learned to work closely with people with diabetes, hardware and software engineers, medical and regulatory experts, and other designers. I started as a summer intern, then worked as a full-time member of the design team for several months following.
+I worked closely with people with diabetes, hardware and software engineers, medical and regulatory experts, and other designers.
 
 <a href="#" data-item-link="agamatrix">See projects</a>
 
@@ -82,6 +89,12 @@ I learned to work closely with people with diabetes, hardware and software engin
 I defined the visual language and concept for a biannual  anthology of writing, visual art, and music selected from RISD and Brown students. I led a small team of designers and oversaw printing.
 
 <a href="#" data-item-link="clerestory">See project</a>
+
+### Teaching Assistant at Createch Marin *Summer 2010*
+
+Helped teach elementary-school children how to make video games, 
+stop-motion animations, and movies. The challenge was convincing them 
+to get off the computer and play outside.
 
 ### Freelance designer *2006 – present*
 
