@@ -118,7 +118,6 @@ function Projectbox(projectElement) {
 	}
 
 	function viewItem() {
-		$("#favicon").attr("href","img/favicon2.png");
 		id = targ.attr("data-item-name");
 		t = targ.attr("data-title");
 		el = $(targ).siblings(".details");
@@ -127,6 +126,7 @@ function Projectbox(projectElement) {
 		targ.append(spinner);
 		targ.before(ex);
 		el.html("");
+		$("#favicon").attr("href", ("img/" + id + "/favicon.png"));
 		cont.getItem(id, t, function(data){
 			setTimeout(function(){
 				el.css("height", "1000px");
