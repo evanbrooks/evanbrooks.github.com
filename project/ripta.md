@@ -22,5 +22,6 @@ This piece explores an alternative to the automobile-centric and user-centric vi
 
 #### Details
 
-#####Data is provided by [RIPTA](//ripta.com/) (the Rhode Island Public Transit Authority).Visualization uses [d3.js](//d3js.org) and SVG<br><br>
+#####Data is provided by [RIPTA](//ripta.com/) (the Rhode Island Public Transit Authority).
+#####Visualization uses [d3.js](//d3js.org) and SVG
 #####Completed under the instruction of [Sophia Sobers](http://sophiasobers.net/) as part of the Digital + Media course “Systems and Structures”

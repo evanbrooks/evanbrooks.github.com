@@ -143,6 +143,7 @@ a, a:visited
 	@include boxfix
 	margin: 50px 0 500px 0
 	max-width: 100%
+	overflow: hidden
 
 
 // Item in list view
@@ -313,9 +314,12 @@ h3
 			content: " — " // emdash
 h4
 	@include caption
+	padding-bottom: 1.5em
 h5
 	color: gray
 	font-size: 0.7em
+	margin-bottom: 0.2em
+	display: block
 	a, a:visited
 		color: gray
 		border-color: gray

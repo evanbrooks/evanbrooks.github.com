@@ -83,7 +83,8 @@ a, a:visited {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 50px 0 500px 0;
-  max-width: 100%; }
+  max-width: 100%;
+  overflow: hidden; }
 
 .item {
   -webkit-box-sizing: border-box;
@@ -261,11 +262,14 @@ h4 {
   font-size: 11px;
   font-weight: normal;
   text-transform: uppercase;
-  letter-spacing: 2px; }
+  letter-spacing: 2px;
+  padding-bottom: 1.5em; }
 
 h5 {
   color: gray;
-  font-size: 0.7em; }
+  font-size: 0.7em;
+  margin-bottom: 0.2em;
+  display: block; }
   h5 a, h5 a:visited {
     color: gray;
     border-color: gray; }
