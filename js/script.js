@@ -115,7 +115,7 @@ function Projectbox(projectElement) {
 		el = $(targ).siblings(".details");
 		elparent = $(targ).parent();
 		elparent.addClass("loading "+id);
-		el.before(spinner);
+		targ.append(spinner);
 		targ.before(ex);
 		el.html("");
 		cont.getItem(id, t, function(data){
@@ -123,10 +123,10 @@ function Projectbox(projectElement) {
 				el.css("height", "1000px");
 				el.afterTransition(function(){
 					el.html(data);
+					body.addClass("viewing-item");
 					el.imagesLoaded(function(){
 						el.freeze().css("height", "auto").fadeIn().unfreeze();
 						elparent.removeClass("loading");
-						body.addClass("viewing-item");
 						analytics.track("Viewed " + id);
 						if (typeof initiateProject == "function") initiateProject();
 					});
