@@ -46,7 +46,7 @@ a, a:visited {
   -ms-transition: all 0.3s;
   transition: all 0.3s;
   border-bottom: 1px solid black;
-  color: black;
+  color: inherit;
   display: inline-block;
   line-height: 1.1em;
   text-decoration: none; }
@@ -271,8 +271,10 @@ h5 {
   margin-bottom: 0.2em;
   display: block; }
   h5 a, h5 a:visited {
-    color: gray;
     border-color: gray; }
+    h5 a:hover, h5 a:visited:hover {
+      color: black;
+      border-color: black; }
 
 .details figure {
   max-width: 1800px;
@@ -483,6 +485,10 @@ h5 {
     transform: scale(1);
     opacity: 1; }
   #ex:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
     opacity: 0.5; }
 
 @-webkit-keyframes pulse {
@@ -711,9 +717,6 @@ h5 {
     position: absolute;
     z-index: 1;
     opacity: 1; }
-
-  .viewing-item .item > figure {
-    top: 3vh; }
 
   .details figure .slider .a {
     -webkit-transform: translate3d(-5%, 0, 0) scale(0.9);

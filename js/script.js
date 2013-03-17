@@ -26,7 +26,7 @@ function bindHandlers() {
 	}
 	wind.resize(refresh);
 
-	html.on("click", "[data-item-name] b", proj.viewItemClick)
+	html.on("click", "[data-item-name]", proj.viewItemClick)
 			.on("click", "[data-item-link]", proj.viewItemInterLink)
 			.on("click", "#spinner, #ex, .project-back", proj.clearItemClick)
 			.on("click", "[data-lightbox]", lb.viewImage)
@@ -94,9 +94,20 @@ function Projectbox(projectElement) {
 
 	function viewItemClick(e) {
 		e.preventDefault();
-		if (targ !== null) clearItem();
-		targ = $(e.target).parent();
-		viewItem();
+		if (targ !== null){
+			clearItem(view);
+		}
+		else {
+			view();
+		}
+		function view(){
+			targ = $(e.target);
+			console.log(targ);
+			if (!targ.hasClass("item-name")) {
+				targ = targ.parent();
+			}
+			viewItem();
+		}
 	}
 
 	function viewItemInterLink(e) {
@@ -110,6 +121,7 @@ function Projectbox(projectElement) {
 	}
 
 	function viewItem() {
+		$("#favicon").attr("href","img/favicon2.png");
 		id = targ.attr("data-item-name");
 		t = targ.attr("data-title");
 		el = $(targ).siblings(".details");
@@ -135,14 +147,6 @@ function Projectbox(projectElement) {
 		});
 
 		var title_str = targ.html();
-		tW = targ.width();
-		tH = targ.height();
-		tT = targ.offset().top - wind.scrollTop();
-		tL = targ.offset().left - wind.scrollLeft();
-		fS = targ.css("font-size");
-		fF = targ.css("font-family");
-
-		endL = wind.width()/10 + "px";
 
 		pos = targ.parent().offset().top - 1;
 		body.animate({"scrollTop": pos}, 200, function(){
@@ -162,6 +166,7 @@ function Projectbox(projectElement) {
 	}
 
 	function clearItem(cb) {
+		$("#favicon").attr("href","img/favicon.png");
 		if (typeof cb == "undefined") cb = function(){};
 		if (!targ) return;
 
@@ -169,17 +174,15 @@ function Projectbox(projectElement) {
 		el.html("");
 		el.removeAttr("style");
 		$("#spinner").remove();
-		$("#ex").remove();
 
 		elparent.removeClass("current");
 		body.removeClass("viewing-item");
 		elparent.removeClass(id);
-		function finish(){
+		setTimeout(function(){
+			targ = null;
+			$("#ex").remove();
 			analytics.track("Closed " + id);
 			refresh();
-		}
-		setTimeout(function(){
-			finish();
 			cb();
 		}, 500);
 	}

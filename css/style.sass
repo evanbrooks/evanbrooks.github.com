@@ -105,7 +105,7 @@ hr
 a, a:visited
 	@include trans(0.3s)
 	border-bottom: 1px solid black
-	color: black
+	color: inherit
 	display: inline-block
 	line-height: 1.1em
 	text-decoration: none
@@ -321,8 +321,10 @@ h5
 	margin-bottom: 0.2em
 	display: block
 	a, a:visited
-		color: gray
 		border-color: gray
+		&:hover
+			color: black
+			border-color: black
 
 
 // Figure in details view
@@ -531,6 +533,7 @@ $exsize: 40px
 		@include tf(scale(1))
 		opacity: 1
 	&:hover
+		@include tf(scale(1.2))
 		opacity: 0.5
 
 
@@ -737,7 +740,7 @@ $exsize: 40px
 		opacity: 1
 
 	.viewing-item .item > figure
-		top: 3vh
+		// top: -10vh
 
 	.details figure .slider
 		.a
