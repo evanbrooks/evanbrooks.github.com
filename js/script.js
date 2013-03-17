@@ -1,7 +1,3 @@
-// Hey, I wrote this, but feel free to reuse it any
-// way you like, no attribution required!
-// - Evan
-
 var iphone = isiPhone();
 
 var wind = $(window);
@@ -18,7 +14,7 @@ var proj = new Projectbox(".project");
 var cont = new ContentGetter();
 
 var spinner = "<div id=\"spinner\"><span></span><span></span><span></span></div>";
-var ex = "<div id=\"ex\">✕</div>"
+var ex = "<div id=\"ex\">✕</div>";
 
 bindHandlers();
 cont.listen(); // Listen for history state changes
@@ -29,14 +25,6 @@ function bindHandlers() {
 		wind.scroll(scroller.scrolling);
 	}
 	wind.resize(refresh);
-	$(".project").scroll(proj.scrolling);
-	$(".project").on("touchmove", proj.scrolling);
-	$(".project").on("mousedown touchstart", function(){
-		$(".project-title").css("opacity", 0);
-	});
-	$(".project").on("touchend mouseup", function(){
-		proj.scrolling();
-	});
 
 	html.on("click", "[data-item-name] b", proj.viewItemClick)
 			.on("click", "[data-item-link]", proj.viewItemInterLink)
@@ -44,7 +32,7 @@ function bindHandlers() {
 			.on("click", "[data-lightbox]", lb.viewImage)
 			.on("click", ".lightbox, .lightbox-back .ex", lb.clearImage);
 }
-var currentvid;
+
 function Scroller() {
 	this.scrolling = scrolling;
 
@@ -65,10 +53,9 @@ function Scroller() {
 					if (typeof item.vid != "undefined") item.vid.pause();
 				}
 				// The current item
-				if ( item.top > topScroll && item.top < midScroll /*&& item.bottom < bottomScroll*/) {
+				if ( item.top > topScroll && item.top < midScroll) {
 					item.div.attr("data-position", "current");
 					if (typeof item.vid != "undefined") {
-						currentvid = item.vid;
 						item.vid.play();
 					}
 					foundCurrent = true;
@@ -84,11 +71,9 @@ function Scroller() {
 }
 
 function Projectbox(projectElement) {
-	// var el = $(projectElement);
 	var el;
 	var targ;
 	var id;
-	// var title = $(".project-title");
 	var fig = $(".project-main-figure");
 	var tH, tW, tT, tL;
 
@@ -97,20 +82,6 @@ function Projectbox(projectElement) {
 	this.viewItemClick = viewItemClick;
 	this.clearItem = clearItem;
 	this.clearItemClick = clearItemClick;
-	this.scrolling = scrolling;
-
-	function scrolling(){
-		if (el.scrollTop() > 100) {
-			title.css("opacity", "0");
-		}
-		else {
-			title.css("opacity", "1");
-		}
-		// title.freeze().css({
-		// 	"top": (-1 * el.scrollTop() * 0.5)+"px",
-		// 	"opacity": 1
-		// });
-	}
 
 	function viewItemPop(str) {
 		if (targ !== null) clearItem();
@@ -142,8 +113,8 @@ function Projectbox(projectElement) {
 		id = targ.attr("data-item-name");
 		t = targ.attr("data-title");
 		el = $(targ).siblings(".details");
-		parent = $(targ).parent();
-		parent.addClass("loading "+id);
+		elparent = $(targ).parent();
+		elparent.addClass("loading "+id);
 		el.before(spinner);
 		targ.before(ex);
 		el.html("");
@@ -154,7 +125,8 @@ function Projectbox(projectElement) {
 					el.html(data);
 					el.imagesLoaded(function(){
 						el.freeze().css("height", "auto").fadeIn().unfreeze();
-						parent.removeClass("loading");
+						elparent.removeClass("loading");
+						body.addClass("viewing-item");
 						analytics.track("Viewed " + id);
 						if (typeof initiateProject == "function") initiateProject();
 					});
@@ -172,36 +144,9 @@ function Projectbox(projectElement) {
 
 		endL = wind.width()/10 + "px";
 
-		// targ.freeze().addClass("being-viewed").css("border-color", "transparent");
-
-		// el.css("padding-top", (tH + 80) + "px");
-
-		// title.children("span").html(title_str);
-		// title
-		// 	.freeze()
-		// 	.css({
-		// 		"height": tH,
-		// 		"padding": "0px",
-		// 		"font-size": fS,
-		// 		"font-family": fF,
-		// 		"color": "black",
-		// 		"-webkit-transform": "translate3d("+tL+"px,"+tT+"px,0)",
-		// 		"-moz-transform": "translate3d("+tL+"px,"+tT+"px,0)"
-		// 	})
-		// 	.show()
-		// 	.fadeIn()
-		// 	.unfreeze()
-		// 	.css({
-		// 		"font-size": "",
-		// 		"-webkit-transform": "translate3d("+endL+",50px,0)",
-		// 		"-moz-transform": "translate3d("+endL+",50px,0)",
-		// 		"color": ""
-		// 	});
-
 		pos = targ.parent().offset().top - 1;
 		body.animate({"scrollTop": pos}, 200, function(){
-			parent.addClass("current");
-			body.addClass("viewing-item");
+			elparent.addClass("current");
 		});
 		body.afterTransition(function(){
 			//
@@ -209,20 +154,16 @@ function Projectbox(projectElement) {
 	}
 
 	function clearItemClick(e){
-		body.animate({"scrollTop": pos}, 200, function(){
-			// body.css("overflow", "hidden");
-			// $(".item figure").hide();
-		});
-
 		e.preventDefault();
-		cont.clearItem();
-		clearItem(function(){});
+		body.animate({"scrollTop": pos}, 200, function(){
+			cont.clearItem();
+			clearItem(function(){});
+		});
 	}
 
 	function clearItem(cb) {
 		if (typeof cb == "undefined") cb = function(){};
 		if (!targ) return;
-
 
 		el.css("height", el.height());
 		el.html("");
@@ -230,9 +171,9 @@ function Projectbox(projectElement) {
 		$("#spinner").remove();
 		$("#ex").remove();
 
-		parent.removeClass("current");
+		elparent.removeClass("current");
 		body.removeClass("viewing-item");
-		parent.removeClass(id);
+		elparent.removeClass(id);
 		function finish(){
 			analytics.track("Closed " + id);
 			refresh();
@@ -243,6 +184,10 @@ function Projectbox(projectElement) {
 		}, 500);
 	}
 }
+
+
+// Calculate scroll offsets
+// ------------------------
 
 function refresh() {
 	$(".item figure").hide().fadeOut().show();
@@ -258,6 +203,12 @@ function refresh() {
 		};
 	});
 }
+
+
+
+
+// ZeroClipBoard Setup
+// -------------------
 
 function setupZClip() {
 	// Load zeroclip here to support copying
