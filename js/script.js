@@ -72,10 +72,8 @@ function Scroller() {
 
 function Projectbox(projectElement) {
 	var el;
-	var targ;
+	var targ = null;
 	var id;
-	var fig = $(".project-main-figure");
-	var tH, tW, tT, tL;
 
 	this.viewItemPop = viewItemPop;
 	this.viewItemInterLink = viewItemInterLink;
@@ -102,7 +100,6 @@ function Projectbox(projectElement) {
 		}
 		function view(){
 			targ = $(e.target);
-			console.log(targ);
 			if (!targ.hasClass("item-name")) {
 				targ = targ.parent();
 			}

@@ -119,6 +119,8 @@ a, a:visited {
 
 .current.locu, .viewing-item .current.locu {
   background: #f4f4f4; }
+  .current.locu.loading, .viewing-item .current.locu.loading {
+    background: white; }
 
 .item-name {
   -webkit-transition: all 0.3s;
@@ -485,10 +487,6 @@ h5 {
     transform: scale(1);
     opacity: 1; }
   #ex:hover {
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
     opacity: 0.5; }
 
 @-webkit-keyframes pulse {

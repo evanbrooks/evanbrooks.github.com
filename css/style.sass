@@ -176,6 +176,9 @@ a, a:visited
 // ** Locu-specific
 .current.locu, .viewing-item .current.locu
 	background: #f4f4f4
+	&.loading
+		background: white
+
 
 
 .item-name
@@ -533,7 +536,6 @@ $exsize: 40px
 		@include tf(scale(1))
 		opacity: 1
 	&:hover
-		@include tf(scale(1.2))
 		opacity: 0.5
 
 
