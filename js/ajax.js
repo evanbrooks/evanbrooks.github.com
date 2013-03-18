@@ -7,7 +7,7 @@ function ContentGetter() {
 	this.getItem = getItem;
 	this.clearItem = clearItem;
 
-	var converter = new Showdown.converter({ extensions: ['showmore'] });
+	var converter = new Showdown.converter({ extensions: ['showmore', 'fig', 'vid'] });
 
 	function getItem(itemName, title, cb) {
 		history.pushState({}, "", "#/"+itemName);
