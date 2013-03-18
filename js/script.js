@@ -167,15 +167,14 @@ function Projectbox(projectElement) {
 		if (typeof cb == "undefined") cb = function(){};
 		if (!targ) return;
 
-		el.css("height", el.height());
-		el.html("");
-		el.removeAttr("style");
+		el.freeze().css({"height": "1000px", "opacity": 1}).fadeIn().unfreeze().fadeIn().removeAttr("style");
 		$("#spinner").remove();
 
 		elparent.removeClass("current");
 		body.removeClass("viewing-item");
 		elparent.removeClass(id);
 		setTimeout(function(){
+			el.html("");
 			targ = null;
 			$("#ex").remove();
 			analytics.track("Closed " + id);

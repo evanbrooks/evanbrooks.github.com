@@ -207,6 +207,7 @@ a, a:visited {
   z-index: 1;
   position: relative;
   height: 0px;
+  opacity: 0;
   overflow: hidden; }
   .nav .details {
     padding: 1em 0 0; }
