@@ -6,50 +6,50 @@ By contrast, the reknowned collection of artifacts from Africa, the Americas, an
 This proposed identity and campaign reemphasize the purpose of the art museum and the power of the curator to create meaning.
 
 <figure>
-	<img data-lightbox="" src="img/deyoung/surface.gif" />
+	<img src="/deyoung/surface.gif" />
 	<h5>Image courtesy Zahner, the engineering firm that produced the panels</h5>
 </figure>
 
 The building, designed by [Herzog and de Meuron](http://www.herzogdemeuron.com/index.html), features a gorgeous and striking copper skin. Shimmering in the sunlight when new, the copper fades and turns green over time, integrating the museum into the landscape of the park. Each panel has a unique surface, carefully shaped by its surroundings.
 
 <figure>
-	<img data-lightbox="" src="img/deyoung/logo.png" />
+	<img src="/deyoung/logo.png" />
 </figure>
 
 With this in mind, the mark abstracts the light hitting surface of the building. At the same time, it suggests the formation of a connection between two nodes.
 
 <figure>
-	<img data-lightbox="" src="img/deyoung/letter.png" />
+	<img src="/deyoung/letter.png" />
 	<h5>Letterhead, business card, and program cover integrate tactile elements</h5>
 </figure>
 
 <figure>
-	<img data-lightbox="" src="img/deyoung/hairy.jpg" />
+	<img src="/deyoung/hairy.jpg" />
 </figure>
 
 <figure>
-	<img data-lightbox="" src="img/deyoung/pointy.jpg" />
+	<img src="/deyoung/pointy.jpg" />
 </figure>
 
 <figure>
-	<img data-lightbox="" src="img/deyoung/poster.jpg" />
+	<img src="/deyoung/poster.jpg" />
 </figure>
 
 <figure>
-	<img data-lightbox="" src="img/deyoung/underfoot.png" />
+	<img src="/deyoung/underfoot.png" />
 	<h5>Crosswalk grip pads as a surface for advertising. Mirrors the museum texture, and as the ad inevitable wears through, new information can be revealed. </h5>
 </figure>
 
 ### More
 
 <figure>
-	<img data-lightbox="" src="img/deyoung/web.jpg" />
+	<img src="/deyoung/web.jpg" />
 	<h5>The website reflects the nature of change over time, as captured by the copper panels. It is a continuous timeline of the show currently featured. Also, it has the hours on the home page, which seems obvious but somehow isn't standard.</h5>
 </figure>
 
 
 <figure>
-	<img data-lightbox="" src="img/deyoung/app.png" />
+	<img src="/deyoung/app.png" />
 	<h5>A map / wayfinding app can do more than show facts about what's in front of you. It could lead the museumgoer into further, less familiar parts of the museum to help them make new discoveries.</h5>
 </figure>
 
@@ -57,5 +57,5 @@ With this in mind, the mark abstracts the light hitting surface of the building.
 
 #### Details
 
-##### Brand assets set in Geogrotesque
+##### Brand assets set in [Geogrotesque](http://www.emtype.net/geogrotesque_01.php) by Emtype
 ##### Completed under the instruction of [Rich Rose](http://www.popkitchen.net/)
