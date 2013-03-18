@@ -3,7 +3,7 @@ The Shelburne Museum's Collection of Toys, Dolls, Dollhouses, and Automata is an
 
 Unfortunately, it doesn't sounds like much fun. Especially to kids.
 
-<a target="_blank" href="/img/hop/hop.pdf">PDF Booklet</a>
+<a target="_blank" href="/hop/hop.pdf">PDF Booklet</a>
 <!-- 
 ### Make × Play
 
