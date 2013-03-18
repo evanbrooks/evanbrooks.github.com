@@ -750,6 +750,8 @@ h5 {
 
   .details .bleed {
     margin: 0 -10vw; }
+    .details .bleed h5 {
+      padding: 0 10%; }
 
   .details figure .slider {
     margin: 0 -10vw;
@@ -778,8 +780,6 @@ h5 {
 
   .details figure h5 {
     width: auto; }
-  .details figure.bleed h5 {
-    padding: 0 10%; }
   .details figure .slider {
     margin: 0 -20vw;
     padding: 0;
