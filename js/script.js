@@ -126,7 +126,7 @@ function Projectbox(projectElement) {
 		targ.append(spinner);
 		targ.before(ex);
 		el.html("");
-		$("#favicon").attr("href", ("img/" + id + "/favicon.png"));
+		$("#favicon").attr("href", ("/" + id + "/favicon.png"));
 		cont.getItem(id, t, function(data){
 			setTimeout(function(){
 				el.css("height", "1000px");
@@ -189,7 +189,7 @@ function Projectbox(projectElement) {
 // ------------------------
 
 function refresh() {
-	$(".item figure").hide().fadeOut().show();
+	$(".item > figure").hide().fadeOut().show();
 	itemData = [];
 	$.each($(".item"), function(i, item) {
 		var self = $(item);

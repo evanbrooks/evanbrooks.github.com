@@ -28,7 +28,7 @@
 
 <!-- <figure>
 	<div class="browser">
-		<img src="img/locu/locu-ui.png"/>
+		<img src="/locu/locu-ui.png"/>
 	</div>
 </figure>
  -->
@@ -39,14 +39,11 @@ When I first met Locu, they had set out to collect and organize all the local bu
 ### 1 - Branding
 
 <figure>
-	<img src="img/locu/logo.png"/>
+	<img src="/locu/logo.png"/>
 </figure>
 
-The name Locu stuck early on - it manages to be both unique and descriptive without feeling too goofy (the pitfall of countless internet startups) or too stodgy (the pitfall of many other business-to-business companies).
-
-
 <figure class="bleed">
-	<img src="img/locu/brandguide.png"/>
+	<img src="/locu/brandguide.png"/>
 	<h5>I designed and built a small internal website for our <a target="_blank" href="//locu.com/brand/">brand guidelines</a>.</h5>
 </figure>
 
@@ -54,7 +51,7 @@ The name Locu stuck early on - it manages to be both unique and descriptive with
 <!-- The identity system conveys a fresh, bright confidence.
 
 <figure class="inset bleed">
-	<img src="img/locu/sticker.png"/>
+	<img src="/locu/sticker.png"/>
 	<h5>Die-cut stickers by [stickermule](//stickermule.com)</h5>
 </figure> -->
 
@@ -62,7 +59,7 @@ The name Locu stuck early on - it manages to be both unique and descriptive with
 ### 2 - A flexible design system
 
 <figure>
-	<img src="img/locu/mediaicons.png"/>
+	<img src="/locu/mediaicons.png"/>
 </figure>
 
 
@@ -72,51 +69,51 @@ Locu treats the menu’s physical and online representation as a single document
 		<ul>
 			<li class="current">
 				<div class="wrapper">
-					<img class="c" src="img/locu/theme/circle_c.png"/>
-					<img class="b" src="img/locu/theme/circle_b.png"/>
-					<img class="a" src="img/locu/theme/circle_a.png"/>
+					<img class="c" src="/locu/theme/circle_c.png"/>
+					<img class="b" src="/locu/theme/circle_b.png"/>
+					<img class="a" src="/locu/theme/circle_a.png"/>
 				</div>
 				<h5>Pop — fun and retro-inspired</h5>
 			</li><li style="display: none">
 				<div class="wrapper">
-					<img class="c" src="img/locu/theme/metric_c.png"/>
-					<img class="b" src="img/locu/theme/metric_b.png"/>
-					<img class="a" src="img/locu/theme/metric_a.png"/>
+					<img class="c" src="/locu/theme/metric_c.png"/>
+					<img class="b" src="/locu/theme/metric_b.png"/>
+					<img class="a" src="/locu/theme/metric_a.png"/>
 				</div>
 				<h5>Metric — clean and precise</h5>
 			</li><li style="display: none">
 				<div class="wrapper">
-					<img class="c" src="img/locu/theme/slab_c.png"/>
-					<img class="b" src="img/locu/theme/slab_b.png"/>
-					<img class="a" src="img/locu/theme/slab_a.png"/>
+					<img class="c" src="/locu/theme/slab_c.png"/>
+					<img class="b" src="/locu/theme/slab_b.png"/>
+					<img class="a" src="/locu/theme/slab_a.png"/>
 				</div>
 				<h5>Slab — sturdy and honest</h5>
 			</li><li style="display: none">
 				<div class="wrapper">
-					<img class="c" src="img/locu/theme/original_c.png"/>
-					<img class="b" src="img/locu/theme/original_b.png"/>
-					<img class="a" src="img/locu/theme/original_a.png"/>
+					<img class="c" src="/locu/theme/original_c.png"/>
+					<img class="b" src="/locu/theme/original_b.png"/>
+					<img class="a" src="/locu/theme/original_a.png"/>
 				</div>
 				<h5>Original — simple and sophisticated</h5>
 			</li><li style="display: none">
 				<div class="wrapper">
-					<img class="c" src="img/locu/theme/grid_c.png"/>
-					<img class="b" src="img/locu/theme/grid_b.png"/>
-					<img class="a" src="img/locu/theme/grid_a.png"/>
+					<img class="c" src="/locu/theme/grid_c.png"/>
+					<img class="b" src="/locu/theme/grid_b.png"/>
+					<img class="a" src="/locu/theme/grid_a.png"/>
 				</div>
 				<h5>Grid — bold and vibrant</h5>
 			</li><li style="display: none">
 				<div class="wrapper">
-					<img class="c" src="img/locu/theme/metropolitan_c.png"/>
-					<img class="b" src="img/locu/theme/metropolitan_b.png"/>
-					<img class="a" src="img/locu/theme/metropolitan_a.png"/>
+					<img class="c" src="/locu/theme/metropolitan_c.png"/>
+					<img class="b" src="/locu/theme/metropolitan_b.png"/>
+					<img class="a" src="/locu/theme/metropolitan_a.png"/>
 				</div>
 				<h5>Metroplitan — dramatic and playful</h5>
 			</li><li style="display: none">
 				<div class="wrapper">
-					<img class="c" src="img/locu/theme/squares_c.png"/>
-					<img class="b" src="img/locu/theme/squares_b.png"/>
-					<img class="a" src="img/locu/theme/squares_a.png"/>
+					<img class="c" src="/locu/theme/squares_c.png"/>
+					<img class="b" src="/locu/theme/squares_b.png"/>
+					<img class="a" src="/locu/theme/squares_a.png"/>
 				</div>
 				<h5>Squares — boistrous and busy</h5>
 			</li>
@@ -145,8 +142,8 @@ A restaurant menu has clear hierarchy and typographic contrast, so the form inte
 
 <figure class="bleed">
 	<video loop autoplay="autoplay" webkit-playsinline>
-		<source src="/img/locu/locu-edit.mp4" />
-		<source src="/img/locu/locu-edit.webm" />
+		<source src="/locu/locu-edit.mp4" />
+		<source src="/locu/locu-edit.webm" />
 	</video>
 	<h5>Click on any text, and you're editing it in place — each item doesn't need its own “Edit” button.</h5>
 </figure>
@@ -155,8 +152,8 @@ By contrast, older interfaces for structured data suffer from an explosion of fo
 
 <figure class="bleed">
 	<video loop autoplay="autoplay" webkit-playsinline>
-		<source src="/img/locu/locu-options.mp4" />
-		<source src="/img/locu/locu-options.webm" />
+		<source src="/locu/locu-options.mp4" />
+		<source src="/locu/locu-options.webm" />
 	</video>
 	<h5>Instead of an explicit button for "Add option", the interface makes sure there's always an available space</h5>
 </figure>
@@ -165,23 +162,23 @@ Restaurant people are always busy, so the interface is designed to have few inte
 
 <figure class="bleed">
 	<video loop autoplay="autoplay" webkit-playsinline>
-		<source src="/img/locu/locu-undo.mp4" />
-		<source src="/img/locu/locu-undo.webm" />
+		<source src="/locu/locu-undo.mp4" />
+		<source src="/locu/locu-undo.webm" />
 	</video>
 	<h5>Inline undo button makes for a better workflow than a popup navigation.</h5>
 </figure>
 
 <!-- <figure class="bleed">
 	<video loop autoplay="autoplay" webkit-playsinline>
-		<source src="/img/locu/locu-scroll.mp4" />
-		<source src="/img/locu/locu-scroll.webm" />
+		<source src="/locu/locu-scroll.mp4" />
+		<source src="/locu/locu-scroll.webm" />
 	</video>
 	<h5>The entire editing interface is one page, so there's no getting lost.</h5>
 </figure> -->
 
 
 <!-- <figure class="inset bleed">
-	<img src="img/locu/locu-scroll.gif"/>
+	<img src="/locu/locu-scroll.gif"/>
 </figure>
  -->
 
