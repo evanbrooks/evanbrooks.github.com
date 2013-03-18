@@ -1,5 +1,5 @@
 <br>
-These are excerpts from an app I worked on while at [Agamatrix](//agamatrix.com). Please contact me for more details!
+These are excerpts from an app I worked on while at [Agamatrix](//agamatrix.com). Please contact me for more details.
 
 <figure>
 	<img src="img/agamatrix/stacked.png" style="max-height: 1000px; width: auto"/>
