@@ -5,53 +5,26 @@ By contrast, the reknowned collection of artifacts from Africa, the Americas, an
 
 This proposed identity and campaign reemphasize the purpose of the art museum and the power of the curator to create meaning.
 
-<figure>
-	<img src="/deyoung/surface.gif" />
-	<h5>Image courtesy Zahner, the engineering firm that produced the panels</h5>
-</figure>
+fig[/deyoung/surface.gif "Image courtesy Zahner, the engineering firm that produced the panels"]
+
 
 The building, designed by [Herzog and de Meuron](http://www.herzogdemeuron.com/index.html), features a gorgeous and striking copper skin. Shimmering in the sunlight when new, the copper fades and turns green over time, integrating the museum into the landscape of the park. Each panel has a unique surface, carefully shaped by its surroundings.
 
-<figure>
-	<img src="/deyoung/logo.png" />
-</figure>
+fig[/deyoung/logo.png]
 
 With this in mind, the mark abstracts the light hitting surface of the building. At the same time, it suggests the formation of a connection between two nodes.
 
-<figure>
-	<img src="/deyoung/letter.png" />
-	<h5>Letterhead, business card, and program cover integrate tactile elements</h5>
-</figure>
+fig[/deyoung/letter.png "Letterhead, business card, and program cover integrate tactile elements"]
+fig[/deyoung/hairy.jpg]
+fig[/deyoung/pointy.jpg]
+fig[/deyoung/poster.jpg]
+fig[/deyoung/underfoot.png "Crosswalk grip pads as a surface for advertising. They  mirror the museum texture, and as the ad inevitably wears through, new information can be revealed."]
 
-<figure>
-	<img src="/deyoung/hairy.jpg" />
-</figure>
-
-<figure>
-	<img src="/deyoung/pointy.jpg" />
-</figure>
-
-<figure>
-	<img src="/deyoung/poster.jpg" />
-</figure>
-
-<figure>
-	<img src="/deyoung/underfoot.png" />
-	<h5>Crosswalk grip pads as a surface for advertising. Mirrors the museum texture, and as the ad inevitable wears through, new information can be revealed. </h5>
-</figure>
 
 ### More
 
-<figure>
-	<img src="/deyoung/web.jpg" />
-	<h5>The website reflects the nature of change over time, as captured by the copper panels. It is a continuous timeline of the show currently featured. Also, it has the hours on the home page, which seems obvious but somehow isn't standard.</h5>
-</figure>
-
-
-<figure>
-	<img src="/deyoung/app.png" />
-	<h5>A map / wayfinding app can do more than show facts about what's in front of you. It could lead the museumgoer into further, less familiar parts of the museum to help them make new discoveries.</h5>
-</figure>
+fig[/deyoung/web.jpg "The website reflects the idea of change over time, as captured by the copper panels. It is a continuous timeline of shows on display. Also, it has the hours on the home page, which seems obvious but somehow isn't standard."]
+fig[/deyoung/app.png "A map / wayfinding app can do more than show facts about what's in front of you. It could lead the museumgoer into further, less familiar parts of the museum to help them make new discoveries."]
 
 -----
 

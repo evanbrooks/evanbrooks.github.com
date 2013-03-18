@@ -38,9 +38,7 @@ When I first met Locu, they had set out to collect and organize all the local bu
 
 ### 1 - Branding
 
-<figure>
-	<img src="/locu/logo.png"/>
-</figure>
+fig[/locu/logo.png]
 
 <figure class="bleed">
 	<img src="/locu/brandguide.png"/>
@@ -58,9 +56,7 @@ When I first met Locu, they had set out to collect and organize all the local bu
 
 ### 2 - A flexible design system
 
-<figure>
-	<img src="/locu/mediaicons.png"/>
-</figure>
+fig[/locu/mediaicons.png]
 
 
 Locu treats the menu’s physical and online representation as a single document. We used responsive web design practices plus a custom print layout system to tie everything together.
@@ -140,47 +136,16 @@ In the past, restaurants had to manage a mess of technology to actually get anyt
 
 A restaurant menu has clear hierarchy and typographic contrast, so the form interface does too. 
 
-<figure class="bleed">
-	<video loop autoplay="autoplay" webkit-playsinline>
-		<source src="/locu/locu-edit.mp4" />
-		<source src="/locu/locu-edit.webm" />
-	</video>
-	<h5>Click on any text, and you're editing it in place — each item doesn't need its own “Edit” button.</h5>
-</figure>
+vid[/locu/locu-edit.mp4, /locu/locu-edit.webm "Click on any text, and you’re editing it in place — each item doesn't need its own “Edit” button."]
 
 By contrast, older interfaces for structured data suffer from an explosion of form inputs. They're designed to accomodate the developer, and they get pretty irritating when you need to get something done. 
 
-<figure class="bleed">
-	<video loop autoplay="autoplay" webkit-playsinline>
-		<source src="/locu/locu-options.mp4" />
-		<source src="/locu/locu-options.webm" />
-	</video>
-	<h5>Instead of an explicit button for "Add option", the interface makes sure there's always an available space</h5>
-</figure>
+vid[/locu/locu-options.mp4, /locu/locu-options.webm "Instead of an explicit button for “Add option,” the interface makes sure there’s always an available space"]
+
 
 Restaurant people are always busy, so the interface is designed to have few interruptions. Instead of stopping everything to confirm a delete, we use an in-place undo button that persists until the user publishes. 
 
-<figure class="bleed">
-	<video loop autoplay="autoplay" webkit-playsinline>
-		<source src="/locu/locu-undo.mp4" />
-		<source src="/locu/locu-undo.webm" />
-	</video>
-	<h5>Inline undo button makes for a better workflow than a popup navigation.</h5>
-</figure>
-
-<!-- <figure class="bleed">
-	<video loop autoplay="autoplay" webkit-playsinline>
-		<source src="/locu/locu-scroll.mp4" />
-		<source src="/locu/locu-scroll.webm" />
-	</video>
-	<h5>The entire editing interface is one page, so there's no getting lost.</h5>
-</figure> -->
-
-
-<!-- <figure class="inset bleed">
-	<img src="/locu/locu-scroll.gif"/>
-</figure>
- -->
+vid[/locu/locu-undo.mp4, /locu/locu-undo.webm "Inline undo button makes for a better workflow than a popup navigation."]
 
 ### 5 - Current status
 
