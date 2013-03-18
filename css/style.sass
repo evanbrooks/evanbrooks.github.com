@@ -214,7 +214,7 @@ a, a:visited
 	top: 10vh
 	right: 10%
 	opacity: 0
-	z-index: -1
+	// z-index: -1
 	img, video
 		display: block
 		margin: auto
@@ -714,6 +714,10 @@ $exsize: 40px
 	.item > figure
 		@include tf(translate3d(15%,0,0) scale(0.9))
 
+	.viewing-item .item > figure
+		// top: -10vh
+		z-index: -1
+
 	[data-position = current] .item-name i
 		@include tf(translate3d(0%, 0, 0))
 		opacity: 1
@@ -721,8 +725,7 @@ $exsize: 40px
 	[data-position = current] > figure
 		@include tf(translate3d(15%,0,0))
 		opacity: 1
-		.viewing-item &
-			opacity: 0.3
+		pointer-events: auto 
 
 	[data-position = above] > figure,
 	[data-position = below] > figure
@@ -733,9 +736,6 @@ $exsize: 40px
 		position: absolute
 		z-index: 1
 		opacity: 1
-
-	.viewing-item .item > figure
-		// top: -10vh
 
 	.details figure .slider
 		.a

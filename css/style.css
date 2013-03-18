@@ -161,8 +161,7 @@ a, a:visited {
   left: 10%;
   top: 10vh;
   right: 10%;
-  opacity: 0;
-  z-index: -1; }
+  opacity: 0; }
   .item > figure img, .item > figure video {
     display: block;
     margin: auto;
@@ -677,6 +676,9 @@ h5 {
     -ms-transform: translate3d(15%, 0, 0) scale(0.9);
     transform: translate3d(15%, 0, 0) scale(0.9); }
 
+  .viewing-item .item > figure {
+    z-index: -1; }
+
   [data-position=current] .item-name i {
     -webkit-transform: translate3d(0%, 0, 0);
     -moz-transform: translate3d(0%, 0, 0);
@@ -689,9 +691,8 @@ h5 {
     -moz-transform: translate3d(15%, 0, 0);
     -ms-transform: translate3d(15%, 0, 0);
     transform: translate3d(15%, 0, 0);
-    opacity: 1; }
-    .viewing-item [data-position=current] > figure {
-      opacity: 0.3; }
+    opacity: 1;
+    pointer-events: auto; }
 
   [data-position=above] > figure,
   [data-position=below] > figure {
