@@ -199,10 +199,10 @@ a, a:visited {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  -ms-transition: all 0.4s;
-  transition: all 0.4s;
+  -webkit-transition: all 0.5s cubic-bezier(0.125, 0.74, 0.17, 0.995);
+  -moz-transition: all 0.5s cubic-bezier(0.125, 0.74, 0.17, 0.995);
+  -ms-transition: all 0.5s cubic-bezier(0.125, 0.74, 0.17, 0.995);
+  transition: all 0.5s cubic-bezier(0.125, 0.74, 0.17, 0.995);
   padding: 1em 10% 0;
   z-index: 1;
   position: relative;
