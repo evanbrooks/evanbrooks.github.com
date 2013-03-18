@@ -129,7 +129,7 @@ function Projectbox(projectElement) {
 		$("#favicon").attr("href", ("/" + id + "/favicon.png"));
 		cont.getItem(id, t, function(data){
 			setTimeout(function(){
-				el.css("height", "1000px");
+				el.css("height", wind.height());
 				el.afterTransition(function(){
 					el.html(data);
 					body.addClass("viewing-item");
@@ -167,7 +167,7 @@ function Projectbox(projectElement) {
 		if (typeof cb == "undefined") cb = function(){};
 		if (!targ) return;
 
-		el.freeze().css({"height": "1000px", "opacity": 1}).fadeIn().unfreeze().fadeIn().removeAttr("style");
+		el.freeze().css({"height": wind.height(), "opacity": 1}).fadeIn().unfreeze().fadeIn().removeAttr("style");
 		$("#spinner").remove();
 
 		elparent.removeClass("current");
