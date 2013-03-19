@@ -27,6 +27,6 @@ We decided to add music to the journal. With so many different types of media, t
 #### Details
 
 ##### Managing editor Emma Janaskie made it happen.
-##### Designed with the help of [Tabitha Yong](//http://tabithayong.com/) and Isabella Ginacarlo 
-##### Printed by [Brown Graphic Services](http://brown.edu/Facilities/Graphic_Services/) — Thanks Ann!
+##### Designed with the help of [Tabitha Yong](//tabithayong.com/) and Isabella Ginacarlo 
+##### Printed by [Brown Graphic Services](//brown.edu/Facilities/Graphic_Services/) — Thanks Ann!
 ##### Thanks to the whole Clerestory staff for collating, folding, and CD burning
