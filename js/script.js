@@ -29,7 +29,7 @@ function bindHandlers() {
 	html.on("click", "[data-item-name]", proj.viewItemClick)
 			.on("click", "[data-item-link]", proj.viewItemInterLink)
 			.on("click", "#spinner, #ex, .project-back", proj.clearItemClick)
-			.on("click", "[data-lightbox]", lb.viewImage)
+			//.on("click", "[data-lightbox]", lb.viewImage)
 			.on("click", ".lightbox, .lightbox-back .ex", lb.clearImage);
 }
 
@@ -93,7 +93,9 @@ function Projectbox(projectElement) {
 	function viewItemClick(e) {
 		e.preventDefault();
 		if (targ !== null){
-			clearItem(view);
+			body.animate({"scrollTop": pos}, 200, function(){
+				clearItem(view);
+			});
 		}
 		else {
 			view();
