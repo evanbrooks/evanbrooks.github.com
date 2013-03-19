@@ -319,10 +319,6 @@ h5 {
     opacity: 0.5;
     width: 100%; }
 
-[data-lightbox] {
-  cursor: -webkit-zoom-in;
-  cursor: zoom-in; }
-
 .lightbox-back {
   position: fixed;
   top: 0;
@@ -773,6 +769,9 @@ h5 {
   .prev, .next {
     display: none; } }
 @media (max-width: 600px) {
+  body {
+    font-size: 18px; }
+
   a.item-name {
     font-size: 1.6em; }
     a.item-name b, a.item-name:hover b {
