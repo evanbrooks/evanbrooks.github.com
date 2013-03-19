@@ -6,12 +6,12 @@ As design editor, I planned each issue in conjunction with the rest of the edito
 ### Fall 2011 issue
 
 <figure>
-	<img data-lightbox="" src="/clerestory/letter.png" />
+	<img data-lightbox="" src="/posts/clerestory/letter.png" />
 	<h5>The journal's name is blind-embossed into the cover.</h5>
 </figure>
 
 <figure>
-	<img data-lightbox="" src="/clerestory/open.png" />
+	<img data-lightbox="" src="/posts/clerestory/open.png" />
 	<h5></h5>
 </figure>
 
@@ -19,6 +19,8 @@ As design editor, I planned each issue in conjunction with the rest of the edito
 ### Spring 2011 issue
 
 We decided to add music to the journal. With so many different types of media, this edition was in the form of a sleeve that contained large, loose-leaf artwork, a CD, and a smaller perfect-bound book of prose and poetry.
+
+##### (Images coming soon)
 
 
 
