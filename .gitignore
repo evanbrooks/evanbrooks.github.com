@@ -5,3 +5,5 @@ node_modules/*
 *.indd
 *.mov
 server.js
+asteroid-anim
+asteroid-anim.mov
