@@ -15,7 +15,7 @@ This piece explores an alternative to the automobile-centric and user-centric vi
 </figure>
 
 
-<a href="/ripta-beta/">See a work-in-progress\*</a>
+<a href="/ripta-viewer/">See a work-in-progress\*</a>
 #####\*This works best in Google Chrome! Drag to pan, scroll to zoom, drag the bar along the bottom to move through the day.</h5>
 
 -----
