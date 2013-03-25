@@ -10,9 +10,9 @@ function isiPhone(){
 (function( $ ){
   $.fn.afterTransition = function(cb){
 	var self = this;
-    self.on("webkitTransitionEnd mozTransitionEnd", function(){
+    self.on("webkitTransitionEnd mozTransitionEnd transtionend transitionEnd", function(){
 		cb();
-		self.off("webkitTransitionEnd mozTransitionEnd");
+		self.off("webkitTransitionEnd mozTransitionEnd transtionend transitionEnd");
     });
   };
 })( jQuery );

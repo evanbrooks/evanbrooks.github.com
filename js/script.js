@@ -129,10 +129,12 @@ function Projectbox(projectElement) {
 		targ.before(ex);
 		el.html("");
 		$("#favicon").attr("href", ("/" + id + "/favicon.png"));
+		console.log("click detected");
 		cont.getItem(id, t, function(data){
 			setTimeout(function(){
 				el.css("height", wind.height());
-				el.afterTransition(function(){
+				setTimeout(function(){
+					console.log("transition event fired");
 					el.html(data);
 					body.addClass("viewing-item");
 					el.imagesLoaded(function(){
@@ -141,7 +143,19 @@ function Projectbox(projectElement) {
 						analytics.track("Viewed " + id);
 						if (typeof initiateProject == "function") initiateProject();
 					});
-				});
+				}, 500);
+				// console.log("getting item");
+				// el.afterTransition(function(){
+				// 	console.log("transition event fired");
+				// 	el.html(data);
+				// 	body.addClass("viewing-item");
+				// 	el.imagesLoaded(function(){
+				// 		el.freeze().css("height", "auto").fadeIn().unfreeze();
+				// 		elparent.removeClass("loading");
+				// 		analytics.track("Viewed " + id);
+				// 		if (typeof initiateProject == "function") initiateProject();
+				// 	});
+				// });
 			}, 500);
 		});
 
