@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body, h1, h2, h3, h4, h5, p, ul, li,
 section, article, div, a, figure, blockquote {
   font-size: 100%;
@@ -768,6 +769,9 @@ h5 {
 
   .prev, .next {
     display: none; } }
+.email {
+  margin: 10%; }
+
 @media (max-width: 600px) {
   body {
     font-size: 18px; }
