@@ -33,9 +33,9 @@ function ContentGetter() {
 		window.addEventListener('popstate', updateState);
 		// Webkit fires a popstate on page load,
 		// but firefox does not, so we do some broswer sniffin'
-		if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+		//if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
 			updateState();
-		}
+		//}
 	};
 
 	function updateState() {
