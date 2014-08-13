@@ -10,7 +10,7 @@ function ContentGetter() {
 	var converter = new Showdown.converter({ extensions: ['showmore', 'fig', 'vid'] });
 
 	function getItem(itemName, title, cb) {
-		history.pushState({}, "", "#/"+itemName);
+		history.pushState({}, "", "/#/"+itemName);
 		url = "/posts/"+itemName+"/"+itemName+".md";
 		setTitle(title);
 		$.ajax(url).done(function (data) {
