@@ -23,13 +23,13 @@ body {
 	padding: 10% 2em;
 }
 
-@media (max-width:500px) {
+@media (max-width:400px) {
 	html {
-		font-size: 16px;
-		line-height: 1.5em;
+		font-size: 18px;
+		/*line-height: 1.5em;*/
 	}
 	body {
-		padding: 8% 1em;
+		padding: 1.5em;
 		max-width: 440px;
 	}
 }
