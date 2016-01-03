@@ -1,0 +1,123 @@
+* {
+	font: inherit;
+	box-sizing: border-box;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 20px;
+	line-height: 1.6em;
+	letter-spacing: 0.03em;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+body {
+	color: black;
+	max-width: 580px;
+	margin: auto;
+	padding: 10% 2em;
+}
+
+@media (max-width:500px) {
+	html {
+		font-size: 16px;
+		line-height: 1.5em;
+	}
+	body {
+		padding: 8% 1em;
+		max-width: 440px;
+	}
+}
+
+
+p {
+}
+
+.intro {
+	padding-bottom: 1.6em;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+a:visited {
+	color: blue;
+}
+
+a:hover {
+	opacity: 0.5; 
+}
+
+.footer-list {
+	list-style: none;
+}
+
+/* Resume */
+
+.resume {
+	display: none;
+}
+
+.resume-visible {
+	/*animation: fadeIn 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);*/
+	display: block;
+}
+
+@keyframes fadeIn {
+	from {
+		/*-webkit-transform: translate3d(0,-20px,0);*/
+		opacity: 0;
+	}
+	to {
+		/*-webkit-transform: translate3d(0,0,0);*/
+		opacity: 1;
+	}
+}
+
+#resumeToggle {
+	display: inline-block;
+	transition: all 0.2s;
+}
+
+#resumeToggle.resume-clicked {
+	display: none;
+}
+
+
+
+.resume h3 {
+	display: inline-block;
+	/*border-bottom: 1px solid;*/
+	/*margin-bottom: 1.6em;*/
+}
+
+.resume-section {
+	margin-bottom: 1.6em;
+	position: relative;
+}
+
+.resume-section p {
+	margin-left: 2em;
+}
+
+.resume ul {
+	list-style: none;
+	margin-bottom: 1.6em;
+}
+
+.ic {
+	position: absolute;
+	left: 0;
+	width:  2em;
+}
+
+.resume li {
+	margin-left: 2em;
+}
