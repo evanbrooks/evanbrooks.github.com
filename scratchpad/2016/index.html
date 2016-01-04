@@ -9,29 +9,23 @@
 <body>
 
 	<p class="intro">
-		Evan Brooks is a designer and developer in San Francisco. You can email him at <a href="mailto:evan@brooks.io">evan@brooks.io</a>, or text him on <a id="messengerLink" href="https://www.messenger.com/t/evangbrooks">Messenger_</a>.
+		Evan Brooks is a product designer and developer in San Francisco. Feel free to send him an <a href="mailto:mail@evanbrooks.info"> email</a> or text him on <a id="messengerLink" href="https://www.messenger.com/t/evangbrooks">Messenger</a>.
 	</p>
 	<p>
-		<a id="resumeToggle" href="#">Would you like to know more?</a>
+		<a id="resumeToggle" href="#">Would you like to learn more?</a>
 	</p>
 
 
 	<section id="resume" class="resume resume-hidden">
 		
 		<div class="resume-section">
-			<i class="ic">🎓</i>
-			<p>BFA in <a href="http://www.risd.edu/academics/graphic-design/">Graphic Design</a> from RISD, 2014
-			<!-- <li>Industrial Design courses at RISD, 2009&#8202;–&#8202;2010</li> -->
-			<p>Computer Science courses at Brown, 2012&#8202;–&#8202;2013</p>
+			<i class="ic">💼</i>
+			<p>Designing Messenger at <a href="https://www.facebook.com/search/top/?q=people%20named%20evan%20brooks%20who%20work%20at%20facebook">Facebook</a>. Previously at <a href="https://locu.com/">Locu</a> and <a href="http://agamatrix.com/">Agamatrix</a>.</p>
 		</div>
 
 		<div class="resume-section">
-			<i class="ic">💼</i>
-			<p>Designer at Facebook, August 2014 – Present</p>
-			<!-- <li>Intern at Facebook, Summer 2013</li> -->
-			<p>Designer at <a href="https://locu.com/">Locu</a>, 2012</p>
-			<p>Intern at <a href="http://agamatrix.com/">Agamatrix</a>, Summer 2011</p>
-			<!-- <p>Design Editor at <a href="http://www.clerestoryarts.com/">Clerestory</a>, 2010-2011</p> -->
+			<i class="ic">🎓</i>
+			<p>BFA in <a href="http://www.risd.edu/academics/graphic-design/">Graphic Design</a> at RISD, 2014. Additional computer science courses at Brown.</p>
 		</div>
 
 		<div class="resume-section">
@@ -39,20 +33,19 @@
 			<p><a href="https://medium.com/@evnbr/coding-in-color-3a6db2743a1e#.vnxnxg4be">Coding in Color</a>, Essay</p>
 			<p><a href="http://htmloutput.risd.gd/">For / with / in</a>, Book</p>
 		</div>
-		<!--<h3><i class="ic">⚒</i>Prototyping: Framer and Origami</h3>
-		<ul>
-			<li>Development: HTML/CSS, React, D3, Node.js</li>
-			<li>Software: Photoshop, Illustrator, Sketch, etc.</li>
-		</ul>-->
 
 
 		<div class="resume-section">
-			<p><i class="ic">📍</i>San Francisco, CA</li>
-			<p><a href="mailto:evan@brooks.io"><i class="ic">📪</i>evan@brooks.io</a></p>
-			<p><a href="https://twitter.com/evnbr"><i class="ic">🐦</i>@evnbr</a></p>
+			<p><i class="ic">📪</i><a href="mailto:mail@evanbrooks.info">mail@evanbrooks.info</a></p>
+			<!-- <p><i class="ic">📍</i>San Francisco, CA</p> -->
+			<!-- <p><i class="ic">🐦</i><a href="https://twitter.com/evnbr">@evnbr</a></p> -->
 		</div>
 
-		<p><br>Full résumé and portfolio available upon request.</p>
+		<div class="resume-section">
+			Portfolio and résumé available upon request.
+		</div>
+
+		<footer>Published Jan. 1 2016</footer>
 	</section>
 
 
@@ -65,7 +58,8 @@
 
 	<script type="text/javascript">
 
-		// Resume Toggler
+		//  ---------------------
+		//  Toggler
 		var resumeToggle = document.getElementById("resumeToggle");
 		var resumeElement = document.getElementById("resume");
 		resumeToggle.addEventListener("click", function(e){
@@ -74,29 +68,27 @@
 			resumeElement.classList.add("resume-visible");
 		});
 
+		//  ---------------------
 		// Messenger Link
 		var messengerLink = document.getElementById("messengerLink");
 		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 		var uid = "619517299";
+
 		messengerLink.addEventListener("click", function(e){
 			e.preventDefault();
 
 			//Android
 			if (userAgent.match( /Android/i )) {
-				window.location.href = "fb-messenger://user/" + uid;
-			}
+				window.location.href = "fb-messenger://user/" + uid; }
 			//iOS
 			else if (userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ){
-				window.location.href = "fb-messenger://user-thread/" + uid;
-			}
+				window.location.href = "fb-messenger://user-thread/" + uid; }
 			//mTouch
 			else if (document.body.offsetWidth < 500) {
-				window.location.href = "https://m.facebook.com/messages/read/?tid=" + uid;
-			}
+				window.location.href = "https://m.facebook.com/messages/read/?tid=" + uid; }
 			//Desktop
 			else {
-				window.location.href = "https://www.messenger.com/t/" + uid;
-			}
+				window.location.href = "https://www.messenger.com/t/" + uid; }
 		});
 
 
