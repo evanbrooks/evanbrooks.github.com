@@ -8,7 +8,7 @@
 
 html {
 	font-size: 20px;
-	line-height: 1.6em;
+	line-height: 1.5em;
 	letter-spacing: 0.03em;
 	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
@@ -18,15 +18,16 @@ html {
 
 body {
 	color: black;
-	max-width: 580px;
+	max-width: 28em;
 	margin: auto;
-	padding: 10% 2em;
+	padding: 8% 2em;
 }
 
 @media (max-width:500px) {
 	html {
 		font-size: 18px;
-		/*line-height: 1.5em;*/
+		letter-spacing: 0;
+		line-height: 1.4em;
 	}
 	body {
 		padding: 1em;
@@ -43,12 +44,11 @@ p {
 }
 
 a {
-	color: blue;
 	text-decoration: none;
 }
 
-a:visited {
-	color: blue;
+a, a:visited {
+	color: #001BFF;
 }
 
 a:hover {
@@ -65,26 +65,15 @@ a:hover {
 	display: none;
 }
 
+.resume-border {
+	padding: 2.5em;
+	border: 1px solid black;
+}
+
 .resume-visible {
-	/*animation: fadeIn 0.2s cubic-bezier(0.215, 0.610, 0.355, 1.000);*/
 	display: block;
 }
 
-@keyframes fadeIn {
-	from {
-		/*-webkit-transform: translate3d(0,-20px,0);*/
-		opacity: 0;
-	}
-	to {
-		/*-webkit-transform: translate3d(0,0,0);*/
-		opacity: 1;
-	}
-}
-
-#resumeToggle {
-	display: inline-block;
-	transition: all 0.2s;
-}
 
 #resumeToggle.resume-clicked {
 	display: none;
@@ -101,6 +90,10 @@ a:hover {
 .resume-section {
 	margin-bottom: 1.6em;
 	position: relative;
+}
+
+footer {
+	font-size: 66.66%;
 }
 
 .resume-section p {
