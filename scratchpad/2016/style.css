@@ -31,7 +31,7 @@ body {
 	}
 	body {
 		padding: 1em;
-		max-width: 440px;
+		max-width: 24em;
 	}
 }
 
@@ -62,7 +62,7 @@ a:hover {
 /* Resume */
 
 .resume {
-	display: none;
+	/*display: none;*/
 }
 
 .resume-border {
