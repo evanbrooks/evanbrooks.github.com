@@ -9,7 +9,7 @@
 html {
 	font-size: 20px;
 	line-height: 1.5em;
-	letter-spacing: 0.03em;
+	letter-spacing: 0.02em;
 	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -52,7 +52,7 @@ a, a:visited {
 }
 
 a:hover {
-	opacity: 0.5; 
+	opacity: 0.5;
 }
 
 .footer-list {
