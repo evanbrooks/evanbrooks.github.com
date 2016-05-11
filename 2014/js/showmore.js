@@ -26,7 +26,7 @@
                   img = parts[0].split(",");
                   var c = "";
                   for (var i = 0; i < img.length; i++){
-                    c += "<img src='" + img[i] + "' />";
+                    c += "<img src='2014/" + img[i] + "' />";
                   }
 
                   var caption = "";
