@@ -11,7 +11,7 @@ function ContentGetter() {
 
 	function getItem(itemName, title, cb) {
 		history.pushState({}, "", "#/"+itemName); // crappy
-		url = "/posts/"+itemName+"/"+itemName+".md";
+		url = "/2014/posts/"+itemName+"/"+itemName+".md";
 		setTitle(title);
 		$.ajax(url).done(function (data) {
 			var html = converter.makeHtml(data);
