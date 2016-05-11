@@ -6,26 +6,26 @@ By contrast, the reknowned collection of artifacts from Africa, the Americas, an
 This proposed identity and campaign reemphasize the purpose of the art museum and the power of the curator to create meaning.
 
 fig[
-	/2014/posts/deyoung/surface.gif
+	posts/deyoung/surface.gif
 	"Image courtesy Zahner, the engineering firm that produced the panels"
 ]
 
 
 The building, designed by [Herzog and de Meuron](http://www.herzogdemeuron.com/index.html), features a gorgeous and striking copper skin. Shimmering in the sunlight when new, the copper fades and turns green over time, integrating the museum into the landscape of the park. Each panel has a unique surface, carefully shaped by its surroundings.
 
-fig[/2014/posts/deyoung/logo.png]
+fig[posts/deyoung/logo.png]
 
 With this in mind, the mark abstracts the light hitting surface of the building. At the same time, it suggests the formation of a connection between two nodes.
 
 fig[
-	/2014/posts/deyoung/letter.png
+	posts/deyoung/letter.png
 	"Letterhead, business card, and program cover integrate tactile elements"
 ]
-fig[/2014/posts/deyoung/hairy.jpg]
-fig[/2014/posts/deyoung/pointy.jpg]
-fig[/2014/posts/deyoung/poster.jpg]
+fig[posts/deyoung/hairy.jpg]
+fig[posts/deyoung/pointy.jpg]
+fig[posts/deyoung/poster.jpg]
 fig[
-	/2014/posts/deyoung/underfoot.png
+	posts/deyoung/underfoot.png
 	"Crosswalk grip pads as a surface for advertising. They  mirror the museum texture, and as the ad inevitably wears through, new information can be revealed."
 ]
 
@@ -33,11 +33,11 @@ fig[
 ### More
 
 fig[
-	/2014/posts/deyoung/web.jpg
+	posts/deyoung/web.jpg
 	"The website reflects the idea of change over time, as captured by the copper panels. It is a continuous timeline of shows on display. Also, it has the hours on the home page, which seems obvious but somehow isn't standard."
 ]
 fig[
-	/2014/posts/deyoung/app.png
+	posts/deyoung/app.png
 	"A map / wayfinding app can do more than show facts about what's in front of you. It could lead the museumgoer into further, less familiar parts of the museum to help them make new discoveries."
 ]
 

@@ -6,12 +6,12 @@ As design editor, I planned each issue in conjunction with the rest of the edito
 ### Fall 2011 issue
 
 <figure>
-	<img data-lightbox="" src="/posts/clerestory/letter.png" />
+	<img data-lightbox="" src="posts/clerestory/letter.png" />
 	<h5>The journal's name is blind-embossed into the cover.</h5>
 </figure>
 
 <figure>
-	<img data-lightbox="" src="/posts/clerestory/open.png" />
+	<img data-lightbox="" src="posts/clerestory/open.png" />
 	<h5></h5>
 </figure>
 
@@ -29,6 +29,6 @@ We decided to add music to the journal. With so many different types of media, t
 #### Details
 
 ##### Managing editor Emma Janaskie made it happen.
-##### Designed with the help of [Tabitha Yong](//tabithayong.com/) and Isabella Ginacarlo 
+##### Designed with the help of [Tabitha Yong](//tabithayong.com/) and Isabella Ginacarlo
 ##### Printed by [Brown Graphic Services](//brown.edu/Facilities/Graphic_Services/) — Thanks Ann!
 ##### Thanks to the whole Clerestory staff for collating, folding, and CD burning
