@@ -1,7 +1,7 @@
 This map is built around the perspective of the system throughout time, instead of the perspective of a single user and a single time. Devoid of any context or practicality, one can see the system unfold as an abstract geographic form.
 
 <figure>
-	<img data-lightbox="" src="/2014/posts/ripta/zoomed.jpg" />
+	<img data-lightbox="" src="posts/ripta/zoomed.jpg" />
 	<h5>Route details only appear when you're zoomed in.</h5>
 </figure>
 
@@ -10,7 +10,7 @@ Taking the bus has never been easier. You type your destination into Google Maps
 This piece explores an alternative to the automobile-centric and user-centric view.
 
 <figure>
-	<img data-lightbox="" src="/2014/posts/ripta/map.jpg" />
+	<img data-lightbox="" src="posts/ripta/map.jpg" />
 	<h5>Late at night, the routes get sparser. (By the small hours of the morning, nothing is running at all)</h5>
 </figure>
 
