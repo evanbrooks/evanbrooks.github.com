@@ -9,37 +9,24 @@
 <body>
 
 	<p class="intro">
-		Evan Brooks is a designer and developer in San Francisco. Feel free to send him an <a href="mailto:brooks.ev@gmail.com"> email</a> or text him on <a id="messengerLink" href="https://www.messenger.com/t/evangbrooks">Messenger</a>.
+		Evan Brooks is a freelance designer and developer in San Francisco. <a href="mailto:brooks.ev@gmail.com"> Get in touch</a> if you want to work together.
 	</p>
 
 	<section id="resume" class="resume">
-
 		<div class="resume-section">
 			<i class="ic">💼</i>
-			<p>Product Designer at <a href="https://www.facebook.com/search/top/?q=people%20named%20evan%20brooks%20who%20work%20at%20facebook">Facebook</a>, previously at <a href="https://locu.com/">Locu</a> and <a href="http://agamatrix.com/">Agamatrix</a>.</p>
-		</div>
-
-		<div class="resume-section">
+			<p>Previously: <a href="https://facebook.com/">Facebook</a>, <a href="https://locu.com/">Locu</a>, <a href="http://agamatrix.com/">Agamatrix</a>.</p>
 			<i class="ic">🎓</i>
 			<p>BFA in <a href="http://www.risd.edu/academics/graphic-design/">Graphic Design</a> at RISD, 2014</p>
-		</div>
 
-		<!-- <div class="resume-section">
-			<i class="ic">🌎</i>
-			<p><a href="https://medium.com/@evnbr/coding-in-color-3a6db2743a1e#.vnxnxg4be">Coding in Color</a>, Essay</p>
-			<p><a href="http://htmloutput.risd.gd/">For / with / in</a>, Book</p>
-		</div> -->
-
-
-		<div class="resume-section">
-			<!-- <p><i class="ic">📪</i><a href="mailto:mail@evanbrooks.info">mail@evanbrooks.info</a></p> -->
-			<!-- <p><i class="ic">📍</i>San Francisco, CA</p> -->
-			<!-- <p><i class="ic">🐦</i><a href="https://twitter.com/evnbr">@evnbr</a></p> -->
 		</div>
 
 		<div class="resume-section">
-			Portfolio and résumé by request.
-			<footer>Updated Jan. 2016</footer>
+		</div>
+
+		<div class="resume-section">
+			Portfolio and résumé available by request.
+			<footer>Updated May 2017</footer>
 		</div>
 
 	</section>
@@ -60,22 +47,24 @@
 		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 		var uid = "619517299";
 
+		if (messengerLink) {
 		messengerLink.addEventListener("click", function(e){
-			e.preventDefault();
+				e.preventDefault();
 
-			//Android
-			if (userAgent.match( /Android/i )) {
-				window.location.href = "fb-messenger://user/" + uid; }
-			//iOS
-			else if (userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ){
-				window.location.href = "fb-messenger://user-thread/" + uid; }
-			//mTouch
-			else if (document.body.offsetWidth < 500) {
-				window.location.href = "https://m.facebook.com/messages/read/?tid=" + uid; }
-			//Desktop
-			else {
-				window.location.href = "https://www.messenger.com/t/" + uid; }
-		});
+				//Android
+				if (userAgent.match( /Android/i )) {
+					window.location.href = "fb-messenger://user/" + uid; }
+				//iOS
+				else if (userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ){
+					window.location.href = "fb-messenger://user-thread/" + uid; }
+				//mTouch
+				else if (document.body.offsetWidth < 500) {
+					window.location.href = "https://m.facebook.com/messages/read/?tid=" + uid; }
+				//Desktop
+				else {
+					window.location.href = "https://www.messenger.com/t/" + uid; }
+			});
+		}
 
 
 	</script>
