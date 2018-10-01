@@ -17,9 +17,9 @@ html {
 
 body {
 	color: black;
-	max-width: 20em;
+	max-width: 25em;
 	margin: auto;
-	padding: 5% 2em;
+	padding: 1em 1.5em;
 }
 
 @media (max-width:500px) {
@@ -27,8 +27,7 @@ body {
 		font-size: 22px;
 	}
 	body {
-		padding-top: 1em;
-		max-width: 24em;
+		padding: 1em;
 	}
 }
 
@@ -56,58 +55,6 @@ a:hover {
 	list-style: none;
 }
 
-/* Resume */
-
-.resume {
-	/*display: none;*/
-}
-
-.resume-border {
-	padding: 2.5em;
-	border: 1px solid black;
-}
-
-.resume-visible {
-	display: block;
-}
-
-
-#resumeToggle.resume-clicked {
-	display: none;
-}
-
-
-
-.resume h3 {
-	display: inline-block;
-	/*border-bottom: 1px solid;*/
-	/*margin-bottom: 1.6em;*/
-}
-
-.resume-section {
-	margin-bottom: 1.6em;
-	position: relative;
-}
-
 footer {
 	font-size: 66.66%;
-}
-
-.resume-section p {
-	margin-left: 2em;
-}
-
-.resume ul {
-	list-style: none;
-	margin-bottom: 1.6em;
-}
-
-.ic {
-	position: absolute;
-	left: 0;
-	width:  2em;
-}
-
-.resume li {
-	margin-left: 2em;
 }
