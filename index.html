@@ -9,54 +9,9 @@
 <body>
 
 	<p class="intro">
-		Evan Brooks is a freelance designer and developer in San Francisco. <a href="mailto:brooks.ev@gmail.com"> Get in touch</a> if you want to work together.
+		Evan Brooks is a freelance designer and developer in San Francisco.
+		Portfolio and résumé available by request.
+		<a href="mailto:brooks.ev@gmail.com">Say hello</a>.
 	</p>
-
-	<section id="resume" class="resume">
-		<div class="resume-section">
-			Portfolio and résumé available by request.
-			<footer>Updated May 2017</footer>
-		</div>
-
-	</section>
-
-
-
-
-
-
-
-
-
-	<script type="text/javascript">
-
-		//  ---------------------
-		// Messenger Link
-		var messengerLink = document.getElementById("messengerLink");
-		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-		var uid = "619517299";
-
-		if (messengerLink) {
-		messengerLink.addEventListener("click", function(e){
-				e.preventDefault();
-
-				//Android
-				if (userAgent.match( /Android/i )) {
-					window.location.href = "fb-messenger://user/" + uid; }
-				//iOS
-				else if (userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) ){
-					window.location.href = "fb-messenger://user-thread/" + uid; }
-				//mTouch
-				else if (document.body.offsetWidth < 500) {
-					window.location.href = "https://m.facebook.com/messages/read/?tid=" + uid; }
-				//Desktop
-				else {
-					window.location.href = "https://www.messenger.com/t/" + uid; }
-			});
-		}
-
-
-	</script>
-
 </body>
 </html>
