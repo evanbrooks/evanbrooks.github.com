@@ -8,7 +8,7 @@
 
 html {
 	font-size: 28px;
-	line-height: 1.4em;
+	line-height: 1.35em;
 	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	font-family: Times, serif;
@@ -17,8 +17,14 @@ html {
 
 body {
 	color: black;
-	padding: 0.5em 0.666em;
+	padding: 0.5em 0.6667em;
 	max-width: 32em;
+}
+
+@media (max-width: 500px) {
+	body {
+		padding: 0.3333em 0.5em;
+	}
 }
 
 a {
