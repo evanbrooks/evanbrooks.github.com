@@ -17,14 +17,11 @@ html {
 
 body {
 	color: black;
-	padding: 0.5em 0.6667em;
+	padding: 0.3333em 0.5em;
 	max-width: 32em;
 }
 
 @media (max-width: 500px) {
-	body {
-		padding: 0.3333em 0.5em;
-	}
 }
 
 a {
