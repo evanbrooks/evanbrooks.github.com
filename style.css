@@ -17,7 +17,6 @@ html {
 
 body {
 	color: black;
-	max-width: 25em;
 	padding: 1em 1.5em;
 }
 
@@ -34,10 +33,6 @@ body {
 p {
 }
 
-.intro {
-	padding-bottom: 1.6em;
-}
-
 a {
 	text-decoration: none;
 }
@@ -47,7 +42,11 @@ a, a:visited {
 }
 
 a:hover {
-	opacity: 0.5;
+	opacity: 0.6;
+}
+
+a:active {
+	opacity: 0.4;
 }
 
 .footer-list {
